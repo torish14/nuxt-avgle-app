@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="flex flex-wrap bg-black p-4">
+    <div class="flex flex-wrap flex-shrink-0 bg-black justify-center">
       <!-- 検索結果表示 -->
       <template v-if="messages.length === 0">
         <i class="material-icons text-gray-500">error</i>
@@ -9,55 +9,62 @@
         </h5>
       </template>
       <template v-else>
-        <div v-for="data in getPaginationItems" :key="data.id" class="bg-black p-4">
+        <div v-for="data in getPaginationItems" :key="data.id" class="bg-black px-2">
           <nuxt-link :to="{ path: 'embedded_url' + '/' + data.vid }">
             <div class="relative">
-              <video
+              <!-- <video
+                id="video"
                 :poster="data.preview_url"
                 :src="data.preview_video_url"
+                type="video/mp4"
                 alt="サムネイル"
-                muted
-                loop
+                playsinline=""
                 onmouseover="this.play(); return false"
                 onmouseout="this.pause(); this.currentTime = 0"
-                ontouchstart=""
                 class="z-auto relative"
-              />
-              <h5 class="text-white z-10 absolute right-0 bottom-0">
+              /> -->
+              <img
+                :src="data.preview_url"
+                :alt="data.title"
+                class="z-auto relative"
+                referrerpolicy="no-referrer"
+              >
+              <h5 class="text-white z-10 absolute right-0 bottom-0 text-sm">
                 {{ toHms(data.duration) }}
               </h5>
             </div>
-            <h5 class="text-gray-300 text-lg hover:text-purple-700">
-              {{ data.title.slice(0,17) }} <p>
+            <h5 class="text-gray-300 text-base hover:text-purple-500">
+              {{ data.title.slice(0,17) }}
+              <p>
                 {{ data.title.slice(17,34) }}
               </p>
             </h5>
           </nuxt-link>
           <div class="flex flex-row my-1 mb-8">
             <template v-if="data.viewnumber >= 1000000">
-              <h5 class="text-gray-500 pr-1">
+              <h5 class="text-gray-500 pr-1 text-sm">
                 再生数 {{ Math.ceil(data.viewnumber / 1000000) }}M
               </h5>
             </template>
             <template v-else-if="data.viewnumber >= 1000 && data.viewnumber < 1000000">
-              <h5 class="text-gray-500 pr-1">
+              <h5 class="text-gray-500 pr-1 text-sm">
                 再生数 {{ Math.ceil(data.viewnumber / 1000) }}K
               </h5>
             </template>
             <template v-else>
-              <h5 class="text-gray-500 pr-1">
+              <h5 class="text-gray-500 pr-1 text-sm">
                 再生数 {{ Math.ceil(data.viewnumber) }}
               </h5>
             </template>
             <template v-if="Number.isNaN(data.likes / (data.likes + data.dislikes) * 100)">
-              <i class="material-icons text-gray-500 text-xs">thumb_up</i>
-              <h5 class="text-gray-500 px-1">
+              <i class="material-icons text-gray-500">thumb_up</i>
+              <h5 class="text-gray-500 px-1 text-sm">
                 0%
               </h5>
             </template>
             <template v-else>
-              <i class="material-icons text-gray-500 text-xs">thumb_up</i>
-              <h5 class="text-gray-500 px-1">
+              <i class="material-icons text-gray-500">thumb_up</i>
+              <h5 class="text-gray-500 px-1 text-sm">
                 {{ Math.ceil(data.likes / (data.likes + data.dislikes) * 100) }}%
               </h5>
             </template>
@@ -86,8 +93,58 @@
 <script>
 import { mapState } from 'vuex'
 
+// document.addEventListener('DOMContentLoaded', function () {
+// const v = document.getElementByld('video')
+
+// if (document.addEventListener) {
+//   const mouseover = (window.ontouchstart === undefined) ? 'mouseover' : 'touchstart'
+//   const mouseout = (window.ontouchend === undefined) ? 'mouseout' : 'touchend'
+//   v.addEventListener(mouseover, function () {
+//     v.play()
+//   }, false)
+//   v.addEventListener(mouseout, function () {
+//     v.pause()
+//   }, false)
+// } else if (document.attachEvent) {
+//   v.attachEvent('onmouseover', function () {
+//     v.play()
+//   })
+//   v.attachEvent('onmouseout', function () {
+//     v.pause()
+//   })
+// }
+
+// onmouseover="this.play(); return false"
+// onmouseout="this.pause(); this.currentTime = 0"
+
+// document.addEventListener('touchstart', function() {}, {passive: true});
+
+// v.addEventListener('touchstart', function (event) {
+//   v.play()
+// }, false)
+
+// v.addEventListener('touchend', function (event) {
+//   v.pause()
+// }, false)
+
+// function playVideo () {
+//   v.addEventListener('touchstart', function (event) {
+//     v.play()
+//   }, false)
+// }
+
+// function pauseVideo () {
+//   v.addEventListener('touchend', function (event) {
+//     v.pause()
+//   }, false)
+// }
+
+// playVideo()
+// pauseVideo()
+// }, false)
+
 export default {
-  fetch ({ store, state }) {
+  fetch ({ store }) {
     store.dispatch('search/getSearchItems')
   },
   data () {
@@ -122,43 +179,30 @@ export default {
     // this.sendRequest()
     // ? 無修正の非表示
     // if (this.$store.state.message === '無修正') {
-    //   // eslint-disable-next-line
     //     console.log('無修正は表示できません！')
     // } else if (this.$store.state.message === 'むしゅうせい') {
-    //   // eslint-disable-next-line
     //     console.log('無修正は表示できません！')
     // } else if (this.$store.state.message === 'ムシュウセイ') {
-    //   // eslint-disable-next-line
     //     console.log('無修正は表示できません！')
     // } else if (this.$store.state.message === 'PAKO') {
-    //   // eslint-disable-next-line
     //     console.log('無修正は表示できません！')
     // } else if (this.$store.state.message === 'Pako') {
-    //   // eslint-disable-next-line
     //     console.log('無修正は表示できません！')
     // } else if (this.$store.state.message === 'pako') {
-    //   // eslint-disable-next-line
     //     console.log('無修正は表示できません！')
     // } else if (this.$store.state.message === 'ぱこ') {
-    //   // eslint-disable-next-line
     //     console.log('無修正は表示できません！')
     // } else if (this.$store.state.message === 'パコ') {
-    //   // eslint-disable-next-line
     //     console.log('無修正は表示できません！')
     // } else if (this.$store.state.message === 'CARIB') {
-    //   // eslint-disable-next-line
     //     console.log('無修正は表示できません！')
     // } else if (this.$store.state.message === 'Carib') {
-    //   // eslint-disable-next-line
     //     console.log('無修正は表示できません！')
     // } else if (this.$store.state.message === 'carib') {
-    //   // eslint-disable-next-line
     //     console.log('無修正は表示できません！')
     // } else if (this.$store.state.message === 'かりぶ') {
-    //   // eslint-disable-next-line
     //     console.log('無修正は表示できません！')
     // } else if (this.$store.state.message === 'カリブ') {
-    //   // eslint-disable-next-line
     //     console.log('無修正は表示できません！')
     // } else {
     //   Promise.all([
@@ -227,13 +271,19 @@ li a {
 .active {
   padding: 4px 1px;
   color: white;
-  /* bg-purple-700 */
   background-color: #6b46c1;
   border-radius: 4px;
 }
+
+/* @media screen and (-webkit-min-device-pixel-ratio:0) {
+  _::-webkit-full-page-media, _:future, :root
+  body {
+    background-color: #eee;
+  }
+} */
 </style>
 
-<!--<template>
+<!-- <template>
   <div class="bg-black">
     初期動画表示
     <template v-if="soaringMessages.length === 0 && famousMessages.length === 0 && actressMessages.length === 0 && genreMessages.length === 0">
@@ -265,7 +315,7 @@ li a {
                 {{ toHms(data.duration) }}
               </h5>
             </div>
-            <h5 class="text-gray-300 text-lg hover:text-purple-700">
+            <h5 class="text-gray-300 text-lg hover:text-purple-500">
               {{ data.title.slice(0,17) }} <p>
                 {{ data.title.slice(17,34) }}
               </p>
@@ -324,7 +374,7 @@ li a {
                 {{ toHms(data.duration) }}
               </h5>
             </div>
-            <h5 class="text-gray-300 text-lg hover:text-purple-700">
+            <h5 class="text-gray-300 text-lg hover:text-purple-500">
               {{ data.title.slice(0,17) }} <p>
                 {{ data.title.slice(17,34) }}
               </p>
@@ -383,7 +433,7 @@ li a {
                 {{ toHms(data.duration) }}
               </h5>
             </div>
-            <h5 class="text-gray-300 text-lg hover:text-purple-700">
+            <h5 class="text-gray-300 text-lg hover:text-purple-500">
               {{ data.title.slice(0,17) }} <p>
                 {{ data.title.slice(17,34) }}
               </p>
@@ -442,7 +492,7 @@ li a {
                 {{ toHms(data.duration) }}
               </h5>
             </div>
-            <h5 class="text-gray-300 text-lg hover:text-purple-700">
+            <h5 class="text-gray-300 text-lg hover:text-purple-500">
               {{ data.title.slice(0,17) }} <p>
                 {{ data.title.slice(17,34) }}
               </p>
@@ -526,7 +576,4 @@ export default {
     }
   }
 }
-</script>
-
-<style>
-</style>
+</script> -->

@@ -6,18 +6,20 @@
       <!-- <div class="sm:h-64 sm:w-1/3 md:h-64 md:w-1/3 lg:h-64 lg:w-1/3 xl:h-64 xl:w-1/3 p-4"> -->
       <div>
         <template v-if="messagesMatchVid">
-          <iframe
-            id="sub"
-            :src="messagesMatchVid.embedded_url"
-            frameborder="0"
-            scrolling="no"
-            allowfullscreen
-            referrerpolicy="always"
-            class="youtube"
-            width="500"
-            height="298"
-          />
-          <h5 class="pb-16 text-gray-300 text-lg">
+          <div class="relative sm:w-full md:w-full lg:w-full xl:w-11/12 h-0" style="padding-top: 50%;">
+            <iframe
+              id="sub"
+              :src="messagesMatchVid.embedded_url"
+              frameborder="0"
+              scrolling="no"
+              allowfullscreen
+              referrerpolicy="unsafe-url"
+              class="youtube absolute top-0 left-0 w-full h-full"
+              width="100%"
+              height="100%"
+            />
+          </div>
+          <h5 class="text-gray-300 text-lg pb-8 ml-4">
             {{ messagesMatchVid.title.slice(0,17) }}
             {{ messagesMatchVid.title.slice(17,34) }}
           </h5>
@@ -93,62 +95,69 @@
         <template v-else>
           <i class="material-icons text-gray-500">error</i>
           <h5 class="text-gray-500 text-lg">
-            &nbsp;No results found for your keyword.
+            &nbsp;キーワードにあてはまる結果はありません
           </h5>
         </template>
       </div>
       <!-- 表示させる動画の順番を降順にする -->
-      <div class="flex flex-wrap p-4">
-        <div v-for="data in getPaginationItems" :key="data.id" class="bg-black p-4">
+      <div class="flex flex-wrap flex-shrink-0 justify-center">
+        <div v-for="data in getPaginationItems" :key="data.id" class="bg-black px-2">
           <nuxt-link :to="{ path: data.vid }">
             <div class="relative">
-              <video
+              <!-- <video
                 :poster="data.preview_url"
                 :src="data.preview_video_url"
+                type="video/mp4"
                 alt="サムネイル"
                 muted
                 loop
+                playsinline=""
                 onmouseover="this.play(); return false"
                 onmouseout="this.pause(); this.currentTime = 0"
-                ontouchstart=""
                 class="z-auto relative"
-              />
-              <h5 class="text-white z-10 absolute right-0 bottom-0">
+              /> -->
+              <img
+                :src="data.preview_url"
+                alt="サムネイル"
+                class="z-auto relative"
+                referrerpolicy="no-referrer"
+              >
+              <h5 class="text-white z-10 absolute right-0 bottom-0 text-sm">
                 {{ toHms(data.duration) }}
               </h5>
             </div>
-            <h5 class="text-gray-300 text-lg">
+            <h5 class="text-gray-300 text-base hover:text-purple-500">
               {{ data.title.slice(0,17) }}
-            </h5>
-            <h5 class="text-gray-300 text-lg">
-              {{ data.title.slice(17,34) }}
+              <p>
+                {{ data.title.slice(17,34) }}
+              </p>
             </h5>
           </nuxt-link>
           <div class="flex flex-row my-1 mb-8">
             <template v-if="data.viewnumber >= 1000000">
-              <h5 class="text-gray-500 pr-1">
+              <h5 class="text-gray-500 pr-1 text-sm">
                 再生数 {{ Math.ceil(data.viewnumber / 1000000) }}M
               </h5>
             </template>
             <template v-else-if="data.viewnumber >= 1000 && data.viewnumber < 1000000">
-              <h5 class="text-gray-500 pr-1">
+              <h5 class="text-gray-500 pr-1 text-sm">
                 再生数 {{ Math.ceil(data.viewnumber / 1000) }}K
               </h5>
             </template>
             <template v-else>
-              <h5 class="text-gray-500 pr-1">
+              <h5 class="text-gray-500 pr-1 text-sm">
                 再生数 {{ Math.ceil(data.viewnumber) }}
               </h5>
             </template>
             <template v-if="Number.isNaN(data.likes / (data.likes + data.dislikes) * 100)">
               <i class="material-icons text-gray-500 text-xs">thumb_up</i>
-              <h5 class="text-gray-500 px-1">
+              <h5 class="text-gray-500 px-1 text-sm">
                 0%
               </h5>
             </template>
             <template v-else>
               <i class="material-icons text-gray-500 text-xs">thumb_up</i>
-              <h5 class="text-gray-500 px-1">
+              <h5 class="text-gray-500 px-1 text-sm">
                 {{ Math.ceil(data.likes / (data.likes + data.dislikes) * 100) }}%
               </h5>
             </template>
@@ -176,28 +185,24 @@ import { mapState } from 'vuex'
 
 // const sub = document.getElementById('sub')
 // function func1 () {
+//   // ? contentWindow.document でiframe内の要素にアクセス
 //   const item = sub.contentWindow.document.getElementById('player_3x2_close')
+//   // ? 削除するクラス名
 //   item.classList.remove('glyphicon glyphicon-remove')
+//   // ? 追加するクラス名
 //   item.classList.add('sample')
 // }
+// func1()
 
-// function youtubeDefer () {
-//   const iframes = document.querySelectorAll('.youtube')
-//   iframes.forEach(function (iframe) {
-//     if (iframe.getAttribute('data-src')) {
-//       iframe.setAttribute('src', iframe.getAttribute('data-src'))
-//     }
-//   })
-// }
-// window.addEventListener('load', youtubeDefer)
-
-// function init() {
-// var vidDefer = document.getElementsByTagName('iframe');
-// for (var i=0; i<vidDefer.length; i++) {
-// if(vidDefer[i].getAttribute('data-src')) {
-// vidDefer[i].setAttribute('src',vidDefer[i].getAttribute('data-src'));
-// } } }
-// window.onload = init;
+function youtubeDefer () {
+  const iframes = document.querySelectorAll('.youtube')
+  iframes.forEach(function (iframe) {
+    if (iframe.getAttribute('src')) {
+      iframe.setAttribute('src', iframe.getAttribute('src'))
+    }
+  })
+}
+window.addEventListener('load', youtubeDefer)
 
 export default {
   fetch ({ store }) {
@@ -225,29 +230,23 @@ export default {
       return Math.ceil(this.messages.length / this.parPage)
     },
     messagesMatchVid () {
-      // return this.$store.getters['search/messages']
-      return this.$store.getters['search/messages'].find(item => item.vid === this.id)
-      // eslint-disable-next-line
       console.log(this.$store.getters['search/messages'])
+      return this.$store.getters['search/messages'].find(item => item.vid === this.id)
     }
     // soaringMessagesMatchVid () {
     //   return this.$store.getters.soaringMessages.find(item => item.vid === this.id)
-    //   // eslint-disable-next-line
     //   console.log(this.$store.getters.soaringMessages)
     // },
     // famousMessagesMatchVid () {
     //   return this.$store.getters.famousMessages.find(item => item.vid === this.id)
-    //   // eslint-disable-next-line
     //   console.log(this.$store.getters.famousMessages)
     // },
     // actressMessagesMatchVid () {
     //   return this.$store.getters.actressMessages.find(item => item.vid === this.id)
-    //   // eslint-disable-next-line
     //   console.log(this.$store.getters.actressMessages)
     // },
     // genreMessagesMatchVid () {
     //   return this.$store.getters.genreMessages.find(item => item.vid === this.id)
-    //   // eslint-disable-next-line
     //   console.log(this.$store.getters.genreMessages)
     // }
   },
@@ -285,8 +284,8 @@ export default {
 }
 </script>
 
-<style>
-.pagination {
+<style scoped>
+/* .pagination {
   padding-left: 0;
   border-radius: 4px;
 }
@@ -309,8 +308,7 @@ li a {
 .active {
   padding: 4px 1px;
   color: white;
-  /* bg-purple-700 */
   background-color: #6b46c1;
   border-radius: 4px;
-}
+} */
 </style>

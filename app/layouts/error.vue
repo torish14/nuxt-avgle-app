@@ -6,7 +6,7 @@
     <h1 v-else class="text-white text-lg">
       エラーが発生しました
     </h1>
-    <nuxt-link to="/" class="text-white text-lg hover:text-purple-700">
+    <nuxt-link to="/" class="text-white text-lg hover:text-purple-600">
       トップページに戻ります
     </nuxt-link>
   </div>

@@ -33,17 +33,12 @@ export default {
       { 'http-equiv': 'x-ua-compatible', content: 'ie=edge' },
       {
         name: 'viewport',
-        content:
-          'width=device-width, initial-scale=1.0, user-scalable=no, minimal-ui'
+        content: 'width=device-width, initial-scale=1.0, user-scalable=no, minimal-ui'
       },
       {
         hid: 'description',
         name: 'description',
         content: process.env.npm_package_description || siteDesc
-      },
-      {
-        name: 'referrer',
-        content: 'no-referrer'
       },
       {
         hid: 'keywords',
@@ -100,7 +95,6 @@ export default {
    ** Plugins to load before mounting the App
    */
   plugins: [
-    { src: '~/plugins/persistedstate.js', mode: 'client' },
     { src: '~/plugins/localStorage.js', mode: 'client' },
     // { src: '~plugins/ga.js', mode: 'client' },
     // { src: '~/plugins/lazyload.js', mode: 'client' },

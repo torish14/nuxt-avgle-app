@@ -62,16 +62,11 @@
 //       commit('setActressItems', getActressItemsResponse.response.videos)
 //       commit('setGenreItems', getGenreItemsResponse.response.videos)
 
-//       // eslint-disable-next-line
 //       console.log(getSoaringItemsResponse);
-//       // eslint-disable-next-line
 //       console.log(getFamousItemsResponse);
-//       // eslint-disable-next-line
 //       console.log(getActressItemsResponse);
-//       // eslint-disable-next-line
 //       console.log(getGenreItemsResponse);
 //     } catch (err) {
-//       // eslint-disable-next-line
 //       console.log(err)
 //       this.$router.push('/error')
 //     }

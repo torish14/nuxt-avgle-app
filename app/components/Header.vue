@@ -2,7 +2,7 @@
   <div class="bg-black">
     <nav class="flex items-center justify-between flex-wrap p-6 normal-form">
       <div class="flex items-center flex-shrink-0 text-white mr-6">
-        <a href="/">
+        <a href="/" @click="changeForm">
           <img src="https://avgle.com/images/logo/logo.png" alt="ロゴ" class="sm:h-20 sm:w-20 md:h-24 md:w-24 lg:h-32 lg:w-32 xl:h-32 xl:lg-32">
         </a>
       </div>
@@ -26,7 +26,7 @@
         </div>
       </div> -->
       <!-- 検索バー -->
-      <div class="bg-gray-800 flex items-center rounded-full shadow-xl w-1/4 mr-20">
+      <div class="bg-gray-800 flex items-center rounded-full shadow-xl w-1/4 mr-20 mb-12">
         <input
           v-model="computedGetState"
           class="bg-gray-800 rounded-l-full w-full py-4 px-6 text-gray-500 leading-tight focus:outline-none"
@@ -72,16 +72,16 @@
     </nav>
     <!-- Toggle -->
     <!-- <nav class="flex justify-end toggle"> -->
-    <nav class="flex justify-between toggle">
+    <nav class="flex justify-between toggle pb-8">
       <div :class="isOpen ? 'hidden' : 'block'" class="flex items-center flex-shrink-0 text-white mr-6">
-        <a href="/">
+        <a href="/" @click="changeForm">
           <img src="https://avgle.com/images/logo/logo.png" alt="ロゴ" class="sm:h-20 sm:w-20 md:h-24 md:w-24 lg:h-32 lg:w-32 xl:h-32 xl:lg-32">
         </a>
       </div>
       <div :class="isOpen ? 'block' : 'hidden'" class="w-full">
         <input
           v-model="computedGetState"
-          class="bg-gray-800 rounded-full py-4 px-6 text-gray-500 leading-tight focus:outline-none w-full"
+          class="bg-gray-800 rounded-full py-4 px-6 mt-2 text-gray-500 leading-tight focus:outline-none w-full"
           type="search"
           autofocus
           autocomplete="on"
@@ -159,6 +159,9 @@ export default {
       this.$store.dispatch('search/getSearchItems')
       // this.$router.push('/search')
       this.$router.push('/')
+    },
+    changeForm () {
+      this.$store.commit('search/clearMessage')
     }
   }
 }
