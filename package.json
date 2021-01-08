@@ -50,6 +50,7 @@
     "nuxt-material-design-icons": "^1.0.4",
     "prettier": "^2.2.1",
     "vue-jest": "^3.0.7",
+    "vue-scrollto": "^2.20.0",
     "vuejs-paginate": "^2.1.0",
     "vuex-persistedstate": "^4.0.0-beta.1"
   },

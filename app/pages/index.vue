@@ -176,6 +176,7 @@ export default {
     // ? ページネーションをクリック時に、currentPage にページ番号を設定
     clickCallback (pageNum) {
       this.currentPage = Number(pageNum)
+      this.$scrollTo('#app', 1, {offset: -60})
     },
     // search (e) {
     // if (e.keyCode !== 13) { return }

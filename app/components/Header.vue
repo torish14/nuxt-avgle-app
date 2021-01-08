@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-black">
+  <div id="app" class="bg-black">
     <nav class="flex items-center justify-between flex-wrap p-6 normal-form">
       <div class="flex items-center flex-shrink-0 text-white mr-6">
         <a href="/" @click="changeForm">
@@ -159,6 +159,36 @@ export default {
       this.$store.dispatch('search/getSearchItems')
       // this.$router.push('/search')
       this.$router.push('/')
+      // ? 無修正の非表示
+      // if (this.$store.state.message === '無修正') {
+      //     console.log('無修正は表示できません！')
+      // } else if (this.$store.state.message === 'むしゅうせい') {
+      //     console.log('無修正は表示できません！')
+      // } else if (this.$store.state.message === 'ムシュウセイ') {
+      //   console.log('無修正は表示できません！')
+      // } else if (this.$store.state.message === 'Uncensored') {
+      //     console.log('無修正は表示できません！')
+      // } else if (this.$store.state.message === 'PAKO') {
+      //     console.log('無修正は表示できません！')
+      // } else if (this.$store.state.message === 'Pako') {
+      //     console.log('無修正は表示できません！')
+      // } else if (this.$store.state.message === 'pako') {
+      //     console.log('無修正は表示できません！')
+      // } else if (this.$store.state.message === 'ぱこ') {
+      //     console.log('無修正は表示できません！')
+      // } else if (this.$store.state.message === 'パコ') {
+      //     console.log('無修正は表示できません！')
+      // } else if (this.$store.state.message === 'CARIB') {
+      //     console.log('無修正は表示できません！')
+      // } else if (this.$store.state.message === 'Carib') {
+      //     console.log('無修正は表示できません！')
+      // } else if (this.$store.state.message === 'carib') {
+      //     console.log('無修正は表示できません！')
+      // } else if (this.$store.state.message === 'かりぶ') {
+      //     console.log('無修正は表示できません！')
+      // } else if (this.$store.state.message === 'カリブ') {
+      //     console.log('無修正は表示できません！')
+      // }
     },
     changeForm () {
       this.$store.commit('search/clearMessage')
