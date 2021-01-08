@@ -31,7 +31,7 @@ export const actions = {
     // const obj = JSON.parse(localStorage.getItem('vuex'))
     // if (!obj.search.message) { obj.search.message = '日本人' }
     const getSearchItemsResponse = await this.$axios
-      .$get(encodeURI(searchUrl + state.message + '/0' + '?limit=150'))
+      .$get(encodeURI(searchUrl + state.message + '/0' + '?limit=150' + '?type=public'))
       .catch((err) => {
         console.log(err)
         this.$router.push('/error')
