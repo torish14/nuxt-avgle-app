@@ -25,8 +25,8 @@
               /> -->
               <img
                 :src="data.preview_url"
-                :alt="data.title"
-                class="z-auto relative"
+                alt="サムネイル"
+                class="z-auto relative text-white"
                 referrerpolicy="no-referrer"
               >
               <h5 class="text-white z-10 absolute right-0 bottom-0 text-sm">
@@ -34,9 +34,9 @@
               </h5>
             </div>
             <h5 class="text-gray-300 text-base hover:text-purple-500">
-              {{ data.title.slice(0,17) }}
+              {{ data.title.slice(0,20) }}
               <p>
-                {{ data.title.slice(17,34) }}
+                {{ data.title.slice(20,40) }}
               </p>
             </h5>
           </nuxt-link>
@@ -73,20 +73,24 @@
       </template>
     </div>
     <!-- ページネーション -->
-    <paginate
-      :page-count="getPageCount"
-      :page-range="3"
-      :margin-pages="2"
-      :click-handler="clickCallback"
-      :prev-text="'Prev'"
-      :next-text="'Next'"
-      :container-class="'pagination'"
-      :page-class="'page-item-li'"
-      class="flex justify-center bg-black text-gray-300 sm:pt-4 md:pt-6 lg:pt-8 xl:pt-8"
-    />
-    <!-- container-class はレイアウトのCSSクラス名 -->
-    <!-- page-class は各ページ要素のタグliのCSSクラス名 -->
-    <!-- page-link-class は各ページ要素のタグaのCSSクラス名 -->
+    <div class="flex justify-center bg-black">
+      <paginate
+        :page-count="getPageCount"
+        :page-range="3"
+        :margin-pages="2"
+        :click-handler="clickCallback"
+        :prev-text="'Prev'"
+        :prev-class="'page-item'"
+        :prev-link-class="'page-link'"
+        :next-text="'Next'"
+        :next-class="'page-item'"
+        :next-link-class="'page-item'"
+        :container-class="'pagination'"
+        :page-class="'page-item'"
+        :page-link-class="'page-link'"
+        class="sm:pt-4 md:pt-6 lg:pt-8 xl:pt-8"
+      />
+    </div>
   </div>
 </template>
 
@@ -150,7 +154,7 @@ export default {
   data () {
     return {
       // ? 1ページに表示するアイテム数
-      parPage: 20,
+      parPage: 24,
       // ? 現在のページ番号
       currentPage: 1
     }
@@ -248,31 +252,62 @@ export default {
 </script>
 
 <style>
+img {
+  color: white;
+}
+
 .pagination {
+  display: inline-block;
   padding-left: 0;
+  margin: 20px 0;
   border-radius: 4px;
 }
 
-li {
+ul {
+  list-style: none;
+  margin: 0;
   padding: 0;
 }
 
-li a {
-  padding: 4px 12px;
-  border: 1px solid #6b46c1;
-  border-radius: 4px;
+.pagination > li {
+  display: inline;
+}
+
+li {
+  text-align: -webkit-match-parent;
+}
+
+.pagination > li:first-child > a, .pagination > li:first-child > span {
+  margin-left: 0;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.pagination > .disabled > span, .pagination > .disabled > span:hover, .pagination > .disabled > span:focus, .pagination > .disabled > a, .pagination > .disabled > a:hover, .pagination > .disabled > a:focus {
+  color: #ddd;
+  cursor: not-allowed;
+  border-color: #6b46c1;
+  /* background-color: #fff; */
+}
+
+.pagination > li > a, .pagination > li > span {
+  position: relative;
+  float: left;
+  padding: 6px 12px;
+  margin-left: -1px;
+  line-height: 1.42857143;
+  color: #ddd;
   text-decoration: none;
+  border: 1px solid #6b46c1;
+  /* background-color: #fff; */
 }
 
-.page-item-li {
-  padding: 4px;
-}
-
-.active {
-  padding: 4px 1px;
-  color: white;
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+  z-index: 2;
+  color: #fff;
+  cursor: default;
   background-color: #6b46c1;
-  border-radius: 4px;
+  border-color: #6b46c1;
 }
 
 /* @media screen and (-webkit-min-device-pixel-ratio:0) {
