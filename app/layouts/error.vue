@@ -1,14 +1,22 @@
 <template>
-  <div class="bg-black">
-    <h1 v-if="error.statusCode === 404" class="text-white text-lg">
-      お探しのページが見つかりません
-    </h1>
-    <h1 v-else class="text-white text-lg">
-      エラーが発生しました
-    </h1>
-    <nuxt-link to="/" class="text-white text-lg hover:text-purple-600">
-      トップページに戻ります
-    </nuxt-link>
+  <div>
+    <div class="flex flex-wrap flex-shrink-0 justify-center bg-black">
+      <template v-if="error.statusCode === 404">
+        <i class="material-icons text-gray-500">error</i>
+        <h5 class="text-gray-500 text-lg">
+          &nbsp;お探しのページが見つかりません
+        </h5>
+      </template>
+      <template v-else class="text-gray-500 text-lg">
+        <i class="material-icons text-gray-500">error</i>
+        <h5 class="text-gray-500 text-lg">
+          &nbsp;エラーが発生しました
+        </h5>
+      </template>
+      <a href="/" class="text-gray-500 text-lg hover:text-purple-600">
+        &nbsp;トップページに戻ります
+      </a>
+    </div>
   </div>
 </template>
 
@@ -19,6 +27,11 @@ export default {
       type: Object,
       default: null
     }
-  }
+  },
+  methods: {
+    changeForm () {
+      this.$store.commit('search/clearMessage')
+    }
+  },
 }
 </script>
