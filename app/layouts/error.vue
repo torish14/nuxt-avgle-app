@@ -13,8 +13,8 @@
           &nbsp;エラーが発生しました
         </h5>
       </template>
-      <a href="/" class="text-gray-500 text-lg hover:text-purple-600">
-        &nbsp;トップページに戻ります
+      <a href="/" class="text-gray-500 text-lg hover:text-purple-600" @click="changeForm">
+        &nbsp;トップページに戻る
       </a>
     </div>
   </div>
