@@ -3,7 +3,11 @@
     <nav class="flex items-center justify-between flex-wrap p-6 normal-form">
       <div class="flex items-center flex-shrink-0 text-white mr-6">
         <a href="/" @click="changeForm">
-          <img src="https://avgle.com/images/logo/logo.png" alt="ロゴ" class="sm:h-20 sm:w-20 md:h-24 md:w-24 lg:h-32 lg:w-32 xl:h-32 xl:lg-32">
+          <img
+            src="~/assets/Porngle ロゴ.png"
+            alt="ロゴ"
+            class="w-40"
+          >
         </a>
       </div>
       <!-- <div class="block lg:hidden">
@@ -26,42 +30,17 @@
         </div>
       </div> -->
       <!-- 検索バー -->
-      <div class="bg-gray-800 flex items-center rounded-full shadow-xl w-1/4 mr-20 mb-12">
+      <div class="bg-gray-800 flex items-center rounded-full shadow-xl w-1/4 mr-20">
+        <!-- <VueSimpleSuggest v-model="selected" :list="items" mode="select" class="bg-gray-800 text-gray-500"> -->
         <input
           v-model="computedGetState"
           class="bg-gray-800 rounded-l-full w-full py-4 px-6 text-gray-500 leading-tight focus:outline-none"
           type="search"
           autofocus
-          autocomplete="on"
-          list="keywords"
           placeholder="Search"
           @keydown.enter="search"
         >
-        <!-- <datalist id="keywords">
-        <option value="明日花キララ " />
-        <option value="跡美しゅり " />
-        <option value="上原亜衣" />
-        <option value="小倉由菜" />
-        <option value="希崎ジェシカ" />
-        <option value="君島みお" />
-        <option value="桐嶋りの" />
-        <option value="霧島レオナ" />
-        <option value="小島みなみ" />
-        <option value="紗倉まな" />
-        <option value="里美ゆりあ" />
-        <option value="白石茉莉奈" />
-        <option value="篠田ゆう" />
-        <option value="高井ルナ" />
-        <option value="高橋しょう子" />
-        <option value="冬月かえで" />
-        <option value="波多野結衣" />
-        <option value="深田えいみ" />
-        <option value="三上悠亜" />
-        <option value="美乃すずめ" />
-        <option value="桃乃木かな" />
-        <option value="吉高寧々" />
-        <option value="RIO" />
-      </datalist> -->
+        <!-- </VueSimpleSuggest> -->
 
         <div class="p-4">
           <button class="bg-purple-700 text-gray-300 rounded-full p-2 hover:bg-purple-800 focus:outline-none w-12 h-12 flex items-center justify-center" @click="sendRequest">
@@ -75,19 +54,24 @@
     <nav class="flex justify-between toggle pb-8">
       <div :class="isOpen ? 'hidden' : 'block'" class="flex items-center flex-shrink-0 text-white mr-6">
         <a href="/" @click="changeForm">
-          <img src="https://avgle.com/images/logo/logo.png" alt="ロゴ" class="sm:h-20 sm:w-20 md:h-24 md:w-24 lg:h-32 lg:w-32 xl:h-32 xl:lg-32">
+          <img
+            src="~/assets/Porngle ロゴ.png"
+            alt="ロゴ"
+            class="w-40"
+          >
         </a>
       </div>
       <div :class="isOpen ? 'block' : 'hidden'" class="w-full">
+        <!-- <VueSimpleSuggest v-model="selected" :list="items" mode="select" class="bg-gray-800 text-gray-500"> -->
         <input
           v-model="computedGetState"
-          class="bg-gray-800 rounded-full py-4 px-6 mt-2 text-gray-500 leading-tight focus:outline-none w-full"
+          class="bg-gray-800 rounded-full w-full py-4 px-6 mt-2 text-gray-500 leading-tight focus:outline-none"
           type="search"
           autofocus
-          autocomplete="on"
           placeholder="Search"
           @keydown.enter="search"
         >
+        <!-- </VueSimpleSuggest> -->
       </div>
       <div class="flex items-center px-4 py-3">
         <div>
@@ -100,43 +84,25 @@
         </div>
       </div>
     </nav>
+    <!-- <div>
+      <VueSimpleSuggest v-model="selected" :list="items" />
+    </div> -->
   </div>
 </template>
 
 <script>
 // import { mapState, mapGetters, mapActions } from 'vuex'
+// import VueSimpleSuggest from 'vue-simple-suggest'
+// import 'vue-simple-suggest/dist/styles.css'
 
 export default {
+  components: {
+    // VueSimpleSuggest
+  },
   data () {
     return {
-      isOpen: false
-      //   selected: null,
-      //   items: [
-      //     '明日花キララ',
-      //     '跡美しゅり',
-      //     '上原亜衣',
-      //     '鳳かなめ',
-      //     '小倉由菜',
-      //     '希崎ジェシカ',
-      //     '君島みお',
-      //     '桐嶋りの',
-      //     '霧島レオナ',
-      //     '小島みなみ',
-      //     '紗倉まな',
-      //     '里美ゆりあ',
-      //     '白石茉莉奈',
-      //     '篠田ゆう',
-      //     '高井ルナ',
-      //     '高橋しょう子',
-      //     '冬月かえで',
-      //     '波多野結衣',
-      //     '深田えいみ',
-      //     '三上悠亜',
-      //     '美乃すずめ',
-      //     '桃乃木かな',
-      //     '吉高寧々',
-      //     'RIO'
-      //   ]
+      isOpen: false,
+      // selected: ''
     }
   },
   computed: {
@@ -192,7 +158,21 @@ export default {
     },
     changeForm () {
       this.$store.commit('search/clearMessage')
-    }
+    },
+    // items () {
+    //   return [
+    //     '10代',
+    //     '巨乳',
+    //     'エロアニメ',
+    //     '中出し',
+    //     'ナンパ',
+    //     '素人',
+    //     'オナニー',
+    //     '痴漢',
+    //     'イチャイチャ',
+    //     'SM'
+    //   ]
+    // }
   }
 }
 </script>
@@ -208,5 +188,28 @@ export default {
   .toggle {
     display: none !important;
   }
+}
+
+.w-40 {
+  height: initial;
+  height: 60px;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+
+  /* Remove default */
+  -webkit-appearance: none;
+
+  /* Now your own custom styles */
+  height: 14px;
+  width: 28px;
+  display: block;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAn0lEQVR42u3UMQrDMBBEUZ9WfQqDmm22EaTyjRMHAlM5K+Y7lb0wnUZPIKHlnutOa+25Z4D++MRBX98MD1V/trSppLKHqj9TTBWKcoUqffbUcbBBEhTjBOV4ja4l4OIAZThEOV6jHO8ARXD+gPPvKMABinGOrnu6gTNUawrcQKNCAQ7QeTxORzle3+sDfjJpPCqhJh7GixZq4rHcc9l5A9qZ+WeBhgEuAAAAAElFTkSuQmCC);
+  /* setup all the background tweaks for our custom icon */
+  background-repeat: no-repeat;
+
+  /* icon size */
+  background-size: 16px;
+
 }
 </style>
