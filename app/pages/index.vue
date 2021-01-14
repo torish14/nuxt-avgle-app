@@ -9,7 +9,7 @@
         </h5>
       </template>
       <template v-else>
-        <div v-for="data in getPaginationItems" :key="data.id" class="bg-black px-2">
+        <div v-for="data in getPaginationItems" :key="data.id" class="bg-black px-2 lg:mt-8 xl:mt-8 2xl:mt-8">
           <nuxt-link :to="{ path: 'embedded_url' + '/' + data.vid }">
             <div class="relative">
               <!-- <video
@@ -28,6 +28,7 @@
                 alt="サムネイル"
                 class="z-auto relative text-white"
                 referrerpolicy="no-referrer"
+                crossorigin
               >
               <h5 class="text-white z-10 absolute right-0 bottom-0 text-sm">
                 {{ toHms(data.duration) }}
@@ -255,6 +256,10 @@ export default {
 <style>
 img {
   color: white;
+}
+
+.material-icons {
+  font-size: 18px;
 }
 
 .pagination {

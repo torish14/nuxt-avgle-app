@@ -99,9 +99,9 @@
           </h5>
         </template>
       </div>
-      <!-- 表示させる動画の順番を降順にする -->
+      <!-- 表示させる画像の順番を降順にする -->
       <div class="flex flex-wrap flex-shrink-0 justify-center">
-        <div v-for="data in getPaginationItems" :key="data.id" class="bg-black px-2">
+        <div v-for="data in getPaginationItems" :key="data.id" class="bg-black px-2 lg:mt-8 xl:mt-8 2xl:mt-8">
           <nuxt-link :to="{ path: data.vid }">
             <div class="relative">
               <!-- <video
@@ -121,6 +121,7 @@
                 alt="サムネイル"
                 class="z-auto relative text-white"
                 referrerpolicy="no-referrer"
+                crossorigin
               >
               <h5 class="text-white z-10 absolute right-0 bottom-0 text-sm">
                 {{ toHms(data.duration) }}
@@ -209,7 +210,10 @@ function youtubeDefer () {
     }
   })
 }
-window.addEventListener('load', youtubeDefer)
+
+if (process.client) {
+  window.addEventListener('load', youtubeDefer)
+}
 
 export default {
   fetch ({ store }) {
@@ -295,6 +299,10 @@ export default {
 <style>
 img {
   color: white;
+}
+
+.material-icons {
+  font-size: 18px;
 }
 
 .pagination {
