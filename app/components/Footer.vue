@@ -18,13 +18,16 @@
           <span class="ml-3 text-xl">avgle</span>
         </a> -->
       <!-- <nuxt-link to="/"> -->
-      <a href="/">
-        <img src="https://avgle.com/images/logo/logo.png" alt="ロゴ">
+      <a href="/" @click="changeForm">
+        <img
+          src="~/assets/Porngle ロゴ.png"
+          alt="ロゴ"
+          class="w-40"
+        >
       </a>
       <!-- </nuxt-link> -->
       <p class="text-sm text-gray-600 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-800 sm:py-2 sm:mt-0 mt-4">
-        © 2021 avgle —
-        <a href="https://twitter.com/knyttneve" class="text-gray-500 ml-1" target="_blank" rel="noopener noreferrer">@torish</a>
+        &copy; {{ new Date().getFullYear() }} - Porngle
       </p>
     </div>
   </footer>
@@ -32,7 +35,11 @@
 
 <script>
 export default {
-
+  methods: {
+    changeForm () {
+      this.$store.commit('search/clearMessage')
+    }
+  },
 }
 </script>
 
