@@ -20,7 +20,7 @@
       <!-- <nuxt-link to="/"> -->
       <a href="/" @click="changeForm">
         <img
-          src="~/assets/Porngle ロゴ.png"
+          src="~/assets/Porngle ロゴ.jpeg"
           alt="ロゴ"
           class="w-40"
         >
