@@ -1,8 +1,20 @@
 import { cacheAdapterEnhancer } from 'axios-extensions'
+import LRU from 'lru-cache'
 
-export default function ({ $axios }) {
+const ONE_HOUR = 1000 * 60 * 60
+
+export default function ({ $axios, ssrContext }) {
   if (process.client) {
-    $axios.defaults.adapter = cacheAdapterEnhancer($axios.defaults.adapter)
+    const defaultCache = process.server
+      ? ssrContext.$axCache
+      : new LRU({ maxAge: ONE_HOUR })
+    $axios.defaults.adapter = cacheAdapterEnhancer($axios.defaults.adapter, {
+      enabledByDefault: false,
+      cacheFlag: 'useCache',
+      defaultCache
+    })
+    $axios.onResponse(() => {
+      $axios.setHeader('Access-Control-Allow-Origin', 'https://api.avgle.com/v1/search/')
+    })
   }
-  $axios.defaults.timeout = 5000
 }
