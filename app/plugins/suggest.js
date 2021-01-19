@@ -1,9 +1,5 @@
-import Vue from 'vue'
-import { CoolSelectPlugin } from 'vue-cool-select'
+// import Vue from 'vue'
+// import VueSimpleSuggest from 'vue-simple-suggest'
+// import 'vue-simple-suggest/dist/styles.css'
 
-// paste the line below only if you need "material-design" theme
-import 'vue-cool-select/dist/themes/material-design.css'
-// you can also import your theme
-import 'vue-cool-select/dist/themes/tailwind.css'
-
-Vue.use(CoolSelectPlugin)
+// Vue.component('VueSimpleSuggest', VueSimpleSuggest)
