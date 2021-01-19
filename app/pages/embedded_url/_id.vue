@@ -168,7 +168,7 @@
     </div>
     <!-- ページネーション -->
     <div class="flex justify-center bg-black">
-      <paginate
+      <Paginate
         :page-count="getPageCount"
         :page-range="3"
         :margin-pages="2"
@@ -185,12 +185,24 @@
         class="sm:pt-4 md:pt-6 lg:pt-8 xl:pt-8"
       />
     </div>
+    <!-- <Loading
+      :active.sync="isLoading"
+      color="blueviolet"
+      background-color="black"
+      :height="100"
+      :width="100"
+      :opacity="0.7"
+    /> -->
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex'
+// import Vue from 'vue'
+// import Loading from 'vue-loading-overlay'
+// import 'vue-loading-overlay/dist/vue-loading.css'
 
+// Vue.component(Loading)
 // const sub = document.getElementById('sub')
 // function func1 () {
 //   // ? contentWindow.document でiframe内の要素にアクセス
@@ -216,7 +228,10 @@ if (process.client) {
 }
 
 export default {
-  fetch ({ store }) {
+  components: {
+    // Loading
+  },
+  asyncData ({ store }) {
     store.dispatch('search/getSearchItems')
   },
   data () {
@@ -229,6 +244,7 @@ export default {
     }
   },
   computed: {
+    // ...mapState('search', ['messages', 'isLoading']),
     ...mapState('search', ['messages']),
     // ? 現在ページのアイテムを返す
     getPaginationItems () {
@@ -265,7 +281,11 @@ export default {
     // ページネーションをクリック時に、currentPage にページ番号を設定
     clickCallback (pageNum) {
       this.currentPage = Number(pageNum)
-      this.$scrollTo('#app', 1, {offset: -60})
+      this.$scrollTo(
+        '#header',
+        {duration: 1},
+        {offset: -60}
+      )
     },
     toHms (t) {
       let hms = ''
@@ -336,7 +356,6 @@ li {
   color: #ddd;
   cursor: not-allowed;
   border-color: #6b46c1;
-  /* background-color: #fff; */
 }
 
 .pagination > li > a, .pagination > li > span {
@@ -348,7 +367,6 @@ li {
   color: #ddd;
   text-decoration: none;
   border: 1px solid #6b46c1;
-  /* background-color: #fff; */
 }
 
 .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
