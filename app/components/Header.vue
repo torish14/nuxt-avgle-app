@@ -37,7 +37,7 @@
           class="bg-gray-800 rounded-l-full w-full py-4 px-6 text-gray-500 leading-tight focus:outline-none"
           type="search"
           autofocus
-          placeholder="Search"
+          placeholder="検索"
           @keydown.enter="search"
         >
 
@@ -49,7 +49,6 @@
       </div>
     </nav>
     <!-- Toggle -->
-    <!-- <nav class="flex justify-end toggle"> -->
     <nav class="flex justify-between toggle pb-8">
       <div :class="isOpen ? 'hidden' : 'block'" class="flex items-center flex-shrink-0 text-white mr-6">
         <a href="/" @click="changeForm">
@@ -60,42 +59,35 @@
           >
         </a>
       </div>
-      <div :class="isOpen ? 'block' : 'hidden'" class="w-full">
-        <!-- <VueSimpleSuggest v-model="selected" :list="items" mode="select" class="bg-gray-800 text-gray-500"> -->
+      <div :class="isOpen ? 'block' : 'hidden'" class="w-full pl-2">
         <input
+          ref="focusInput"
           v-model="computedGetState"
-          class="bg-gray-800 rounded-full w-full py-4 px-6 mt-2 text-gray-500 leading-tight focus:outline-none"
+          class="bg-gray-800 rounded-full w-full py-4 px-6 mt-2 ml-0 text-gray-500 leading-tight focus:outline-none"
           type="search"
           autofocus
-          placeholder="Search"
+          placeholder="検索"
+          inputmode="search"
           @keydown.enter="search"
-          @blur="closeKeyboard"
         >
-        <!-- </VueSimpleSuggest> -->
       </div>
       <div class="flex items-center px-4 py-3">
         <div>
           <button
             class="bg-purple-700 text-gray-300 rounded-full p-2 hover:bg-purple-800 focus:outline-none w-12 h-12 flex items-center justify-center"
-            @click="isOpen = !isOpen"
+            @click="isOpen = !isOpen; focusSearch()"
           >
             <i class="material-icons">search</i>
           </button>
         </div>
       </div>
     </nav>
-    <!-- <div>
-      <VueSimpleSuggest v-model="selected" :list="items" />
-    </div> -->
   </div>
 </template>
 
 <script>
-// import VueSimpleSuggest from 'vue-simple-suggest'
-
 export default {
   components: {
-    // VueSimpleSuggest
   },
   data () {
     return {
@@ -118,11 +110,13 @@ export default {
       if (e.keyCode !== 13) { return }
       this.sendRequest()
       this.isOpen = !this.isOpen
+      setTimeout(() => {
+        e.target.blur()
+      }, 1)
     },
     sendRequest () {
       this.$store.dispatch('search/getSearchItems')
-      // this.$router.push('/search')
-      this.$router.push('/')
+      // this.$router.push('/')
       // ? 無修正の非表示
       // if (this.$store.state.message === '無修正') {
       //     console.log('無修正は表示できません！')
@@ -155,10 +149,13 @@ export default {
       // }
     },
     changeForm () {
-      this.$store.commit('search/clearMessage')
+      this.$store.commit('search/changeMessage')
     },
-    closeKeyboard () {
-      blur()
+    focusSearch () {
+      this.$store.commit('search/clearMessage')
+      setTimeout(() => {
+        this.$refs.focusInput.focus()
+      }, 1)
     },
     items () {
       return [
@@ -179,13 +176,13 @@ export default {
 </script>
 
 <style>
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
   .normal-form {
     display: none !important;
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 769px) {
   .toggle {
     display: none !important;
   }
@@ -211,6 +208,6 @@ input[type="search"]::-webkit-search-cancel-button {
 
   /* icon size */
   background-size: 16px;
-
+  /* margin: 0 -14px 0 0px; */
 }
 </style>
