@@ -30,7 +30,7 @@ export default {
   },
   methods: {
     changeForm () {
-      this.$store.commit('search/clearMessage')
+      this.$store.commit('search/changeMessage')
     }
   },
 }
