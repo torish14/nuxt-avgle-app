@@ -1,3 +1,41 @@
+<template>
+  <div>
+    <iframe
+      id="elem"
+      src="https://avgle.com/embed/3b5064c12d910234909c"
+      frameborder="0"
+    />
+    <!-- <button id="trigger" ref="submitBtn" @click="consoleHello">
+      hello
+    </button> -->
+  </div>
+</template>
+
+<script>
+export default {
+  mounted() {
+    // const elem = document.getElementById('elem')
+    const elem = this.$el
+    console.log(elem)
+    // console.log(elem.contentDocument)
+    // ? this.$nextTick(() => this.$refs.submitBtn.click())
+  },
+  methods: {
+    consoleHello () {
+      // ? console.log('hello')
+    },
+    // window:onload = () => {
+    //   const elem = document.getElementById('elem')
+    //   console.log(elem.contentDocument)
+    // }
+  }
+}
+</script>
+
+<style>
+
+</style>
+
 <!-- <template>
   <div class="bg-black">
     <VueSimpleSuggest

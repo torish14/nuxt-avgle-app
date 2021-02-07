@@ -278,7 +278,7 @@ export default {
       return Math.ceil(this.messages.length / this.parPage)
     },
     messagesMatchVid () {
-      console.log(this.$store.getters['search/messages'])
+      // console.log(this.$store.getters['search/messages'])
       return this.$store.getters['search/messages'].find(value => value.vid === this.id)
     }
     // soaringMessagesMatchVid () {

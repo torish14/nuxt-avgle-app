@@ -13,8 +13,8 @@ export default function ({ $axios, ssrContext }) {
       cacheFlag: 'useCache',
       defaultCache
     })
-    $axios.onResponse(() => {
-      $axios.setHeader('Access-Control-Allow-Origin', 'https://api.avgle.com/v1/search/')
-    })
+    // $axios.onResponse(() => {
+    //   $axios.setHeader('Access-Control-Allow-Origin', 'https://api.avgle.com/v1/search/')
+    // })
   }
 }

@@ -1,22 +1,22 @@
 const Url = 'http://localhost:3000'
+const searchUrl = 'https://api.avgle.com/v1/search/'
 
 const baseHost = process.env.BASE_HOST || Url
 const baseDir = process.env.BASE_DIR || '/'
 const baseUrl = baseHost + baseDir
 
 const lang = 'ja'
-const siteName = 'えちえちサイト'
-const siteDesc = 'えちえちサイト'
-const siteKeywords = 'えち, えちえち, えちえちサイト, アダルト, アダルトサイト, エロ, エロサイト'
+const siteName = 'Porngle'
+const siteDesc = 'えちえちなサイトです'
+const siteKeywords = 'porn, Porn, porngle, Porngle, アダルト, アダルトサイト, エロ, エロサイト'
 
+const shortName = 'Porngle'
 // const ogpImages = baseUrl + 'img/ogp/'
 
 export default {
-  // ! ssr を前提
-  // ssr の場合でログイン機能がある場合は色々考慮が必要
-  // aws でデプロイが無難
-  srcDir: 'app',
-  ssr: false,
+  // srcDir: 'app',
+  ssr: true,
+
   telemetry: false,
   /*
    ** Headers of the page
@@ -26,15 +26,20 @@ export default {
       lang,
       prefix: 'og: http://ogp.me/ns#',
     },
-    // titleTemplate: `%s - ${siteName}` + process.env.npm_package_name,
+    titleTemplate: '%s - Porngle' + process.env.npm_package_name,
     title: process.env.npm_package_name || '',
     meta: [
       { charset: 'utf-8' },
       { 'http-equiv': 'x-ua-compatible', content: 'ie=edge' },
       {
         name: 'viewport',
-        content: 'width=device-width, initial-scale=1.0, user-scalable=no',
+        content:
+          'width=device-width, initial-scale=1.0, minimum-scale=1.0, minimal-ui',
       },
+      // {
+      //   name: 'referrer',
+      //   content: 'no-referrer'
+      // },
       {
         hid: 'description',
         name: 'description',
@@ -75,13 +80,20 @@ export default {
       //   property: "og:image",
       //   content: `${ogpImages}home.jpg`
       // },
-      { name: 'twitter:card', content: 'summary_large_image' },
+      {
+        hid: 'og:image',
+        property: 'og:image',
+      },
+      {
+        name: 'twitter:card',
+        content: 'summary_large_image',
+      },
     ],
     // link: [{
     //   rel: 'stylesheet', href: 'https://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.css'
     // }],
 
-    // link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
   /*
    ** Customize the progress-bar color
@@ -91,6 +103,11 @@ export default {
     color: '#6b46c1',
     continuous: true,
   },
+  // loadingIndicator: {
+  //   name: 'circle',
+  //   color: '#6b46c1',
+  //   background: 'black',
+  // },
   /*
    ** Global CSS
    */
@@ -101,17 +118,18 @@ export default {
   plugins: [
     { src: '~/plugins/localStorage.js', mode: 'client' },
     // { src: '~plugins/ga.js', mode: 'client' },
-    // { src: '~/plugins/lazyload.js', mode: 'client' },
     '~/plugins/axios.js',
     '~/plugins/sentry.js',
-    '~/plugins/pagination.js',
-    '~/plugins/scroll.js'
+    { src: '~/plugins/pagination.js', mode: 'client' },
+    '~/plugins/scroll.js',
+    '~/plugins/lazyload.js'
+    // '~/plugins/suggest.js'
   ],
   router: {
-    // middleware: ['authenticated']
+    base: baseDir,
   },
   /*
-   ** Nuxt.js dev-modules
+   ** Nuxt.js dev-
    */
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
@@ -120,7 +138,79 @@ export default {
     '@nuxtjs/tailwindcss',
     // Doc: https://google-analytics.nuxtjs.org
     '@nuxtjs/google-analytics',
+    // Doc: https://github.com/robcresswell/nuxt-compress
+    'nuxt-compress',
+    // Doc: https://github.com/juliomrqz/nuxt-optimized-images
+    '@aceforth/nuxt-optimized-images',
+    // Doc: https://pwa.nuxtjs.org/
+    '@nuxtjs/pwa',
+    // Doc: https://github.com/nuxt-community/sitemap-module
+    '@nuxtjs/sitemap',
+    // Doc: https://github.com/nuxt-community/gtm-module
+    '@nuxtjs/gtm',
   ],
+  'nuxt-compress': {
+    gzip: {
+      cache: true,
+    },
+    brotli: {
+      threshold: 10240,
+    },
+  },
+  optimizedImages: {
+    optimizeImages: true,
+  },
+  pwa: {
+    icon: false,
+    meta: {
+      // mobileAppIOSオプションを有効にする前に、以下記事を一読すること。
+      // https://medium.com/@firt/dont-use-ios-web-app-meta-tag-irresponsibly-in-your-progressive-web-apps-85d70f4438cb
+      // mobileAppIOS: true
+    },
+    manifest: {
+      lang,
+      name: siteName,
+      short_name: shortName,
+      description: siteDesc,
+      background_color: '#ffffff',
+      theme_color: '#ffffff',
+      display: 'standalone',
+      orientation: 'portrait',
+    },
+    workbox: {
+      skipWaiting: true,
+      clientsClaim: true,
+      runtimeCaching: [
+        {
+          urlPattern: baseDir + '.*',
+          handler: 'staleWhileRevalidate',
+          strategyOptions: {
+            cacheName: 'my-cache',
+            cacheExpiration: {
+              maxAgeSeconds: 24 * 60 * 60 * 30,
+            },
+          },
+        },
+      ],
+    },
+  },
+  googleAnalytics: {
+    // id: 'G-S2NZP1L0D8',
+  },
+  gtm: {
+    // id: 'G-S2NZP1L0D8'
+  },
+  env: {
+    NODE_ENV: process.env.NODE_ENV,
+  },
+  sitemap: {
+    // 生成されるサイトマップファイルの名前
+    path: '/sitemap.xml',
+    // サイト名
+    hostname: 'https://example.com',
+    // 除外したいURL
+    exclude: ['/sampleSuggest', '/search', '/suggest'],
+  },
   /*
    ** Nuxt.js modules
    */
@@ -131,23 +221,20 @@ export default {
     ['@nuxtjs/pwa', { icon: false }],
   ],
   workbox: {
-    // 開発環境でもPWAできるように
-    // dev: true,
-    // offline: false,
-    // skipWaiting: true,
-    // clientsClaim: true,
-    // runtimeCaching: [
-    //   {
-    //     strategyOptions: {
-    //       cacheExpiration: {
-    //         maxAgeSeconds: 60 * 60 * 24 // 1日
-    //       },
-    //       cacheableResponse: {
-    //         statuses: [200]
-    //       }
-    //     }
-    //   }
-    // ]
+    skipWaiting: true,
+    clientsClaim: true,
+    runtimeCaching: [
+      {
+        urlPattern: baseDir + '.*',
+        handler: 'staleWhileRevalidate',
+        strategyOptions: {
+          cacheName: 'my-cache',
+          cacheExpiration: {
+            maxAgeSeconds: 24 * 60 * 60 * 30,
+          }
+        }
+      }
+    ]
   },
   /*
    ** Axios module configuration
@@ -157,16 +244,19 @@ export default {
     proxyHeaders: false,
     credentials: false,
     proxy: true,
-    // baseURL: process.browser ? '' : process.env.API_HOST
-    baseURL: Url,
+    retry: {
+      retries: 3,
+    },
+    // prefix: process.browser ? '' : process.env.API_HOST
     // timeout: 3000
   },
   proxy: {
     '/api': {
-      target: Url,
+      target: searchUrl,
       pathRewrite: {
         '^/api/': '/',
       },
+      changeOrigin: true,
     },
   },
   /*
@@ -176,10 +266,10 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {
-      config.performance = config.performance || {};
-      config.performance.maxEntrypointSize = 1200 * 1024;
-      config.performance.maxAssetSize = 700 * 1024;
+    extend(config) {
+      config.performance = config.performance || {}
+      config.performance.maxEntrypointSize = 1200 * 1024
+      config.performance.maxAssetSize = 700 * 1024
     },
     babel: {
       presets({ isServer }) {
@@ -191,12 +281,18 @@ export default {
               corejs: { version: 3 },
             },
           ],
-        ];
+        ]
       },
     },
     filenames: {
       app: ({ isDev }) => (isDev ? '[name].[hash].js' : '[chunkhash].js'),
       chunk: ({ isDev }) => (isDev ? '[name].[hash].js' : '[chunkhash].js'),
-    }
-  }
-};
+    },
+    devMiddleware: {
+      headers: {
+        'Cache-Control': 'no-store',
+        Vary: '*',
+      },
+    },
+  },
+}
