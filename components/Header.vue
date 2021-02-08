@@ -1,22 +1,23 @@
 <template>
   <div id="header" class="bg-black">
-    <nav class="flex items-center justify-between flex-wrap p-6 normal-form">
-      <div class="flex items-center flex-shrink-0 text-white mr-6">
-        <a href="/" @click="changeForm">
-          <img
-            src="~/assets/Porngle ロゴ.jpeg"
-            alt="ロゴ"
-            class="w-40"
-          >
-        </a>
-      </div>
-      <!-- <div class="block lg:hidden">
+    <client-only>
+      <nav class="flex items-center justify-between flex-wrap p-6 normal-form">
+        <div class="flex items-center flex-shrink-0 text-white mr-6">
+          <a href="/" @click="changeForm">
+            <img
+              src="~/assets/Porngle ロゴ.jpeg"
+              alt="ロゴ"
+              class="w-40"
+            >
+          </a>
+        </div>
+        <!-- <div class="block lg:hidden">
       <button class="flex items-center px-3 py-2 border rounded text-white-200 border-teal-400 hover:text-grey hover:border-white">
         <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" /></svg>
       </button>
     </div> -->
-      <!-- ヘッダーメニュー -->
-      <!-- <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+        <!-- ヘッダーメニュー -->
+        <!-- <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
         <div class="text-sm lg:flex-grow">
           <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-purple-200 hover:text-white mr-4">
             Docs
@@ -29,8 +30,7 @@
           </a>
         </div>
       </div> -->
-      <!-- 検索バー -->
-      <client-only>
+        <!-- 検索バー -->
         <div class="bg-gray-800 flex items-center rounded-full shadow-xl w-1/4 mr-20">
           <input
             v-model="computedGetState"
@@ -47,21 +47,19 @@
             </button>
           </div>
         </div>
-      </client-only>
-    </nav>
-    <!-- Toggle -->
-    <nav v-show="isShow" class="toggle pb-20">
-      <div class="flex justify-between bg-black fixed top-0 w-full z-20 pb-1">
-        <div :class="isOpen ? 'hidden' : 'block'" class="flex items-center flex-shrink-0 text-white mr-6">
-          <a href="/" @click="changeForm">
-            <img
-              src="~/assets/Porngle ロゴ.jpeg"
-              alt="ロゴ"
-              class="w-40"
-            >
-          </a>
-        </div>
-        <client-only>
+      </nav>
+      <!-- Toggle -->
+      <nav v-show="isShow" class="toggle pb-20">
+        <div class="flex justify-between bg-black fixed top-0 w-full z-20 pb-1">
+          <div :class="isOpen ? 'hidden' : 'block'" class="flex items-center flex-shrink-0 text-white mr-6">
+            <a href="/" @click="changeForm">
+              <img
+                src="~/assets/Porngle ロゴ.jpeg"
+                alt="ロゴ"
+                class="w-40"
+              >
+            </a>
+          </div>
           <div :class="isOpen ? 'block' : 'hidden'" class="w-full pl-2">
             <input
               ref="focusInput"
@@ -83,9 +81,9 @@
               </button>
             </div>
           </div>
-        </client-only>
-      </div>
-    </nav>
+        </div>
+      </nav>
+    </client-only>
   </div>
 </template>
 
@@ -114,7 +112,7 @@ export default {
   watch: {
     // 上にスクロールした時に表示
     scrollY (newValue, oldValue) {
-      this.$set(this, 'isShow', newValue < oldValue)
+      this.$set(this, 'isShow', newValue < oldValue || newValue === 0)
       // console.log('新しい',newValue)
       // console.log('古い',oldValue)
     }
@@ -135,13 +133,16 @@ export default {
       if (e.keyCode !== 13) { return }
       this.sendRequest()
       this.isOpen = !this.isOpen
-      setTimeout(() => {
+      this.$nextTick(() => {
         e.target.blur()
-      }, 1)
+      })
+      // setTimeout(() => {
+      //   e.target.blur()
+      // }, 1)
     },
     sendRequest () {
       this.$store.dispatch('search/getSearchItems')
-      // this.$router.push('/')
+      this.$router.push('/')
       // ? 無修正の非表示
       // if (this.$store.state.message === '無修正') {
       //     console.log('無修正は表示できません！')
@@ -178,9 +179,12 @@ export default {
     },
     focusSearch () {
       this.$store.commit('search/clearMessage')
-      setTimeout(() => {
+      this.$nextTick(() => {
         this.$refs.focusInput.focus()
-      }, 1)
+      })
+      // setTimeout(() => {
+      //   this.$refs.focusInput.focus()
+      // }, 1)
     },
     // スクロール値の取得
     onScroll () {
