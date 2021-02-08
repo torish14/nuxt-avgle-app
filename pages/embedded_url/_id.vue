@@ -262,7 +262,7 @@ export default {
       // ? 1ページに表示するアイテム数
       parPage: 20,
       // ? 現在のページ番号
-      currentPage: 1
+      currentPage: 1,
     }
   },
   computed: {
@@ -271,7 +271,8 @@ export default {
     getPaginationItems () {
       const current = this.currentPage * this.parPage
       const start = current - this.parPage
-      return this.messages.slice(start, current).sort(function() {return Math.random()-.5;})
+      return this.messages.slice(start, current).reverse()
+      // return this.messages.slice(start, current).sort(function() {return Math.random()-.5;})
     },
     // ? ページネーションの最大ページ数を求めるためにitems をparPage で割って切り上げる
     getPageCount () {
@@ -309,6 +310,9 @@ export default {
     window.removeEventListener('beforeunload', this.changeForm)
   },
   methods: {
+    changeForm () {
+      this.$store.commit('search/changeMessage')
+    },
     // ページネーションをクリック時に、currentPage にページ番号を設定
     clickCallback (pageNum) {
       this.currentPage = Number(pageNum)
@@ -343,15 +347,13 @@ export default {
           return v
         }
       }
-    },
-    changeForm () {
-      this.$store.commit('search/changeMessage')
     }
   }
 }
 </script>
 
 <style>
+#player_3x2_cotainer_inner {
 #player_3x2_cotainer_inner {
   display: none;
 }
@@ -432,5 +434,4 @@ li {
   cursor: default;
   background-color: #6b46c1;
   border-color: #6b46c1;
-} */
-</style>
+} */yle>
