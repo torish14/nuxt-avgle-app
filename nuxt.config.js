@@ -7,7 +7,7 @@ const baseUrl = baseHost + baseDir
 
 const lang = 'ja'
 const siteName = 'Porngle'
-const siteDesc = '無料えちえちサイトです。Porngleは検索機能に特化したアダルトサイトを目指しています。'
+const siteDesc = '無料えちえちサイトです。Porngleは検索機能に特化したアダルトサイトを目指しています。Pornhubの屍を越えていけ。'
 const siteKeywords = 'porn, Porn, porngle, Porngle, アダルト, アダルトサイト, エロ, エロサイト'
 
 const shortName = 'Porngle'
@@ -26,7 +26,7 @@ export default {
       lang,
       prefix: 'og: http://ogp.me/ns#',
     },
-    titleTemplate: '%s - Porngle' + process.env.npm_package_name,
+    titleTemplate: '%s - Porngle',
     title: process.env.npm_package_name || '',
     meta: [
       { charset: 'utf-8' },
@@ -118,7 +118,7 @@ export default {
   plugins: [
     { src: '~/plugins/localStorage.js', mode: 'client' },
     // { src: '~plugins/ga.js', mode: 'client' },
-    '~/plugins/axios.js',
+    { src: '~/plugins/axios.js', mode: 'client' },
     '~/plugins/sentry.js',
     { src: '~/plugins/pagination.js', mode: 'client' },
     '~/plugins/scroll.js',
