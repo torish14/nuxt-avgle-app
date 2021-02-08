@@ -50,8 +50,7 @@
       </client-only>
     </nav>
     <!-- Toggle -->
-    <!-- <nav class="flex justify-between toggle pb-8"> -->
-    <nav class="toggle pb-20">
+    <nav v-show="isShow" class="toggle pb-20">
       <div class="flex justify-between bg-black fixed top-0 w-full z-20 pb-1">
         <div :class="isOpen ? 'hidden' : 'block'" class="flex items-center flex-shrink-0 text-white mr-6">
           <a href="/" @click="changeForm">
@@ -69,7 +68,6 @@
               v-model="computedGetState"
               class="bg-gray-800 rounded-full w-full py-4 px-6 mt-2 ml-0 text-gray-500 leading-tight focus:outline-none"
               type="search"
-              autofocus
               placeholder="検索"
               inputmode="search"
               @keydown.enter="search"
@@ -98,6 +96,8 @@ export default {
   data () {
     return {
       isOpen: false,
+      scrollY: 0,
+      isShow: true,
       selected: ''
     }
   },
@@ -110,6 +110,25 @@ export default {
         this.$store.dispatch('search/commitMessage', val)
       }
     }
+  },
+  watch: {
+    // 上にスクロールした時に表示
+    scrollY (newValue, oldValue) {
+      this.$set(this, 'isShow', newValue < oldValue)
+      // console.log('新しい',newValue)
+      // console.log('古い',oldValue)
+    }
+  },
+  mounted () {
+    // スクロールイベントを取得
+    window.addEventListener('scroll', this.onScroll)
+    window.addEventListener('load', () => {
+      this.onScroll()
+    })
+    // this.$nextTick(() => this.onScroll())
+  },
+  beforeDestroyed () {
+    window.removeEventListener('scroll', this.onScroll)
   },
   methods: {
     search (e) {
@@ -162,6 +181,10 @@ export default {
       setTimeout(() => {
         this.$refs.focusInput.focus()
       }, 1)
+    },
+    // スクロール値の取得
+    onScroll () {
+      this.$set(this, 'scrollY', window.pageYOffset)
     },
     items () {
       return [
