@@ -9,6 +9,7 @@
     "build": "nuxt build",
     "build:pro": "cross-env NODE_ENV=production nuxt build",
     "build:sta": "cross-env NODE_ENV=staging nuxt build",
+    "debug": "node --inspect node_modules/.bin/nuxt",
     "deploy": "nuxt build && firebase deploy",
     "dev": "nuxt",
     "gcloud:gae": "nuxt build && nuxt generate && mv ~/nuxt-pornhub-api/dist/sitemap.xml ~/nuxt-pornhub-api/static/sitemap.xml && rm -rf ~/nuxt-pornhub-api/dist && gcloud app deploy && gcloud app browse",
