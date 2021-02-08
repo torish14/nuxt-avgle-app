@@ -2,6 +2,7 @@
   <div>
     <iframe
       id="elem"
+      ref="iframe"
       src="https://avgle.com/embed/3b5064c12d910234909c"
       frameborder="0"
     />
@@ -13,21 +14,17 @@
 
 <script>
 export default {
-  mounted() {
-    // const elem = document.getElementById('elem')
-    const elem = this.$el
-    console.log(elem)
-    // console.log(elem.contentDocument)
-    // ? this.$nextTick(() => this.$refs.submitBtn.click())
+  mounted () {
+    // const elem = this.$el
+    this.$nextTick(() =>
+      // console.log(elem),
+      console.log(this.$refs.iframe)
+    )
   },
   methods: {
     consoleHello () {
       // ? console.log('hello')
     },
-    // window:onload = () => {
-    //   const elem = document.getElementById('elem')
-    //   console.log(elem.contentDocument)
-    // }
   }
 }
 </script>

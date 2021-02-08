@@ -137,7 +137,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapGetters } from 'vuex'
 import Vue from 'vue'
 import Loading from 'vue-loading-overlay'
 import 'vue-loading-overlay/dist/vue-loading.css'
@@ -168,7 +168,7 @@ export default {
         this.$store.dispatch('search/commitMessage', val)
       }
     },
-    ...mapState('search', ['message', 'messages', 'keywords', 'isLoading']),
+    ...mapGetters('search', ['message', 'messages', 'keywords', 'isLoading']),
     getPaginationItems () {
       const current = this.currentPage * this.parPage
       const start = current - this.parPage
@@ -239,4 +239,4 @@ export default {
     }
   }
 }
-</script>
+</script> -->

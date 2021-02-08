@@ -139,7 +139,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapGetters } from 'vuex'
 // import Vue from 'vue'
 // import Loading from 'vue-loading-overlay'
 // import 'vue-loading-overlay/dist/vue-loading.css'
@@ -200,9 +200,13 @@ export default {
   components: {
     // Loading
   },
-  asyncData ({ store }) {
-    store.commit('search/changeMessage')
-    store.dispatch('search/getSearchItems')
+  async fetch ({ store }) {
+    if (store.getters['search/messages'].length) {
+      return
+    }
+    await
+      store.commit('search/changeMessage')
+      store.dispatch('search/getSearchItems')
   },
   data () {
     return {
@@ -213,17 +217,8 @@ export default {
     }
   },
   computed: {
-    // ? 双方向バインディング
-    // computedGetState: {
-    //   get () {
-    //     return this.$store.getters['search/message']
-    //   },
-    //   set (val) {
-    //     this.$store.dispatch('search/commitMessage', val)
-    //   }
-    // },
-    // ...mapState('search', ['message', 'messages', 'keywords', 'isLoading']),
-    ...mapState('search', ['message','messages', 'keywords']),
+    // ...mapGetters('search', ['message', 'messages', 'keywords', 'isLoading']),
+    ...mapGetters('search', ['message','messages', 'keywords']),
     // ? 現在ページのアイテムを返す
     getPaginationItems () {
       const current = this.currentPage * this.parPage
@@ -234,6 +229,11 @@ export default {
     getPageCount () {
       return Math.ceil(this.messages.length / this.parPage)
     }
+  },
+  mounted () {
+    this.$nextTick(() => {
+      window.scrollTo(0,1)
+    })
   },
   created () {
     if (process.browser) {
@@ -689,7 +689,7 @@ body {
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapGetters } from 'vuex'
 
 export default {
   fetch ({ store }) {
@@ -700,7 +700,7 @@ export default {
     }
   },
   computed: {
-    ...mapState([
+    ...mapGetters([
       'soaringMessages', 'famousMessages', 'actressMessages', 'genreMessages'
     ])
   },

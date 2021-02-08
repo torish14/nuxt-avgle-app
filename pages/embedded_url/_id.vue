@@ -223,7 +223,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapGetters } from 'vuex'
 
 // const sub = document.getElementById('sub')
 // function func1 () {
@@ -251,10 +251,11 @@ if (process.client) {
 
 export default {
   // ? layout: 'custom',
-  components: {
-  },
-  asyncData ({ store }) {
-    store.dispatch('search/getSearchItems')
+  async fetch ({ store }) {
+    if (store.getters['search/messages'].length) {
+      return
+    }
+    await store.dispatch('search/getSearchItems')
   },
   data () {
     return {
@@ -266,7 +267,7 @@ export default {
     }
   },
   computed: {
-    ...mapState('search', ['message', 'messages', 'keywords']),
+    ...mapGetters('search', ['message', 'messages', 'keywords']),
     // ? 現在ページのアイテムを返す
     getPaginationItems () {
       const current = this.currentPage * this.parPage
@@ -353,7 +354,6 @@ export default {
 </script>
 
 <style>
-#player_3x2_cotainer_inner {
 #player_3x2_cotainer_inner {
   display: none;
 }
