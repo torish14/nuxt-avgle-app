@@ -112,7 +112,7 @@ export default {
   watch: {
     // 上にスクロールした時に表示
     scrollY (newValue, oldValue) {
-      this.$set(this, 'isShow', newValue < oldValue || newValue === 0)
+      this.$set(this, 'isShow', newValue < oldValue || newValue <= 1 || newValue >= 5000)
       // console.log('新しい',newValue)
       // console.log('古い',oldValue)
     }
@@ -136,6 +136,11 @@ export default {
       this.$nextTick(() => {
         e.target.blur()
       })
+      this.$scrollTo(
+        '#header',
+        { duration: 1 },
+        { offset: -60 }
+      )
       // setTimeout(() => {
       //   e.target.blur()
       // }, 1)
