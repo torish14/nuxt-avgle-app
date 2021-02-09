@@ -49,7 +49,7 @@
         </div>
       </nav>
       <!-- Toggle -->
-      <nav v-show="isShow" class="toggle pb-20">
+      <nav v-show="isShow" class="toggle">
         <div class="flex justify-between bg-black fixed top-0 w-full z-20 pb-1">
           <div :class="isOpen ? 'hidden' : 'block'" class="flex items-center flex-shrink-0 text-white mr-6">
             <a href="/" @click="changeForm">
