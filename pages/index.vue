@@ -200,13 +200,13 @@ export default {
   components: {
     // Loading
   },
-  async fetch ({ store }) {
-    if (store.getters['search/messages'].length) {
+  async fetch () {
+    if (this.$store.getters['search/messages'].length > 0) {
       return
     }
     await
-      store.commit('search/changeMessage')
-      store.dispatch('search/getSearchItems')
+      this.$store.commit('search/changeMessage')
+      this.$store.dispatch('search/getSearchItems')
   },
   data () {
     return {
@@ -228,6 +228,12 @@ export default {
     // ? ページネーションの最大ページ数を求めるためにitems をparPage で割って切り上げる
     getPageCount () {
       return Math.ceil(this.messages.length / this.parPage)
+    }
+  },
+  activated() {
+    // 最後の fetch から30秒以上経っていれば、fetch を呼び出します
+    if (this.$fetchState.timestamp <= Date.now() - 30000) {
+      this.$fetch()
     }
   },
   mounted () {

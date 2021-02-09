@@ -251,11 +251,11 @@ if (process.client) {
 
 export default {
   // ? layout: 'custom',
-  async fetch ({ store }) {
-    if (store.getters['search/messages'].length) {
+  async fetch () {
+    if (this.$store.getters['search/messages'].length > 0) {
       return
     }
-    await store.dispatch('search/getSearchItems')
+    await this.$store.dispatch('search/getSearchItems')
   },
   data () {
     return {
@@ -299,6 +299,12 @@ export default {
     //   return this.$store.getters.genreMessages.find(value => value.vid === this.id)
     //   console.log(this.$store.getters.genreMessages)
     // }
+  },
+  activated() {
+    // 最後の fetch から30秒以上経っていれば、fetch を呼び出します
+    if (this.$fetchState.timestamp <= Date.now() - 30000) {
+      this.$fetch()
+    }
   },
   created () {
     if (process.browser) {
