@@ -272,8 +272,8 @@ export default {
     getPaginationItems () {
       const current = this.currentPage * this.parPage
       const start = current - this.parPage
-      return this.messages.slice(start, current).reverse()
-      // return this.messages.slice(start, current).sort(function() {return Math.random()-.5;})
+      // return this.messages.slice(start, current).reverse()
+      return this.messages.slice(start, current).sort(function() {return Math.random()-.5;})
     },
     // ? ページネーションの最大ページ数を求めるためにitems をparPage で割って切り上げる
     getPageCount () {

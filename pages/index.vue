@@ -351,9 +351,9 @@ export default {
     margin-left: 8px;
   }
 
-  /* .main {
-    padding-bottom: 60px;
-  } */
+  .main {
+    padding-top: 80px;
+  }
 }
 
 img {
