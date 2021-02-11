@@ -4,7 +4,7 @@
       <template v-if="error.statusCode === 404">
         <i class="material-icons text-gray-500">error</i>
         <h5 class="text-gray-500 text-lg">
-          &nbsp;お探しのページが見つかりません
+          &nbsp;ページが見つかりません
         </h5>
       </template>
       <template v-else class="text-gray-500 text-lg">
