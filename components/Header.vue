@@ -135,15 +135,8 @@ export default {
       this.isOpen = !this.isOpen
       this.$nextTick(() => {
         e.target.blur()
+        window.scrollTo(0,0)
       })
-      this.$scrollTo(
-        '#header',
-        { duration: 1 },
-        { offset: -60 }
-      )
-      // setTimeout(() => {
-      //   e.target.blur()
-      // }, 1)
     },
     sendRequest () {
       this.$store.dispatch('search/getSearchItems')
@@ -151,10 +144,6 @@ export default {
       // ? 無修正の非表示
       // if (this.$store.state.message === '無修正') {
       //     console.log('無修正は表示できません！')
-      // } else if (this.$store.state.message === 'むしゅうせい') {
-      //     console.log('無修正は表示できません！')
-      // } else if (this.$store.state.message === 'ムシュウセイ') {
-      //   console.log('無修正は表示できません！')
       // } else if (this.$store.state.message === 'Uncensored') {
       //     console.log('無修正は表示できません！')
       // } else if (this.$store.state.message === 'PAKO') {
@@ -185,6 +174,13 @@ export default {
     focusSearch () {
       this.$store.commit('search/clearMessage')
       this.$nextTick(() => {
+        // ? https://github.com/rigor789/vue-scrollto
+        this.$scrollTo(
+          '#header',
+          { duration: 500 },
+          { easing: 'ease-out' },
+          { offset: -60 }
+        )
         this.$refs.focusInput.focus()
       })
       // setTimeout(() => {
