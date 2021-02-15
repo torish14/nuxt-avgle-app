@@ -1,6 +1,6 @@
 <template>
-  <div class="error">
-    <div class="flex flex-wrap flex-shrink-0 justify-center bg-black">
+  <div class="error bg-black">
+    <div class="flex flex-wrap flex-shrink-0 justify-center">
       <template v-if="error.statusCode === 404">
         <i class="material-icons text-gray-500">error</i>
         <h5 class="text-gray-500 text-lg">
