@@ -12,16 +12,15 @@
               :src="messagesMatchVid.embedded_url"
               frameborder="0"
               scrolling="no"
-              allowfullscreen
-              referrerpolicy="unsafe-url"
+              allow="fullscreen"
+              referrerpolicy="no-referrer-down-grade"
               class="youtube absolute top-0 left-0 w-full h-full"
               width="100%"
               height="100%"
             />
           </div>
-          <h5 class="text-gray-300 text-lg pb-8 md:px-4 lg:px-4 xl:px-4 2xl:px-4 title">
+          <h5 class="text-gray-300 text-lg pb-8 md:px-4 lg:px-4 xl:px-4 2xl:px-4 embedded-title">
             {{ messagesMatchVid.title.slice(0,40) }}
-            <!-- {{ messagesMatchVid.title.slice(20,40) }} -->
           </h5>
         </template>
         <!-- <template v-else-if="soaringMessagesMatchVid">
@@ -92,6 +91,14 @@
             {{ genreMessagesMatchVid.title.slice(17,34) }}
           </h5>
         </template> -->
+        <template v-else-if="message === '無修正' || message === 'Uncensored' || message === 'uncensored' || message === 'PAKO' || message === 'Pako' || message === 'pako' || message === 'ぱこ' || message === 'パコ' || message === 'CARIB' || message === 'Carib' || message === 'carib' || message === 'かりぶ' || message === 'カリブ' || message === 'FC2' || message === 'Fc2' || message === 'fc2' || message === '完全素人' || message === '個人撮影' || message === 'DEEPFAKE' || message.match('DeepFake') || message === 'Deepfake' || message === 'deepfake'">
+          <client-only>
+            <i class="material-icons text-gray-500">error</i>
+            <h5 class="text-gray-500 text-lg">
+              &nbsp;キーワードにあてはまる結果はありません
+            </h5>
+          </client-only>
+        </template>
         <template v-else>
           <client-only>
             <i class="material-icons text-gray-500">error</i>
@@ -104,20 +111,21 @@
       <!-- 表示させる画像の順番を降順にする -->
       <div class="flex flex-wrap justify-center">
         <div v-for="data in getPaginationItems" :key="data.vid" class="bg-black md:px-2 lg:px-2 xl:px-2 2xl:px-2 lg:mt-8 xl:mt-8 2xl:mt-8">
+          <!-- <div v-if="!data.title.match('無修正') && !data.title.match('完全素人') && !data.title.match('個人撮影') && !data.title.match('FC2') && !data.title.match('Fc2') && !data.title.match('fc2') && !data.title.match('DEEPFAKE') && !data.title.match('DeepFake') && !data.title.match('Deepfake') && !data.title.match('deepfake')"> -->
           <nuxt-link :to="{ path: data.vid }">
             <div class="relative">
               <!-- <video
-                :poster="data.preview_url"
-                :src="data.preview_video_url"
-                type="video/mp4"
-                alt="サムネイル"
-                muted
-                loop
-                playsinline=""
-                onmouseover="this.play(); return false"
-                onmouseout="this.pause(); this.currentTime = 0"
-                class="z-auto relative"
-              /> -->
+                  :poster="data.preview_url"
+                  :src="data.preview_video_url"
+                  type="video/mp4"
+                  alt="サムネイル"
+                  muted
+                  loop
+                  playsinline=""
+                  onmouseover="this.play(); return false"
+                  onmouseout="this.pause(); this.currentTime = 0"
+                  class="z-auto relative"
+                /> -->
               <lazy-component>
                 <img
                   :src="data.preview_url"
@@ -127,15 +135,12 @@
                   crossorigin
                 >
               </lazy-component>
-              <h5 class="text-white z-10 absolute right-0 bottom-0 text-sm">
+              <h5 class="text-white z-10 absolute right-0 bottom-0 text-sm bg-gray-800 px-1 m-1">
                 {{ toHms(data.duration) }}
               </h5>
             </div>
             <h5 class="text-gray-300 text-base hover:text-purple-500 title">
-              {{ data.title.slice(0,20) }}
-              <p>
-                {{ data.title.slice(20,40) }}
-              </p>
+              {{ data.title.slice(0,40) }}
             </h5>
           </nuxt-link>
           <div class="flex flex-row my-1">
@@ -201,6 +206,7 @@
             </template>
           </div>
         </div>
+        <!-- </div> -->
         <Paginate
           :page-count="getPageCount"
           :page-range="3"
@@ -251,11 +257,11 @@ if (process.client) {
 
 export default {
   // ? layout: 'custom',
-  async fetch () {
+  fetch () {
     if (this.$store.getters['search/messages'].length > 0) {
       return
     }
-    await this.$store.dispatch('search/getSearchItems')
+    this.$store.dispatch('search/getSearchItems')
   },
   data () {
     return {
@@ -300,6 +306,9 @@ export default {
     //   console.log(this.$store.getters.genreMessages)
     // }
   },
+  watch: {
+    '$route.query': '$fetch'
+  },
   activated() {
     // 最後の fetch から30秒以上経っていれば、fetch を呼び出します
     if (this.$fetchState.timestamp <= Date.now() - 30000) {
@@ -323,11 +332,7 @@ export default {
     // ページネーションをクリック時に、currentPage にページ番号を設定
     clickCallback (pageNum) {
       this.currentPage = Number(pageNum)
-      this.$scrollTo(
-        '#header',
-        { duration: 1 },
-        { offset: -60 }
-      )
+      window.scrollTo(0,0)
       this.$router.push({ path: `?page=${this.currentPage}` })
       this.$forceUpdate()
     },

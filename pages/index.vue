@@ -2,8 +2,8 @@
   <div class="main">
     <div class="flex flex-wrap bg-black justify-center">
       <!-- 検索結果表示 -->
-      <!-- <template v-if="messages.length === 0 && !isLoading"> -->
-      <template v-if="messages.length === 0">
+      <template v-if="messages.length === 0 && !isLoading || message === '無修正' || message === 'Uncensored' || message === 'uncensored' || message === 'PAKO' || message === 'Pako' || message === 'pako' || message === 'ぱこ' || message === 'パコ' || message === 'CARIB' || message === 'Carib' || message === 'carib' || message === 'かりぶ' || message === 'カリブ' || message === 'FC2' || message === 'Fc2' || message === 'fc2' || message === '完全素人' || message === '個人撮影' || message === 'DEEPFAKE' || message === 'DeepFake' || message === 'Deepfake' || message === 'deepfake'">
+        <!-- <template v-if="messages.length === 0"> -->
         <client-only>
           <i class="material-icons text-gray-500">error</i>
           <h5 class="text-gray-500 text-lg">
@@ -13,19 +13,20 @@
       </template>
       <template v-else>
         <div v-for="data in getPaginationItems" :key="data.vid" class="bg-black md:px-2 lg:px-2 xl:px-2 2xl:px-2 lg:mt-8 xl:mt-8 2xl:mt-8">
+          <!-- <div v-if="!data.title.match('無修正') && !data.title.match('完全素人') && !data.title.match('個人撮影') && !data.title.match('FC2') && !data.title.match('Fc2') && !data.title.match('fc2') && !data.title.match('DEEPFAKE') && !data.title.match('DeepFake') && !data.title.match('Deepfake') && !data.title.match('deepfake')"> -->
           <nuxt-link :to="{ path: 'embedded_url' + '/' + data.vid }">
             <div class="relative">
               <!-- <video
-                id="video"
-                :poster="data.preview_url"
-                :src="data.preview_video_url"
-                type="video/mp4"
-                alt="サムネイル"
-                playsinline=""
-                onmouseover="this.play(); return false"
-                onmouseout="this.pause(); this.currentTime = 0"
-                class="z-auto relative"
-              /> -->
+                  id="video"
+                  :poster="data.preview_url"
+                  :src="data.preview_video_url"
+                  type="video/mp4"
+                  alt="サムネイル"
+                  playsinline=""
+                  onmouseover="this.play(); return false"
+                  onmouseout="this.pause(); this.currentTime = 0"
+                  class="z-auto relative"
+                /> -->
               <lazy-component>
                 <img
                   :src="data.preview_url"
@@ -35,16 +36,13 @@
                   crossorigin
                 >
               </lazy-component>
-              <h5 class="text-white z-10 absolute right-0 bottom-0 text-sm">
+              <h5 class="text-white z-10 absolute right-0 bottom-0 text-sm bg-gray-800 px-1 m-1">
                 {{ toHms(data.duration) }}
               </h5>
             </div>
-            <h5 class="text-gray-300 text-base hover:text-purple-500 title">
-              {{ data.title.slice(0,20) }}
-              <p>
-                {{ data.title.slice(20,40) }}
-              </p>
-            </h5>
+            <p class="text-gray-300 text-base hover:text-purple-500 break-all title">
+              {{ data.title.slice(0,40) }}
+            </p>
           </nuxt-link>
           <div class="flex flex-row my-1">
             <template v-if="data.viewnumber >= 1000000">
@@ -108,6 +106,7 @@
               </div>
             </template>
           </div>
+          <!-- </div> -->
         </div>
         <Paginate
           :page-count="getPageCount"
@@ -127,24 +126,24 @@
         />
       </template>
     </div>
-    <!-- <Loading
+    <Loading
       :active.sync="isLoading"
       color="gray"
       background-color="black"
       :height="40"
       :width="40"
       :opacity="1"
-    /> -->
+    />
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
-// import Vue from 'vue'
-// import Loading from 'vue-loading-overlay'
-// import 'vue-loading-overlay/dist/vue-loading.css'
+import Vue from 'vue'
+import Loading from 'vue-loading-overlay'
+import 'vue-loading-overlay/dist/vue-loading.css'
 
-// Vue.component(Loading)
+Vue.component(Loading)
 
 // document.addEventListener('DOMContentLoaded', function () {
 // const v = document.getElementByld('video')
@@ -198,15 +197,14 @@ import { mapGetters } from 'vuex'
 
 export default {
   components: {
-    // Loading
+    Loading
   },
-  async fetch () {
+  fetch () {
     if (this.$store.getters['search/messages'].length > 0) {
       return
     }
-    await
-      this.$store.commit('search/changeMessage')
-      this.$store.dispatch('search/getSearchItems')
+    this.$store.commit('search/changeMessage')
+    this.$store.dispatch('search/getSearchItems')
   },
   data () {
     return {
@@ -217,8 +215,8 @@ export default {
     }
   },
   computed: {
-    // ...mapGetters('search', ['message', 'messages', 'keywords', 'isLoading']),
-    ...mapGetters('search', ['message','messages', 'keywords']),
+    ...mapGetters('search', ['message', 'messages', 'keywords', 'isLoading']),
+    // ...mapGetters('search', ['message','messages', 'keywords']),
     // ? 現在ページのアイテムを返す
     getPaginationItems () {
       const current = this.currentPage * this.parPage
@@ -230,35 +228,34 @@ export default {
       return Math.ceil(this.messages.length / this.parPage)
     }
   },
+  watch: {
+    '$route.query': '$fetch'
+  },
+  mounted() {
+    this.$nextTick(() => {
+      window.scrollTo(0,1)
+    })
+  },
   activated() {
     // 最後の fetch から30秒以上経っていれば、fetch を呼び出します
     if (this.$fetchState.timestamp <= Date.now() - 30000) {
       this.$fetch()
     }
   },
-  mounted () {
-    this.$nextTick(() => {
-      window.scrollTo(0,1)
-    })
-  },
-  created () {
+  created() {
     if (process.browser) {
       // eslint-disable-next-line
       window.addEventListener('beforeunload', this.changeForm)
     }
   },
-  destory () {
+  destory() {
     window.removeEventListener('beforeunload', this.changeForm)
   },
   methods: {
     // ? ページネーションをクリック時に、currentPage にページ番号を設定
     clickCallback (pageNum) {
       this.currentPage = Number(pageNum)
-      this.$scrollTo(
-        '#header',
-        { duration: 1 },
-        { offset: -60 }
-      )
+      window.scrollTo(0,0)
       this.$router.push({ path: `?page=${this.currentPage}` })
       this.$forceUpdate()
     },
@@ -342,10 +339,15 @@ export default {
 <style>
 @media screen and (max-width: 768px) {
   img {
-    width: 365px;
+    width: 370px;
   }
 
   .title {
+    padding-left: 8px;
+    width: 370px !important;
+  }
+
+  .embedded-title {
     padding-left: 8px;
   }
 
@@ -364,6 +366,10 @@ export default {
 
 img {
   color: white;
+}
+
+.title {
+  width: 320px;
 }
 
 .material-icons {
