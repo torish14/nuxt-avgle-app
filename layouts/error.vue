@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="error">
     <div class="flex flex-wrap flex-shrink-0 justify-center bg-black">
       <template v-if="error.statusCode === 404">
         <i class="material-icons text-gray-500">error</i>
@@ -35,3 +35,9 @@ export default {
   },
 }
 </script>
+
+<style>
+.error {
+  padding-top: 80px;
+}
+</style>
