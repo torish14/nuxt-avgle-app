@@ -1,5 +1,4 @@
-// import Vue from 'vue'
-// import VueSimpleSuggest from 'vue-simple-suggest'
-// import 'vue-simple-suggest/dist/styles.css'
+import Vue from 'vue'
+import VueAutosuggest from 'vue-autosuggest'
 
-// Vue.component('VueSimpleSuggest', VueSimpleSuggest)
+Vue.use(VueAutosuggest)

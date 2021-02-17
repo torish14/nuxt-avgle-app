@@ -1,21 +1,26 @@
+import { getAccessorType } from 'typed-vuex'
+
+import * as search from '~/store/search'
+
 // const searchUrl = 'https://api.avgle.com/v1/search/'
 
 // //! 共通データを格納する工場
-// export const state = () => ({
+export const state = () => {
+  return {}
 //   soaringMessages: [],
 //   famousMessages: [],
 //   actressMessages: [],
 //   genreMessages: []
-// })
+}
 // //! state にあるデータを加工
-// export const getters = {
+export const getters = {
 //   soaringMessages: state => state.soaringMessages,
 //   famousMessages: state => state.famousMessages,
 //   actressMessages: state => state.actressMessages,
 //   genreMessages: state => state.genreMessages
-// }
+}
 // //! state の値を変更する配達員
-// export const mutations = {
+export const mutations = {
 //   // ? 日本で急上昇
 //   setSoaringItems (state, soaringMessages) {
 //     state.soaringMessages = soaringMessages
@@ -32,9 +37,9 @@
 //   setGenreItems (state, genreMessages) {
 //     state.genreMessages = genreMessages
 //   }
-// }
+}
 // //! 非同期処理
-// export const actions = {
+export const actions = {
 //   // ? メイン動画の表示
 //   async getIndexItems ({ commit }) {
 //     try {
@@ -71,4 +76,14 @@
 //       this.$router.push('/error')
 //     }
 //   }
-// }
+}
+
+export const accessorType = getAccessorType({
+  state,
+  getters,
+  mutations,
+  actions,
+  modules: {
+    search
+  }
+})

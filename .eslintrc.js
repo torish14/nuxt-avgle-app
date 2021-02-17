@@ -5,9 +5,9 @@ module.exports = {
     node: true
   },
   parserOptions: {
-    parser: 'babel-eslint'
+    parser: '@typescript-eslint/parser'
   },
-  extends: ['@nuxtjs', 'plugin:nuxt/recommended', 'prettier'],
+  extends: ['@nuxtjs', '@nuxtjs/eslint-config-typescript', 'plugin:nuxt/recommended', 'prettier'],
   // add your custom rules here
   rules: {
     'vue/comment-directive': 0,

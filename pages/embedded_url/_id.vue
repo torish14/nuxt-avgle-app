@@ -228,7 +228,8 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
 import { mapGetters } from 'vuex'
 
 // const sub = document.getElementById('sub')
@@ -246,7 +247,7 @@ function youtubeDefer () {
   const iframes = document.querySelectorAll('.youtube')
   iframes.forEach(function (iframe) {
     if (iframe.getAttribute('src')) {
-      iframe.setAttribute('src', iframe.getAttribute('src'))
+      iframe.setAttribute('src', iframe.getAttribute('src') || '{}')
     }
   })
 }
@@ -255,15 +256,14 @@ if (process.client) {
   window.addEventListener('load', youtubeDefer)
 }
 
-export default {
-  // ? layout: 'custom',
-  fetch () {
-    if (this.$store.getters['search/messages'].length > 0) {
-      return
-    }
-    this.$store.dispatch('search/getSearchItems')
-  },
-  data () {
+export type DataType = {
+  id: string,
+  parPage: number,
+  currentPage: number
+}
+
+export default Vue.extend({
+  data (): DataType {
     return {
       id: this.$route.params.id,
       // ? 1ページに表示するアイテム数
@@ -272,22 +272,36 @@ export default {
       currentPage: 1,
     }
   },
+  // ? layout: 'custom',
+  fetch () {
+    if(this.$accessor.search.messages.length > 0) {
+    // if (this.$store.getters['search/messages'].length > 0) {
+      return
+    }
+    this.$accessor.search.getSearchItems()
+    // this.$store.dispatch('search/getSearchItems')
+  },
   computed: {
     ...mapGetters('search', ['message', 'messages', 'keywords']),
     // ? 現在ページのアイテムを返す
-    getPaginationItems () {
+    getPaginationItems (): number {
+      // @ts-ignore
       const current = this.currentPage * this.parPage
+      // @ts-ignore
       const start = current - this.parPage
       // return this.messages.slice(start, current).reverse()
       return this.messages.slice(start, current).sort(function() {return Math.random()-.5;})
     },
     // ? ページネーションの最大ページ数を求めるためにitems をparPage で割って切り上げる
-    getPageCount () {
+    getPageCount (): number {
+      // @ts-ignore
       return Math.ceil(this.messages.length / this.parPage)
     },
-    messagesMatchVid () {
+    messagesMatchVid (): number {
       // console.log(this.$store.getters['search/messages'])
-      return this.$store.getters['search/messages'].find(value => value.vid === this.id)
+      // @ts-ignore
+      return this.$accessor.search.messages.find(value =>  value.vid === this.id)
+      // return this.$store.getters['search/messages'].find(value => value.vid === this.id)
     }
     // soaringMessagesMatchVid () {
     //   return this.$store.getters.soaringMessages.find(value => value.vid === this.id)
@@ -317,12 +331,13 @@ export default {
   },
   created () {
     if (process.browser) {
-      // eslint-disable-next-line
-      window.addEventListener('beforeunload', this.changeForm)
+      // @ts-ignore
+      window.addEventListener('beforeunload', this.changeForm) // eslint-disable-line
     }
     // this.$nextTick(() => this.$refs.textInput.focus())
   },
   destroyed () {
+    // @ts-ignore
     window.removeEventListener('beforeunload', this.changeForm)
   },
   methods: {
@@ -330,14 +345,15 @@ export default {
       this.$store.commit('search/changeMessage')
     },
     // ページネーションをクリック時に、currentPage にページ番号を設定
-    clickCallback (pageNum) {
+    clickCallback (pageNum: number) {
+      // @ts-ignore
       this.currentPage = Number(pageNum)
       window.scrollTo(0,0)
       this.$router.push({ path: `?page=${this.currentPage}` })
       this.$forceUpdate()
     },
-    toHms (t) {
-      let hms = ''
+    toHms (t: number): number {
+      let hms = '' as string | number
       const h = Math.ceil(t / 3600 | 0)
       const m = Math.ceil(t % 3600 / 60 | 0)
       const s = Math.ceil(t % 60)
@@ -349,10 +365,10 @@ export default {
       } else {
         hms = s
       }
-
+      // @ts-ignore
       return hms
 
-      function padZero (v) {
+      function padZero (v: number) {
         if (v < 10) {
           return '0' + v
         } else {
@@ -361,7 +377,7 @@ export default {
       }
     }
   }
-}
+})
 </script>
 
 <style>

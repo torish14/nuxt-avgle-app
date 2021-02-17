@@ -1,24 +1,23 @@
-<template>
+<!-- <template>
   <div>
-    <iframe
+    <vue-friendly-iframe
       id="elem"
       ref="iframe"
-      src="https://avgle.com/embed/3b5064c12d910234909c"
-      frameborder="0"
+      src="https://www.youtube.com/embed/g11oUbhaPh8"
+      allow="fullscreen"
+      crossorigin="use-credintials"
     />
-    <!-- <button id="trigger" ref="submitBtn" @click="consoleHello">
-      hello
-    </button> -->
   </div>
 </template>
 
 <script>
 export default {
   mounted () {
-    // const elem = this.$el
+    // const elem = document.getElementByld('elem')
     this.$nextTick(() =>
-      // console.log(elem),
-      console.log(this.$refs.iframe)
+      // console.log('$refs の値です', this.$refs.iframe),
+      // console.log(elem.contentWindow.document),
+      console.log('$el の値です', this.$el)
     )
   },
   methods: {
@@ -27,21 +26,27 @@ export default {
     },
   }
 }
-</script>
+</script> -->
 
-<style>
-
-</style>
-
-<!-- <template>
-  <div class="bg-black">
-    <VueSimpleSuggest
-      v-model="selected"
-      :list="items"
-      type="search"
-      placeholder="Search"
+<template>
+  <div id="app" class="bg-black">
+    <VueAutosuggest
+      ref="autocomplete"
+      v-model="query"
+      :suggestions="suggestions"
+      :input-props="inputProps"
+      :section-configs="sectionConfigs"
+      :render-suggestion="renderSuggestion"
+      :get-suggestion-value="getSuggestionValue"
+      @input="fetchResults"
     />
-    <p class="text-white">
+    <div v-if="selected" style="margin-top: 10px;">
+      You have selected:
+      <code>
+        <pre>{{ JSON.stringify(selected, null, 4) }}</pre>
+      </code>
+    </div>
+    <!-- <p class="text-white">
       aaaaaaaaaaaaaa
     </p>
     <p class="text-white">
@@ -70,43 +75,189 @@ export default {
     </p>
     <p class="text-white">
       aaaaaaaaaaaaaa
-    </p>
+    </p> -->
   </div>
 </template>
 
 <script>
-import VueSimpleSuggest from 'vue-simple-suggest'
+import { VueAutosuggest } from 'vue-autosuggest'
 
 export default {
   components: {
-    VueSimpleSuggest
+    VueAutosuggest
   },
-  data () {
+  data() {
     return {
-      selected: ''
-    }
+      query: '',
+      results: [],
+      timeout: null,
+      selected: null,
+      debounceMilliseconds: 250,
+      usersUrl: 'https://jsonplaceholder.typicode.com/users',
+      photosUrl: 'https://jsonplaceholder.typicode.com/photos',
+      inputProps: {
+        id: 'autosuggest__input',
+        placeholder: 'Do you feel lucky, punk?',
+        class: 'form-control',
+        name: 'hello'
+      },
+      suggestions: [],
+      sectionConfigs: {
+        destinations: {
+          limit: 6,
+          label: 'Destination',
+          onSelected: selected => {
+            this.selected = selected.item;
+          }
+        },
+        hotels: {
+          limit: 6,
+          label: 'Hotels',
+          onSelected: selected => {
+            this.selected = selected.item;
+          }
+        }
+      }
+    };
   },
   methods: {
-    items () {
-      return [
-        '10代',
-        '巨乳',
-        'エロアニメ',
-        '中出し',
-        'ナンパ',
-        '素人',
-        'オナニー',
-        '痴漢',
-        'イチャイチャ',
-        'SM'
-      ]
+    fetchResults() {
+      const query = this.query;
+
+      clearTimeout(this.timeout);
+      this.timeout = setTimeout(() => {
+        const photosPromise = this.$axios.$get(this.photosUrl);
+        const usersPromise = this.$axios.$get(this.usersUrl);
+
+        Promise.all([photosPromise, usersPromise]).then(values => {
+          this.suggestions = [];
+          this.selected = null;
+
+          const photos = this.filterResults(values[0].data, query, 'title');
+          const users = this.filterResults(values[1].data, query, 'name');
+
+          users.length &&
+            this.suggestions.push({ name: 'destinations', data: users });
+          photos.length &&
+            this.suggestions.push({ name: 'hotels', data: photos });
+        });
+      }, this.debounceMilliseconds);
+    },
+    filterResults(data, text, field) {
+      return data
+        .filter(item => {
+          if (item[field].toLowerCase().includes(text.toLowerCase())) {
+            return item[field];
+          }
+        })
+        .sort();
+    },
+    renderSuggestion(suggestion) {
+      if (suggestion.name === 'hotels') {
+        const image = suggestion.item;
+        console.log(image);
+        return (
+          <div>
+            <img class={{ avatar: true }} src={image.thumbnailUrl} />
+            {image.title}
+          </div>
+        );
+      } else {
+        return suggestion.item.name;
+      }
+    },
+    getSuggestionValue(suggestion) {
+      const { name, item } = suggestion;
+      return name === 'hotels' ? item.title : item.name;
     }
-  },
+  }
 }
 </script>
 
 <style>
-input {
+#app {
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+
+.avatar {
+  height: 25px;
+  width: 25px;
+  border-radius: 20px;
+  margin-right: 10px;
+}
+#autosuggest__input {
+  outline: none;
+  position: relative;
+  display: block;
+  border: 1px solid #616161;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+#autosuggest__input.autosuggest__input-open {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.autosuggest__results-container {
+  position: relative;
+  width: 100%;
+}
+
+.autosuggest__results {
+  font-weight: 300;
+  margin: 0;
+  position: absolute;
+  z-index: 10000001;
+  width: 100%;
+  border: 1px solid #e0e0e0;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  background: white;
+  padding: 0px;
+  max-height: 400px;
+  overflow-y: scroll;
+}
+
+.autosuggest__results ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.autosuggest__results .autosuggest__results-item {
+  cursor: pointer;
+  padding: 15px;
+}
+
+#autosuggest ul:nth-child(1) > .autosuggest__results_title {
+  border-top: none;
+}
+
+.autosuggest__results .autosuggest__results-before {
+  color: gray;
+  font-size: 11px;
+  margin-left: 0;
+  padding: 15px 13px 5px;
+  border-top: 1px solid lightgray;
+}
+
+.autosuggest__results .autosuggest__results-item:active,
+.autosuggest__results .autosuggest__results-item:hover,
+.autosuggest__results .autosuggest__results-item:focus,
+.autosuggest__results
+  .autosuggest__results-item.autosuggest__results-item--highlighted {
+  background-color: #f6f6f6;
+}
+
+/* input {
   --tw-bg-opacity: 1;
   background-color: rgba(31, 41, 55, var(--tw-bg-opacity));
   border-top-left-radius: 9999px;
@@ -117,7 +268,6 @@ input {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   --tw-text-opacity: 1;
-  /* color: rgba(107, 114, 128, var(--tw-text-opacity)); */
   color: #A0AEC0;
   line-height: 1.25;
 }
@@ -130,8 +280,6 @@ input:focus {
   position: absolute;
   left: 0;
   right: 0;
-  /* top: 100%; */
-  /* top: calc(100% + 5px); */
   opacity: 1;
   z-index: 1000;
   background-color: black;
@@ -173,5 +321,5 @@ ul {
 li {
   display: list-item;
   text-align: -webkit-match-parent;
-}
-</style> -->
+} */
+</style>

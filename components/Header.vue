@@ -87,11 +87,18 @@
   </div>
 </template>
 
-<script>
-export default {
-  components: {
-  },
-  data () {
+<script lang="ts">
+import Vue from 'vue'
+
+export type DataType = {
+  isOpen: Boolean,
+  scrollY: number,
+  isShow: Boolean,
+  selected: string
+}
+
+export default Vue.extend({
+  data (): DataType {
     return {
       isOpen: false,
       scrollY: 0,
@@ -101,11 +108,15 @@ export default {
   },
   computed: {
     computedGetState: {
-      get () {
-        return this.$store.getters['search/message']
+      get (): string {
+        // @ts-ignore
+        return this.$accessor.search.message
+        // return this.$store.getters['search/message']
       },
-      set (val) {
-        this.$store.dispatch('search/commitMessage', val)
+      set (val): void {
+        // @ts-ignore
+        this.$accessor.search.commitMessage(val)
+        // this.$store.dispatch('search/commitMessage', val)
       }
     }
   },
@@ -119,19 +130,27 @@ export default {
   },
   mounted () {
     // スクロールイベントを取得
+    // @ts-ignore
     window.addEventListener('scroll', this.onScroll)
     window.addEventListener('load', () => {
+      // @ts-ignore
       this.onScroll()
     })
     // this.$nextTick(() => this.onScroll())
   },
+  // @ts-ignore
   beforeDestroyed () {
+    // @ts-ignore
     window.removeEventListener('scroll', this.onScroll)
   },
   methods: {
-    search (e) {
+    search (e: any) {
       if (e.keyCode !== 13) { return }
+      // @ts-ignore
       this.sendRequest()
+      // @ts-ignore
+      this.changePagination()
+      // @ts-ignore
       this.isOpen = !this.isOpen
       this.$nextTick(() => {
         e.target.blur()
@@ -139,48 +158,28 @@ export default {
       })
     },
     sendRequest () {
-      this.$store.dispatch('search/getSearchItems')
+      this.$accessor.search.getSearchItems()
+      // this.$store.dispatch('search/getSearchItems')
+      // this.$refs.pagination.$el.firstElementChild.nextElementSibling.click()
       this.$router.push('/')
-      // ? 無修正の非表示
-      // if (this.$store.state.message === '無修正') {
-      //     console.log('無修正は表示できません！')
-      // } else if (this.$store.state.message === 'Uncensored') {
-      //     console.log('無修正は表示できません！')
-      // } else if (this.$store.state.message === 'PAKO') {
-      //     console.log('無修正は表示できません！')
-      // } else if (this.$store.state.message === 'Pako') {
-      //     console.log('無修正は表示できません！')
-      // } else if (this.$store.state.message === 'pako') {
-      //     console.log('無修正は表示できません！')
-      // } else if (this.$store.state.message === 'ぱこ') {
-      //     console.log('無修正は表示できません！')
-      // } else if (this.$store.state.message === 'パコ') {
-      //     console.log('無修正は表示できません！')
-      // } else if (this.$store.state.message === 'CARIB') {
-      //     console.log('無修正は表示できません！')
-      // } else if (this.$store.state.message === 'Carib') {
-      //     console.log('無修正は表示できません！')
-      // } else if (this.$store.state.message === 'carib') {
-      //     console.log('無修正は表示できません！')
-      // } else if (this.$store.state.message === 'かりぶ') {
-      //     console.log('無修正は表示できません！')
-      // } else if (this.$store.state.message === 'カリブ') {
-      //     console.log('無修正は表示できません！')
-      // }
     },
     changeForm () {
-      this.$store.commit('search/changeMessage')
+      this.$accessor.search.changeMessage()
+      // this.$store.commit('search/changeMessage')
     },
     focusSearch () {
-      this.$store.commit('search/clearMessage')
+      this.$accessor.search.clearMessage()
+      // this.$store.commit('search/clearMessage')
       this.$nextTick(() => {
         // ? https://github.com/rigor789/vue-scrollto
         this.$scrollTo(
           '#header',
           { duration: 500 },
           { easing: 'ease-out' },
+          // @ts-ignore
           { offset: -60 }
         )
+        // @ts-ignore
         this.$refs.focusInput.focus()
       })
       // setTimeout(() => {
@@ -190,6 +189,9 @@ export default {
     // スクロール値の取得
     onScroll () {
       this.$set(this, 'scrollY', window.pageYOffset)
+    },
+    changePagination () {
+      this.$emit('changePagination')
     },
     items () {
       return [
@@ -206,7 +208,7 @@ export default {
       ]
     }
   }
-}
+})
 </script>
 
 <style>

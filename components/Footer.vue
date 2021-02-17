@@ -46,25 +46,34 @@
   </footer>
 </template>
 
-<script>
-export default {
-  data() {
+<script lang="ts">
+import Vue from 'vue'
+
+export type DataType = {
+  activetab: number
+}
+
+export default Vue.extend({
+  data(): DataType {
     return {
       activetab: 1
     }
   },
   methods: {
     changeForm () {
-      this.$store.commit('search/changeMessage')
+      this.$accessor.search.changeMessage()
+      // this.$store.commit('search/changeMessage')
     },
     clearForm () {
-      this.$store.commit('search/clearMessage')
+      this.$accessor.search.clearMessage()
+      // this.$store.commit('search/clearMessage')
     },
     focusSearch () {
+      // @ts-ignore
       this.$refs.textInput.focus()
     }
   },
-}
+})
 </script>
 
 <style scoped>

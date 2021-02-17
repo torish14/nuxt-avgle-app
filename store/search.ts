@@ -1,27 +1,32 @@
+import { getterTree, mutationTree, actionTree } from 'typed-vuex'
+
 const searchUrl = 'https://api.avgle.com/v1/search/'
 
 export const state = () => ({
-  message: '',
-  messages: [],
-  keywords: [],
-  // isLoading: false
+  message: '' as string ,
+  messages: [] as any,
+  keywords: [] as any,
+  isLoading: false as Boolean
 })
 
-export const getters = {
+export type RootState = ReturnType<typeof state>
+
+export const getters = getterTree(state, {
   message: state => state.message,
   messages: state => state.messages,
-  keywords: state => state.keywords
-}
+  keywords: state => state.keywords,
+  isLoading: state => state.isLoading
+})
 
-export const mutations = {
-  mutateMessage (state, payload) {
+export const mutations = mutationTree(state, {
+  mutateMessage (state, payload: string): void {
     state.message = payload
   },
   // ? 検索結果
-  setSearchItems (state, messages) {
+  setSearchItems (state, messages: any): void {
     state.messages = messages
   },
-  setSearchKeywords (state, keywords) {
+  setSearchKeywords (state, keywords: any): void {
     state.keywords = keywords
   },
   suggestMessage (state) {
@@ -64,15 +69,15 @@ export const mutations = {
   clearMessage (state) {
     state.message = ''
   },
-  // hideLoading(state) {
-  //   state.isLoading = false
-  // },
-  // showLoading(state) {
-  //   state.isLoading = true
-  // }
-}
+  hideLoading(state) {
+    state.isLoading = false
+  },
+  showLoading(state) {
+    state.isLoading = true
+  }
+})
 
-export const actions = {
+export const actions = actionTree({ state, getters, mutations }, {
   commitMessage ({ commit }, payload) {
     return commit('mutateMessage', payload)
   },
@@ -80,20 +85,28 @@ export const actions = {
     // const obj = JSON.parse(localStorage.getItem('vuex'))
     // if (!obj.search.message) { obj.search.message = '日本人' }
 
-    // commit('showLoading')
+    commit('showLoading')
     const config = {
-      headers: { 'content-type': 'application/json' }
+      headers: { 'content-type': 'application/json' },
     }
+    // @ts-ignore
     const getSearchItemsResponse = await this.$axios
-      .$get(encodeURI(searchUrl + state.message + '/0' + '?limit=250' + '?type=public'), config)
+      .$get(
+        encodeURI(
+          searchUrl + state.message + '/0' + '?limit=250' + '?type=public'
+        ),
+        config
+      )
+      // @ts-ignore
       .catch((err) => {
         if (err.response.status !== 403) {
-          // commit('hideLoading')
+          commit('hideLoading')
           this.$router.push('/error')
         }
       })
-
+    // ? keyword 精査
     console.log(
+      // @ts-ignore
       getSearchItemsResponse.response.videos.map((value) =>
         value.keyword
           .split(/,|\s/)
@@ -102,6 +115,7 @@ export const actions = {
             /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/
           )
           .filter(
+            // @ts-ignore
             (value) =>
               value !== state.messages.title &&
               value !== state.message &&
@@ -126,12 +140,37 @@ export const actions = {
               value !== 'ハイビジョン'
           )
           .slice(0, 3)
+      )
+    )
+    // ? title 精査
+    console.log(
+      // @ts-ignore
+      getSearchItemsResponse.response.videos.map((value) =>
+        value.title
+          .split(/,|\s/)
+          .filter(
+            // @ts-ignore
+            (value) =>
+              !value.match('無修正') &&
+              !value.match('完全素人') &&
+              !value.match('個人撮影') &&
+              !value.match('FC2') &&
+              !value.match('Fc2') &&
+              !value.match('fc2') &&
+              !value.match('DEEPFAKE') &&
+              !value.match('DeepFake') &&
+              !value.match('Deepfake') &&
+              !value.match('deepfake')
+          )
+          // @ts-ignore
+          .filter((value) => value)
       )
     )
 
     commit('setSearchItems', getSearchItemsResponse.response.videos)
     commit(
       'setSearchKeywords',
+      // @ts-ignore
       getSearchItemsResponse.response.videos.map((value) =>
         value.keyword
           .split(/,|\s/)
@@ -140,6 +179,7 @@ export const actions = {
             /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/
           )
           .filter(
+            // @ts-ignore
             (value) =>
               value !== state.messages.title &&
               value !== state.message &&
@@ -166,6 +206,6 @@ export const actions = {
           .slice(0, 3)
       )
     )
-    // commit('hideLoading')
+    commit('hideLoading')
   }
-}
+})

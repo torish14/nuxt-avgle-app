@@ -10,6 +10,8 @@
       <template v-else class="text-gray-500 text-lg">
         <i class="material-icons text-gray-500">error</i>
         <h5 class="text-gray-500 text-lg">
+          {{ error.statusCode }}
+          {{ error.message }}
           &nbsp;エラーが発生しました
         </h5>
       </template>
@@ -30,7 +32,8 @@ export default {
   },
   methods: {
     changeForm () {
-      this.$store.commit('search/changeMessage')
+      this.$accessor.search.changeMessage()
+      // this.$store.commit('search/changeMessage')
     }
   },
 }

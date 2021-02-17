@@ -109,6 +109,7 @@
           <!-- </div> -->
         </div>
         <Paginate
+          ref="pagination"
           :page-count="getPageCount"
           :page-range="3"
           :margin-pages="2"
@@ -124,6 +125,9 @@
           :page-link-class="'page-link'"
           class="sm:pt-4 md:pt-6 lg:pt-8 xl:pt-8"
         />
+        <p class="text-white" @click="changePagination">
+          テスト
+        </p>
       </template>
     </div>
     <Loading
@@ -137,12 +141,13 @@
   </div>
 </template>
 
-<script>
-import { mapGetters } from 'vuex'
+<script lang="ts">
 import Vue from 'vue'
+import { mapGetters } from 'vuex'
 import Loading from 'vue-loading-overlay'
 import 'vue-loading-overlay/dist/vue-loading.css'
 
+// @ts-ignore
 Vue.component(Loading)
 
 // document.addEventListener('DOMContentLoaded', function () {
@@ -194,19 +199,17 @@ Vue.component(Loading)
 // playVideo()
 // pauseVideo()
 // }, false)
+export type DataType = {
+  parPage: number,
+  currentPage: number
+}
 
-export default {
+export default Vue.extend({
   components: {
+    // @ts-ignore
     Loading
   },
-  fetch () {
-    if (this.$store.getters['search/messages'].length > 0) {
-      return
-    }
-    this.$store.commit('search/changeMessage')
-    this.$store.dispatch('search/getSearchItems')
-  },
-  data () {
+  data (): DataType {
     return {
       // ? 1ページに表示するアイテム数
       parPage: 20,
@@ -214,17 +217,30 @@ export default {
       currentPage: 1
     }
   },
+  fetch () {
+    if(this.$accessor.search.messages.length > 0) {
+    // if (this.$store.getters['search/messages'].length > 0) {
+      return
+    }
+    this.$accessor.search.changeMessage()
+    // this.$store.commit('search/changeMessage')
+    this.$accessor.search.getSearchItems()
+    // this.$store.dispatch('search/getSearchItems')
+  },
   computed: {
     ...mapGetters('search', ['message', 'messages', 'keywords', 'isLoading']),
     // ...mapGetters('search', ['message','messages', 'keywords']),
     // ? 現在ページのアイテムを返す
-    getPaginationItems () {
+    getPaginationItems (): number {
+      // @ts-ignore
       const current = this.currentPage * this.parPage
+      // @ts-ignore
       const start = current - this.parPage
       return this.messages.slice(start, current).sort(function() {return Math.random()-.5;})
     },
     // ? ページネーションの最大ページ数を求めるためにitems をparPage で割って切り上げる
-    getPageCount () {
+    getPageCount (): number {
+      // @ts-ignore
       return Math.ceil(this.messages.length / this.parPage)
     }
   },
@@ -234,6 +250,7 @@ export default {
   mounted() {
     this.$nextTick(() => {
       window.scrollTo(0,1)
+      // console.log(this.$refs.pagination.$el.firstElementChild.nextElementSibling.firstElementChild)
     })
   },
   activated() {
@@ -244,69 +261,36 @@ export default {
   },
   created() {
     if (process.browser) {
-      // eslint-disable-next-line
-      window.addEventListener('beforeunload', this.changeForm)
+      // @ts-ignore
+      window.addEventListener('beforeunload', this.changeForm) // eslint-disable-line
     }
   },
   destory() {
+    // @ts-ignore
     window.removeEventListener('beforeunload', this.changeForm)
   },
   methods: {
     // ? ページネーションをクリック時に、currentPage にページ番号を設定
-    clickCallback (pageNum) {
+    clickCallback (pageNum: number) {
+      // @ts-ignore
       this.currentPage = Number(pageNum)
       window.scrollTo(0,0)
-      this.$router.push({ path: `?page=${this.currentPage}` })
+      // this.$router.push({
+      //   params: {
+      //     page: this.currentPage
+      //   }
+      // })
+      // this.$router.push({ path: `?page=${this.currentPage}` })
       this.$forceUpdate()
     },
-    // search (e) {
-    // if (e.keyCode !== 13) { return }
-    // this.trueOrFalse = false
-    // this.sendRequest()
-    // ? 無修正の非表示
-    // if (this.$store.state.message === '無修正') {
-    //     console.log('無修正は表示できません！')
-    // } else if (this.$store.state.message === 'むしゅうせい') {
-    //     console.log('無修正は表示できません！')
-    // } else if (this.$store.state.message === 'ムシュウセイ') {
-    //     console.log('無修正は表示できません！')
-    // } else if (this.$store.state.message === 'PAKO') {
-    //     console.log('無修正は表示できません！')
-    // } else if (this.$store.state.message === 'Pako') {
-    //     console.log('無修正は表示できません！')
-    // } else if (this.$store.state.message === 'pako') {
-    //     console.log('無修正は表示できません！')
-    // } else if (this.$store.state.message === 'ぱこ') {
-    //     console.log('無修正は表示できません！')
-    // } else if (this.$store.state.message === 'パコ') {
-    //     console.log('無修正は表示できません！')
-    // } else if (this.$store.state.message === 'CARIB') {
-    //     console.log('無修正は表示できません！')
-    // } else if (this.$store.state.message === 'Carib') {
-    //     console.log('無修正は表示できません！')
-    // } else if (this.$store.state.message === 'carib') {
-    //     console.log('無修正は表示できません！')
-    // } else if (this.$store.state.message === 'かりぶ') {
-    //     console.log('無修正は表示できません！')
-    // } else if (this.$store.state.message === 'カリブ') {
-    //     console.log('無修正は表示できません！')
-    // } else {
-    //   Promise.all([
-    //     axios.get(searchUrl + this.$store.state.message + '/0'),
-    //     axios.get(searchUrl + this.$store.state.message + '/1'),
-    //     axios.get(searchUrl + this.$store.state.message + '/2')
-    //   ]).then(([apiResult0, apiResult1, apiResult2]) => {
-    //     this.searchData0 = apiResult0.data.response.videos
-    //     this.searchData1 = apiResult1.data.response.videos
-    //     this.searchData2 = apiResult2.data.response.videos
-    //   })
-    // }
-    // },
-    // sendRequest () {
-    // this.trueOrFalse = false
-    // this.$store.dispatch('getItems')
-    toHms (t) {
-      let hms = ''
+    changePagination () {
+      this.$nextTick(() => {
+        // @ts-ignore
+        this.$refs.pagination.$el.firstElementChild.nextElementSibling.firstElementChild.click()
+      })
+    },
+    toHms (t): number {
+      let hms = '' as string | number
       const h = Math.ceil(t / 3600 | 0)
       const m = Math.ceil(t % 3600 / 60 | 0)
       const s = Math.ceil(t % 60)
@@ -318,10 +302,10 @@ export default {
       } else {
         hms = s
       }
-
+      // @ts-ignore
       return hms
 
-      function padZero (v) {
+      function padZero (v: number) {
         if (v < 10) {
           return '0' + v
         } else {
@@ -330,10 +314,11 @@ export default {
       }
     },
     changeForm () {
-      this.$store.commit('search/changeMessage')
+      this.$accessor.search.changeMessage()
+      // this.$store.commit('search/changeMessage')
     }
   }
-}
+})
 </script>
 
 <style>

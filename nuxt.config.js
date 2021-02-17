@@ -15,7 +15,7 @@ const shortName = 'Porngle'
 
 export default {
   // srcDir: 'app',
-  ssr: true,
+  ssr: false,
 
   telemetry: false,
   /*
@@ -93,7 +93,18 @@ export default {
     //   rel: 'stylesheet', href: 'https://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.css'
     // }],
 
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [
+      {
+        rel: 'icon',
+        type: 'image/x-icon',
+        href: '/favicon.ico',
+      },
+      {
+        rel: 'apple-touch-icon',
+        sizes: '180x180',
+        href: '/favicon.ico',
+      },
+    ],
   },
   /*
    ** Customize the progress-bar color
@@ -111,7 +122,7 @@ export default {
   /*
    ** Global CSS
    */
-  // css: ['firebaseui/dist/firebaseui.css'],
+  css: ['ress'],
   /*
    ** Plugins to load before mounting the App
    */
@@ -120,10 +131,12 @@ export default {
     // { src: '~plugins/ga.js', mode: 'client' },
     { src: '~/plugins/axios.js', mode: 'client' },
     '~/plugins/sentry.js',
+    '~/plugins/logrocket.js',
     { src: '~/plugins/pagination.js', mode: 'client' },
     '~/plugins/scroll.js',
-    '~/plugins/lazyload.js'
-    // '~/plugins/suggest.js'
+    '~/plugins/lazyload.js',
+    '~/plugins/iframe.js',
+    '~/plugins/suggest.js',
   ],
   router: {
     base: baseDir,
@@ -148,6 +161,10 @@ export default {
     '@nuxtjs/sitemap',
     // Doc: https://github.com/nuxt-community/gtm-module
     '@nuxtjs/gtm',
+    // Doc: https://typescript.nuxtjs.org/ja/
+    '@nuxt/typescript-build',
+    // Doc: https://typed-vuex.roe.dev
+    'nuxt-typed-vuex'
   ],
   'nuxt-compress': {
     gzip: {
@@ -219,6 +236,7 @@ export default {
     '@nuxtjs/axios',
     'nuxt-material-design-icons',
     ['@nuxtjs/pwa', { icon: false }],
+    '@nuxtjs/robots',
   ],
   workbox: {
     skipWaiting: true,
@@ -231,10 +249,10 @@ export default {
           cacheName: 'my-cache',
           cacheExpiration: {
             maxAgeSeconds: 24 * 60 * 60 * 30,
-          }
-        }
-      }
-    ]
+          },
+        },
+      },
+    ],
   },
   /*
    ** Axios module configuration
@@ -247,12 +265,12 @@ export default {
     retry: {
       retries: 3,
     },
-    // prefix: process.browser ? '' : process.env.API_HOST
+    // prefix: process.browser ? '' : process.env.API_HOST,
     // timeout: 3000
   },
   proxy: {
     '/api': {
-      target: searchUrl,
+      target: Url || process.env.API_HOST || searchUrl,
       pathRewrite: {
         '^/api/': '/',
       },
@@ -266,7 +284,12 @@ export default {
     /*
      ** You can extend webpack config here
      */
+    transpile: [
+      /typed-vuex/
+    ],
     extend(config) {
+      const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
+      config.plugins.push(new HardSourceWebpackPlugin())
       config.performance = config.performance || {}
       config.performance.maxEntrypointSize = 1200 * 1024
       config.performance.maxAssetSize = 700 * 1024
@@ -294,5 +317,10 @@ export default {
         Vary: '*',
       },
     },
+    terser: {
+      terserOptions: {
+        compress: { drop_console: true },
+      },
+    }
   },
 }
