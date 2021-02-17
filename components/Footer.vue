@@ -9,10 +9,10 @@
           class="w-40"
         >
       </a>
-      <p class="text-sm text-gray-600 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-800 sm:py-2 sm:mt-0 mt-4">
+      <p class="text-sm text-gray-600 sm:ml-4 sm:pl-4 sm:py-2 sm:mt-0 mt-4">
         &copy; 2020 - Porngle
       </p>
-      <p class="text-xs text-gray-600 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-800 sm:py-2 sm:mt-0 mt-4">
+      <p class="text-xs text-gray-600 sm:ml-4 sm:pl-4 sm:py-2 sm:mt-0 mt-4">
         porngle.love@gmail.com
       </p>
     </div>
