@@ -1,4 +1,4 @@
-# nuxt-avgle-api
+# nuxt-pornhub-api
 
 > My glorious Nuxt.js project
 
