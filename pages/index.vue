@@ -109,7 +109,7 @@
           <!-- </div> -->
         </div>
         <Paginate
-          ref="pagination"
+          v-model="$store.state.currentPage"
           :page-count="getPageCount"
           :page-range="3"
           :margin-pages="2"
@@ -125,9 +125,6 @@
           :page-link-class="'page-link'"
           class="sm:pt-4 md:pt-6 lg:pt-8 xl:pt-8"
         />
-        <p class="text-white" @click="changePagination">
-          テスト
-        </p>
       </template>
     </div>
     <Loading
@@ -201,7 +198,6 @@ Vue.component(Loading)
 // }, false)
 export type DataType = {
   parPage: number,
-  currentPage: number
 }
 
 export default Vue.extend({
@@ -212,20 +208,15 @@ export default Vue.extend({
   data (): DataType {
     return {
       // ? 1ページに表示するアイテム数
-      parPage: 20,
-      // ? 現在のページ番号
-      currentPage: 1
+      parPage: 20
     }
   },
   fetch () {
     if(this.$accessor.search.messages.length > 0) {
-    // if (this.$store.getters['search/messages'].length > 0) {
       return
     }
     this.$accessor.search.changeMessage()
-    // this.$store.commit('search/changeMessage')
     this.$accessor.search.getSearchItems()
-    // this.$store.dispatch('search/getSearchItems')
   },
   computed: {
     ...mapGetters('search', ['message', 'messages', 'keywords', 'isLoading']),
@@ -233,7 +224,7 @@ export default Vue.extend({
     // ? 現在ページのアイテムを返す
     getPaginationItems (): number {
       // @ts-ignore
-      const current = this.currentPage * this.parPage
+      const current = this.$accessor.currentPage * this.parPage
       // @ts-ignore
       const start = current - this.parPage
       return this.messages.slice(start, current).sort(function() {return Math.random()-.5;})
@@ -273,7 +264,9 @@ export default Vue.extend({
     // ? ページネーションをクリック時に、currentPage にページ番号を設定
     clickCallback (pageNum: number) {
       // @ts-ignore
-      this.currentPage = Number(pageNum)
+      this.$store.state.currentPage = pageNum
+      // @ts-ignore
+      this.$accessor.setCurrentPage(this.$store.state.currentPage)
       window.scrollTo(0,0)
       // this.$router.push({
       //   params: {
@@ -282,12 +275,6 @@ export default Vue.extend({
       // })
       // this.$router.push({ path: `?page=${this.currentPage}` })
       this.$forceUpdate()
-    },
-    changePagination () {
-      this.$nextTick(() => {
-        // @ts-ignore
-        this.$refs.pagination.$el.firstElementChild.nextElementSibling.firstElementChild.click()
-      })
     },
     toHms (t): number {
       let hms = '' as string | number
@@ -315,7 +302,6 @@ export default Vue.extend({
     },
     changeForm () {
       this.$accessor.search.changeMessage()
-      // this.$store.commit('search/changeMessage')
     }
   }
 })
@@ -687,6 +673,8 @@ body {
 
 <script>
 import { mapGetters } from 'vuex'
+import { accessorType } from '../store/index';
+import { store, Store } from '@/store';
 
 export default {
   fetch ({ store }) {

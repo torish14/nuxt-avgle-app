@@ -111,12 +111,10 @@ export default Vue.extend({
       get (): string {
         // @ts-ignore
         return this.$accessor.search.message
-        // return this.$store.getters['search/message']
       },
       set (val): void {
         // @ts-ignore
         this.$accessor.search.commitMessage(val)
-        // this.$store.dispatch('search/commitMessage', val)
       }
     }
   },
@@ -149,8 +147,6 @@ export default Vue.extend({
       // @ts-ignore
       this.sendRequest()
       // @ts-ignore
-      this.changePagination()
-      // @ts-ignore
       this.isOpen = !this.isOpen
       this.$nextTick(() => {
         e.target.blur()
@@ -159,17 +155,15 @@ export default Vue.extend({
     },
     sendRequest () {
       this.$accessor.search.getSearchItems()
-      // this.$store.dispatch('search/getSearchItems')
-      // this.$refs.pagination.$el.firstElementChild.nextElementSibling.click()
+      // @ts-ignore
+      this.$accessor.changePagination()
       this.$router.push('/')
     },
     changeForm () {
       this.$accessor.search.changeMessage()
-      // this.$store.commit('search/changeMessage')
     },
     focusSearch () {
       this.$accessor.search.clearMessage()
-      // this.$store.commit('search/clearMessage')
       this.$nextTick(() => {
         // ? https://github.com/rigor789/vue-scrollto
         this.$scrollTo(
@@ -189,9 +183,6 @@ export default Vue.extend({
     // スクロール値の取得
     onScroll () {
       this.$set(this, 'scrollY', window.pageYOffset)
-    },
-    changePagination () {
-      this.$emit('changePagination')
     },
     items () {
       return [
