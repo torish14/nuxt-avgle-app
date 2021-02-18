@@ -62,11 +62,9 @@ export default Vue.extend({
   methods: {
     changeForm () {
       this.$accessor.search.changeMessage()
-      // this.$store.commit('search/changeMessage')
     },
     clearForm () {
       this.$accessor.search.clearMessage()
-      // this.$store.commit('search/clearMessage')
     },
     focusSearch () {
       // @ts-ignore

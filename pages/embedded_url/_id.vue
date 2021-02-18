@@ -275,11 +275,9 @@ export default Vue.extend({
   // ? layout: 'custom',
   fetch () {
     if(this.$accessor.search.messages.length > 0) {
-    // if (this.$store.getters['search/messages'].length > 0) {
       return
     }
     this.$accessor.search.getSearchItems()
-    // this.$store.dispatch('search/getSearchItems')
   },
   computed: {
     ...mapGetters('search', ['message', 'messages', 'keywords']),
@@ -298,27 +296,9 @@ export default Vue.extend({
       return Math.ceil(this.messages.length / this.parPage)
     },
     messagesMatchVid (): number {
-      // console.log(this.$store.getters['search/messages'])
       // @ts-ignore
       return this.$accessor.search.messages.find(value =>  value.vid === this.id)
-      // return this.$store.getters['search/messages'].find(value => value.vid === this.id)
     }
-    // soaringMessagesMatchVid () {
-    //   return this.$store.getters.soaringMessages.find(value => value.vid === this.id)
-    //   console.log(this.$store.getters.soaringMessages)
-    // },
-    // famousMessagesMatchVid () {
-    //   return this.$store.getters.famousMessages.find(value => value.vid === this.id)
-    //   console.log(this.$store.getters.famousMessages)
-    // },
-    // actressMessagesMatchVid () {
-    //   return this.$store.getters.actressMessages.find(value => value.vid === this.id)
-    //   console.log(this.$store.getters.actressMessages)
-    // },
-    // genreMessagesMatchVid () {
-    //   return this.$store.getters.genreMessages.find(value => value.vid === this.id)
-    //   console.log(this.$store.getters.genreMessages)
-    // }
   },
   watch: {
     '$route.query': '$fetch'
@@ -342,12 +322,12 @@ export default Vue.extend({
   },
   methods: {
     changeForm () {
-      this.$store.commit('search/changeMessage')
+      this.$accessor.search.changeMessage()
     },
     // ページネーションをクリック時に、currentPage にページ番号を設定
     clickCallback (pageNum: number) {
       // @ts-ignore
-      this.currentPage = Number(pageNum)
+      this.currentPage = pageNum
       window.scrollTo(0,0)
       this.$router.push({ path: `?page=${this.currentPage}` })
       this.$forceUpdate()
