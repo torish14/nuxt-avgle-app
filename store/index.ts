@@ -1,26 +1,34 @@
-import { getAccessorType } from 'typed-vuex'
+import { getAccessorType, getterTree, mutationTree, actionTree } from 'typed-vuex'
 
 import * as search from '~/store/search'
 
 // const searchUrl = 'https://api.avgle.com/v1/search/'
 
-// //! 共通データを格納する工場
-export const state = () => {
-  return {}
-//   soaringMessages: [],
-//   famousMessages: [],
-//   actressMessages: [],
-//   genreMessages: []
-}
-// //! state にあるデータを加工
-export const getters = {
+export const state = () => ({
+  currentPage: 1 as number
+  //   soaringMessages: [],
+  //   famousMessages: [],
+  //   actressMessages: [],
+  //   genreMessages: []
+})
+
+export type RootState = ReturnType<typeof state>
+
+export const getters = getterTree(state, {
+  currentPage: state => state.currentPage
 //   soaringMessages: state => state.soaringMessages,
 //   famousMessages: state => state.famousMessages,
 //   actressMessages: state => state.actressMessages,
 //   genreMessages: state => state.genreMessages
-}
-// //! state の値を変更する配達員
-export const mutations = {
+})
+
+export const mutations = mutationTree(state, {
+  setCurrentPage (state, currentPage) {
+    state.currentPage = currentPage
+  },
+  changePagination (state) {
+    state.currentPage = 1
+  }
 //   // ? 日本で急上昇
 //   setSoaringItems (state, soaringMessages) {
 //     state.soaringMessages = soaringMessages
@@ -37,9 +45,9 @@ export const mutations = {
 //   setGenreItems (state, genreMessages) {
 //     state.genreMessages = genreMessages
 //   }
-}
-// //! 非同期処理
-export const actions = {
+})
+
+export const actions = actionTree({ state, getters, mutations }, {
 //   // ? メイン動画の表示
 //   async getIndexItems ({ commit }) {
 //     try {
@@ -76,7 +84,7 @@ export const actions = {
 //       this.$router.push('/error')
 //     }
 //   }
-}
+})
 
 export const accessorType = getAccessorType({
   state,

@@ -6,7 +6,7 @@ export const state = () => ({
   message: '' as string ,
   messages: [] as any,
   keywords: [] as any,
-  isLoading: false as Boolean
+  isLoading: false as Boolean,
 })
 
 export type RootState = ReturnType<typeof state>
