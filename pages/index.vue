@@ -3,7 +3,6 @@
     <div class="flex flex-wrap bg-black justify-center">
       <!-- 検索結果表示 -->
       <template v-if="messages.length === 0 && !isLoading || message === '無修正' || message === 'Uncensored' || message === 'uncensored' || message === 'PAKO' || message === 'Pako' || message === 'pako' || message === 'ぱこ' || message === 'パコ' || message === 'CARIB' || message === 'Carib' || message === 'carib' || message === 'かりぶ' || message === 'カリブ' || message === 'FC2' || message === 'Fc2' || message === 'fc2' || message === '完全素人' || message === '個人撮影' || message === 'DEEPFAKE' || message === 'DeepFake' || message === 'Deepfake' || message === 'deepfake'">
-        <!-- <template v-if="messages.length === 0"> -->
         <client-only>
           <i class="material-icons text-gray-500">error</i>
           <h5 class="text-gray-500 text-lg">
@@ -109,15 +108,15 @@
           <!-- </div> -->
         </div>
         <Paginate
-          v-model="$store.state.currentPage"
+          v-model="$store.state.currentIndexPage"
           :page-count="getPageCount"
           :page-range="3"
-          :margin-pages="2"
+          :margin-pages="1"
           :click-handler="clickCallback"
           :prev-text="'前'"
           :prev-class="'page-item'"
           :prev-link-class="'page-link'"
-          :next-text="'次へ >'"
+          :next-text="'次へ'"
           :next-class="'page-item'"
           :next-link-class="'page-item'"
           :container-class="'pagination'"
@@ -220,11 +219,10 @@ export default Vue.extend({
   },
   computed: {
     ...mapGetters('search', ['message', 'messages', 'keywords', 'isLoading']),
-    // ...mapGetters('search', ['message','messages', 'keywords']),
     // ? 現在ページのアイテムを返す
     getPaginationItems (): number {
       // @ts-ignore
-      const current = this.$accessor.currentPage * this.parPage
+      const current = this.$accessor.currentIndexPage * this.parPage
       // @ts-ignore
       const start = current - this.parPage
       return this.messages.slice(start, current).sort(function() {return Math.random()-.5;})
@@ -241,11 +239,10 @@ export default Vue.extend({
   mounted() {
     this.$nextTick(() => {
       window.scrollTo(0,1)
-      // console.log(this.$refs.pagination.$el.firstElementChild.nextElementSibling.firstElementChild)
     })
   },
   activated() {
-    // 最後の fetch から30秒以上経っていれば、fetch を呼び出します
+    // 最後の fetch から30秒以上経っていれば、fetch を呼び出す
     if (this.$fetchState.timestamp <= Date.now() - 30000) {
       this.$fetch()
     }
@@ -264,16 +261,11 @@ export default Vue.extend({
     // ? ページネーションをクリック時に、currentPage にページ番号を設定
     clickCallback (pageNum: number) {
       // @ts-ignore
-      this.$store.state.currentPage = pageNum
+      this.$store.state.currentIndexPage = pageNum
       // @ts-ignore
-      this.$accessor.setCurrentPage(this.$store.state.currentPage)
+      this.$accessor.setCurrentIndexPage(this.$store.state.currentIndexPage)
       window.scrollTo(0,0)
-      // this.$router.push({
-      //   params: {
-      //     page: this.currentPage
-      //   }
-      // })
-      // this.$router.push({ path: `?page=${this.currentPage}` })
+      this.$router.push({ path: `?page=${this.$accessor.currentIndexPage}` })
       this.$forceUpdate()
     },
     toHms (t): number {

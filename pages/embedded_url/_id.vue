@@ -1,9 +1,6 @@
 <template>
   <div class="main">
     <div class="bg-black">
-      <!-- <div class="flex flex-wrap bg-black p-4"> -->
-      <!-- 埋め込み検索結果 -->
-      <!-- <div class="sm:h-64 sm:w-1/3 md:h-64 md:w-1/3 lg:h-64 lg:w-1/3 xl:h-64 xl:w-1/3 p-4"> -->
       <div>
         <template v-if="messagesMatchVid">
           <div class="relative sm:w-full md:w-full lg:w-full xl:w-11/12 h-0" style="padding-top: 50%;">
@@ -23,74 +20,6 @@
             {{ messagesMatchVid.title.slice(0,40) }}
           </h5>
         </template>
-        <!-- <template v-else-if="soaringMessagesMatchVid">
-          <iframe
-            id="sub"
-            :data-src="soaringMessagesMatchVid.embedded_url"
-            frameborder="0"
-            scrolling="no"
-            allowfullscreen
-            referrerpolicy="always"
-            class="youtube"
-            width="500"
-            height="298"
-          />
-          <h5 class="pb-16 text-gray-300 text-lg">
-            {{ soaringMessagesMatchVid.title.slice(0,17) }}
-            {{ soaringMessagesMatchVid.title.slice(17,34) }}
-          </h5>
-        </template>
-        <template v-else-if="famousMessagesMatchVid">
-          <iframe
-            id="sub"
-            :src="famousMessagesMatchVid.embedded_url"
-            frameborder="0"
-            scrolling="no"
-            allowfullscreen
-            referrerpolicy="always"
-            class="youtube"
-            width="500"
-            height="298"
-          />
-          <h5 class="pb-16 text-gray-300 text-lg">
-            {{ famousMessagesMatchVid.title.slice(0,17) }}
-            {{ famousMessagesMatchVid.title.slice(17,34) }}
-          </h5>
-        </template>
-        <template v-else-if="actressMessagesMatchVid">
-          <iframe
-            id="sub"
-            :src="actressMessagesMatchVid.embedded_url"
-            frameborder="0"
-            scrolling="no"
-            allowfullscreen
-            referrerpolicy="always"
-            class="youtube"
-            width="500"
-            height="298"
-          />
-          <h5 class="pb-16 text-gray-300 text-lg">
-            {{ actressMessagesMatchVid.title.slice(0,17) }}
-            {{ actressMessagesMatchVid.title.slice(17,34) }}
-          </h5>
-        </template>
-        <template v-else-if="genreMessagesMatchVid">
-          <iframe
-            id="sub"
-            :src="genreMessagesMatchVid.embedded_url"
-            frameborder="0"
-            scrolling="no"
-            allowfullscreen
-            referrerpolicy="always"
-            class="youtube"
-            width="500"
-            height="298"
-          />
-          <h5 class="pb-16 text-gray-300 text-lg">
-            {{ genreMessagesMatchVid.title.slice(0,17) }}
-            {{ genreMessagesMatchVid.title.slice(17,34) }}
-          </h5>
-        </template> -->
         <template v-else-if="message === '無修正' || message === 'Uncensored' || message === 'uncensored' || message === 'PAKO' || message === 'Pako' || message === 'pako' || message === 'ぱこ' || message === 'パコ' || message === 'CARIB' || message === 'Carib' || message === 'carib' || message === 'かりぶ' || message === 'カリブ' || message === 'FC2' || message === 'Fc2' || message === 'fc2' || message === '完全素人' || message === '個人撮影' || message === 'DEEPFAKE' || message.match('DeepFake') || message === 'Deepfake' || message === 'deepfake'">
           <client-only>
             <i class="material-icons text-gray-500">error</i>
@@ -108,7 +37,6 @@
           </client-only>
         </template>
       </div>
-      <!-- 表示させる画像の順番を降順にする -->
       <div class="flex flex-wrap justify-center">
         <div v-for="data in getPaginationItems" :key="data.vid" class="bg-black md:px-2 lg:px-2 xl:px-2 2xl:px-2 lg:mt-8 xl:mt-8 2xl:mt-8">
           <!-- <div v-if="!data.title.match('無修正') && !data.title.match('完全素人') && !data.title.match('個人撮影') && !data.title.match('FC2') && !data.title.match('Fc2') && !data.title.match('fc2') && !data.title.match('DEEPFAKE') && !data.title.match('DeepFake') && !data.title.match('Deepfake') && !data.title.match('deepfake')"> -->
@@ -210,12 +138,12 @@
         <Paginate
           :page-count="getPageCount"
           :page-range="3"
-          :margin-pages="2"
+          :margin-pages="1"
           :click-handler="clickCallback"
           :prev-text="'前'"
           :prev-class="'page-item'"
           :prev-link-class="'page-link'"
-          :next-text="'次へ >'"
+          :next-text="'次へ'"
           :next-class="'page-item'"
           :next-link-class="'page-item'"
           :container-class="'pagination'"
@@ -232,17 +160,6 @@
 import Vue from 'vue'
 import { mapGetters } from 'vuex'
 
-// const sub = document.getElementById('sub')
-// function func1 () {
-//   // ? contentWindow.document でiframe内の要素にアクセス
-//   const item = sub.contentWindow.document.getElementById('player_3x2_close')
-//   // ? 削除するクラス名
-//   item.classList.remove('glyphicon glyphicon-remove')
-//   // ? 追加するクラス名
-//   item.classList.add('sample')
-// }
-// func1()
-
 function youtubeDefer () {
   const iframes = document.querySelectorAll('.youtube')
   iframes.forEach(function (iframe) {
@@ -258,8 +175,7 @@ if (process.client) {
 
 export type DataType = {
   id: string,
-  parPage: number,
-  currentPage: number
+  parPage: number
 }
 
 export default Vue.extend({
@@ -267,9 +183,7 @@ export default Vue.extend({
     return {
       id: this.$route.params.id,
       // ? 1ページに表示するアイテム数
-      parPage: 20,
-      // ? 現在のページ番号
-      currentPage: 1,
+      parPage: 20
     }
   },
   // ? layout: 'custom',
@@ -284,10 +198,9 @@ export default Vue.extend({
     // ? 現在ページのアイテムを返す
     getPaginationItems (): number {
       // @ts-ignore
-      const current = this.currentPage * this.parPage
+      const current = this.$accessor.currentIdPage * this.parPage
       // @ts-ignore
       const start = current - this.parPage
-      // return this.messages.slice(start, current).reverse()
       return this.messages.slice(start, current).sort(function() {return Math.random()-.5;})
     },
     // ? ページネーションの最大ページ数を求めるためにitems をparPage で割って切り上げる
@@ -304,7 +217,7 @@ export default Vue.extend({
     '$route.query': '$fetch'
   },
   activated() {
-    // 最後の fetch から30秒以上経っていれば、fetch を呼び出します
+    // 最後の fetch から30秒以上経っていれば、fetch を呼び出す
     if (this.$fetchState.timestamp <= Date.now() - 30000) {
       this.$fetch()
     }
@@ -314,7 +227,6 @@ export default Vue.extend({
       // @ts-ignore
       window.addEventListener('beforeunload', this.changeForm) // eslint-disable-line
     }
-    // this.$nextTick(() => this.$refs.textInput.focus())
   },
   destroyed () {
     // @ts-ignore
@@ -324,12 +236,14 @@ export default Vue.extend({
     changeForm () {
       this.$accessor.search.changeMessage()
     },
-    // ページネーションをクリック時に、currentPage にページ番号を設定
+    // ? ページネーションをクリック時に、currentPage にページ番号を設定
     clickCallback (pageNum: number) {
       // @ts-ignore
-      this.currentPage = pageNum
+      this.$store.state.currentIdPage = pageNum
+      // @ts-ignore
+      this.$accessor.setCurrentIdPage(this.$store.state.currentIdPage)
       window.scrollTo(0,0)
-      this.$router.push({ path: `?page=${this.currentPage}` })
+      this.$router.push({ path: `?page=${this.$accessor.currentIdPage}` })
       this.$forceUpdate()
     },
     toHms (t: number): number {
@@ -361,84 +275,4 @@ export default Vue.extend({
 </script>
 
 <style>
-#player_3x2_cotainer_inner {
-  display: none;
-}
-
-/* @media screen and (max-width: 768px) {
-  img {
-    width: 375px;
-  }
-
-  .title {
-    padding-left: 8px;
-  }
-
-  .viewnumber {
-    padding-left: 8px;
-  }
-
-  .keyword {
-    margin-left: 8px;
-  }
-}
-
-img {
-  color: white;
-}
-
-.material-icons {
-  font-size: 18px;
-}
-
-.pagination {
-  display: inline-block;
-  padding-left: 0;
-  margin: 20px 0;
-  border-radius: 4px;
-}
-
-ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.pagination > li {
-  display: inline;
-}
-
-li {
-  text-align: -webkit-match-parent;
-}
-
-.pagination > li:first-child > a, .pagination > li:first-child > span {
-  margin-left: 0;
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
-}
-
-.pagination > .disabled > span, .pagination > .disabled > span:hover, .pagination > .disabled > span:focus, .pagination > .disabled > a, .pagination > .disabled > a:hover, .pagination > .disabled > a:focus {
-  color: #ddd;
-  cursor: not-allowed;
-  border-color: #6b46c1;
-}
-
-.pagination > li > a, .pagination > li > span {
-  position: relative;
-  float: left;
-  padding: 6px 12px;
-  margin-left: -1px;
-  line-height: 1.42857143;
-  color: #ddd;
-  text-decoration: none;
-  border: 1px solid #6b46c1;
-}
-
-.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
-  z-index: 2;
-  color: #fff;
-  cursor: default;
-  background-color: #6b46c1;
-  border-color: #6b46c1;
-} */yle>
+</style>
