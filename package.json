@@ -85,7 +85,6 @@
     "eslint-plugin-nuxt": ">=1.0.0",
     "imagemin-mozjpeg": "^9.0.0",
     "nuxt-compress": "^4.1.0",
-    "ress": "^3.0.0",
-    "vue-friendly-iframe": "^0.19.0"
+    "ress": "^3.0.0"
   }
 }

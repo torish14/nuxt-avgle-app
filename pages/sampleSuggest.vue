@@ -1,34 +1,4 @@
 <!-- <template>
-  <div>
-    <vue-friendly-iframe
-      id="elem"
-      ref="iframe"
-      src="https://www.youtube.com/embed/g11oUbhaPh8"
-      allow="fullscreen"
-      crossorigin="use-credintials"
-    />
-  </div>
-</template>
-
-<script>
-export default {
-  mounted () {
-    // const elem = document.getElementByld('elem')
-    this.$nextTick(() =>
-      // console.log('$refs の値です', this.$refs.iframe),
-      // console.log(elem.contentWindow.document),
-      console.log('$el の値です', this.$el)
-    )
-  },
-  methods: {
-    consoleHello () {
-      // ? console.log('hello')
-    },
-  }
-}
-</script> -->
-
-<template>
   <div id="app" class="bg-black">
     <VueAutosuggest
       ref="autocomplete"
@@ -46,36 +16,6 @@ export default {
         <pre>{{ JSON.stringify(selected, null, 4) }}</pre>
       </code>
     </div>
-    <!-- <p class="text-white">
-      aaaaaaaaaaaaaa
-    </p>
-    <p class="text-white">
-      aaaaaaaaaaaaaa
-    </p>
-    <p class="text-white">
-      aaaaaaaaaaaaaa
-    </p>
-    <p class="text-white">
-      aaaaaaaaaaaaaa
-    </p>
-    <p class="text-white">
-      aaaaaaaaaaaaaa
-    </p>
-    <p class="text-white">
-      aaaaaaaaaaaaaa
-    </p>
-    <p class="text-white">
-      aaaaaaaaaaaaaa
-    </p>
-    <p class="text-white">
-      aaaaaaaaaaaaaa
-    </p>
-    <p class="text-white">
-      aaaaaaaaaaaaaa
-    </p>
-    <p class="text-white">
-      aaaaaaaaaaaaaa
-    </p> -->
   </div>
 </template>
 
@@ -172,7 +112,7 @@ export default {
     }
   }
 }
-</script>
+</script> -->
 
 <style>
 #app {
