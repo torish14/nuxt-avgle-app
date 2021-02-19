@@ -236,11 +236,6 @@ export default Vue.extend({
   watch: {
     '$route.query': '$fetch'
   },
-  mounted() {
-    this.$nextTick(() => {
-      window.scrollTo(0,1)
-    })
-  },
   activated() {
     // 最後の fetch から30秒以上経っていれば、fetch を呼び出す
     if (this.$fetchState.timestamp <= Date.now() - 30000) {
