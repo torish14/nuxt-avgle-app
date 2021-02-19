@@ -5,7 +5,8 @@ import * as search from '~/store/search'
 // const searchUrl = 'https://api.avgle.com/v1/search/'
 
 export const state = () => ({
-  currentPage: 1 as number
+  currentIndexPage: 1 as number,
+  currentIdPage: 1 as number
   //   soaringMessages: [],
   //   famousMessages: [],
   //   actressMessages: [],
@@ -15,7 +16,8 @@ export const state = () => ({
 export type RootState = ReturnType<typeof state>
 
 export const getters = getterTree(state, {
-  currentPage: state => state.currentPage
+  currentIndexPage: state => state.currentIndexPage,
+  currentIdPage: state => state.currentIdPage
 //   soaringMessages: state => state.soaringMessages,
 //   famousMessages: state => state.famousMessages,
 //   actressMessages: state => state.actressMessages,
@@ -23,11 +25,17 @@ export const getters = getterTree(state, {
 })
 
 export const mutations = mutationTree(state, {
-  setCurrentPage (state, currentPage) {
-    state.currentPage = currentPage
+  setCurrentIndexPage (state, currentIndexPage) {
+    state.currentIndexPage = currentIndexPage
   },
-  changePagination (state) {
-    state.currentPage = 1
+  setCurrentIdPage (state, currentIdPage) {
+    state.currentIdPage = currentIdPage
+  },
+  changeIndexPagination (state) {
+    state.currentIndexPage = 1
+  },
+  changeIdPagination (state) {
+    state.currentIdPage = 1
   }
 //   // ? 日本で急上昇
 //   setSoaringItems (state, soaringMessages) {
