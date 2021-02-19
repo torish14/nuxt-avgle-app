@@ -156,7 +156,7 @@ export default Vue.extend({
     sendRequest () {
       this.$accessor.search.getSearchItems()
       // @ts-ignore
-      this.$accessor.changePagination()
+      this.$accessor.changeIndexPagination()
       this.$router.push('/')
     },
     changeForm () {
