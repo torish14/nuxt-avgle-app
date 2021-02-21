@@ -69,6 +69,8 @@
   },
   "devDependencies": {
     "@aceforth/nuxt-optimized-images": "^1.4.0",
+    "@babel/runtime-corejs3": "^7.12.18",
+    "@nuxt/babel-preset-app": "^2.15.1",
     "@nuxt/types": "^2.15.0",
     "@nuxt/typescript-build": "^2.0.4",
     "@nuxtjs/eslint-config": "^4.0.0",
@@ -81,6 +83,7 @@
     "@nuxtjs/tailwindcss": "^3.2.0",
     "@typescript-eslint/parser": "^4.15.1",
     "babel-eslint": "^10.1.0",
+    "core-js": "3",
     "eslint": "^7.12.1",
     "eslint-plugin-nuxt": ">=1.0.0",
     "imagemin-mozjpeg": "^9.0.0",

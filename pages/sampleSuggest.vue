@@ -115,7 +115,7 @@ export default {
 </script> -->
 
 <style>
-#app {
+/* #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -195,7 +195,7 @@ export default {
 .autosuggest__results
   .autosuggest__results-item.autosuggest__results-item--highlighted {
   background-color: #f6f6f6;
-}
+} */
 
 /* input {
   --tw-bg-opacity: 1;
