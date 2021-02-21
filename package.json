@@ -11,7 +11,7 @@
     "build:sta": "cross-env NODE_ENV=staging nuxt-ts build",
     "clean": "yarn cache clean && rm -rf node_modules/.cache/hard-source/",
     "debug": "node --inspect node_modules/.bin/nuxt",
-    "deploy": "nuxt-ts build && nuxt-ts generate && firebase deploy",
+    "deploy": "nuxt-ts generate && firebase deploy",
     "dev": "nuxt-ts",
     "gcloud:gae": "nuxt-ts build && nuxt-ts generate && mv ~/nuxt-pornhub-api/dist/sitemap.xml ~/nuxt-pornhub-api/static/sitemap.xml && rm -rf ~/nuxt-pornhub-api/dist && gcloud app deploy && gcloud app browse",
     "generate": "nuxt-ts generate",
