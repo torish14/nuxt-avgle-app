@@ -16,8 +16,14 @@ const shortName = 'Porngle'
 export default {
   // srcDir: 'app',
   ssr: false,
-
   telemetry: false,
+  generate: {
+    exclude: [
+      '/sampleSuggest',
+      '/search',
+      '/suggest'
+    ]
+  },
   /*
    ** Headers of the page
    */
