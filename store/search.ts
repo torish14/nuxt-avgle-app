@@ -6,7 +6,7 @@ export const state = () => ({
   message: '' as string ,
   messages: [] as any,
   keywords: [] as any,
-  isLoading: false as Boolean,
+  isLoading: false as Boolean
 })
 
 export type RootState = ReturnType<typeof state>
@@ -29,46 +29,49 @@ export const mutations = mutationTree(state, {
   setSearchKeywords (state, keywords: any): void {
     state.keywords = keywords
   },
-  suggestMessage (state) {
-    state.message = [
-      '小倉由菜',
-      '希崎ジェシカ',
-      '君島みお',
-      '霧島レオナ',
-      '白石茉莉奈',
-      '篠田ゆう',
-      '高井ルナ',
-      '冬月かえで',
-      '松岡ちな',
-      '美乃すずめ',
-      '吉高寧々',
-      'RIO',
-    ][
-      Math.floor(
-        Math.random() *
-          [
-            '小倉由菜',
-            '希崎ジェシカ',
-            '君島みお',
-            '霧島レオナ',
-            '白石茉莉奈',
-            '篠田ゆう',
-            '高井ルナ',
-            '冬月かえで',
-            '松岡ちな',
-            '美乃すずめ',
-            '吉高寧々',
-            'RIO',
-          ].length
-      )
-    ]
-  },
+  // suggestMessage (state) {
+  //   state.message = [
+  //     '小倉由菜',
+  //     '希崎ジェシカ',
+  //     '君島みお',
+  //     '霧島レオナ',
+  //     '白石茉莉奈',
+  //     '篠田ゆう',
+  //     '高井ルナ',
+  //     '冬月かえで',
+  //     '松岡ちな',
+  //     '美乃すずめ',
+  //     '吉高寧々',
+  //     'RIO',
+  //   ][
+  //     Math.floor(
+  //       Math.random() *
+  //         [
+  //           '小倉由菜',
+  //           '希崎ジェシカ',
+  //           '君島みお',
+  //           '霧島レオナ',
+  //           '白石茉莉奈',
+  //           '篠田ゆう',
+  //           '高井ルナ',
+  //           '冬月かえで',
+  //           '松岡ちな',
+  //           '美乃すずめ',
+  //           '吉高寧々',
+  //           'RIO',
+  //         ].length
+  //     )
+  //   ]
+  // },
   changeMessage (state) {
     state.message = '日本人'
   },
   clearMessage (state) {
     state.message = ''
   },
+  // changeKeyword (state, keywords) {
+  //   state.message = keywords
+  // },
   hideLoading(state) {
     state.isLoading = false
   },
@@ -106,8 +109,23 @@ export const actions = actionTree({ state, getters, mutations }, {
       })
     // ? keyword 精査
     console.log(
+      'keywords',
       // @ts-ignore
-      getSearchItemsResponse.response.videos.map((value) =>
+      getSearchItemsResponse.response.videos.filter((value) =>
+        !(value.title).match('無修正') &&
+        !(value.title).match('完全素人') &&
+        !(value.title).match('個人撮影') &&
+        !(value.title).match('FC2') &&
+        !(value.title).match('Fc2') &&
+        !(value.title).match('fc2') &&
+        !(value.title).match('DEEPFAKE') &&
+        !(value.title).match('DeepFake') &&
+        !(value.title).match('Deepfake') &&
+        !(value.title).match('deepfake') &&
+        !(value.keyword).match('無修正') &&
+        !(value.keyword).match('FC2')
+        // @ts-ignore
+      ).map((value) =>
         value.keyword
           .split(/,|\s/)
           .filter(
@@ -118,7 +136,6 @@ export const actions = actionTree({ state, getters, mutations }, {
             // @ts-ignore
             (value) =>
               value !== state.messages.title &&
-              value !== state.message &&
               value !== '日本人' &&
               value !== 'アジア' &&
               value !== 'アジア人' &&
@@ -137,41 +154,49 @@ export const actions = actionTree({ state, getters, mutations }, {
               value !== '膣' &&
               value !== 'フェチ' &&
               value !== 'ハードコア' &&
-              value !== 'ハイビジョン'
+              value !== 'ハイビジョン' &&
+              value !== '足'
           )
           .slice(0, 3)
       )
     )
-    // ? title 精査
-    console.log(
+    commit(
+      'setSearchItems',
       // @ts-ignore
-      getSearchItemsResponse.response.videos.map((value) =>
-        value.title
-          .split(/,|\s/)
-          .filter(
-            // @ts-ignore
-            (value) =>
-              !value.match('無修正') &&
-              !value.match('完全素人') &&
-              !value.match('個人撮影') &&
-              !value.match('FC2') &&
-              !value.match('Fc2') &&
-              !value.match('fc2') &&
-              !value.match('DEEPFAKE') &&
-              !value.match('DeepFake') &&
-              !value.match('Deepfake') &&
-              !value.match('deepfake')
-          )
-          // @ts-ignore
-          .filter((value) => value)
+      getSearchItemsResponse.response.videos.filter((value) =>
+        !(value.title).match('無修正') &&
+        !(value.title).match('完全素人') &&
+        !(value.title).match('個人撮影') &&
+        !(value.title).match('FC2') &&
+        !(value.title).match('Fc2') &&
+        !(value.title).match('fc2') &&
+        !(value.title).match('DEEPFAKE') &&
+        !(value.title).match('DeepFake') &&
+        !(value.title).match('Deepfake') &&
+        !(value.title).match('deepfake') &&
+        !(value.keyword).match('無修正') &&
+        !(value.keyword).match('FC2')
       )
     )
 
-    commit('setSearchItems', getSearchItemsResponse.response.videos)
     commit(
       'setSearchKeywords',
       // @ts-ignore
-      getSearchItemsResponse.response.videos.map((value) =>
+      getSearchItemsResponse.response.videos.filter((value) =>
+        !(value.title).match('無修正') &&
+        !(value.title).match('完全素人') &&
+        !(value.title).match('個人撮影') &&
+        !(value.title).match('FC2') &&
+        !(value.title).match('Fc2') &&
+        !(value.title).match('fc2') &&
+        !(value.title).match('DEEPFAKE') &&
+        !(value.title).match('DeepFake') &&
+        !(value.title).match('Deepfake') &&
+        !(value.title).match('deepfake') &&
+        !(value.keyword).match('無修正') &&
+        !(value.keyword).match('FC2')
+        // @ts-ignore
+      ).map((value) =>
         value.keyword
           .split(/,|\s/)
           .filter(
@@ -182,7 +207,6 @@ export const actions = actionTree({ state, getters, mutations }, {
             // @ts-ignore
             (value) =>
               value !== state.messages.title &&
-              value !== state.message &&
               value !== '日本人' &&
               value !== 'アジア' &&
               value !== 'アジア人' &&
@@ -201,7 +225,8 @@ export const actions = actionTree({ state, getters, mutations }, {
               value !== '膣' &&
               value !== 'フェチ' &&
               value !== 'ハードコア' &&
-              value !== 'ハイビジョン'
+              value !== 'ハイビジョン' &&
+              value !== '足'
           )
           .slice(0, 3)
       )
