@@ -136,6 +136,7 @@ export default Vue.extend({
     // @ts-ignore
     Loading
   },
+  scrollToTop: true,
   data (): DataType {
     return {
       // ? 1ページに表示するアイテム数

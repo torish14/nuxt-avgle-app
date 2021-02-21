@@ -159,6 +159,7 @@ export type DataType = {
 }
 
 export default Vue.extend({
+  scrollToTop: true,
   data (): DataType {
     return {
       id: this.$route.params.id,
