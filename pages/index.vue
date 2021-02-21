@@ -12,21 +12,9 @@
       </template>
       <template v-else>
         <div v-for="data in getPaginationItems" :key="data.vid" class="bg-black md:px-2 lg:px-2 xl:px-2 2xl:px-2 lg:mt-8 xl:mt-8 2xl:mt-8">
-          <!-- <div v-if="!data.title.match('無修正') && !data.title.match('完全素人') && !data.title.match('個人撮影') && !data.title.match('FC2') && !data.title.match('Fc2') && !data.title.match('fc2') && !data.title.match('DEEPFAKE') && !data.title.match('DeepFake') && !data.title.match('Deepfake') && !data.title.match('deepfake')"> -->
           <nuxt-link :to="{ path: 'embedded_url' + '/' + data.vid }">
             <div class="relative">
-              <!-- <video
-                  id="video"
-                  :poster="data.preview_url"
-                  :src="data.preview_video_url"
-                  type="video/mp4"
-                  alt="サムネイル"
-                  playsinline=""
-                  onmouseover="this.play(); return false"
-                  onmouseout="this.pause(); this.currentTime = 0"
-                  class="z-auto relative"
-                /> -->
-              <lazy-component>
+              <lazy-component @show="handler">
                 <img
                   :src="data.preview_url"
                   alt="サムネイル"
@@ -73,39 +61,32 @@
             </template>
           </div>
           <div class="flex flex-row my-2 mb-6">
-            <div v-if="data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== message && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン').length === 0" />
-            <template v-else-if="data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== message && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン').length === 1">
-              <div class="text-gray-400 mr-2 text-xs py-1 px-2 bg-gray-800 rounded-full border-gray-800 keyword">
-                {{ data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== message && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン')[0] }}
-                <!-- {{ keywords[0][0] }} -->
+            <div v-if="data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足').length === 0" />
+            <template v-else-if="data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足').length === 1">
+              <div class="text-gray-400 mr-2 text-xs py-1 px-2 bg-gray-800 rounded-full border-gray-800 keyword" @click="firstKeyword">
+                {{ data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足')[0] }}
               </div>
             </template>
-            <template v-else-if="data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== message && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン').length === 2">
-              <div class="text-gray-400 mr-2 text-xs py-1 px-2 bg-gray-800 rounded-full border-gray-800 keyword">
-                {{ data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== message && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン')[0] }}
-                <!-- {{ keywords[0][0] }} -->
+            <template v-else-if="data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足').length === 2">
+              <div class="text-gray-400 mr-2 text-xs py-1 px-2 bg-gray-800 rounded-full border-gray-800 keyword" @click="firstKeyword">
+                {{ data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足')[0] }}
               </div>
-              <div class="text-gray-400 mr-2 text-xs py-1 px-2 bg-gray-800 rounded-full border-gray-800">
-                {{ data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== message && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン')[1] }}
-                <!-- {{ keywords[0][1] }} -->
+              <div class="text-gray-400 mr-2 text-xs py-1 px-2 bg-gray-800 rounded-full border-gray-800" @click="secondKeyword">
+                {{ data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足')[1] }}
               </div>
             </template>
             <template v-else>
-              <div class="text-gray-400 mr-2 text-xs py-1 px-2 bg-gray-800 rounded-full border-gray-800 keyword">
-                {{ data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== message && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン')[0] }}
-                <!-- {{ keywords[0][0] }} -->
+              <div class="text-gray-400 mr-2 text-xs py-1 px-2 bg-gray-800 rounded-full border-gray-800 keyword" @click="firstKeyword">
+                {{ data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足')[0] }}
               </div>
-              <div class="text-gray-400 mr-2 text-xs py-1 px-2 bg-gray-800 rounded-full border-gray-800">
-                {{ data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== message && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン')[1] }}
-                <!-- {{ keywords[0][1] }} -->
+              <div class="text-gray-400 mr-2 text-xs py-1 px-2 bg-gray-800 rounded-full border-gray-800" @click="secondKeyword">
+                {{ data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足')[1] }}
               </div>
-              <div class="text-gray-400 mr-2 text-xs py-1 px-2 bg-gray-800 rounded-full border-gray-800">
-                {{ data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== message && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン')[2] }}
-                <!-- {{ keywords[0][2] }} -->
+              <div class="text-gray-400 mr-2 text-xs py-1 px-2 bg-gray-800 rounded-full border-gray-800" @click="thirdKeyword">
+                {{ data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足')[2] }}
               </div>
             </template>
           </div>
-          <!-- </div> -->
         </div>
         <Paginate
           v-model="$store.state.currentIndexPage"
@@ -146,57 +127,8 @@ import 'vue-loading-overlay/dist/vue-loading.css'
 // @ts-ignore
 Vue.component(Loading)
 
-// document.addEventListener('DOMContentLoaded', function () {
-// const v = document.getElementByld('video')
-
-// if (document.addEventListener) {
-//   const mouseover = (window.ontouchstart === undefined) ? 'mouseover' : 'touchstart'
-//   const mouseout = (window.ontouchend === undefined) ? 'mouseout' : 'touchend'
-//   v.addEventListener(mouseover, function () {
-//     v.play()
-//   }, false)
-//   v.addEventListener(mouseout, function () {
-//     v.pause()
-//   }, false)
-// } else if (document.attachEvent) {
-//   v.attachEvent('onmouseover', function () {
-//     v.play()
-//   })
-//   v.attachEvent('onmouseout', function () {
-//     v.pause()
-//   })
-// }
-
-// onmouseover="this.play(); return false"
-// onmouseout="this.pause(); this.currentTime = 0"
-
-// document.addEventListener('touchstart', function() {}, {passive: true});
-
-// v.addEventListener('touchstart', function (event) {
-//   v.play()
-// }, false)
-
-// v.addEventListener('touchend', function (event) {
-//   v.pause()
-// }, false)
-
-// function playVideo () {
-//   v.addEventListener('touchstart', function (event) {
-//     v.play()
-//   }, false)
-// }
-
-// function pauseVideo () {
-//   v.addEventListener('touchend', function (event) {
-//     v.pause()
-//   }, false)
-// }
-
-// playVideo()
-// pauseVideo()
-// }, false)
 export type DataType = {
-  parPage: number,
+  parPage: number
 }
 
 export default Vue.extend({
@@ -218,14 +150,19 @@ export default Vue.extend({
     this.$accessor.search.getSearchItems()
   },
   computed: {
-    ...mapGetters('search', ['message', 'messages', 'keywords', 'isLoading']),
+    ...mapGetters('search', ['message', 'messages', 'isLoading']),
     // ? 現在ページのアイテムを返す
     getPaginationItems (): number {
       // @ts-ignore
       const current = this.$accessor.currentIndexPage * this.parPage
       // @ts-ignore
       const start = current - this.parPage
-      return this.messages.slice(start, current).sort(function() {return Math.random()-.5;})
+      // ! 空データ削除しよう
+      console.log(this.messages)
+      return this.messages.slice(start, current)
+      // .sort(
+      //   function() { return Math.random()-.5 }
+      // )
     },
     // ? ページネーションの最大ページ数を求めるためにitems をparPage で割って切り上げる
     getPageCount (): number {
@@ -253,6 +190,9 @@ export default Vue.extend({
     window.removeEventListener('beforeunload', this.changeForm)
   },
   methods: {
+    handler () {
+      console.log('Now loading')
+    },
     // ? ページネーションをクリック時に、currentPage にページ番号を設定
     clickCallback (pageNum: number) {
       // @ts-ignore
@@ -289,6 +229,15 @@ export default Vue.extend({
     },
     changeForm () {
       this.$accessor.search.changeMessage()
+    },
+    firstKeyword () {
+      console.log('1つ目のキーワード')
+    },
+    secondKeyword () {
+      console.log('2つ目のキーワード')
+    },
+    thirdKeyword () {
+      console.log('3つ目のキーワード')
     }
   }
 })
@@ -296,17 +245,13 @@ export default Vue.extend({
 
 <style>
 @media screen and (max-width: 768px) {
-  img {
+  .z-auto {
     width: 370px;
   }
 
   .title {
     padding-left: 8px;
     width: 370px !important;
-  }
-
-  .embedded-title {
-    padding-left: 8px;
   }
 
   .viewnumber {
@@ -320,10 +265,10 @@ export default Vue.extend({
   .main {
     padding-top: 80px;
   }
-}
 
-img {
-  color: white;
+  .embedded-title {
+    padding-left: 8px;
+  }
 }
 
 .title {
