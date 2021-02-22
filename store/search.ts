@@ -165,6 +165,7 @@ export const actions = actionTree({ state, getters, mutations }, {
       // @ts-ignore
       getSearchItemsResponse.response.videos.filter((value) =>
         !(value.title).match('無修正') &&
+        !(value.title).match('無') &&
         !(value.title).match('完全素人') &&
         !(value.title).match('個人撮影') &&
         !(value.title).match('FC2') &&
