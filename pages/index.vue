@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <div class="flex flex-wrap bg-black justify-center">
+    <div class="flex flex-wrap justify-center">
       <!-- 検索結果表示 -->
       <template v-if="messages.length === 0 && !isLoading || message === '無修正' || message === 'Uncensored' || message === 'uncensored' || message === 'PAKO' || message === 'Pako' || message === 'pako' || message === 'ぱこ' || message === 'パコ' || message === 'CARIB' || message === 'Carib' || message === 'carib' || message === 'かりぶ' || message === 'カリブ' || message === 'FC2' || message === 'Fc2' || message === 'fc2' || message === '完全素人' || message === '個人撮影' || message === 'DEEPFAKE' || message === 'DeepFake' || message === 'Deepfake' || message === 'deepfake'">
         <client-only>
@@ -11,7 +11,7 @@
         </client-only>
       </template>
       <template v-else>
-        <div v-for="data in getPaginationItems" :key="data.vid" class="bg-black md:px-2 lg:px-2 xl:px-2 2xl:px-2 lg:mt-8 xl:mt-8 2xl:mt-8">
+        <div v-for="data in getPaginationItems" :key="data.vid" class="md:px-2 lg:px-2 xl:px-2 2xl:px-2 lg:mt-8 xl:mt-8 2xl:mt-8">
           <nuxt-link :to="{ path: 'embedded_url' + '/' + data.vid }">
             <div class="relative">
               <lazy-component @show="handler">
@@ -119,6 +119,8 @@
 </template>
 
 <script lang="ts">
+// Todo キーワードが6文字以上削除
+// Todo ローディング
 import Vue from 'vue'
 import { mapGetters } from 'vuex'
 import Loading from 'vue-loading-overlay'
@@ -355,7 +357,7 @@ body {
 </style>
 
 <!-- <template>
-  <div class="bg-black">
+  <div class=">
     初期動画表示
     <template v-if="soaringMessages.length === 0 && famousMessages.length === 0 && actressMessages.length === 0 && genreMessages.length === 0">
       <i class="material-icons text-gray-500">error</i>
@@ -368,7 +370,7 @@ body {
         日本で急上昇
       </h1>
       <div class="flex flex-wrap p-4">
-        <div v-for="data in soaringMessages" :key="data.id" class="bg-black p-4">
+        <div v-for="data in soaringMessages" :key="data.id" class="p-4">
           <nuxt-link :to="{ path: 'embedded_url' + '/' + data.vid }">
             <div class="relative">
               <video
@@ -427,7 +429,7 @@ body {
         日本で一番人気
       </h1>
       <div class="flex flex-wrap p-4">
-        <div v-for="data in famousMessages" :key="data.id" class="bg-black p-4">
+        <div v-for="data in famousMessages" :key="data.id" class="p-4">
           <nuxt-link :to="{ path: 'embedded_url' + '/' + data.vid }">
             <div class="relative">
               <video
@@ -486,7 +488,7 @@ body {
         おすすめ女優
       </h1>
       <div class="flex flex-wrap p-4">
-        <div v-for="data in actressMessages" :key="data.id" class="bg-black p-4">
+        <div v-for="data in actressMessages" :key="data.id" class="p-4">
           <nuxt-link :to="{ path: 'embedded_url' + '/' + data.vid }">
             <div class="relative">
               <video
@@ -545,7 +547,7 @@ body {
         おすすめジャンル
       </h1>
       <div class="flex flex-wrap p-4">
-        <div v-for="data in genreMessages" :key="data.id" class="bg-black p-4">
+        <div v-for="data in genreMessages" :key="data.id" class="p-4">
           <nuxt-link :to="{ path: 'embedded_url' + '/' + data.vid }">
             <div class="relative">
               <video

@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <div class="bg-black">
+    <div class="">
       <div>
         <template v-if="messagesMatchVid">
           <div class="relative sm:w-full md:w-full lg:w-full xl:w-11/12 h-0" style="padding-top: 50%;">
@@ -38,7 +38,7 @@
         </template>
       </div>
       <div class="flex flex-wrap justify-center">
-        <div v-for="data in getPaginationItems" :key="data.vid" class="bg-black md:px-2 lg:px-2 xl:px-2 2xl:px-2 lg:mt-8 xl:mt-8 2xl:mt-8">
+        <div v-for="data in getPaginationItems" :key="data.vid" class=" md:px-2 lg:px-2 xl:px-2 2xl:px-2 lg:mt-8 xl:mt-8 2xl:mt-8">
           <nuxt-link :to="{ path: data.vid }">
             <div class="relative">
               <lazy-component>
@@ -137,6 +137,7 @@
 </template>
 
 <script lang="ts">
+// Todo キーワードが6文字以上削除
 import Vue from 'vue'
 import { mapGetters } from 'vuex'
 
