@@ -175,6 +175,7 @@ export const actions = actionTree({ state, getters, mutations }, {
         !(value.title).match('DeepFake') &&
         !(value.title).match('Deepfake') &&
         !(value.title).match('deepfake') &&
+        !(value.title).match(/^[a-zA-Z]+$/) &&
         !(value.keyword).match('無修正') &&
         !(value.keyword).match('FC2')
       )
