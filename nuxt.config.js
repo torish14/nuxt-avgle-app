@@ -286,6 +286,7 @@ export default {
     /*
      ** You can extend webpack config here
      */
+    extractCSS: true,
     transpile: [/typed-vuex/],
     extend(config) {
       const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
