@@ -141,6 +141,7 @@ export default {
   ],
   router: {
     base: baseDir,
+    prefetchLinks: false
   },
   /*
    ** Nuxt.js dev-
