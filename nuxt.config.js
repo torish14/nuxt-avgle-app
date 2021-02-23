@@ -18,11 +18,7 @@ export default {
   ssr: false,
   telemetry: false,
   generate: {
-    exclude: [
-      '/sampleSuggest',
-      '/search',
-      '/suggest'
-    ]
+    exclude: ['/sampleSuggest', '/search', '/suggest'],
   },
   /*
    ** Headers of the page
@@ -169,7 +165,7 @@ export default {
     // Doc: https://typescript.nuxtjs.org/ja/
     '@nuxt/typescript-build',
     // Doc: https://typed-vuex.roe.dev
-    'nuxt-typed-vuex'
+    'nuxt-typed-vuex',
   ],
   'nuxt-compress': {
     gzip: {
@@ -181,6 +177,7 @@ export default {
   },
   optimizedImages: {
     optimizeImages: true,
+    optimizeImagesInDev: true,
   },
   pwa: {
     icon: false,
@@ -289,9 +286,7 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    transpile: [
-      /typed-vuex/
-    ],
+    transpile: [/typed-vuex/],
     extend(config) {
       const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
       config.plugins.push(new HardSourceWebpackPlugin())
@@ -326,6 +321,6 @@ export default {
       terserOptions: {
         compress: { drop_console: true },
       },
-    }
+    },
   },
 }
