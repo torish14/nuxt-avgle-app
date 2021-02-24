@@ -16,6 +16,7 @@ const shortName = 'Porngle'
 export default {
   // srcDir: 'app',
   ssr: false,
+  target: 'static',
   telemetry: false,
   generate: {
     exclude: ['/sampleSuggest', '/search', '/suggest'],
@@ -111,10 +112,8 @@ export default {
   /*
    ** Customize the progress-bar color
    */
-  // loading: { color: '#fff' },
   loading: {
     color: '#6b46c1',
-    continuous: true,
   },
   // loadingIndicator: {
   //   name: 'circle',
@@ -141,7 +140,7 @@ export default {
   ],
   router: {
     base: baseDir,
-    prefetchLinks: false
+    prefetchLinks: false,
   },
   /*
    ** Nuxt.js dev-
@@ -289,6 +288,16 @@ export default {
      */
     extractCSS: true,
     transpile: [/typed-vuex/],
+    render: {
+      bundleRenderer: {
+        shouldPreload: (type) => {
+          return ['script', 'style', 'font'].includes(type)
+        },
+      },
+      static: {
+        maxAge: 60 * 60 * 24 * 365 * 1000,
+      }
+    },
     extend(config) {
       const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
       config.plugins.push(new HardSourceWebpackPlugin())
