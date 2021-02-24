@@ -10,6 +10,12 @@
           </h5>
         </client-only>
       </template>
+      <!-- <p v-else-if="$fetchState.pending" class="text-white">
+        Fetching mountains...
+      </p>
+      <p v-else-if="$fetchState.error" class="text-white">
+        An error occured :(
+      </p> -->
       <template v-else>
         <div v-for="data in getPaginationItems" :key="data.vid" class="md:px-2 lg:px-2 xl:px-2 2xl:px-2 lg:mt-8 xl:mt-8 2xl:mt-8">
           <nuxt-link :to="{ path: 'embedded_url' + '/' + data.vid }" aria-label="動画埋め込みページへ遷移">
