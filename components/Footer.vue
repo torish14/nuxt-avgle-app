@@ -2,7 +2,7 @@
   <!-- フッター -->
   <footer class="text-gray-600 bg-black body-font">
     <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col normal-footer">
-      <a href="/" @click="changeForm">
+      <a href="https://nuxt-pornhub-api.web.app" aria-label="ホームへ戻る" @click="changeForm">
         <img
           src="~/assets/Porngle ロゴ.jpeg"
           alt="ロゴ"
@@ -42,11 +42,14 @@
           </p>
         </div>
       </nuxt-link>
-    </div> -->
+    </!-->
   </footer>
 </template>
 
 <script lang="ts">
+// Todo レイアウト修正 http://youtube.com
+// Todo フッターのレンダリングが遅い
+// Todo ロゴのサイズ縮小
 import Vue from 'vue'
 
 export type DataType = {

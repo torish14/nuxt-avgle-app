@@ -12,12 +12,14 @@
       </template>
       <template v-else>
         <div v-for="data in getPaginationItems" :key="data.vid" class="md:px-2 lg:px-2 xl:px-2 2xl:px-2 lg:mt-8 xl:mt-8 2xl:mt-8">
-          <nuxt-link :to="{ path: 'embedded_url' + '/' + data.vid }">
+          <nuxt-link :to="{ path: 'embedded_url' + '/' + data.vid }" aria-label="動画埋め込みページへ遷移">
             <div class="relative">
               <lazy-component @show="handler">
                 <img
                   :src="data.preview_url"
                   alt="サムネイル"
+                  width="320"
+                  height="180"
                   class="z-auto relative text-white"
                   referrerpolicy="no-referrer"
                   crossorigin
@@ -120,7 +122,6 @@
 
 <script lang="ts">
 // Todo キーワードが6文字以上削除
-// Todo ローディング
 import Vue from 'vue'
 import { mapGetters } from 'vuex'
 import Loading from 'vue-loading-overlay'
@@ -188,7 +189,7 @@ export default Vue.extend({
       window.addEventListener('beforeunload', this.changeForm) // eslint-disable-line
     }
   },
-  destory() {
+  destroyed() {
     // @ts-ignore
     window.removeEventListener('beforeunload', this.changeForm)
   },
@@ -206,7 +207,7 @@ export default Vue.extend({
       this.$router.push({ path: `?page=${this.$accessor.currentIndexPage}` })
       this.$forceUpdate()
     },
-    toHms (t): number {
+    toHms (t: number): number {
       let hms = '' as string | number
       const h = Math.ceil(t / 3600 | 0)
       const m = Math.ceil(t % 3600 / 60 | 0)
@@ -272,6 +273,14 @@ export default Vue.extend({
   .embedded-title {
     padding-left: 8px;
   }
+}
+
+@font-face {
+  font-family: 'Pacifico';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Pacifico Regular'), local('Pacifico-Regular'), url(https://fonts.gstatic.com/s/pacifico/v12/FwZY7-Qmy14u9lezJ-6H6MmBp0u-.woff2) format('woff2');
+  font-display: swap;
 }
 
 .title {

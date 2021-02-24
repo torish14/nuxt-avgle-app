@@ -39,12 +39,14 @@
       </div>
       <div class="flex flex-wrap justify-center">
         <div v-for="data in getPaginationItems" :key="data.vid" class=" md:px-2 lg:px-2 xl:px-2 2xl:px-2 lg:mt-8 xl:mt-8 2xl:mt-8">
-          <nuxt-link :to="{ path: data.vid }">
+          <nuxt-link :to="{ path: data.vid }" aria-label="動画埋め込みページへ遷移">
             <div class="relative">
               <lazy-component>
                 <img
                   :src="data.preview_url"
                   alt="サムネイル"
+                  width="320"
+                  height="180"
                   class="z-auto relative text-white"
                   referrerpolicy="no-referrer"
                   crossorigin
@@ -206,13 +208,13 @@ export default Vue.extend({
       this.$fetch()
     }
   },
-  created () {
+  created() {
     if (process.browser) {
       // @ts-ignore
       window.addEventListener('beforeunload', this.changeForm) // eslint-disable-line
     }
   },
-  destroyed () {
+  destroyed() {
     // @ts-ignore
     window.removeEventListener('beforeunload', this.changeForm)
   },
