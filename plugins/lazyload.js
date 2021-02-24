@@ -3,5 +3,5 @@ import VueLazyload from 'vue-lazyload'
 
 Vue.use(VueLazyload, {
   lazyComponent: true,
-  attempt: 2
+  attempt: 2,
 })

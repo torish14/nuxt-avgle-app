@@ -5,19 +5,19 @@
   "description": "My glorious Nuxt.js project",
   "author": "torish",
   "scripts": {
-    "analyze": "nuxt-ts build --analyze",
-    "build": "nuxt-ts build",
-    "build:pro": "cross-env NODE_ENV=production nuxt-ts build",
-    "build:sta": "cross-env NODE_ENV=staging nuxt-ts build",
+    "analyze": "nuxt build --analyze",
+    "build": "nuxt build",
+    "build:pro": "cross-env NODE_ENV=production nuxt build",
+    "build:sta": "cross-env NODE_ENV=staging nuxt build",
     "clean": "yarn cache clean && rm -rf node_modules/.cache/hard-source/",
     "debug": "node --inspect node_modules/.bin/nuxt",
-    "deploy": "nuxt-ts generate && firebase deploy",
-    "dev": "nuxt-ts",
-    "gcloud:gae": "nuxt-ts build && nuxt-ts generate && mv ~/nuxt-pornhub-api/dist/sitemap.xml ~/nuxt-pornhub-api/static/sitemap.xml && rm -rf ~/nuxt-pornhub-api/dist && gcloud app deploy && gcloud app browse",
-    "generate": "nuxt-ts generate",
+    "deploy": "nuxt generate && firebase deploy",
+    "dev": "nuxt",
+    "gcloud:gae": "nuxt build && nuxt generate && mv ~/nuxt-pornhub-api/dist/sitemap.xml ~/nuxt-pornhub-api/static/sitemap.xml && rm -rf ~/nuxt-pornhub-api/dist && gcloud app deploy && gcloud app browse",
+    "generate": "nuxt generate",
     "lint": "eslint --ext .ts,.js,.vue --ignore-path .gitignore . --fix",
     "postinstall": "patch-package",
-    "start": "nuxt-ts start",
+    "start": "nuxt start",
     "test": "jest --config jest.config.js"
   },
   "babel": {
@@ -35,7 +35,6 @@
     }
   },
   "dependencies": {
-    "@nuxt/typescript-runtime": "^2.0.1",
     "@nuxtjs/axios": "^5.12.2",
     "@nuxtjs/proxy": "^2.0.1",
     "@nuxtjs/robots": "^2.4.2",
@@ -53,7 +52,7 @@
     "hard-source-webpack-plugin": "^0.13.1",
     "jest": "^26.6.3",
     "logrocket": "^1.0.14",
-    "nuxt": "^2.14.7",
+    "nuxt": "^2.15.2",
     "nuxt-material-design-icons": "^1.0.4",
     "nuxt-typed-vuex": "^0.1.22",
     "patch-package": "^6.2.2",
@@ -65,7 +64,8 @@
     "vue-loading-overlay": "^3.4.2",
     "vue-scrollto": "^2.20.0",
     "vuejs-paginate": "^2.1.0",
-    "vuex-persistedstate": "^4.0.0-beta.1"
+    "vuex-persistedstate": "^4.0.0-beta.1",
+    "webp-loader": "^0.6.0"
   },
   "devDependencies": {
     "@aceforth/nuxt-optimized-images": "^1.4.0",
