@@ -1,7 +1,4 @@
+import VueLazyComponent from '@xunlei/vue-lazy-component'
 import Vue from 'vue'
-import VueLazyload from 'vue-lazyload'
 
-Vue.use(VueLazyload, {
-  lazyComponent: true,
-  attempt: 2,
-})
+Vue.use(VueLazyComponent)

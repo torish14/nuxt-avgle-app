@@ -20,7 +20,7 @@
         <div v-for="data in getPaginationItems" :key="data.vid" class="md:px-2 lg:px-2 xl:px-2 2xl:px-2 lg:mt-8 xl:mt-8 2xl:mt-8">
           <nuxt-link :to="{ path: 'embedded_url' + '/' + data.vid }" aria-label="動画埋め込みページへ遷移">
             <div class="relative">
-              <lazy-component @show="handler">
+              <vue-lazy-component>
                 <img
                   :src="data.preview_url"
                   alt="サムネイル"
@@ -30,7 +30,7 @@
                   referrerpolicy="no-referrer"
                   crossorigin
                 >
-              </lazy-component>
+              </vue-lazy-component>
               <h5 class="text-white z-10 absolute right-0 bottom-0 text-xs bg-gray-800 rounded-sm px-1 m-1">
                 {{ toHms(data.duration) }}
               </h5>
@@ -132,6 +132,8 @@ import Vue from 'vue'
 import { mapGetters } from 'vuex'
 import Loading from 'vue-loading-overlay'
 import 'vue-loading-overlay/dist/vue-loading.css'
+// @ts-ignore
+import { component as VueLazyComponent } from '@xunlei/vue-lazy-component'
 
 // @ts-ignore
 Vue.component(Loading)
@@ -143,7 +145,8 @@ export type DataType = {
 export default Vue.extend({
   components: {
     // @ts-ignore
-    Loading
+    Loading,
+    'vue-lazy-component': VueLazyComponent
   },
   scrollToTop: true,
   data (): DataType {
