@@ -1,7 +1,6 @@
 <template>
   <div class="main">
     <div v-show="!$store.state.search.isLoading" class="flex flex-wrap justify-center">
-      <!-- 検索結果表示 -->
       <template v-if="messages.length === 0 && !isLoading || message === '無修正' || message === 'Uncensored' || message === 'uncensored' || message === 'PAKO' || message === 'Pako' || message === 'pako' || message === 'ぱこ' || message === 'パコ' || message === 'CARIB' || message === 'Carib' || message === 'carib' || message === 'かりぶ' || message === 'カリブ' || message === 'FC2' || message === 'Fc2' || message === 'fc2' || message === '完全素人' || message === '個人撮影' || message === 'DEEPFAKE' || message === 'DeepFake' || message === 'Deepfake' || message === 'deepfake'">
         <client-only>
           <i class="material-icons text-gray-500">error</i>
@@ -11,11 +10,11 @@
         </client-only>
       </template>
       <!-- <p v-else-if="$fetchState.pending" class="text-white">
-        Fetching mountains...
-      </p>
-      <p v-else-if="$fetchState.error" class="text-white">
-        An error occured :(
-      </p> -->
+          Fetching mountains...
+        </p>
+        <p v-else-if="$fetchState.error" class="text-white">
+          An error occured :(
+        </p> -->
       <template v-else>
         <div v-for="data in getPaginationItems" :key="data.vid" class="md:px-2 lg:px-2 xl:px-2 2xl:px-2 lg:mt-8 xl:mt-8 2xl:mt-8">
           <vue-lazy-component>
@@ -122,14 +121,6 @@
       color="#a0aec0"
       :size="{ width: '40px', height: '40px' }"
     />
-    <!-- <Loading
-      :active.sync="isLoading"
-      color="gray"
-      background-color="black"
-      :height="40"
-      :width="40"
-      :opacity="1"
-    /> -->
   </div>
 </template>
 
@@ -137,13 +128,8 @@
 // Todo キーワードが6文字以上削除
 import Vue from 'vue'
 import { mapGetters } from 'vuex'
-// import Loading from 'vue-loading-overlay'
-// import 'vue-loading-overlay/dist/vue-loading.css'
 import { VueLoading } from 'vue-loading-template'
 import Skeleton from '~/components/Skeleton.vue'
-
-// @ts-ignore
-// Vue.component(Loading)
 
 export type DataType = {
   parPage: number
