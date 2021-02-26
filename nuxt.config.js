@@ -166,6 +166,8 @@ export default {
     '@nuxt/typescript-build',
     // Doc: https://typed-vuex.roe.dev
     'nuxt-typed-vuex',
+    // Doc: https://github.com/nuxt-community/device-module
+    '@nuxtjs/device',
   ],
   'nuxt-compress': {
     gzip: {
@@ -296,7 +298,7 @@ export default {
       },
       static: {
         maxAge: 60 * 60 * 24 * 365 * 1000,
-      }
+      },
     },
     extend(config) {
       const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')

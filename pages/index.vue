@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <div class="flex flex-wrap justify-center">
+    <div v-show="!$store.state.search.isLoading" class="flex flex-wrap justify-center">
       <!-- 検索結果表示 -->
       <template v-if="messages.length === 0 && !isLoading || message === '無修正' || message === 'Uncensored' || message === 'uncensored' || message === 'PAKO' || message === 'Pako' || message === 'pako' || message === 'ぱこ' || message === 'パコ' || message === 'CARIB' || message === 'Carib' || message === 'carib' || message === 'かりぶ' || message === 'カリブ' || message === 'FC2' || message === 'Fc2' || message === 'fc2' || message === '完全素人' || message === '個人撮影' || message === 'DEEPFAKE' || message === 'DeepFake' || message === 'Deepfake' || message === 'deepfake'">
         <client-only>
@@ -116,14 +116,20 @@
         />
       </template>
     </div>
-    <Loading
+    <VueLoading
+      v-show="$store.state.search.isLoading"
+      type="spin"
+      color="#a0aec0"
+      :size="{ width: '40px', height: '40px' }"
+    />
+    <!-- <Loading
       :active.sync="isLoading"
       color="gray"
       background-color="black"
       :height="40"
       :width="40"
       :opacity="1"
-    />
+    /> -->
   </div>
 </template>
 
@@ -131,12 +137,13 @@
 // Todo キーワードが6文字以上削除
 import Vue from 'vue'
 import { mapGetters } from 'vuex'
-import Loading from 'vue-loading-overlay'
-import 'vue-loading-overlay/dist/vue-loading.css'
+// import Loading from 'vue-loading-overlay'
+// import 'vue-loading-overlay/dist/vue-loading.css'
+import { VueLoading } from 'vue-loading-template'
 import Skeleton from '~/components/Skeleton.vue'
 
 // @ts-ignore
-Vue.component(Loading)
+// Vue.component(Loading)
 
 export type DataType = {
   parPage: number
@@ -145,7 +152,8 @@ export type DataType = {
 export default Vue.extend({
   components: {
     // @ts-ignore
-    Loading,
+    VueLoading,
+    // Loading,
     // @ts-ignore
     Skeleton
     // Skeleton: () => ('~/components/Skeleton.vue')
