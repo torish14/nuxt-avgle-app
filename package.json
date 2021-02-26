@@ -9,7 +9,7 @@
     "build": "nuxt build",
     "build:pro": "cross-env NODE_ENV=production nuxt build",
     "build:sta": "cross-env NODE_ENV=staging nuxt build",
-    "clean": "yarn cache clean && rm -rf node_modules/.cache/hard-source/",
+    "clean": "yarn cache clean",
     "debug": "node --inspect node_modules/.bin/nuxt",
     "deploy": "nuxt generate && firebase deploy",
     "dev": "nuxt",
