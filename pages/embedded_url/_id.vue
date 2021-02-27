@@ -15,7 +15,7 @@
             height="100%"
           />
         </div>
-        <h5 class="text-gray-300 text-lg pb-8 md:px-4 lg:px-4 xl:px-4 2xl:px-4 embedded-title">
+        <h5 class="embedded-title text-gray-300 text-lg pb-8 md:px-4 lg:px-4 xl:px-4 2xl:px-4">
           {{ messagesMatchVid.title.slice(0,40) }}
         </h5>
       </template>
@@ -60,17 +60,17 @@
           </nuxt-link>
           <div class="flex flex-row my-1">
             <template v-if="data.viewnumber >= 1000000">
-              <h6 class="text-gray-500 mr-1 text-sm viewnumber">
+              <h6 class="viewnumber text-gray-500 mr-1 text-sm">
                 再生数 {{ Math.ceil(data.viewnumber / 1000000) }}M
               </h6>
             </template>
             <template v-else-if="data.viewnumber >= 1000 && data.viewnumber < 1000000">
-              <h6 class="text-gray-500 mr-1 text-sm viewnumber">
+              <h6 class="viewnumber text-gray-500 mr-1 text-sm">
                 再生数 {{ Math.ceil(data.viewnumber / 1000) }}K
               </h6>
             </template>
             <template v-else>
-              <h6 class="text-gray-500 mr-1 text-sm viewnumber">
+              <h6 class="viewnumber text-gray-500 mr-1 text-sm">
                 再生数 {{ Math.ceil(data.viewnumber) }}
               </h6>
             </template>
@@ -90,12 +90,12 @@
           <div class="flex flex-row my-2 mb-6">
             <div v-if="data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足').length === 0" />
             <template v-else-if="data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足').length === 1">
-              <div class="text-gray-400 mr-2 text-xs py-1 px-2 bg-gray-800 rounded-full border-gray-800 hover:text-purple-600 keyword">
+              <div class="keyword text-gray-400 mr-2 text-xs py-1 px-2 bg-gray-800 rounded-full border-gray-800">
                 {{ data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足')[0] }}
               </div>
             </template>
             <template v-else-if="data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足').length === 2">
-              <div class="text-gray-400 mr-2 text-xs py-1 px-2 bg-gray-800 rounded-full border-gray-800 hover:text-purple-600 keyword">
+              <div class="keyword text-gray-400 mr-2 text-xs py-1 px-2 bg-gray-800 rounded-full border-gray-800">
                 {{ data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足')[0] }}
               </div>
               <div class="text-gray-400 mr-2 text-xs py-1 px-2 bg-gray-800 rounded-full border-gray-800 hover:text-purple-600">
@@ -103,7 +103,7 @@
               </div>
             </template>
             <template v-else>
-              <div class="text-gray-400 mr-2 text-xs py-1 px-2 bg-gray-800 rounded-full border-gray-800 hover:text-purple-600 keyword">
+              <div class="keyword text-gray-400 mr-2 text-xs py-1 px-2 bg-gray-800 rounded-full border-gray-800">
                 {{ data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足')[0] }}
               </div>
               <div class="text-gray-400 mr-2 text-xs py-1 px-2 bg-gray-800 rounded-full border-gray-800 hover:text-purple-600">
