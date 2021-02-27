@@ -19,6 +19,7 @@ export default {
   target: 'static',
   telemetry: false,
   generate: {
+    fallback: true,
     exclude: ['/sampleSuggest', '/search', '/suggest'],
   },
   /*
