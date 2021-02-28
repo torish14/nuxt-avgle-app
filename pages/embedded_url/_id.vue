@@ -391,6 +391,18 @@ export default Vue.extend({
           return v
         }
       }
+    },
+    infiniteHandler() {
+      setTimeout(() => {
+        if (this.parPage < this.messages.length) {
+          this.parPage += 20
+          // @ts-ignore
+          this.$refs.infiniteLoading.stateChanger.loaded()
+        } else {
+          // @ts-ignore
+          this.$refs.infiniteLoading.stateChanger.complete()
+        }
+      }, 400)
     }
   }
 })
