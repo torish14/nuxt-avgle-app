@@ -76,30 +76,3 @@ export default Vue.extend({
   },
 })
 </script>
-
-<style scoped>
-/* @media screen and (max-width: 768px) {
-  .normal-footer {
-    display: none !important;
-  }
-
-  .material-icons {
-    font-size: 24px !important;
-  }
-
-  .icon-text {
-    font-size: 10px;
-  }
-
-  .active {
-    color: #6b46c1;
-    color: white;
-  }
-}
-
-@media screen and (min-width: 769px) {
-  .responsive {
-    display: none !important;
-  }
-} */
-</style>
