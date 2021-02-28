@@ -137,6 +137,7 @@ export default {
     { src: '~/plugins/pagination.js', mode: 'client' },
     '~/plugins/scroll.js',
     '~/plugins/lazyload.js',
+    { src: '~/plugins/infiniteloading.js', mode: 'client' },
     '~/plugins/suggest.js',
   ],
   router: {
