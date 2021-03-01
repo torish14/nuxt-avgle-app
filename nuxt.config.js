@@ -116,11 +116,11 @@ export default {
   loading: {
     color: '#6b46c1',
   },
-  // loadingIndicator: {
-  //   name: 'circle',
-  //   color: '#6b46c1',
-  //   background: 'black',
-  // },
+  loadingIndicator: {
+    name: 'circle',
+    color: '#a0aec0',
+    background: 'black',
+  },
   /*
    ** Global CSS
    */
