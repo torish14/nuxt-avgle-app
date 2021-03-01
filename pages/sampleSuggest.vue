@@ -1,31 +1,155 @@
-<!-- <template>
-  <div id="app" class="bg-black">
-    <VueAutosuggest
-      ref="autocomplete"
-      v-model="query"
-      :suggestions="suggestions"
-      :input-props="inputProps"
-      :section-configs="sectionConfigs"
-      :render-suggestion="renderSuggestion"
-      :get-suggestion-value="getSuggestionValue"
-      @input="fetchResults"
-    />
-    <div v-if="selected" style="margin-top: 10px;">
-      You have selected:
-      <code>
-        <pre>{{ JSON.stringify(selected, null, 4) }}</pre>
-      </code>
+<template>
+  <div class="demo">
+    <div v-if="selected" style="padding-top:10px; width: 100%;">
+      You have selected <code>{{ selected.name }}, the {{ selected.race }}</code>
+    </div>
+    <div class="autosuggest-container">
+      <vue-autosuggest
+        v-model="query"
+        :suggestions="filteredOptions"
+        :get-suggestion-value="getSuggestionValue"
+        :input-props="{id:'autosuggest__input', placeholder:'Do you feel lucky, punk?'}"
+        @focus="focusMe"
+        @click="clickHandler"
+        @input="onInputChange"
+        @selected="onSelected"
+      >
+        <div slot-scope="{suggestion}" style="display: flex; align-items: center;">
+          <img :style="{ display: 'flex', width: '25px', height: '25px', borderRadius: '15px', marginRight: '10px'}" :src="suggestion.item.avatar">
+          <div style="{ display: 'flex', color: 'navyblue'}">
+            {{ suggestion.item.name }}
+          </div>
+        </div>
+      </vue-autosuggest>
     </div>
   </div>
 </template>
 
 <script>
-import { VueAutosuggest } from 'vue-autosuggest'
+import { VueAutosuggest } from 'vue-autosuggest';
 
 export default {
   components: {
     VueAutosuggest
   },
+  data() {
+    return {
+      query: '',
+      selected: '',
+      suggestions: [
+        {
+          data: [
+            { id: 1, name: 'Frodo', race: 'Hobbit', avatar: 'https://upload.wikimedia.org/wikipedia/en/thumb/4/4e/Elijah_Wood_as_Frodo_Baggins.png/220px-Elijah_Wood_as_Frodo_Baggins.png' },
+            { id: 2, name: 'Samwise', race: 'Hobbit', avatar: 'https://upload.wikimedia.org/wikipedia/en/thumb/7/7b/Sean_Astin_as_Samwise_Gamgee.png/200px-Sean_Astin_as_Samwise_Gamgee.png' },
+            { id: 3, name: 'Gandalf', race: 'Maia', avatar: 'https://upload.wikimedia.org/wikipedia/en/thumb/e/e9/Gandalf600ppx.jpg/220px-Gandalf600ppx.jpg' },
+            { id: 4, name: 'Aragorn', race: 'Human', avatar: 'https://upload.wikimedia.org/wikipedia/en/thumb/3/35/Aragorn300ppx.png/150px-Aragorn300ppx.png' }
+          ]
+        }
+      ]
+    };
+  },
+  computed: {
+    filteredOptions() {
+      return [
+        {
+          data: this.suggestions[0].data.filter(option => {
+            return option.name.toLowerCase().includes(this.query.toLowerCase());
+          })
+        }
+      ];
+    }
+  },
+  methods: {
+    clickHandler() {
+      // event fired when clicking on the input
+    },
+    onSelected(item) {
+      this.selected = item.item;
+    },
+    onInputChange(text) {
+      // event fired when the input changes
+      console.log(text)
+    },
+    /**
+     * This is what the <input/> value is set to when you are selecting a suggestion.
+     */
+    getSuggestionValue(suggestion) {
+      return suggestion.item.name;
+    },
+    focusMe(e) {
+      console.log(e) // FocusEvent
+    }
+  }
+}
+</script>
+
+<style>
+.demo {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+input {
+  width: 260px;
+  padding: 0.5rem;
+}
+
+ul {
+  width: 100%;
+  color: rgba(30, 39, 46,1.0);
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 0 .5rem 0;
+}
+li {
+  margin: 0 0 0 0;
+  border-radius: 5px;
+  padding: 0.75rem 0 0.75rem 0.75rem;
+  display: flex;
+  align-items: center;
+}
+li:hover {
+  cursor: pointer;
+}
+
+.autosuggest-container {
+  display: flex;
+  justify-content: center;
+  width: 280px;
+}
+
+#autosuggest { width: 100%; display: block;}
+.autosuggest__results-item--highlighted {
+  background-color: rgba(51, 217, 178,0.2);
+}
+</style>
+
+<!-- <template>
+  <div id="app">
+    <div class="container">
+      <vue-autosuggest
+        ref="autocomplete"
+        v-model="query"
+        :suggestions="suggestions"
+        :input-props="inputProps"
+        :section-configs="sectionConfigs"
+        :render-suggestion="renderSuggestion"
+        :get-suggestion-value="getSuggestionValue"
+        @input="fetchResults"
+      />
+      <div v-if="selected" style="margin-top: 10px;">
+        You have selected:
+        <code>
+          <pre>{{ JSON.stringify(selected, null, 4) }}</pre>
+        </code>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import axios from 'axios'
+
+export default {
   data() {
     return {
       query: '',
@@ -45,7 +169,7 @@ export default {
       sectionConfigs: {
         destinations: {
           limit: 6,
-          label: 'Destination',
+          label: '',
           onSelected: selected => {
             this.selected = selected.item;
           }
@@ -66,8 +190,8 @@ export default {
 
       clearTimeout(this.timeout);
       this.timeout = setTimeout(() => {
-        const photosPromise = this.$axios.$get(this.photosUrl);
-        const usersPromise = this.$axios.$get(this.usersUrl);
+        const photosPromise = axios.get(this.photosUrl);
+        const usersPromise = axios.get(this.usersUrl);
 
         Promise.all([photosPromise, usersPromise]).then(values => {
           this.suggestions = [];
@@ -85,8 +209,9 @@ export default {
     },
     filterResults(data, text, field) {
       return data
+      // eslint-disable-next-line
         .filter(item => {
-          if (item[field].toLowerCase().includes(text.toLowerCase())) {
+          if (item[field].toLowerCase().includes(text.toLowerCase()) > -1) {
             return item[field];
           }
         })
@@ -111,11 +236,11 @@ export default {
       return name === 'hotels' ? item.title : item.name;
     }
   }
-}
-</script> -->
+};
+</script>
 
 <style>
-/* #app {
+#app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -195,71 +320,5 @@ export default {
 .autosuggest__results
   .autosuggest__results-item.autosuggest__results-item--highlighted {
   background-color: #f6f6f6;
-} */
-
-/* input {
-  --tw-bg-opacity: 1;
-  background-color: rgba(31, 41, 55, var(--tw-bg-opacity));
-  border-top-left-radius: 9999px;
-  border-bottom-left-radius: 9999px;
-  width: 100%;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  --tw-text-opacity: 1;
-  color: #A0AEC0;
-  line-height: 1.25;
 }
-
-input:focus {
-  outline: none;
-}
-
-.vue-simple-suggest.designed .suggestions {
-  position: absolute;
-  left: 0;
-  right: 0;
-  opacity: 1;
-  z-index: 1000;
-  background-color: black;
-}
-
-.vue-simple-suggest > ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-ul {
-  display: block;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  padding-inline-start: 40px;
-}
-
-.vue-simple-suggest.designed .suggestions .suggest-item:hover {
-  cursor: pointer;
-  background-color: #6B46C1;
-  color: #fff;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-.vue-simple-suggest.designed .suggestions .suggest-item {
-  color: #A0AEC0;
-}
-
-.vue-simple-suggest.designed .suggestions .suggest-item, .vue-simple-suggest.designed .suggestions .misc-item {
-  padding: 5px 20px;
-}
-
-li {
-  display: list-item;
-  text-align: -webkit-match-parent;
-} */
-</style>
+</style> -->
