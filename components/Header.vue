@@ -109,9 +109,10 @@ export default Vue.extend({
   watch: {
     // 上にスクロールした時に表示
     scrollY (newValue, oldValue) {
-      this.$set(this, 'isShow', newValue < oldValue || newValue <= 1 || newValue >= 5000)
-      // console.log('新しい',newValue)
-      // console.log('古い',oldValue)
+      this.$set(this, 'isShow', newValue < oldValue || newValue <= 1)
+      // this.$set(this, 'isShow', newValue < oldValue || newValue <= 1 || newValue >= 5000)
+      console.log('新しい',newValue)
+      console.log('古い',oldValue)
     }
   },
   mounted () {
