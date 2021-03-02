@@ -350,7 +350,9 @@ export default Vue.extend({
     },
     infiniteHandler() {
       setTimeout(() => {
+        // @ts-ignore
         if (this.parPage < this.messages.length) {
+          // @ts-ignore
           this.parPage += 20
           // @ts-ignore
           this.$refs.infiniteLoading.stateChanger.loaded()

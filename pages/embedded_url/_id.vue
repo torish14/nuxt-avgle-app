@@ -39,7 +39,7 @@
         </template>
       </div>
       <div class="flex flex-wrap justify-center">
-        <div v-for="data in getPaginationItems" :key="data.vid" class=" md:px-2 lg:px-2 xl:px-2 2xl:px-2 lg:mt-8 xl:mt-8 2xl:mt-8">
+        <div v-for="data in getItems" :key="data.vid" class=" md:px-2 lg:px-2 xl:px-2 2xl:px-2 lg:mt-8 xl:mt-8 2xl:mt-8">
           <vue-lazy-component>
             <nuxt-link :to="{ path: data.vid }" aria-label="動画埋め込みページへ遷移" no-prefetch>
               <div class="relative">
@@ -119,22 +119,6 @@
             <Skeleton slot="skeleton" />
           </vue-lazy-component>
         </div>
-        <Paginate
-          :page-count="getPageCount"
-          :page-range="3"
-          :margin-pages="1"
-          :click-handler="clickCallback"
-          :prev-text="'前'"
-          :prev-class="'page-item'"
-          :prev-link-class="'page-link'"
-          :next-text="'次へ'"
-          :next-class="'page-item'"
-          :next-link-class="'page-item'"
-          :container-class="'pagination'"
-          :page-class="'page-item'"
-          :page-link-class="'page-link'"
-          class="sm:pt-4 md:pt-6 lg:pt-8 xl:pt-8"
-        />
       </div>
     </div>
     <!-- モバイル -->
@@ -176,7 +160,7 @@
         </template>
       </div>
       <div class="flex flex-wrap justify-center">
-        <div v-for="data in messages" :key="data.vid" class=" md:px-2 lg:px-2 xl:px-2 2xl:px-2 lg:mt-8 xl:mt-8 2xl:mt-8">
+        <div v-for="data in getItems" :key="data.vid" class=" md:px-2 lg:px-2 xl:px-2 2xl:px-2 lg:mt-8 xl:mt-8 2xl:mt-8">
           <vue-lazy-component>
             <nuxt-link :to="{ path: data.vid }" aria-label="動画埋め込みページへ遷移">
               <div class="relative">
@@ -256,15 +240,6 @@
             <Skeleton slot="skeleton" />
           </vue-lazy-component>
         </div>
-        <InfiniteLoading
-          ref="infiniteLoading"
-          spinner="spiral"
-          @infinite="infiniteHandler"
-        >
-          <div slot="no-more">
-            これ以上結果はありません
-          </div>
-        </InfiniteLoading>
       </div>
     </div>
   </section>
@@ -333,6 +308,9 @@ export default Vue.extend({
     messagesMatchVid (): number {
       // @ts-ignore
       return this.$accessor.search.messages.find(value =>  value.vid === this.id)
+    },
+    getItems () {
+      return this.messages.slice(0,20)
     }
   },
   watch: {
@@ -394,7 +372,9 @@ export default Vue.extend({
     },
     infiniteHandler() {
       setTimeout(() => {
+        // @ts-ignore
         if (this.parPage < this.messages.length) {
+          // @ts-ignore
           this.parPage += 20
           // @ts-ignore
           this.$refs.infiniteLoading.stateChanger.loaded()
