@@ -265,8 +265,7 @@ if (process.client) {
 }
 
 export type DataType = {
-  id: string,
-  parPage: number
+  id: string
 }
 
 export default Vue.extend({
@@ -276,9 +275,7 @@ export default Vue.extend({
   scrollToTop: true,
   data (): DataType {
     return {
-      id: this.$route.params.id,
-      // ? 1ページに表示するアイテム数
-      parPage: 20
+      id: this.$route.params.id
     }
   },
   // ? layout: 'custom',
@@ -290,21 +287,6 @@ export default Vue.extend({
   },
   computed: {
     ...mapGetters('search', ['message', 'messages']),
-    // ? 現在ページのアイテムを返す
-    getPaginationItems (): number {
-      // @ts-ignore
-      const current = this.$accessor.currentIdPage * this.parPage
-      // @ts-ignore
-      const start = current - this.parPage
-      return this.messages.slice(start, current).sort(
-        function() { return Math.random()-.5 }
-      )
-    },
-    // ? ページネーションの最大ページ数を求めるためにitems をparPage で割って切り上げる
-    getPageCount (): number {
-      // @ts-ignore
-      return Math.ceil(this.messages.length / this.parPage)
-    },
     messagesMatchVid (): number {
       // @ts-ignore
       return this.$accessor.search.messages.find(value =>  value.vid === this.id)
@@ -336,16 +318,6 @@ export default Vue.extend({
     changeForm () {
       this.$accessor.search.changeMessage()
     },
-    // ? ページネーションをクリック時に、currentPage にページ番号を設定
-    clickCallback (pageNum: number) {
-      // @ts-ignore
-      this.$store.state.currentIdPage = pageNum
-      // @ts-ignore
-      this.$accessor.setCurrentIdPage(this.$store.state.currentIdPage)
-      window.scrollTo(0,0)
-      this.$router.push({ path: `?page=${this.$accessor.currentIdPage}` })
-      this.$forceUpdate()
-    },
     toHms (t: number): number {
       let hms = '' as string | number
       const h = Math.ceil(t / 3600 | 0)
@@ -369,20 +341,6 @@ export default Vue.extend({
           return v
         }
       }
-    },
-    infiniteHandler() {
-      setTimeout(() => {
-        // @ts-ignore
-        if (this.parPage < this.messages.length) {
-          // @ts-ignore
-          this.parPage += 20
-          // @ts-ignore
-          this.$refs.infiniteLoading.stateChanger.loaded()
-        } else {
-          // @ts-ignore
-          this.$refs.infiniteLoading.stateChanger.complete()
-        }
-      }, 400)
     }
   }
 })
