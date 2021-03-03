@@ -134,6 +134,7 @@ export const actions = actionTree({ state, getters, mutations }, {
       // @ts-ignore
       getSearchItemsResponse.response.videos.filter((value) =>
         !(value.title).match('無修正') &&
+        !(value.title).match('無') &&
         !(value.title).match('完全素人') &&
         !(value.title).match('個人撮影') &&
         !(value.title).match('FC2') &&
@@ -143,6 +144,7 @@ export const actions = actionTree({ state, getters, mutations }, {
         !(value.title).match('DeepFake') &&
         !(value.title).match('Deepfake') &&
         !(value.title).match('deepfake') &&
+        !(value.title).match(/^[a-zA-Z]+$/) &&
         !(value.keyword).match('無修正') &&
         !(value.keyword).match('FC2')
         // @ts-ignore
@@ -207,6 +209,7 @@ export const actions = actionTree({ state, getters, mutations }, {
       // @ts-ignore
       getSearchItemsResponse.response.videos.filter((value) =>
         !(value.title).match('無修正') &&
+        !(value.title).match('無') &&
         !(value.title).match('完全素人') &&
         !(value.title).match('個人撮影') &&
         !(value.title).match('FC2') &&
@@ -216,6 +219,7 @@ export const actions = actionTree({ state, getters, mutations }, {
         !(value.title).match('DeepFake') &&
         !(value.title).match('Deepfake') &&
         !(value.title).match('deepfake') &&
+        !(value.title).match(/^[a-zA-Z]+$/) &&
         !(value.keyword).match('無修正') &&
         !(value.keyword).match('FC2')
         // @ts-ignore
