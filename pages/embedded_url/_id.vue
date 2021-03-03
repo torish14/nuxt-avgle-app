@@ -292,7 +292,7 @@ export default Vue.extend({
       return this.$accessor.search.messages.find(value =>  value.vid === this.id)
     },
     getItems () {
-      return this.messages.slice(0,20)
+      return this.messages.slice(0,12)
     }
   },
   watch: {
