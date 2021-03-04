@@ -204,60 +204,60 @@ export const actions = actionTree({ state, getters, mutations }, {
       )
     )
 
-    commit(
-      'setSearchKeywords',
-      // @ts-ignore
-      getSearchItemsResponse.response.videos.filter((value) =>
-        !(value.title).match('無修正') &&
-        !(value.title).match('無') &&
-        !(value.title).match('完全素人') &&
-        !(value.title).match('個人撮影') &&
-        !(value.title).match('FC2') &&
-        !(value.title).match('Fc2') &&
-        !(value.title).match('fc2') &&
-        !(value.title).match('DEEPFAKE') &&
-        !(value.title).match('DeepFake') &&
-        !(value.title).match('Deepfake') &&
-        !(value.title).match('deepfake') &&
-        !(value.title).match(/^[a-zA-Z]+$/) &&
-        !(value.keyword).match('無修正') &&
-        !(value.keyword).match('FC2')
-        // @ts-ignore
-      ).map((value) =>
-        value.keyword
-          .split(/,|\s/)
-          .filter(
-            RegExp.prototype.test,
-            /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/
-          )
-          .filter(
-            // @ts-ignore
-            (value) =>
-              value !== state.messages.title &&
-              value !== '日本人' &&
-              value !== 'アジア' &&
-              value !== 'アジア人' &&
-              value !== '日本' &&
-              value !== '無修正' &&
-              value !== '肛門' &&
-              value !== 'アナルセックス' &&
-              value !== '兼' &&
-              value !== '油' &&
-              value !== '中出' &&
-              value !== '人' &&
-              value !== 'アジアユニフォーム' &&
-              value !== 'ユニフォーム' &&
-              value !== '女' &&
-              value !== '熟' &&
-              value !== '膣' &&
-              value !== 'フェチ' &&
-              value !== 'ハードコア' &&
-              value !== 'ハイビジョン' &&
-              value !== '足'
-          )
-          .slice(0, 3)
-      )
-    )
+    // commit(
+    //   'setSearchKeywords',
+    //   // @ts-ignore
+    //   getSearchItemsResponse.response.videos.filter((value) =>
+    //     !(value.title).match('無修正') &&
+    //     !(value.title).match('無') &&
+    //     !(value.title).match('完全素人') &&
+    //     !(value.title).match('個人撮影') &&
+    //     !(value.title).match('FC2') &&
+    //     !(value.title).match('Fc2') &&
+    //     !(value.title).match('fc2') &&
+    //     !(value.title).match('DEEPFAKE') &&
+    //     !(value.title).match('DeepFake') &&
+    //     !(value.title).match('Deepfake') &&
+    //     !(value.title).match('deepfake') &&
+    //     !(value.title).match(/^[a-zA-Z]+$/) &&
+    //     !(value.keyword).match('無修正') &&
+    //     !(value.keyword).match('FC2')
+    //     // @ts-ignore
+    //   ).map((value) =>
+    //     value.keyword
+    //       .split(/,|\s/)
+    //       .filter(
+    //         RegExp.prototype.test,
+    //         /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/
+    //       )
+    //       .filter(
+    //         // @ts-ignore
+    //         (value) =>
+    //           value !== state.messages.title &&
+    //           value !== '日本人' &&
+    //           value !== 'アジア' &&
+    //           value !== 'アジア人' &&
+    //           value !== '日本' &&
+    //           value !== '無修正' &&
+    //           value !== '肛門' &&
+    //           value !== 'アナルセックス' &&
+    //           value !== '兼' &&
+    //           value !== '油' &&
+    //           value !== '中出' &&
+    //           value !== '人' &&
+    //           value !== 'アジアユニフォーム' &&
+    //           value !== 'ユニフォーム' &&
+    //           value !== '女' &&
+    //           value !== '熟' &&
+    //           value !== '膣' &&
+    //           value !== 'フェチ' &&
+    //           value !== 'ハードコア' &&
+    //           value !== 'ハイビジョン' &&
+    //           value !== '足'
+    //       )
+    //       .slice(0, 3)
+    //   )
+    // )
     commit('hideLoading')
   }
 })
