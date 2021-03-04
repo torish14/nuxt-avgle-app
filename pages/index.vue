@@ -154,7 +154,7 @@
                   </h5>
                 </div>
                 <p class="text-gray-300 text-base hover:text-purple-500 break-all pl-2" style="width: 370px;">
-                  {{ data.title.slice(0,40) }}
+                  {{ data.title.slice(0,44) }}
                 </p>
               </nuxt-link>
               <div class="flex flex-row my-1">
