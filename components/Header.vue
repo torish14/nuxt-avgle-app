@@ -36,18 +36,18 @@
     <!-- モバイル -->
     <div v-else id="header" class="bg-black">
       <nav v-show="isShow">
-        <div class="flex justify-between bg-black fixed top-0 w-full z-20 pb-1">
-          <div :class="isOpen ? 'hidden' : 'block'" class="flex items-center flex-shrink-0 text-white mr-6">
+        <div class="flex justify-between bg-black top-0 w-full z-20 pb-1">
+          <div :class="isOpen ? 'hidden' : 'block'" class="flex items-center flex-shrink-0 text-white mr-6 py-2">
             <a href="https://nuxt-pornhub-api.web.app" aria-label="ホームへ戻る" @click="changeForm">
               <img
                 src="~/assets/Porngle ロゴ.jpeg"
                 alt="ロゴ"
-                class="w-40"
-                style="height: 60px;"
+                class="w-24"
+                style="height: 40px;"
               >
             </a>
           </div>
-          <div :class="isOpen ? 'block' : 'hidden'" class="w-full pl-2">
+          <!-- <div :class="isOpen ? 'block' : 'hidden'" class="w-full pl-2">
             <input
               ref="focusInput"
               v-model="computedGetState"
@@ -67,7 +67,7 @@
                 <i class="material-icons">search</i>
               </button>
             </div>
-          </div>
+          </div> -->
         </div>
       </nav>
     </div>
@@ -106,30 +106,30 @@ export default Vue.extend({
       }
     }
   },
-  watch: {
-    // 上にスクロールした時に表示
-    scrollY (newValue, oldValue) {
-      this.$set(this, 'isShow', newValue < oldValue || newValue <= 1)
-      // this.$set(this, 'isShow', newValue < oldValue || newValue <= 1 || newValue >= 5000)
-      // console.log('新しい',newValue)
-      // console.log('古い',oldValue)
-    }
-  },
-  mounted () {
-    // スクロールイベントを取得
-    // @ts-ignore
-    window.addEventListener('scroll', this.onScroll)
-    window.addEventListener('load', () => {
-      // @ts-ignore
-      this.onScroll()
-    })
-    // this.$nextTick(() => this.onScroll())
-  },
-  // @ts-ignore
-  beforeDestroyed () {
-    // @ts-ignore
-    window.removeEventListener('scroll', this.onScroll)
-  },
+  // watch: {
+  //   // 上にスクロールした時に表示
+  //   scrollY (newValue, oldValue) {
+  //     this.$set(this, 'isShow', newValue < oldValue || newValue <= 1)
+  //     // this.$set(this, 'isShow', newValue < oldValue || newValue <= 1 || newValue >= 5000)
+  //     // console.log('新しい',newValue)
+  //     // console.log('古い',oldValue)
+  //   }
+  // },
+  // mounted () {
+  //   // スクロールイベントを取得
+  //   // @ts-ignore
+  //   window.addEventListener('scroll', this.onScroll)
+  //   window.addEventListener('load', () => {
+  //     // @ts-ignore
+  //     this.onScroll()
+  //   })
+  //   // this.$nextTick(() => this.onScroll())
+  // },
+  // // @ts-ignore
+  // beforeDestroyed () {
+  //   // @ts-ignore
+  //   window.removeEventListener('scroll', this.onScroll)
+  // },
   methods: {
     search (e: any) {
       if (e.keyCode !== 13) { return }
