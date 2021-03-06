@@ -149,7 +149,7 @@ export default Vue.extend({
       this.$router.push('/')
     },
     changeForm () {
-      this.$accessor.search.changeMessage()
+      this.$accessor.search.setJapaneseMessage()
     },
     focusSearch () {
       this.$accessor.search.clearMessage()
