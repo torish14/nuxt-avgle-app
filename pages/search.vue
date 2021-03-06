@@ -418,6 +418,8 @@ export default Vue.extend({
       this.$accessor.search.getSearchItems()
       // @ts-ignore
       this.$accessor.changeIndexPagination()
+      window.scrollTo(0,0)
+      this.$router.push('/')
       console.log(keyword)
     }
   }
