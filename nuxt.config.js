@@ -124,7 +124,7 @@ export default {
   /*
    ** Global CSS
    */
-  // css: ['ress'],
+  css: ['ress'],
   /*
    ** Plugins to load before mounting the App
    */
@@ -180,7 +180,7 @@ export default {
   },
   optimizedImages: {
     optimizeImages: true,
-    optimizeImagesInDev: true,
+    // optimizeImagesInDev: true,
   },
   pwa: {
     icon: false,
