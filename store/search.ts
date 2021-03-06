@@ -91,7 +91,7 @@ export const actions = actionTree({ state, getters, mutations }, {
     return commit('mutateMessage', payload)
   },
   async getJapaneseItems ({ state, commit }) {
-    commit('showLoading')
+    // commit('showLoading')
     const config = {
       headers: { 'content-type': 'application/json' },
     }
@@ -133,7 +133,7 @@ export const actions = actionTree({ state, getters, mutations }, {
     commit('hideLoading')
   },
   async getSuggestItems ({ state, commit }) {
-    commit('showLoading')
+    // commit('showLoading')
     const config = {
       headers: { 'content-type': 'application/json' },
     }
@@ -175,7 +175,7 @@ export const actions = actionTree({ state, getters, mutations }, {
     commit('hideLoading')
   },
   async getSearchItems ({ state, commit }) {
-    commit('showLoading')
+    // commit('showLoading')
     const config = {
       headers: { 'content-type': 'application/json' },
     }

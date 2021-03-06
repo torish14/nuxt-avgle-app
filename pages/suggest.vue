@@ -121,7 +121,7 @@
     <!-- モバイル -->
     <div v-if="$device.isMobile" class="pt-20">
       <div v-show="!isLoading" class="flex flex-wrap justify-center">
-        <template v-if="suggestMessages.length === 0 && !isLoading || message === '無修正' || message === 'Uncensored' || message === 'uncensored' || message === 'PAKO' || message === 'Pako' || message === 'pako' || message === 'ぱこ' || message === 'パコ' || message === 'CARIB' || message === 'Carib' || message === 'carib' || message === 'かりぶ' || message === 'カリブ' || message === 'FC2' || message === 'Fc2' || message === 'fc2' || message === '完全素人' || message === '個人撮影' || message === 'DEEPFAKE' || message === 'DeepFake' || message === 'Deepfake' || message === 'deepfake'">
+        <template v-if="suggestMessages.length === 0 && !isLoading && show || message === '無修正' || message === 'Uncensored' || message === 'uncensored' || message === 'PAKO' || message === 'Pako' || message === 'pako' || message === 'ぱこ' || message === 'パコ' || message === 'CARIB' || message === 'Carib' || message === 'carib' || message === 'かりぶ' || message === 'カリブ' || message === 'FC2' || message === 'Fc2' || message === 'fc2' || message === '完全素人' || message === '個人撮影' || message === 'DEEPFAKE' || message === 'DeepFake' || message === 'Deepfake' || message === 'deepfake'">
           <client-only>
             <i class="material-icons text-gray-500" style="font-size: 18px;">error</i>
             <h5 class="text-gray-500 text-lg">
@@ -129,6 +129,16 @@
             </h5>
           </client-only>
         </template>
+        <div v-else-if="$fetchState.pending" class="text-white">
+          <VueLoading
+            type="spin"
+            color="#a0aec0"
+            :size="{ width: '40px', height: '40px' }"
+          />
+        </div>
+        <p v-else-if="$fetchState.error" class="text-white">
+          An error occured :(
+        </p>
         <template v-else>
           <div v-for="data in getPaginationItems" :key="data.vid" class="md:px-2 lg:px-2 xl:px-2 2xl:px-2 lg:mt-8 xl:mt-8 2xl:mt-8">
             <vue-lazy-component>
@@ -221,12 +231,6 @@
           </InfiniteLoading>
         </template>
       </div>
-      <VueLoading
-        v-show="isLoading"
-        type="spin"
-        color="#a0aec0"
-        :size="{ width: '40px', height: '40px' }"
-      />
     </div>
   </section>
 </template>
@@ -239,7 +243,8 @@ import { VueLoading } from 'vue-loading-template'
 import Skeleton from '~/components/Skeleton.vue'
 
 export type DataType = {
-  parPage: number
+  parPage: number,
+  show: Boolean
 }
 
 export default Vue.extend({
@@ -253,7 +258,8 @@ export default Vue.extend({
   data (): DataType {
     return {
       // ? 1ページに表示するアイテム数
-      parPage: 20
+      parPage: 20,
+      show: false
     }
   },
   fetch () {
@@ -285,22 +291,27 @@ export default Vue.extend({
   watch: {
     '$route.query': '$fetch'
   },
+  mounted() {
+    setTimeout(() => {
+      this.show = true
+    }, 1000);
+  },
   activated() {
     // 最後の fetch から30秒以上経っていれば、fetch を呼び出す
     if (this.$fetchState.timestamp <= Date.now() - 30000) {
       this.$fetch()
     }
   },
-  // created() {
-  //   if (process.browser) {
-  //     // @ts-ignore
-  //     window.addEventListener('beforeunload', this.setSuggestForm) // eslint-disable-line
-  //   }
-  // },
-  // destroyed() {
-  //   // @ts-ignore
-  //   window.removeEventListener('beforeunload', this.setSuggestForm)
-  // },
+  created() {
+    if (process.browser) {
+      // @ts-ignore
+      window.addEventListener('beforeunload', this.setSuggestForm) // eslint-disable-line
+    }
+  },
+  destroyed() {
+    // @ts-ignore
+    window.removeEventListener('beforeunload', this.setSuggestForm)
+  },
   methods: {
     handler () {
       console.log('Now loading')
@@ -339,9 +350,9 @@ export default Vue.extend({
         }
       }
     },
-    // setSuggestForm () {
-    //   this.$accessor.search.setSuggestMessage()
-    // },
+    setSuggestForm () {
+      this.$accessor.search.setSuggestMessage()
+    },
     infiniteHandler() {
       setTimeout(() => {
         // @ts-ignore
