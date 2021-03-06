@@ -316,7 +316,7 @@ export default Vue.extend({
   },
   methods: {
     changeForm () {
-      this.$accessor.search.changeMessage()
+      this.$accessor.search.setJapaneseMessage()
     },
     toHms (t: number): number {
       let hms = '' as string | number

@@ -266,8 +266,8 @@ export default Vue.extend({
     if(this.$accessor.search.messages.length > 0) {
       return
     }
-    this.$accessor.search.changeMessage()
-    this.$accessor.search.getSearchItems()
+    this.$accessor.search.setJapaneseMessage()
+    this.$accessor.search.getJapaneseItems()
   },
   computed: {
     ...mapGetters('search', ['message', 'messages', 'isLoading']),
@@ -346,7 +346,7 @@ export default Vue.extend({
       }
     },
     changeForm () {
-      this.$accessor.search.changeMessage()
+      this.$accessor.search.setJapaneseMessage()
     },
     infiniteHandler() {
       setTimeout(() => {
@@ -365,7 +365,7 @@ export default Vue.extend({
     changeFormKeyword (keyword: string) {
       // @ts-ignore
       this.$accessor.search.changeKeyword(keyword)
-      this.$accessor.search.getSearchItems()
+      this.$accessor.search.getJapaneseItems()
       // @ts-ignore
       this.$accessor.changeIndexPagination()
       this.$router.push('/')
@@ -376,13 +376,13 @@ export default Vue.extend({
 </script>
 
 <style>
-@font-face {
+/* @font-face {
   font-family: 'Pacifico';
   font-style: normal;
   font-weight: 400;
   src: local('Pacifico Regular'), local('Pacifico-Regular'), url(https://fonts.gstatic.com/s/pacifico/v12/FwZY7-Qmy14u9lezJ-6H6MmBp0u-.woff2) format('woff2');
   font-display: swap;
-}
+} */
 
 .page-item {
   color: #8763D7 !important;

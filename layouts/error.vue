@@ -32,7 +32,7 @@ export default {
   },
   methods: {
     changeForm () {
-      this.$accessor.search.changeMessage()
+      this.$accessor.search.setJapaneseMessage()
     }
   },
 }
