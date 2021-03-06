@@ -124,7 +124,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['ress'],
+  // css: ['ress'],
   /*
    ** Plugins to load before mounting the App
    */
