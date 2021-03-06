@@ -40,7 +40,7 @@
               </p>
             </div>
           </nuxt-link>
-          <nuxt-link to="/search" @click.native="clearForm()">
+          <nuxt-link to="/search" @click.native="clearForm">
             <div class="text-center">
               <i class="material-icons">search</i>
               <p class="icon-text" style="font-size: 8px;">
@@ -55,8 +55,6 @@
 </template>
 
 <script lang="ts">
-// Todo レイアウト修正 http://youtube.com
-// Todo フッターのレンダリングが遅い
 // Todo ロゴのサイズ縮小
 import Vue from 'vue'
 
