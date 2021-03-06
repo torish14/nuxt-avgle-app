@@ -220,7 +220,7 @@
               <Skeleton slot="skeleton" />
             </vue-lazy-component>
           </div>
-          <InfiniteLoading
+          <!-- <InfiniteLoading
             ref="infiniteLoading"
             spinner="spiral"
             @infinite="infiniteHandler"
@@ -228,7 +228,7 @@
             <div slot="no-more">
               これ以上結果はありません
             </div>
-          </InfiniteLoading>
+          </InfiniteLoading> -->
         </template>
       </div>
     </div>
@@ -353,27 +353,26 @@ export default Vue.extend({
     setSuggestForm () {
       this.$accessor.search.setSuggestMessage()
     },
-    infiniteHandler() {
-      setTimeout(() => {
-        // @ts-ignore
-        if (this.parPage < this.suggestMessages.length) {
-          // @ts-ignore
-          this.parPage += 20
-          // @ts-ignore
-          this.$refs.infiniteLoading.stateChanger.loaded()
-        } else {
-          // @ts-ignore
-          this.$refs.infiniteLoading.stateChanger.complete()
-        }
-      }, 400)
-    },
+    // infiniteHandler() {
+    //   setTimeout(() => {
+    //     // @ts-ignore
+    //     if (this.parPage < this.suggestMessages.length) {
+    //       // @ts-ignore
+    //       this.parPage += 20
+    //       // @ts-ignore
+    //       this.$refs.infiniteLoading.stateChanger.loaded()
+    //     } else {
+    //       // @ts-ignore
+    //       this.$refs.infiniteLoading.stateChanger.complete()
+    //     }
+    //   }, 400)
+    // },
     changeFormKeyword (keyword: string) {
       // @ts-ignore
       this.$accessor.search.changeKeyword(keyword)
       this.$accessor.search.getSuggestItems()
       // @ts-ignore
       this.$accessor.changeIndexPagination()
-      this.$router.push('/')
       console.log(keyword)
     }
   }
