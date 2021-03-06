@@ -40,6 +40,10 @@ export default {
 
 <style>
 .error {
-  padding-top: 80px;
+  padding-top: 4px;
+}
+
+body {
+  background-color: black;
 }
 </style>
