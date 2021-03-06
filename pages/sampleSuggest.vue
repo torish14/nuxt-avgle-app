@@ -34,17 +34,15 @@ export default {
   },
   methods: {
     fetchResults() {
-      const query = this.query
-
-      const usersPromise = this.$axios.get(this.usersUrl);
+      const usersPromise = this.$axios.get(this.usersUrl)
 
       Promise.all([usersPromise]).then(values => {
         this.suggestions = []
 
-        const users = this.filterResults(values[0].data, query, 'name')
+        const users = this.filterResults(values[0].data, this.query, 'name')
 
         users.length &&
-          this.suggestions.push({ name: 'destinations', data: users })
+          this.suggestions.push({ data: users })
       })
     },
     filterResults(data, text, field) {
@@ -61,8 +59,6 @@ export default {
       .sort()
     },
     renderSuggestion(suggestion) {
-      console.log('suggestion', suggestion)
-      console.log('suggestion.item.name', suggestion.item.name)
       return suggestion.item.name
     }
   }
