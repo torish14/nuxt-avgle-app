@@ -119,7 +119,7 @@
       />
     </div> -->
     <!-- モバイル -->
-    <div v-if="$device.isMobile" class="pt-20">
+    <div v-if="$device.isMobile" class="pt-1">
       <nav>
         <div class="bg-gray-800 flex items-center rounded-full shadow-xl">
           <div class="bg-gray-800 text-gray-500 rounded-full focus:outline-one w-12 h-12 flex items-center">
