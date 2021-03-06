@@ -293,6 +293,9 @@ export default Vue.extend({
     },
     getItems () {
       return this.messages.slice(0,12)
+      // .sort(
+      //   function() { return Math.random()-.5 }
+      // )
     }
   },
   watch: {
