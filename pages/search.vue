@@ -121,14 +121,14 @@
     <!-- モバイル -->
     <div v-if="$device.isMobile" class="pt-1">
       <nav>
-        <div class="bg-gray-800 flex items-center rounded-full shadow-xl">
-          <div class="bg-gray-800 text-gray-500 rounded-full focus:outline-one w-12 h-12 flex items-center">
+        <div class="bg-gray-800 flex items-center shadow-xl rounded-lg m-2">
+          <div class="bg-gray-800 text-gray-500 focus:outline-one w-12 h-12 flex items-center justify-center">
             <i class="material-icons">search</i>
           </div>
           <input
             ref="focusInput"
             v-model="computedGetState"
-            class="bg-gray-800 rounded-l-full w-full py-4 px-6 text-gray-500 leading-tight focus:outline-none"
+            class="bg-gray-800 w-full py-2 text-gray-500 leading-tight focus:outline-none rounded-lg"
             type="search"
             placeholder="検索"
             inputmode="search"
@@ -272,7 +272,7 @@ export default Vue.extend({
     // @ts-ignore
     Skeleton
   },
-  // layout: 'custom',
+  layout: 'custom',
   scrollToTop: true,
   data (): DataType {
     return {
