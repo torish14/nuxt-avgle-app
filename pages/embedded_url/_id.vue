@@ -123,7 +123,7 @@
     </div>
     <!-- モバイル -->
     <div v-else class="pt-1">
-      <div>
+      <div class="flex">
         <template v-if="messagesMatchVid">
           <div class="relative sm:w-full md:w-full lg:w-full xl:w-11/12 h-0" style="padding-top: 50%;">
             <iframe
