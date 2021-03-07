@@ -23,18 +23,22 @@
         </template>
         <template v-else-if="message === '無修正' || message === 'Uncensored' || message === 'uncensored' || message === 'PAKO' || message === 'Pako' || message === 'pako' || message === 'ぱこ' || message === 'パコ' || message === 'CARIB' || message === 'Carib' || message === 'carib' || message === 'かりぶ' || message === 'カリブ' || message === 'FC2' || message === 'Fc2' || message === 'fc2' || message === '完全素人' || message === '個人撮影' || message === 'DEEPFAKE' || message.match('DeepFake') || message === 'Deepfake' || message === 'deepfake'">
           <client-only>
-            <i class="material-icons text-gray-500" style="font-size: 18px;">error</i>
-            <h5 class="text-gray-500 text-lg">
-              &nbsp;キーワードにあてはまる結果はありません
-            </h5>
+            <div class="flex">
+              <i class="material-icons text-gray-500" style="font-size: 18px;">error</i>
+              <h5 class="text-gray-500 text-lg">
+                &nbsp;キーワードにあてはまる結果はありません
+              </h5>
+            </div>
           </client-only>
         </template>
         <template v-else>
           <client-only>
-            <i class="material-icons text-gray-500" style="font-size: 18px;">error</i>
-            <h5 class="text-gray-500 text-lg">
-              &nbsp;キーワードにあてはまる結果はありません
-            </h5>
+            <div class="flex">
+              <i class="material-icons text-gray-500" style="font-size: 18px;">error</i>
+              <h5 class="text-gray-500 text-lg">
+                &nbsp;キーワードにあてはまる結果はありません
+              </h5>
+            </div>
           </client-only>
         </template>
       </div>
@@ -509,7 +513,6 @@
 </template>
 
 <script lang="ts">
-// Todo キーワードが6文字以上削除
 import Vue from 'vue'
 import { mapGetters } from 'vuex'
 import Skeleton from '~/components/Skeleton.vue'

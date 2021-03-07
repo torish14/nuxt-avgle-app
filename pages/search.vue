@@ -5,10 +5,12 @@
       <div v-show="!isLoading" class="flex flex-wrap justify-center">
         <template v-if="searchMessages.length === 0 && !isLoading || message === '無修正' || message === 'Uncensored' || message === 'uncensored' || message === 'PAKO' || message === 'Pako' || message === 'pako' || message === 'ぱこ' || message === 'パコ' || message === 'CARIB' || message === 'Carib' || message === 'carib' || message === 'かりぶ' || message === 'カリブ' || message === 'FC2' || message === 'Fc2' || message === 'fc2' || message === '完全素人' || message === '個人撮影' || message === 'DEEPFAKE' || message === 'DeepFake' || message === 'Deepfake' || message === 'deepfake'">
           <client-only>
-            <i class="material-icons text-gray-500" style="font-size: 18px;">error</i>
-            <h5 class="text-gray-500 text-lg">
-              &nbsp;キーワードにあてはまる結果はありません
-            </h5>
+            <div class="flex">
+              <i class="material-icons text-gray-500" style="font-size: 18px;">error</i>
+              <h5 class="text-gray-500 text-lg">
+                &nbsp;キーワードにあてはまる結果はありません
+              </h5>
+            </div>
           </client-only>
         </template>
         <template v-else>
@@ -89,7 +91,7 @@
                   </div>
                 </template>
               </div>
-              <Skeleton slot="skeleton" />
+              <SearchSkeleton slot="skeleton" />
             </vue-lazy-component>
           </div>
           <Paginate
@@ -140,10 +142,12 @@
         <div v-if="show">
           <template v-if="searchMessages.length === 0 && !isLoading && show || message === '無修正' || message === 'Uncensored' || message === 'uncensored' || message === 'PAKO' || message === 'Pako' || message === 'pako' || message === 'ぱこ' || message === 'パコ' || message === 'CARIB' || message === 'Carib' || message === 'carib' || message === 'かりぶ' || message === 'カリブ' || message === 'FC2' || message === 'Fc2' || message === 'fc2' || message === '完全素人' || message === '個人撮影' || message === 'DEEPFAKE' || message === 'DeepFake' || message === 'Deepfake' || message === 'deepfake'">
             <client-only>
-              <i class="material-icons text-gray-500" style="font-size: 18px;">error</i>
-              <h5 class="text-gray-500 text-lg">
-                &nbsp;キーワードにあてはまる結果はありません
-              </h5>
+              <div class="flex">
+                <i class="material-icons text-gray-500" style="font-size: 18px;">error</i>
+                <h5 class="text-gray-500 text-lg">
+                  &nbsp;キーワードにあてはまる結果はありません
+                </h5>
+              </div>
             </client-only>
           </template>
           <div v-else-if="$fetchState.pending" class="text-white">
@@ -238,7 +242,7 @@
                     </div>
                   </div>
                 </nuxt-link>
-                <Skeleton slot="skeleton" />
+                <SearchSkeleton slot="skeleton" />
               </vue-lazy-component>
             </div>
             <!-- <InfiniteLoading
@@ -258,11 +262,10 @@
 </template>
 
 <script lang="ts">
-// Todo キーワードが6文字以上削除
 import Vue from 'vue'
 import { mapGetters } from 'vuex'
 import { VueLoading } from 'vue-loading-template'
-import Skeleton from '~/components/Skeleton.vue'
+import SearchSkeleton from '~/components/SearchSkeleton.vue'
 
 export type DataType = {
   parPage: number,
@@ -274,7 +277,7 @@ export default Vue.extend({
     // @ts-ignore
     VueLoading,
     // @ts-ignore
-    Skeleton
+    SearchSkeleton
   },
   layout: 'custom',
   scrollToTop: true,
