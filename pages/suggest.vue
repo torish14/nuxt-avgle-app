@@ -164,17 +164,17 @@
               <div class="flex flex-row my-1">
                 <template v-if="data.viewnumber >= 1000000">
                   <h6 class="text-gray-500 mr-1 text-sm pl-2">
-                    再生数 {{ Math.ceil(data.viewnumber / 1000000) }}M
+                    再生数 {{ Math.ceil(data.viewnumber / 1000000) }}M・
                   </h6>
                 </template>
                 <template v-else-if="data.viewnumber >= 1000 && data.viewnumber < 1000000">
                   <h6 class="text-gray-500 mr-1 text-sm pl-2">
-                    再生数 {{ Math.ceil(data.viewnumber / 1000) }}K
+                    再生数 {{ Math.ceil(data.viewnumber / 1000) }}K・
                   </h6>
                 </template>
                 <template v-else>
                   <h6 class="text-gray-500 mr-1 text-sm pl-2">
-                    再生数 {{ Math.ceil(data.viewnumber) }}
+                    再生数 {{ Math.ceil(data.viewnumber) }}・
                   </h6>
                 </template>
                 <template v-if="Number.isNaN(data.likes / (data.likes + data.dislikes) * 100)">
