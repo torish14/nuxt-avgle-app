@@ -17,7 +17,7 @@
               height="100%"
             />
           </div>
-          <p class="text-gray-300 text-lg pb-8 md:px-4 lg:px-4 xl:px-4 2xl:px-4">
+          <p class="text-gray-300 text-lg md:px-4 lg:px-4 xl:px-4 2xl:px-4">
             {{ messagesMatchVid.title }}
           </p>
         </template>
@@ -63,17 +63,17 @@
             <div class="flex flex-row my-1">
               <template v-if="data.viewnumber >= 1000000">
                 <h6 class="text-gray-500 mr-1 text-sm">
-                  再生数 {{ Math.ceil(data.viewnumber / 1000000) }}M
+                  再生数 {{ Math.ceil(data.viewnumber / 1000000) }}M・
                 </h6>
               </template>
               <template v-else-if="data.viewnumber >= 1000 && data.viewnumber < 1000000">
                 <h6 class="text-gray-500 mr-1 text-sm">
-                  再生数 {{ Math.ceil(data.viewnumber / 1000) }}K
+                  再生数 {{ Math.ceil(data.viewnumber / 1000) }}K・
                 </h6>
               </template>
               <template v-else>
                 <h6 class="text-gray-500 mr-1 text-sm">
-                  再生数 {{ Math.ceil(data.viewnumber) }}
+                  再生数 {{ Math.ceil(data.viewnumber) }}・
                 </h6>
               </template>
               <template v-if="Number.isNaN(data.likes / (data.likes + data.dislikes) * 100)">
@@ -138,9 +138,28 @@
               height="100%"
             />
           </div>
-          <p class="text-gray-300 text-lg pb-8 md:px-4 lg:px-4 xl:px-4 2xl:px-4 pl-2">
+          <p class="text-gray-300 text-lg md:px-4 lg:px-4 xl:px-4 2xl:px-4 pl-2">
             {{ messagesMatchVid.title }}
           </p>
+          <div>
+            <h6 class="text-gray-500 mr-1 text-sm pl-2">
+              {{ (messagesMatchVid.viewnumber).toLocaleString() }} 回視聴
+            </h6>
+          </div>
+          <div class="flex">
+            <div class="text-center mx-6 my-4">
+              <i class="material-icons text-gray-500" style="font-size: 24px;">thumb_up</i>
+              <h6 class="text-gray-500 px-1 text-sm">
+                {{ messagesMatchVid.likes }}
+              </h6>
+            </div>
+            <div class="text-center mx-6 my-4">
+              <i class="material-icons text-gray-500" style="font-size: 24px;">thumb_down</i>
+              <h6 class="text-gray-500 px-1 text-sm">
+                {{ messagesMatchVid.dislikes }}
+              </h6>
+            </div>
+          </div>
         </template>
         <template v-else-if="message === '無修正' || message === 'Uncensored' || message === 'uncensored' || message === 'PAKO' || message === 'Pako' || message === 'pako' || message === 'ぱこ' || message === 'パコ' || message === 'CARIB' || message === 'Carib' || message === 'carib' || message === 'かりぶ' || message === 'カリブ' || message === 'FC2' || message === 'Fc2' || message === 'fc2' || message === '完全素人' || message === '個人撮影' || message === 'DEEPFAKE' || message.match('DeepFake') || message === 'Deepfake' || message === 'deepfake'">
           <client-only>
@@ -184,21 +203,21 @@
             <div class="flex flex-row my-1">
               <template v-if="data.viewnumber >= 1000000">
                 <h6 class="text-gray-500 mr-1 text-sm pl-2">
-                  再生数 {{ Math.ceil(data.viewnumber / 1000000) }}M
+                  再生数 {{ Math.ceil(data.viewnumber / 1000000) }}M・
                 </h6>
               </template>
               <template v-else-if="data.viewnumber >= 1000 && data.viewnumber < 1000000">
                 <h6 class="text-gray-500 mr-1 text-sm pl-2">
-                  再生数 {{ Math.ceil(data.viewnumber / 1000) }}K
+                  再生数 {{ Math.ceil(data.viewnumber / 1000) }}K・
                 </h6>
               </template>
               <template v-else>
                 <h6 class="text-gray-500 mr-1 text-sm pl-2">
-                  再生数 {{ Math.ceil(data.viewnumber) }}
+                  再生数 {{ Math.ceil(data.viewnumber) }}・
                 </h6>
               </template>
               <template v-if="Number.isNaN(data.likes / (data.likes + data.dislikes) * 100)">
-                <i class="material-icons containertext-gray-500" style="font-size: 18px;">thumb_up</i>
+                <i class="material-icons text-gray-500" style="font-size: 18px;">thumb_up</i>
                 <h6 class="text-gray-500 px-1 text-sm">
                   0%
                 </h6>
