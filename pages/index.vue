@@ -129,7 +129,7 @@
       />
     </div>
     <!-- モバイル -->
-    <div v-else class="pt-1">
+    <div v-else class="pt-1 pb-20">
       <div v-show="!isLoading" class="flex flex-wrap justify-center">
         <template v-if="messages.length === 0 && !isLoading && show || message === '無修正' || message === 'Uncensored' || message === 'uncensored' || message === 'PAKO' || message === 'Pako' || message === 'pako' || message === 'ぱこ' || message === 'パコ' || message === 'CARIB' || message === 'Carib' || message === 'carib' || message === 'かりぶ' || message === 'カリブ' || message === 'FC2' || message === 'Fc2' || message === 'fc2' || message === '完全素人' || message === '個人撮影' || message === 'DEEPFAKE' || message === 'DeepFake' || message === 'Deepfake' || message === 'deepfake'">
           <client-only>
