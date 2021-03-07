@@ -18,7 +18,7 @@
             />
           </div>
           <h5 class="text-gray-300 text-lg pb-8 md:px-4 lg:px-4 xl:px-4 2xl:px-4">
-            {{ messagesMatchVid.title.slice(0,40) }}
+            {{ messagesMatchVid.title }}
           </h5>
         </template>
         <template v-else-if="message === '無修正' || message === 'Uncensored' || message === 'uncensored' || message === 'PAKO' || message === 'Pako' || message === 'pako' || message === 'ぱこ' || message === 'パコ' || message === 'CARIB' || message === 'Carib' || message === 'carib' || message === 'かりぶ' || message === 'カリブ' || message === 'FC2' || message === 'Fc2' || message === 'fc2' || message === '完全素人' || message === '個人撮影' || message === 'DEEPFAKE' || message.match('DeepFake') || message === 'Deepfake' || message === 'deepfake'">
@@ -139,7 +139,7 @@
             />
           </div>
           <h5 class="text-gray-300 text-lg pb-8 md:px-4 lg:px-4 xl:px-4 2xl:px-4 pl-2">
-            {{ messagesMatchVid.title.slice(0,40) }}
+            {{ messagesMatchVid.title }}
           </h5>
         </template>
         <template v-else-if="message === '無修正' || message === 'Uncensored' || message === 'uncensored' || message === 'PAKO' || message === 'Pako' || message === 'pako' || message === 'ぱこ' || message === 'パコ' || message === 'CARIB' || message === 'Carib' || message === 'carib' || message === 'かりぶ' || message === 'カリブ' || message === 'FC2' || message === 'Fc2' || message === 'fc2' || message === '完全素人' || message === '個人撮影' || message === 'DEEPFAKE' || message.match('DeepFake') || message === 'Deepfake' || message === 'deepfake'">
