@@ -136,14 +136,14 @@ export default Vue.extend({
       // @ts-ignore
       this.sendRequest()
       // @ts-ignore
-      this.isOpen = !this.isOpen
+      // this.isOpen = !this.isOpen
       this.$nextTick(() => {
         e.target.blur()
         window.scrollTo(0,0)
       })
     },
     sendRequest () {
-      this.$accessor.search.getSearchItems()
+      this.$accessor.search.getJapaneseItems()
       // @ts-ignore
       this.$accessor.changeIndexPagination()
       this.$router.push('/')
