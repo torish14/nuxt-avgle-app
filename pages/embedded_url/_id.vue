@@ -270,7 +270,7 @@
                     :src="data.preview_url"
                     alt="サムネイル"
                     width="370"
-                    height="180"
+                    height="208"
                     class="z-auto relative text-white"
                     referrerpolicy="no-referrer"
                     crossorigin
@@ -352,7 +352,7 @@
                     :src="data.preview_url"
                     alt="サムネイル"
                     width="370"
-                    height="180"
+                    height="208"
                     class="z-auto relative text-white"
                     referrerpolicy="no-referrer"
                     crossorigin
@@ -434,7 +434,7 @@
                     :src="data.preview_url"
                     alt="サムネイル"
                     width="370"
-                    height="180"
+                    height="208"
                     class="z-auto relative text-white"
                     referrerpolicy="no-referrer"
                     crossorigin
