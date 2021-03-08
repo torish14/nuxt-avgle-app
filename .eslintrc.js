@@ -2,19 +2,27 @@ module.exports = {
   root: true,
   env: {
     browser: true,
-    node: true
+    node: true,
   },
   parserOptions: {
-    parser: '@typescript-eslint/parser'
+    parser: '@typescript-eslint/parser',
   },
-  extends: ['@nuxtjs', '@nuxtjs/eslint-config-typescript', 'plugin:nuxt/recommended', 'prettier'],
+  extends: [
+    '@nuxtjs',
+    '@nuxtjs/eslint-config-typescript',
+    'plugin:nuxt/recommended',
+    'prettier',
+  ],
   // add your custom rules here
   rules: {
     'vue/comment-directive': 0,
     'no-console': 0,
-    quotes: [
+    quotes: ['error', 'single'],
+    'vue/no-parsing-error': [
       'error',
-      'single'
-    ]
-  }
+      {
+        'invalid-first-character-of-tag-name': false,
+      },
+    ],
+  },
 }
