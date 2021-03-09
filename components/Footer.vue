@@ -40,7 +40,7 @@
               </p>
             </div>
           </nuxt-link>
-          <nuxt-link to="/search" @click.native="clearForm">
+          <nuxt-link to="/search" @click.native="clearForm(); focusSearch()">
             <div class="text-center">
               <i class="material-icons">search</i>
               <p class="icon-text" style="font-size: 8px;">
@@ -77,7 +77,7 @@ export default Vue.extend({
     },
     focusSearch () {
       // @ts-ignore
-      this.$refs.textInput.focus()
+      // this.$refs.textInput.focus()
     }
   },
 })
