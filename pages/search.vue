@@ -355,6 +355,7 @@ export default Vue.extend({
   methods: {
     search (e: any) {
       if (this.$accessor.search.message === '') {
+        if (e.keyCode !== 13) { return }
         console.log('空文字です')
       } else {
         if (e.keyCode !== 13) { return }
