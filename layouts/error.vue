@@ -4,7 +4,7 @@
       <template v-if="error.statusCode === 404">
         <i class="material-icons text-gray-500">error</i>
         <h5 class="text-gray-500 text-lg">
-          &nbsp;ページが見つかりません
+          &nbsp;ページが見つかりません。
         </h5>
       </template>
       <template v-else class="text-gray-500 text-lg">
@@ -12,7 +12,7 @@
         <h5 class="text-gray-500 text-lg">
           <!-- {{ error.statusCode }} -->
           <!-- {{ error.message }} -->
-          &nbsp;エラーが発生しました
+          &nbsp;エラーが発生しました。
         </h5>
       </template>
       <a href="https://nuxt-pornhub-api.web.app" aria-label="ホームへ戻る" class="text-gray-500 text-lg hover:text-purple-600" @click="changeForm">
