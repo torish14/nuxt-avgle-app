@@ -259,6 +259,35 @@
           </template>
         </div>
       </div>
+      <!--フッター -->
+      <footer class="text-gray-600">
+        <div class="flex justify-around py-1 fixed z-10 bottom-0 bg-black w-full">
+          <nuxt-link to="/">
+            <div class="text-center">
+              <i class="material-icons">home</i>
+              <p class="icon-text" style="font-size: 8px;">
+                ホーム
+              </p>
+            </div>
+          </nuxt-link>
+          <nuxt-link to="/suggest">
+            <div class="text-center">
+              <i class="material-icons">live_tv</i>
+              <p class="icon-text" style="font-size: 8px;">
+                オススメ
+              </p>
+            </div>
+          </nuxt-link>
+          <nuxt-link to="/search" @click.native="focusSearch()">
+            <div class="text-center">
+              <i class="material-icons">search</i>
+              <p class="icon-text" style="font-size: 8px;">
+                検索
+              </p>
+            </div>
+          </nuxt-link>
+        </div>
+      </footer>
     </div>
   </section>
 </template>
@@ -331,7 +360,7 @@ export default Vue.extend({
   },
   mounted() {
     this.$nextTick(() => {
-      this.$accessor.search.clearMessage()
+      this.clearForm()
       // @ts-ignore
       this.$refs.focusInput.focus()
     })
@@ -413,6 +442,15 @@ export default Vue.extend({
     },
     changeForm () {
       this.$accessor.search.setJapaneseMessage()
+    },
+    clearForm () {
+      this.$accessor.search.clearMessage()
+    },
+    focusSearch () {
+      this.$nextTick(() => {
+        // @ts-ignore
+        this.$refs.focusInput.focus()
+      })
     },
     // infiniteHandler() {
     //   setTimeout(() => {
