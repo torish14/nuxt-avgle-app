@@ -168,7 +168,7 @@ export default {
     // Doc: https://typed-vuex.roe.dev
     'nuxt-typed-vuex',
     // Doc: https://github.com/nuxt-community/device-module
-    '@nuxtjs/device',
+    '@nuxtjs/device'
   ],
   'nuxt-compress': {
     gzip: {
