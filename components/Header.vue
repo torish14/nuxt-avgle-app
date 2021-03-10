@@ -22,6 +22,7 @@
               autofocus
               placeholder="検索"
               @keydown.enter="search"
+              @focus="focus"
             >
 
             <div class="p-4">
@@ -155,24 +156,27 @@ export default Vue.extend({
     changeForm () {
       this.$accessor.search.setJapaneseMessage()
     },
-    focusSearch () {
+    focus () {
       this.$accessor.search.clearMessage()
-      this.$nextTick(() => {
-        // ? https://github.com/rigor789/vue-scrollto
-        this.$scrollTo(
-          '#header',
-          { duration: 500 },
-          { easing: 'ease-out' },
-          // @ts-ignore
-          { offset: -60 }
-        )
-        // @ts-ignore
-        this.$refs.focusInput.focus()
-      })
-      // setTimeout(() => {
-      //   this.$refs.focusInput.focus()
-      // }, 1)
     },
+    // focusSearch () {
+    //   this.$accessor.search.clearMessage()
+    //   this.$nextTick(() => {
+    //     // ? https://github.com/rigor789/vue-scrollto
+    //     this.$scrollTo(
+    //       '#header',
+    //       { duration: 500 },
+    //       { easing: 'ease-out' },
+    //       // @ts-ignore
+    //       { offset: -60 }
+    //     )
+    //     // @ts-ignore
+    //     this.$refs.focusInput.focus()
+    //   })
+    //   // setTimeout(() => {
+    //   //   this.$refs.focusInput.focus()
+    //   // }, 1)
+    // },
     // スクロール値の取得
     onScroll () {
       this.$set(this, 'scrollY', window.pageYOffset)
