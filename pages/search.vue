@@ -162,10 +162,10 @@
           </p>
           <template v-else>
             <div v-for="data in searchMessages" :key="data.vid" class="md:px-2 lg:px-2 xl:px-2 2xl:px-2 lg:mt-8 xl:mt-8 2xl:mt-8">
-              <vue-lazy-component>
-                <div class="flex m-4">
-                  <nuxt-link :to="{ path: 'embedded_url' + '/' + data.vid }" aria-label="動画埋め込みページへ遷移">
-                    <div class="relative" style="width: 170px; height: 96px;">
+              <div class="flex m-4">
+                <nuxt-link :to="{ path: 'embedded_url' + '/' + data.vid }" aria-label="動画埋め込みページへ遷移">
+                  <div class="relative" style="width: 170px; height: 96px;">
+                    <vue-lazy-component>
                       <img
                         :src="data.preview_url"
                         alt="サムネイル"
@@ -175,47 +175,49 @@
                         referrerpolicy="no-referrer"
                         crossorigin
                       >
-                      <h5 class="text-white z-10 absolute right-0 bottom-0 text-xs bg-gray-800 rounded-sm px-1 m-1">
-                        {{ toHms(data.duration) }}
-                      </h5>
-                    </div>
+                      <SearchSkeleton slot="skeleton" />
+                    </vue-lazy-component>
+                    <h5 class="text-white z-10 absolute right-0 bottom-0 text-xs bg-gray-800 rounded-sm px-1 m-1">
+                      {{ toHms(data.duration) }}
+                    </h5>
+                  </div>
+                </nuxt-link>
+                <div class="ml-2" style="width: 180px; height: 96px">
+                  <nuxt-link :to="{ path: 'embedded_url' + '/' + data.vid }" aria-label="動画埋め込みページへ遷移">
+                    <p class="text-gray-300 text-sm hover:text-purple-500">
+                      {{ data.title.slice(0,36) }}
+                    </p>
                   </nuxt-link>
-                  <div class="ml-2" style="width: 180px; height: 96px">
-                    <nuxt-link :to="{ path: 'embedded_url' + '/' + data.vid }" aria-label="動画埋め込みページへ遷移">
-                      <p class="text-gray-300 text-sm hover:text-purple-500">
-                        {{ data.title.slice(0,36) }}
-                      </p>
-                    </nuxt-link>
-                    <div class="flex flex-row my-1">
-                      <template v-if="data.viewnumber >= 1000000">
-                        <h6 class="text-gray-500 mr-1 text-xs">
-                          再生数 {{ Math.ceil(data.viewnumber / 1000000) }}M・
-                        </h6>
-                      </template>
-                      <template v-else-if="data.viewnumber >= 1000 && data.viewnumber < 1000000">
-                        <h6 class="text-gray-500 mr-1 text-xs">
-                          再生数 {{ Math.ceil(data.viewnumber / 1000) }}K・
-                        </h6>
-                      </template>
-                      <template v-else>
-                        <h6 class="text-gray-500 mr-1 text-xs">
-                          再生数 {{ Math.ceil(data.viewnumber) }}・
-                        </h6>
-                      </template>
-                      <template v-if="Number.isNaN(data.likes / (data.likes + data.dislikes) * 100)">
-                        <i class="material-icons text-gray-500" style="font-size: 16px;">thumb_up</i>
-                        <h6 class="text-gray-500 px-1 text-xs">
-                          0%
-                        </h6>
-                      </template>
-                      <template v-else>
-                        <i class="material-icons text-gray-500" style="font-size: 16px;">thumb_up</i>
-                        <h6 class="text-gray-500 px-1 text-xs">
-                          {{ Math.ceil(data.likes / (data.likes + data.dislikes) * 100) }}%
-                        </h6>
-                      </template>
-                    </div>
-                    <!-- <div class="flex flex-wrap">
+                  <div class="flex flex-row my-1">
+                    <template v-if="data.viewnumber >= 1000000">
+                      <h6 class="text-gray-500 mr-1 text-xs">
+                        再生数 {{ Math.ceil(data.viewnumber / 1000000) }}M・
+                      </h6>
+                    </template>
+                    <template v-else-if="data.viewnumber >= 1000 && data.viewnumber < 1000000">
+                      <h6 class="text-gray-500 mr-1 text-xs">
+                        再生数 {{ Math.ceil(data.viewnumber / 1000) }}K・
+                      </h6>
+                    </template>
+                    <template v-else>
+                      <h6 class="text-gray-500 mr-1 text-xs">
+                        再生数 {{ Math.ceil(data.viewnumber) }}・
+                      </h6>
+                    </template>
+                    <template v-if="Number.isNaN(data.likes / (data.likes + data.dislikes) * 100)">
+                      <i class="material-icons text-gray-500" style="font-size: 16px;">thumb_up</i>
+                      <h6 class="text-gray-500 px-1 text-xs">
+                        0%
+                      </h6>
+                    </template>
+                    <template v-else>
+                      <i class="material-icons text-gray-500" style="font-size: 16px;">thumb_up</i>
+                      <h6 class="text-gray-500 px-1 text-xs">
+                        {{ Math.ceil(data.likes / (data.likes + data.dislikes) * 100) }}%
+                      </h6>
+                    </template>
+                  </div>
+                  <!-- <div class="flex flex-wrap">
                       <div v-if="data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足' && item !== 'マッサージ師' && item.length < 7).length === 0" />
                       <template v-else-if="data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足' && item !== 'マッサージ師' && item.length < 7).length === 1">
                         <div class="text-gray-400 mr-1 py-1 px-2 bg-gray-800 rounded-full border-gray-800 hover:text-purple-400 cursor-pointer" style="font-size: 10px;" @click="changeFormSearchKeyword(data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足' && item !== 'マッサージ師' && item.length < 7)[0])">
@@ -242,10 +244,8 @@
                         </div>
                       </template>
                     </div> -->
-                  </div>
                 </div>
-                <SearchSkeleton slot="skeleton" />
-              </vue-lazy-component>
+              </div>
             </div>
             <!-- <InfiniteLoading
               ref="infiniteLoading"
@@ -478,3 +478,9 @@ export default Vue.extend({
   }
 })
 </script>
+
+<style>
+.nuxt-link-exact-active {
+  color: #e2e8f0;
+}
+</style>
