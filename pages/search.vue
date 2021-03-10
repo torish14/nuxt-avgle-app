@@ -354,15 +354,19 @@ export default Vue.extend({
   },
   methods: {
     search (e: any) {
-      if (e.keyCode !== 13) { return }
-      // @ts-ignore
-      this.sendRequest()
-      // @ts-ignore
-      this.show = true
-      this.$nextTick(() => {
-        e.target.blur()
-        window.scrollTo(0,0)
-      })
+      if (this.$accessor.search.message === '') {
+        console.log('空文字です')
+      } else {
+        if (e.keyCode !== 13) { return }
+        // @ts-ignore
+        this.sendRequest()
+        // @ts-ignore
+        this.show = true
+        this.$nextTick(() => {
+          e.target.blur()
+          window.scrollTo(0,0)
+        })
+      }
     },
     sendRequest () {
       this.$accessor.search.getSearchItems()
