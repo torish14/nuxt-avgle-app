@@ -24,9 +24,9 @@
         <template v-else-if="message === '無修正' || message === 'Uncensored' || message === 'uncensored' || message === 'PAKO' || message === 'Pako' || message === 'pako' || message === 'ぱこ' || message === 'パコ' || message === 'CARIB' || message === 'Carib' || message === 'carib' || message === 'かりぶ' || message === 'カリブ' || message === 'FC2' || message === 'Fc2' || message === 'fc2' || message === '完全素人' || message === '個人撮影' || message === 'DEEPFAKE' || message.match('DeepFake') || message === 'Deepfake' || message === 'deepfake'">
           <client-only>
             <div class="flex">
-              <i class="material-icons text-gray-500" style="font-size: 18px;">error</i>
+              <i class="material-icons text-gray-500">search</i>
               <h5 class="text-gray-500 text-lg">
-                &nbsp;キーワードにあてはまる結果はありません
+                &nbsp;一致する検索結果はありません。
               </h5>
             </div>
           </client-only>
@@ -34,9 +34,9 @@
         <template v-else>
           <client-only>
             <div class="flex">
-              <i class="material-icons text-gray-500" style="font-size: 18px;">error</i>
+              <i class="material-icons text-gray-500">search</i>
               <h5 class="text-gray-500 text-lg">
-                &nbsp;キーワードにあてはまる結果はありません
+                &nbsp;一致する検索結果はありません。
               </h5>
             </div>
           </client-only>
@@ -242,9 +242,9 @@
         <template v-else-if="message === '無修正' || message === 'Uncensored' || message === 'uncensored' || message === 'PAKO' || message === 'Pako' || message === 'pako' || message === 'ぱこ' || message === 'パコ' || message === 'CARIB' || message === 'Carib' || message === 'carib' || message === 'かりぶ' || message === 'カリブ' || message === 'FC2' || message === 'Fc2' || message === 'fc2' || message === '完全素人' || message === '個人撮影' || message === 'DEEPFAKE' || message.match('DeepFake') || message === 'Deepfake' || message === 'deepfake'">
           <client-only>
             <div class="flex">
-              <i class="material-icons text-gray-500" style="font-size: 18px;">error</i>
+              <i class="material-icons text-gray-500">search</i>
               <h5 class="text-gray-500 text-lg">
-                &nbsp;キーワードにあてはまる結果はありません
+                &nbsp;一致する検索結果はありません。
               </h5>
             </div>
           </client-only>
@@ -252,9 +252,9 @@
         <template v-else>
           <client-only>
             <div class="flex">
-              <i class="material-icons text-gray-500" style="font-size: 18px;">error</i>
+              <i class="material-icons text-gray-500">search</i>
               <h5 class="text-gray-500 text-lg">
-                &nbsp;キーワードにあてはまる結果はありません
+                &nbsp;一致する検索結果はありません。
               </h5>
             </div>
           </client-only>

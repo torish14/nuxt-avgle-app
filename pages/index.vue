@@ -6,9 +6,9 @@
         <template v-if="messages.length === 0 && !isLoading && show || message === '無修正' || message === 'Uncensored' || message === 'uncensored' || message === 'PAKO' || message === 'Pako' || message === 'pako' || message === 'ぱこ' || message === 'パコ' || message === 'CARIB' || message === 'Carib' || message === 'carib' || message === 'かりぶ' || message === 'カリブ' || message === 'FC2' || message === 'Fc2' || message === 'fc2' || message === '完全素人' || message === '個人撮影' || message === 'DEEPFAKE' || message === 'DeepFake' || message === 'Deepfake' || message === 'deepfake'">
           <client-only>
             <div class="flex">
-              <i class="material-icons text-gray-500" style="font-size: 18px;">error</i>
+              <i class="material-icons text-gray-500">search</i>
               <h5 class="text-gray-500 text-lg">
-                &nbsp;キーワードにあてはまる結果はありません
+                &nbsp;一致する検索結果はありません。
               </h5>
             </div>
           </client-only>
@@ -136,9 +136,9 @@
         <template v-if="messages.length === 0 && !isLoading && show || message === '無修正' || message === 'Uncensored' || message === 'uncensored' || message === 'PAKO' || message === 'Pako' || message === 'pako' || message === 'ぱこ' || message === 'パコ' || message === 'CARIB' || message === 'Carib' || message === 'carib' || message === 'かりぶ' || message === 'カリブ' || message === 'FC2' || message === 'Fc2' || message === 'fc2' || message === '完全素人' || message === '個人撮影' || message === 'DEEPFAKE' || message === 'DeepFake' || message === 'Deepfake' || message === 'deepfake'">
           <client-only>
             <div class="flex">
-              <i class="material-icons text-gray-500" style="font-size: 18px;">error</i>
+              <i class="material-icons text-gray-500">search</i>
               <h5 class="text-gray-500 text-lg">
-                &nbsp;キーワードにあてはまる結果はありません
+                &nbsp;一致する検索結果はありません。
               </h5>
             </div>
           </client-only>
@@ -150,9 +150,12 @@
             :size="{ width: '40px', height: '40px' }"
           />
         </div>
-        <p v-else-if="$fetchState.error" class="text-white">
-          エラーが発生しました
-        </p>
+        <template v-else-if="$fetchState.error" class="text-white">
+          <i class="material-icons text-gray-500">error</i>
+          <h5 class="text-gray-500 text-lg">
+            &nbsp;エラーが発生しました。
+          </h5>
+        </template>
         <template v-else>
           <div v-for="data in messages" :key="data.vid" class="md:px-2 lg:px-2 xl:px-2 2xl:px-2 lg:mt-8 xl:mt-8 2xl:mt-8">
             <vue-lazy-component>
