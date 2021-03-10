@@ -1,7 +1,7 @@
 <template>
   <div>
     <nuxt keep-alive />
-    <Footer />
+    <!-- <Footer /> -->
   </div>
 </template>
 
@@ -9,8 +9,8 @@
 // import Footer from '~/components/Footer'
 
 export default {
-  components: {
-    Footer: () => import('~/components/Footer')
-  }
+  // components: {
+  //   Footer: () => import('~/components/Footer')
+  // }
 }
 </script>
