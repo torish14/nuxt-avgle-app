@@ -7,8 +7,7 @@ export const state = () => ({
   messages: [] as any,
   suggestMessages: [] as any,
   searchMessages: [] as any,
-  keywords: [] as any,
-  isLoading: false as Boolean
+  keywords: [] as any
 })
 
 export type RootState = ReturnType<typeof state>
@@ -19,7 +18,6 @@ export const getters = getterTree(state, {
   suggestMessages: state => state.suggestMessages,
   searchMessages: state => state.searchMessages,
   keywords: state => state.keywords,
-  isLoading: state => state.isLoading
 })
 
 export const mutations = mutationTree(state, {
@@ -77,12 +75,6 @@ export const mutations = mutationTree(state, {
   },
   clearMessage (state) {
     state.message = ''
-  },
-  hideLoading(state) {
-    state.isLoading = false
-  },
-  showLoading(state) {
-    state.isLoading = true
   }
 })
 
@@ -91,7 +83,6 @@ export const actions = actionTree({ state, getters, mutations }, {
     return commit('mutateMessage', payload)
   },
   async getJapaneseItems ({ state, commit }) {
-    // commit('showLoading')
     const config = {
       headers: { 'content-type': 'application/json' },
     }
@@ -106,7 +97,6 @@ export const actions = actionTree({ state, getters, mutations }, {
       // @ts-ignore
       .catch((err) => {
         if (err.response.status !== 403) {
-          commit('hideLoading')
           this.$router.push('/error')
         }
       })
@@ -130,10 +120,8 @@ export const actions = actionTree({ state, getters, mutations }, {
         !(value.keyword).match('FC2')
       )
     )
-    commit('hideLoading')
   },
   async getSuggestItems ({ state, commit }) {
-    // commit('showLoading')
     const config = {
       headers: { 'content-type': 'application/json' },
     }
@@ -148,7 +136,6 @@ export const actions = actionTree({ state, getters, mutations }, {
       // @ts-ignore
       .catch((err) => {
         if (err.response.status !== 403) {
-          commit('hideLoading')
           this.$router.push('/error')
         }
       })
@@ -172,10 +159,8 @@ export const actions = actionTree({ state, getters, mutations }, {
         !(value.keyword).match('FC2')
       )
     )
-    commit('hideLoading')
   },
   async getSearchItems ({ state, commit }) {
-    // commit('showLoading')
     const config = {
       headers: { 'content-type': 'application/json' },
     }
@@ -190,7 +175,6 @@ export const actions = actionTree({ state, getters, mutations }, {
       // @ts-ignore
       .catch((err) => {
         if (err.response.status !== 403) {
-          commit('hideLoading')
           this.$router.push('/error')
         }
       })
@@ -214,6 +198,5 @@ export const actions = actionTree({ state, getters, mutations }, {
         !(value.keyword).match('FC2')
       )
     )
-    commit('hideLoading')
   }
 })

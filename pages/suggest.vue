@@ -2,8 +2,8 @@
   <section>
     <!-- デスクトップ -->
     <!-- <div v-if="$device.isDesktop">
-      <div v-show="!isLoading" class="flex flex-wrap justify-center">
-        <template v-if="suggestMessages.length === 0 && !isLoading || message === '無修正' || message === 'Uncensored' || message === 'uncensored' || message === 'PAKO' || message === 'Pako' || message === 'pako' || message === 'ぱこ' || message === 'パコ' || message === 'CARIB' || message === 'Carib' || message === 'carib' || message === 'かりぶ' || message === 'カリブ' || message === 'FC2' || message === 'Fc2' || message === 'fc2' || message === '完全素人' || message === '個人撮影' || message === 'DEEPFAKE' || message === 'DeepFake' || message === 'Deepfake' || message === 'deepfake'">
+      <div class="flex flex-wrap justify-center">
+        <template v-if="suggestMessages.length === 0 || message === '無修正' || message === 'Uncensored' || message === 'uncensored' || message === 'PAKO' || message === 'Pako' || message === 'pako' || message === 'ぱこ' || message === 'パコ' || message === 'CARIB' || message === 'Carib' || message === 'carib' || message === 'かりぶ' || message === 'カリブ' || message === 'FC2' || message === 'Fc2' || message === 'fc2' || message === '完全素人' || message === '個人撮影' || message === 'DEEPFAKE' || message === 'DeepFake' || message === 'Deepfake' || message === 'deepfake'">
           <client-only>
             <div class="flex">
               <i class="material-icons text-gray-500">search</i>
@@ -114,7 +114,6 @@
         </template>
       </div>
       <VueLoading
-        v-show="isLoading"
         type="spin"
         color="#a0aec0"
         :size="{ width: '40px', height: '40px' }"
@@ -122,8 +121,8 @@
     </div> -->
     <!-- モバイル -->
     <div v-if="$device.isMobile" class="pt-1 pb-20">
-      <div v-show="!isLoading" class="flex flex-wrap justify-center">
-        <template v-if="suggestMessages.length === 0 && !isLoading && show || message === '無修正' || message === 'Uncensored' || message === 'uncensored' || message === 'PAKO' || message === 'Pako' || message === 'pako' || message === 'ぱこ' || message === 'パコ' || message === 'CARIB' || message === 'Carib' || message === 'carib' || message === 'かりぶ' || message === 'カリブ' || message === 'FC2' || message === 'Fc2' || message === 'fc2' || message === '完全素人' || message === '個人撮影' || message === 'DEEPFAKE' || message === 'DeepFake' || message === 'Deepfake' || message === 'deepfake'">
+      <div class="flex flex-wrap justify-center">
+        <template v-if="suggestMessages.length === 0 && show || message === '無修正' || message === 'Uncensored' || message === 'uncensored' || message === 'PAKO' || message === 'Pako' || message === 'pako' || message === 'ぱこ' || message === 'パコ' || message === 'CARIB' || message === 'Carib' || message === 'carib' || message === 'かりぶ' || message === 'カリブ' || message === 'FC2' || message === 'Fc2' || message === 'fc2' || message === '完全素人' || message === '個人撮影' || message === 'DEEPFAKE' || message === 'DeepFake' || message === 'Deepfake' || message === 'deepfake'">
           <client-only>
             <div class="flex">
               <i class="material-icons text-gray-500">search</i>
@@ -273,7 +272,7 @@ export default Vue.extend({
     this.$accessor.search.getSuggestItems()
   },
   computed: {
-    ...mapGetters('search', ['message', 'suggestMessages', 'isLoading']),
+    ...mapGetters('search', ['message', 'suggestMessages']),
     // ? 現在ページのアイテムを返す
     getPaginationItems (): number {
       // @ts-ignore
