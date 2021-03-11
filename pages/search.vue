@@ -270,7 +270,7 @@
           <nuxt-link to="/">
             <div class="text-center align-middle">
               <i class="material-icons">home</i>
-              <p class="icon-text" style="font-size: 8px;">
+              <p class="icon-text text-xs">
                 ホーム
               </p>
             </div>
@@ -278,7 +278,7 @@
           <nuxt-link to="/suggest">
             <div class="text-center align-middle">
               <i class="material-icons">live_tv</i>
-              <p class="icon-text" style="font-size: 8px;">
+              <p class="icon-text text-xs">
                 オススメ
               </p>
             </div>
@@ -286,7 +286,7 @@
           <nuxt-link to="/search" @click.native="focusSearch()">
             <div class="text-center align-middle">
               <i class="material-icons">search</i>
-              <p class="icon-text" style="font-size: 8px;">
+              <p class="icon-text text-xs">
                 検索
               </p>
             </div>
