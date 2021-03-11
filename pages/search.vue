@@ -91,7 +91,7 @@
                   </div>
                 </template>
               </div>
-              <SearchSkeleton slot="skeleton" />
+              <SearchSkeletonImg slot="skeleton" />
             </vue-lazy-component>
           </div>
           <Paginate
@@ -174,7 +174,7 @@
                         referrerpolicy="no-referrer"
                         crossorigin
                       >
-                      <SearchSkeleton slot="skeleton" />
+                      <SearchSkeletonImg slot="skeleton" />
                     </vue-lazy-component>
                     <h5 class="text-white z-10 absolute right-0 bottom-0 text-xs bg-gray-800 rounded-sm px-1 m-1">
                       {{ toHms(data.duration) }}
@@ -183,11 +183,15 @@
                 </nuxt-link>
                 <div class="ml-2" style="width: 180px; height: 96px">
                   <nuxt-link :to="{ path: 'embedded_url' + '/' + data.vid }" aria-label="動画埋め込みページへ遷移">
+                    <!-- <vue-lazy-component> -->
                     <p class="text-gray-300 text-sm hover:text-purple-500">
                       {{ data.title.slice(0,36) }}
                     </p>
+                    <!-- <SearchSkeletonTitle slot="skeleton" /> -->
+                    <!-- </vue-lazy-component> -->
                   </nuxt-link>
                   <div class="flex flex-row my-1">
+                    <!-- <vue-lazy-component> -->
                     <template v-if="data.viewnumber >= 1000000">
                       <h6 class="text-gray-500 mr-1 text-xs">
                         再生数 {{ Math.ceil(data.viewnumber / 1000000) }}M・
@@ -215,6 +219,8 @@
                         {{ Math.ceil(data.likes / (data.likes + data.dislikes) * 100) }}%
                       </h6>
                     </template>
+                    <!-- <SearchSkeletonGood slot="skeleton" /> -->
+                    <!-- </vue-lazy-component> -->
                   </div>
                   <!-- <div class="flex flex-wrap">
                       <div v-if="data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足' && item !== 'マッサージ師' && item.length < 7).length === 0" />
@@ -295,7 +301,9 @@
 import Vue from 'vue'
 import { mapGetters } from 'vuex'
 import { VueLoading } from 'vue-loading-template'
-import SearchSkeleton from '~/components/SearchSkeleton.vue'
+import SearchSkeletonImg from '~/components/SearchSkeletonImg.vue'
+// import SearchSkeletonTitle from '~/components/SearchSkeletonTitle.vue'
+// import SearchSkeletonGood from '~/components/SearchSkeletonGood.vue'
 
 export type DataType = {
   parPage: number,
@@ -307,7 +315,11 @@ export default Vue.extend({
     // @ts-ignore
     VueLoading,
     // @ts-ignore
-    SearchSkeleton
+    SearchSkeletonImg,
+    // @ts-ignore
+    // SearchSkeletonTitle,
+    // @ts-ignore
+    // SearchSkeletonGood
   },
   layout: 'custom',
   scrollToTop: true,
