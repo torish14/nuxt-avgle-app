@@ -17,7 +17,7 @@
               height="100%"
             />
           </div>
-          <p class="text-gray-300 text-lg md:px-4 lg:px-4 xl:px-4 2xl:px-4">
+          <p class="text-gray-300 text-lg md:px-4 lg:px-4 xl:px-4 2xl:px-4 pt-1">
             {{ messagesMatchVid.title }}
           </p>
         </template>
@@ -60,7 +60,7 @@
                   {{ toHms(data.duration) }}
                 </h5>
               </div>
-              <h5 class="text-gray-300 text-base hover:text-purple-500" style="width: 320px;">
+              <h5 class="text-gray-300 text-base hover:text-purple-500 pt-1" style="width: 320px;">
                 {{ data.title.slice(0,40) }}
               </h5>
             </nuxt-link>
@@ -142,7 +142,7 @@
               height="100%"
             />
           </div>
-          <p class="text-gray-300 text-lg md:px-4 lg:px-4 xl:px-4 2xl:px-4 pl-2">
+          <p class="text-gray-300 text-lg md:px-4 lg:px-4 xl:px-4 2xl:px-4 pt-2 pl-2">
             {{ messagesMatchVid.title }}
           </p>
           <div>
@@ -179,7 +179,7 @@
               height="100%"
             />
           </div>
-          <p class="text-gray-300 text-lg md:px-4 lg:px-4 xl:px-4 2xl:px-4 pl-2">
+          <p class="text-gray-300 text-lg md:px-4 lg:px-4 xl:px-4 2xl:px-4 pt-2 pl-2">
             {{ suggestMessagesMatchVid.title }}
           </p>
           <div>
@@ -216,7 +216,7 @@
               height="100%"
             />
           </div>
-          <p class="text-gray-300 text-lg md:px-4 lg:px-4 xl:px-4 2xl:px-4 pl-2">
+          <p class="text-gray-300 text-lg md:px-4 lg:px-4 xl:px-4 2xl:px-4 pt-2 pl-2">
             {{ searchMessagesMatchVid.title }}
           </p>
           <div>
@@ -279,7 +279,7 @@
                     {{ toHms(data.duration) }}
                   </h5>
                 </div>
-                <h5 class="text-gray-300 text-base hover:text-purple-500 break-all pl-2" style="width: 370px;">
+                <h5 class="text-gray-300 text-base hover:text-purple-500 break-all pt-2 pl-2" style="width: 370px;">
                   {{ data.title.slice(0,40) }}
                 </h5>
               </nuxt-link>
@@ -361,7 +361,7 @@
                     {{ toHms(data.duration) }}
                   </h5>
                 </div>
-                <h5 class="text-gray-300 text-base hover:text-purple-500 break-all pl-2" style="width: 370px;">
+                <h5 class="text-gray-300 text-base hover:text-purple-500 break-all pt-2 pl-2" style="width: 370px;">
                   {{ data.title.slice(0,40) }}
                 </h5>
               </nuxt-link>
@@ -443,7 +443,7 @@
                     {{ toHms(data.duration) }}
                   </h5>
                 </div>
-                <h5 class="text-gray-300 text-base hover:text-purple-500 break-all pl-2" style="width: 370px;">
+                <h5 class="text-gray-300 text-base hover:text-purple-500 break-all pt-2 pl-2" style="width: 370px;">
                   {{ data.title.slice(0,40) }}
                 </h5>
               </nuxt-link>

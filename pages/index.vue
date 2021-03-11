@@ -44,7 +44,7 @@
                     {{ toHms(data.duration) }}
                   </h5>
                 </div>
-                <p class="text-gray-300 text-base hover:text-purple-500 break-all" style="width: 320px;">
+                <p class="text-gray-300 text-base hover:text-purple-500 break-all pt-1" style="width: 320px;">
                   {{ data.title.slice(0,40) }}
                 </p>
               </nuxt-link>
@@ -171,7 +171,7 @@
                     {{ toHms(data.duration) }}
                   </h5>
                 </div>
-                <p class="text-gray-300 text-base hover:text-purple-500 break-all pl-2" style="width: 370px;">
+                <p class="text-gray-300 text-base hover:text-purple-500 break-all pt-2 pl-2" style="width: 370px;">
                   {{ data.title.slice(0,44) }}
                 </p>
               </nuxt-link>
