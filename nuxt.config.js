@@ -20,7 +20,7 @@ export default {
   telemetry: false,
   generate: {
     fallback: true,
-    exclude: ['/sampleSuggest', '/search', '/suggest'],
+    exclude: ['/sampleSuggest'],
   },
   /*
    ** Headers of the page
