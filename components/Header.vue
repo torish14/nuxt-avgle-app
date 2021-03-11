@@ -158,7 +158,7 @@ export default Vue.extend({
       this.$accessor.search.setJapaneseMessage()
     },
     focus () {
-      this.$accessor.search.clearMessage()
+      // this.$accessor.search.clearMessage()
     },
     // focusSearch () {
     //   this.$accessor.search.clearMessage()
