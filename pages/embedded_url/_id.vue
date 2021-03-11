@@ -243,7 +243,7 @@
           <client-only>
             <div class="flex justify-center">
               <i class="material-icons text-gray-500">search</i>
-              <h5 class="text-gray-500 text-lg">
+              <h5 class="text-gray-500 text-lg pt-2">
                 &nbsp;一致する検索結果はありません。
               </h5>
             </div>
@@ -253,7 +253,7 @@
           <client-only>
             <div class="flex justify-center">
               <i class="material-icons text-gray-500">search</i>
-              <h5 class="text-gray-500 text-lg">
+              <h5 class="text-gray-500 text-lg pt-2">
                 &nbsp;一致する検索結果はありません。
               </h5>
             </div>
