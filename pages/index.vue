@@ -13,16 +13,19 @@
             </div>
           </client-only>
         </template>
-        <!-- <div v-else-if="$fetchState.pending" class="text-white">
+        <div v-else-if="$fetchState.pending" class="text-white">
           <VueLoading
             type="spin"
             color="#a0aec0"
             :size="{ width: '40px', height: '40px' }"
           />
         </div>
-        <p v-else-if="$fetchState.error" class="text-white">
-          エラーが発生しました
-        </p> -->
+        <template v-else-if="$fetchState.error" class="text-white">
+          <i class="material-icons text-gray-500">error</i>
+          <h5 class="text-gray-500 text-lg">
+            &nbsp;エラーが発生しました。
+          </h5>
+        </template>
         <template v-else>
           <div v-for="data in getPaginationItems" :key="data.vid" class="md:px-2 lg:px-2 xl:px-2 2xl:px-2 lg:mt-8 xl:mt-8 2xl:mt-8">
             <vue-lazy-component>
