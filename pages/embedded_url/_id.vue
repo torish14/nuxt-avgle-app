@@ -152,14 +152,14 @@
           </div>
           <div class="flex">
             <div class="text-center mx-6 my-4">
-              <i class="material-icons text-gray-500" style="font-size: 24px;">thumb_up</i>
-              <h6 class="text-gray-500 px-1 text-sm">
+              <i class="material-icons text-gray-500" style="font-size: 20px;">thumb_up</i>
+              <h6 class="text-gray-500 px-1 text-xs">
                 {{ messagesMatchVid.likes }}
               </h6>
             </div>
             <div class="text-center mx-6 my-4">
-              <i class="material-icons text-gray-500" style="font-size: 24px;">thumb_down</i>
-              <h6 class="text-gray-500 px-1 text-sm">
+              <i class="material-icons text-gray-500" style="font-size: 20px;">thumb_down</i>
+              <h6 class="text-gray-500 px-1 text-xs">
                 {{ messagesMatchVid.dislikes }}
               </h6>
             </div>
