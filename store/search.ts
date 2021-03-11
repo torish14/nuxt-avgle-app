@@ -70,6 +70,9 @@ export const mutations = mutationTree(state, {
       )
     ]
   },
+  setSearchMessage (state) {
+    state.message = '美少女'
+  },
   changeKeyword (state, keywords) {
     state.message = keywords
   },

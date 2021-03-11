@@ -322,7 +322,7 @@ export default Vue.extend({
     if(this.$accessor.search.searchMessages.length > 0) {
       return
     }
-    this.$accessor.search.setJapaneseMessage()
+    this.$accessor.search.setSearchMessage()
     this.$accessor.search.getSearchItems()
   },
   computed: {
@@ -363,6 +363,9 @@ export default Vue.extend({
       // @ts-ignore
       this.$refs.focusInput.focus()
     })
+    setTimeout(() => {
+      this.show = true
+    }, 2000)
   },
   activated() {
     // 最後の fetch から30秒以上経っていれば、fetch を呼び出す
@@ -390,7 +393,7 @@ export default Vue.extend({
         // @ts-ignore
         this.sendRequest()
         // @ts-ignore
-        this.show = true
+        // this.show = true
         this.$nextTick(() => {
           e.target.blur()
           window.scrollTo(0,0)
@@ -440,7 +443,7 @@ export default Vue.extend({
       }
     },
     changeForm () {
-      this.$accessor.search.setJapaneseMessage()
+      this.$accessor.search.setSearchMessage()
     },
     clearForm () {
       this.$accessor.search.clearMessage()
