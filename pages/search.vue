@@ -265,10 +265,10 @@
         </div>
       </div>
       <!-- フッター -->
-      <footer class="text-gray-600">
-        <div class="flex justify-around py-1 fixed z-10 bottom-0 bg-black w-full">
+      <footer class="footer text-gray-600">
+        <div class="flex justify-around py-1 fixed z-10 bottom-0 bg-black w-full leading-4">
           <nuxt-link to="/">
-            <div class="text-center">
+            <div class="text-center align-middle">
               <i class="material-icons">home</i>
               <p class="icon-text" style="font-size: 8px;">
                 ホーム
@@ -276,7 +276,7 @@
             </div>
           </nuxt-link>
           <nuxt-link to="/suggest">
-            <div class="text-center">
+            <div class="text-center align-middle">
               <i class="material-icons">live_tv</i>
               <p class="icon-text" style="font-size: 8px;">
                 オススメ
@@ -284,7 +284,7 @@
             </div>
           </nuxt-link>
           <nuxt-link to="/search" @click.native="focusSearch()">
-            <div class="text-center">
+            <div class="text-center align-middle">
               <i class="material-icons">search</i>
               <p class="icon-text" style="font-size: 8px;">
                 検索
@@ -496,5 +496,9 @@ export default Vue.extend({
 <style>
 .nuxt-link-exact-active {
   color: #e2e8f0;
+}
+
+.footer::-webkit-scrollbar {
+  display: none;
 }
 </style>
