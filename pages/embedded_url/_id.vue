@@ -539,12 +539,14 @@ export default Vue.extend({
   components: {
     Skeleton
   },
-  beforeRouteEnter(to, from, next) {
-    this.$accessor.setPrevRoute(from)
-    next(vm => {
-      vm.prevRoute = from
-    })
-  },
+  // beforeRouteEnter(from, next) {
+  //   this.$accessor.setPrevRoute(from)
+  //   // @ts-ignore
+  //   next(vm => {
+  //     // @ts-ignore
+  //     vm.prevRoute = from
+  //   })
+  // },
   scrollToTop: true,
   data (): DataType {
     return {
@@ -591,9 +593,9 @@ export default Vue.extend({
       //   function() { return Math.random()-.5 }
       // )
     },
-    prevRouteChild() {
-      return this.$accessor.getPrevRoute
-    }
+    // prevRouteChild() {
+    //   return this.$accessor.prevRoute
+    // }
   },
   watch: {
     '$route.query': '$fetch'
