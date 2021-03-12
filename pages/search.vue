@@ -138,7 +138,7 @@
         </div>
       </nav>
       <div class="flex flex-wrap justify-center">
-        <div>
+        <div style="width: 375px;">
           <template v-if="searchMessages.length === 0 && show || message === '無修正' || message === 'Uncensored' || message === 'uncensored' || message === 'PAKO' || message === 'Pako' || message === 'pako' || message === 'ぱこ' || message === 'パコ' || message === 'CARIB' || message === 'Carib' || message === 'carib' || message === 'かりぶ' || message === 'カリブ' || message === 'FC2' || message === 'Fc2' || message === 'fc2' || message === '完全素人' || message === '個人撮影' || message === 'DEEPFAKE' || message === 'DeepFake' || message === 'Deepfake' || message === 'deepfake'">
             <client-only>
               <div class="flex pt-2">
@@ -160,16 +160,16 @@
             エラーが発生しました
           </p>
           <template v-else>
-            <div v-for="data in searchMessages" :key="data.vid" class="md:px-2 lg:px-2 xl:px-2 2xl:px-2 lg:mt-8 xl:mt-8 2xl:mt-8">
+            <div v-for="data in searchMessages" :key="data.vid" class="md:px-1 lg:px-1 xl:px-1 2xl:px-1 lg:mt-8 xl:mt-8 2xl:mt-8">
               <div class="flex m-4">
                 <nuxt-link :to="{ path: 'embedded_url' + '/' + data.vid }" aria-label="動画埋め込みページへ遷移">
-                  <div class="relative" style="width: 170px; height: 96px;">
+                  <div class="relative" style="width: 160px; height: 90px;">
                     <vue-lazy-component>
                       <img
                         :src="data.preview_url"
                         alt="サムネイル"
-                        width="170"
-                        height="96"
+                        width="160"
+                        height="90"
                         class="z-auto relative text-white"
                         referrerpolicy="no-referrer"
                         crossorigin
@@ -181,7 +181,7 @@
                     </h5>
                   </div>
                 </nuxt-link>
-                <div class="ml-2" style="width: 180px; height: 96px">
+                <div class="ml-2" style="width: 175px; height: 90px">
                   <nuxt-link :to="{ path: 'embedded_url' + '/' + data.vid }" aria-label="動画埋め込みページへ遷移">
                     <!-- <vue-lazy-component> -->
                     <p class="text-gray-300 text-sm hover:text-purple-500">
