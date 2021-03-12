@@ -6,7 +6,8 @@ import * as search from '~/store/search'
 
 export const state = () => ({
   currentIndexPage: 1 as number,
-  currentIdPage: 1 as number
+  currentIdPage: 1 as number,
+  prevRoute: [] as any
   //   soaringMessages: [],
   //   famousMessages: [],
   //   actressMessages: [],
@@ -17,7 +18,8 @@ export type RootState = ReturnType<typeof state>
 
 export const getters = getterTree(state, {
   currentIndexPage: state => state.currentIndexPage,
-  currentIdPage: state => state.currentIdPage
+  currentIdPage: state => state.currentIdPage,
+  prevRoute: state => state.prevRoute
 //   soaringMessages: state => state.soaringMessages,
 //   famousMessages: state => state.famousMessages,
 //   actressMessages: state => state.actressMessages,
@@ -36,6 +38,9 @@ export const mutations = mutationTree(state, {
   },
   changeIdPagination (state) {
     state.currentIdPage = 1
+  },
+  setPrevRoute(state, from) {
+    state.prevRoute = from
   }
 //   // ? 日本で急上昇
 //   setSoaringItems (state, soaringMessages) {
