@@ -161,8 +161,8 @@
                   <img
                     :src="data.preview_url"
                     alt="サムネイル"
-                    width="370"
-                    height="208"
+                    width="375"
+                    height="210"
                     class="z-auto relative text-white"
                     referrerpolicy="no-referrer"
                     crossorigin
