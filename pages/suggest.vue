@@ -296,7 +296,7 @@ export default Vue.extend({
   mounted() {
     setTimeout(() => {
       this.show = true
-    }, 2000);
+    }, 3000);
   },
   activated() {
     // 最後の fetch から30秒以上経っていれば、fetch を呼び出す
