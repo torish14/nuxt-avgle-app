@@ -531,17 +531,25 @@ if (process.client) {
 }
 
 export type DataType = {
-  id: string
+  id: string,
+  prevRoute: any
 }
 
 export default Vue.extend({
   components: {
     Skeleton
   },
+  beforeRouteEnter(to, from, next) {
+    this.$accessor.setPrevRoute(from)
+    next(vm => {
+      vm.prevRoute = from
+    })
+  },
   scrollToTop: true,
   data (): DataType {
     return {
-      id: this.$route.params.id
+      id: this.$route.params.id,
+      prevRoute: null
     }
   },
   // ? layout: 'custom',
@@ -582,6 +590,9 @@ export default Vue.extend({
       // .sort(
       //   function() { return Math.random()-.5 }
       // )
+    },
+    prevRouteChild() {
+      return this.$accessor.getPrevRoute
     }
   },
   watch: {
