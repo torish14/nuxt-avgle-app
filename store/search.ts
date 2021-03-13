@@ -7,6 +7,7 @@ export const state = () => ({
   messages: [] as any,
   suggestMessages: [] as any,
   searchMessages: [] as any,
+  errorMessage: false as boolean,
   keywords: [] as any
 })
 
@@ -17,6 +18,7 @@ export const getters = getterTree(state, {
   messages: state => state.messages,
   suggestMessages: state => state.suggestMessages,
   searchMessages: state => state.searchMessages,
+  errorMessage: state => state.errorMessage,
   keywords: state => state.keywords,
 })
 
@@ -73,11 +75,17 @@ export const mutations = mutationTree(state, {
   setSearchMessage (state) {
     state.message = '美少女'
   },
+  clearMessage (state) {
+    state.message = ''
+  },
   changeKeyword (state, keywords) {
     state.message = keywords
   },
-  clearMessage (state) {
-    state.message = ''
+  hideErrorMessage (state) {
+    state.errorMessage = false
+  },
+  showErrorMessage (state) {
+    state.errorMessage = true
   }
 })
 
@@ -86,6 +94,7 @@ export const actions = actionTree({ state, getters, mutations }, {
     return commit('mutateMessage', payload)
   },
   async getJapaneseItems ({ state, commit }) {
+    commit('hideErrorMessage')
     const config = {
       headers: { 'content-type': 'application/json' },
     }
@@ -123,8 +132,10 @@ export const actions = actionTree({ state, getters, mutations }, {
         !(value.keyword).match('FC2')
       )
     )
+    commit('showErrorMessage')
   },
   async getSuggestItems ({ state, commit }) {
+    commit('hideErrorMessage')
     const config = {
       headers: { 'content-type': 'application/json' },
     }
@@ -162,8 +173,10 @@ export const actions = actionTree({ state, getters, mutations }, {
         !(value.keyword).match('FC2')
       )
     )
+    commit('showErrorMessage')
   },
   async getSearchItems ({ state, commit }) {
+    commit('hideErrorMessage')
     const config = {
       headers: { 'content-type': 'application/json' },
     }
@@ -201,5 +214,6 @@ export const actions = actionTree({ state, getters, mutations }, {
         !(value.keyword).match('FC2')
       )
     )
+    commit('showErrorMessage')
   }
 })

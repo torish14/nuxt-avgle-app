@@ -121,8 +121,8 @@
     </div> -->
     <!-- モバイル -->
     <div v-if="$device.isMobile" class="pt-1 pb-20">
-      <div class="flex flex-wrap justify-center">
-        <template v-if="suggestMessages.length === 0 && show || message === '無修正' || message === 'Uncensored' || message === 'uncensored' || message === 'PAKO' || message === 'Pako' || message === 'pako' || message === 'ぱこ' || message === 'パコ' || message === 'CARIB' || message === 'Carib' || message === 'carib' || message === 'かりぶ' || message === 'カリブ' || message === 'FC2' || message === 'Fc2' || message === 'fc2' || message === '完全素人' || message === '個人撮影' || message === 'DEEPFAKE' || message === 'DeepFake' || message === 'Deepfake' || message === 'deepfake'">
+      <div class="flex flex-wrap justify-center" style="width: 375px;">
+        <template v-if="suggestMessages.length === 0 && errorMessage || message === '無修正' || message === 'Uncensored' || message === 'uncensored' || message === 'PAKO' || message === 'Pako' || message === 'pako' || message === 'ぱこ' || message === 'パコ' || message === 'CARIB' || message === 'Carib' || message === 'carib' || message === 'かりぶ' || message === 'カリブ' || message === 'FC2' || message === 'Fc2' || message === 'fc2' || message === '完全素人' || message === '個人撮影' || message === 'DEEPFAKE' || message === 'DeepFake' || message === 'Deepfake' || message === 'deepfake'">
           <client-only>
             <div class="flex pt-2">
               <i class="material-icons text-gray-500">search</i>
@@ -245,8 +245,7 @@ import { VueLoading } from 'vue-loading-template'
 import Skeleton from '~/components/Skeleton.vue'
 
 export type DataType = {
-  parPage: number,
-  show: Boolean
+  parPage: number
 }
 
 export default Vue.extend({
@@ -260,8 +259,7 @@ export default Vue.extend({
   data (): DataType {
     return {
       // ? 1ページに表示するアイテム数
-      parPage: 20,
-      show: false
+      parPage: 20
     }
   },
   fetch () {
@@ -272,7 +270,7 @@ export default Vue.extend({
     this.$accessor.search.getSuggestItems()
   },
   computed: {
-    ...mapGetters('search', ['message', 'suggestMessages']),
+    ...mapGetters('search', ['message', 'suggestMessages', 'errorMessage']),
     // ? 現在ページのアイテムを返す
     getPaginationItems (): number {
       // @ts-ignore
@@ -292,11 +290,6 @@ export default Vue.extend({
   },
   watch: {
     '$route.query': '$fetch'
-  },
-  mounted() {
-    setTimeout(() => {
-      this.show = true
-    }, 3500
   },
   activated() {
     // 最後の fetch から30秒以上経っていれば、fetch を呼び出す
