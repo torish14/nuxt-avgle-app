@@ -141,7 +141,7 @@
         <div style="width: 375px;">
           <template v-if="searchMessages.length === 0 && errorMessage || message === '無修正' || message === 'Uncensored' || message === 'uncensored' || message === 'PAKO' || message === 'Pako' || message === 'pako' || message === 'ぱこ' || message === 'パコ' || message === 'CARIB' || message === 'Carib' || message === 'carib' || message === 'かりぶ' || message === 'カリブ' || message === 'FC2' || message === 'Fc2' || message === 'fc2' || message === '完全素人' || message === '個人撮影' || message === 'DEEPFAKE' || message === 'DeepFake' || message === 'Deepfake' || message === 'deepfake'">
             <client-only>
-              <div class="flex pt-2">
+              <div class="flex justify-center pt-2">
                 <i class="material-icons text-gray-500">search</i>
                 <h5 class="text-gray-500 text-lg">
                   &nbsp;一致する検索結果はありません。
