@@ -157,7 +157,7 @@
             />
           </div>
           <p v-else-if="$fetchState.error" class="text-white">
-            エラーが発生しました
+            エラーが発生しました。
           </p>
           <template v-else>
             <div v-for="data in searchMessages" :key="data.vid" class="md:px-1 lg:px-1 xl:px-1 2xl:px-1 lg:mt-8 xl:mt-8 2xl:mt-8">
