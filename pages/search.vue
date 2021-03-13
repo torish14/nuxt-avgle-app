@@ -336,7 +336,7 @@ export default Vue.extend({
     this.$accessor.search.getSearchItems()
   },
   computed: {
-    ...mapGetters('search', ['message', 'searchMessages']),
+    ...mapGetters('search', ['message', 'searchMessages', 'errorMessage']),
     computedGetState: {
       get (): string {
         // @ts-ignore
