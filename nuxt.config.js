@@ -243,22 +243,6 @@ export default {
     ['@nuxtjs/pwa', { icon: false }],
     '@nuxtjs/robots',
   ],
-  workbox: {
-    skipWaiting: true,
-    clientsClaim: true,
-    runtimeCaching: [
-      {
-        urlPattern: baseDir + '.*',
-        handler: 'staleWhileRevalidate',
-        strategyOptions: {
-          cacheName: 'my-cache',
-          cacheExpiration: {
-            maxAgeSeconds: 24 * 60 * 60 * 30,
-          },
-        },
-      },
-    ],
-  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
