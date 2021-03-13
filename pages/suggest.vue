@@ -143,7 +143,11 @@
           エラーが発生しました。
         </p>
         <template v-else>
-          <div v-for="data in suggestMessages" :key="data.vid" class="md:px-2 lg:px-2 xl:px-2 2xl:px-2 lg:mt-8 xl:mt-8 2xl:mt-8">
+          <div v-if="firstSkeleton">
+            <Skeleton />
+            <Skeleton />
+          </div>
+          <div v-for="data in suggestMessages" :key="data.vid">
             <vue-lazy-component>
               <nuxt-link :to="{ path: 'embedded_url' + '/' + data.vid }" aria-label="動画埋め込みページへ遷移">
                 <div class="relative">
@@ -270,7 +274,7 @@ export default Vue.extend({
     this.$accessor.search.getSuggestItems()
   },
   computed: {
-    ...mapGetters('search', ['message', 'suggestMessages', 'errorMessage']),
+    ...mapGetters('search', ['message', 'suggestMessages', 'errorMessage', 'firstSkeleton']),
     // ? 現在ページのアイテムを返す
     getPaginationItems (): number {
       // @ts-ignore
