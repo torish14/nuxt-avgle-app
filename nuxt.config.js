@@ -201,7 +201,7 @@ export default {
     },
     workbox: {
       skipWaiting: true,
-      clientsClaim: true,
+      clientsClaim: false,
       runtimeCaching: [
         {
           urlPattern: baseDir + '.*',
