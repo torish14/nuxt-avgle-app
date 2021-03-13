@@ -8,6 +8,7 @@ export const state = () => ({
   suggestMessages: [] as any,
   searchMessages: [] as any,
   errorMessage: false as boolean,
+  firstSkeleton: false as boolean,
   keywords: [] as any
 })
 
@@ -19,6 +20,7 @@ export const getters = getterTree(state, {
   suggestMessages: state => state.suggestMessages,
   searchMessages: state => state.searchMessages,
   errorMessage: state => state.errorMessage,
+  firstSkeleton: state => state.firstSkeleton,
   keywords: state => state.keywords,
 })
 
@@ -78,14 +80,20 @@ export const mutations = mutationTree(state, {
   clearMessage (state) {
     state.message = ''
   },
-  changeKeyword (state, keywords) {
-    state.message = keywords
-  },
   hideErrorMessage (state) {
     state.errorMessage = false
   },
   showErrorMessage (state) {
     state.errorMessage = true
+  },
+  hideSkeleton (state) {
+    state.firstSkeleton = false
+  },
+  showSkeleton (state) {
+    state.firstSkeleton = true
+  },
+  changeKeyword (state, keywords) {
+    state.message = keywords
   }
 })
 
@@ -95,6 +103,7 @@ export const actions = actionTree({ state, getters, mutations }, {
   },
   async getJapaneseItems ({ state, commit }) {
     commit('hideErrorMessage')
+    commit('showSkeleton')
     const config = {
       headers: { 'content-type': 'application/json' },
     }
@@ -109,6 +118,7 @@ export const actions = actionTree({ state, getters, mutations }, {
       // @ts-ignore
       .catch((err) => {
         if (err.response.status !== 403) {
+          commit('hideSkeleton')
           this.$router.push('/error')
         }
       })
@@ -133,9 +143,11 @@ export const actions = actionTree({ state, getters, mutations }, {
       )
     )
     commit('showErrorMessage')
+    commit('hideSkeleton')
   },
   async getSuggestItems ({ state, commit }) {
     commit('hideErrorMessage')
+    commit('showSkeleton')
     const config = {
       headers: { 'content-type': 'application/json' },
     }
@@ -150,6 +162,7 @@ export const actions = actionTree({ state, getters, mutations }, {
       // @ts-ignore
       .catch((err) => {
         if (err.response.status !== 403) {
+          commit('hideSkeleton')
           this.$router.push('/error')
         }
       })
@@ -174,9 +187,11 @@ export const actions = actionTree({ state, getters, mutations }, {
       )
     )
     commit('showErrorMessage')
+    commit('hideSkeleton')
   },
   async getSearchItems ({ state, commit }) {
     commit('hideErrorMessage')
+    commit('showSkeleton')
     const config = {
       headers: { 'content-type': 'application/json' },
     }
@@ -191,6 +206,7 @@ export const actions = actionTree({ state, getters, mutations }, {
       // @ts-ignore
       .catch((err) => {
         if (err.response.status !== 403) {
+          commit('hideSkeleton')
           this.$router.push('/error')
         }
       })
@@ -215,5 +231,6 @@ export const actions = actionTree({ state, getters, mutations }, {
       )
     )
     commit('showErrorMessage')
+    commit('hideSkeleton')
   }
 })
