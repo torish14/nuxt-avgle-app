@@ -175,8 +175,8 @@
                     {{ toHms(data.duration) }}
                   </h5>
                 </div>
-                <p class="text-white text-sm hover:text-purple-500 break-all pt-2 pl-2" style="width: 375px;">
-                  {{ data.title.slice(0,44) }}
+                <p class="text-white text-sm hover:text-purple-500 break-all pt-2 px-2" style="width: 375px;">
+                  {{ data.title.slice(0,50) }}
                 </p>
               </nuxt-link>
               <div class="flex flex-row my-1">
