@@ -4,7 +4,7 @@
     <div v-if="$device.isDesktop" class="bg-black">
       <footer class="text-gray-600">
         <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col normal-footer">
-          <a href="https://nuxt-pornhub-api.web.app" aria-label="ホームへ戻る" @click="changeForm">
+          <a href="https://porngle.love" aria-label="ホームへ戻る" @click="changeForm">
             <img
               src="~/assets/Porngle ロゴ.jpeg"
               alt="ロゴ"

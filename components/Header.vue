@@ -5,7 +5,7 @@
       <client-only>
         <nav class="flex items-center justify-between flex-wrap p-6">
           <div class="flex items-center flex-shrink-0 text-white mr-6">
-            <a href="https://nuxt-pornhub-api.web.app" aria-label="ホームへ戻る" @click="changeForm">
+            <a href="https://porngle.love" aria-label="ホームへ戻る" @click="changeForm">
               <img
                 src="~/assets/Porngle ロゴ.jpeg"
                 alt="ロゴ"
@@ -39,7 +39,7 @@
       <nav v-show="isShow">
         <div class="flex justify-between bg-black top-0 w-full z-20 pb-1">
           <div :class="isOpen ? 'hidden' : 'block'" class="flex items-center flex-shrink-0 text-white ml-2 py-2">
-            <a href="https://nuxt-pornhub-api.web.app" aria-label="ホームへ戻る" @click="changeForm">
+            <a href="https://porngle.love" aria-label="ホームへ戻る" @click="changeForm">
               <img
                 src="~/assets/Porngle ロゴ.jpeg"
                 alt="ロゴ"
