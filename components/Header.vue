@@ -3,16 +3,18 @@
     <!-- デスクトップ -->
     <div v-if="$device.isDesktop" id="header" class="bg-black">
       <client-only>
-        <nav class="flex items-center justify-between flex-wrap p-6">
+        <header class="flex items-center justify-between flex-wrap p-6" role="banner">
           <div class="flex items-center flex-shrink-0 text-white mr-6">
-            <a href="https://porngle.love" aria-label="ホームへ戻る" @click="changeForm">
-              <img
-                src="~/assets/Porngle ロゴ.jpeg"
-                alt="ロゴ"
-                class="w-40"
-                style="height: 60px;"
-              >
-            </a>
+            <h1 role="banner">
+              <a href="https://porngle.love" aria-label="ホームへ戻る" @click="changeForm">
+                <img
+                  src="~/assets/Porngle ロゴ.jpeg"
+                  alt="ロゴ"
+                  class="w-40"
+                  style="height: 60px;"
+                >
+              </a>
+            </h1>
           </div>
           <div class="bg-gray-800 flex items-center rounded-full shadow-xl w-1/4 mr-20">
             <input
@@ -31,12 +33,12 @@
               </button>
             </div>
           </div>
-        </nav>
+        </header>
       </client-only>
     </div>
     <!-- モバイル -->
     <div v-else id="header" class="bg-black">
-      <nav v-show="isShow">
+      <header v-show="isShow" role="banner">
         <div class="flex justify-between bg-black top-0 w-full z-20 pb-1">
           <div :class="isOpen ? 'hidden' : 'block'" class="flex items-center flex-shrink-0 text-white ml-2 py-2">
             <a href="https://porngle.love" aria-label="ホームへ戻る" @click="changeForm">
@@ -49,28 +51,28 @@
             </a>
           </div>
           <!-- <div :class="isOpen ? 'block' : 'hidden'" class="w-full pl-2">
-            <input
-              ref="focusInput"
-              v-model="computedGetState"
-              class="bg-gray-800 rounded-full w-full py-4 px-6 mt-2 ml-0 text-gray-500 leading-tight focus:outline-none"
-              type="search"
-              placeholder="検索"
-              inputmode="search"
-              @keydown.enter="search"
-            >
-          </div>
-          <div class="flex items-center px-3 py-2">
-            <div>
-              <button
-                class="bg-purple-700 text-gray-300 rounded-full p-2 hover:bg-purple-800 focus:outline-none w-12 h-12 flex items-center justify-center"
-                @click="isOpen = !isOpen; focusSearch()"
+              <input
+                ref="focusInput"
+                v-model="computedGetState"
+                class="bg-gray-800 rounded-full w-full py-4 px-6 mt-2 ml-0 text-gray-500 leading-tight focus:outline-none"
+                type="search"
+                placeholder="検索"
+                inputmode="search"
+                @keydown.enter="search"
               >
-                <i class="material-icons">search</i>
-              </button>
             </div>
-          </div> -->
+            <div class="flex items-center px-3 py-2">
+              <div>
+                <button
+                  class="bg-purple-700 text-gray-300 rounded-full p-2 hover:bg-purple-800 focus:outline-none w-12 h-12 flex items-center justify-center"
+                  @click="isOpen = !isOpen; focusSearch()"
+                >
+                  <i class="material-icons">search</i>
+                </button>
+              </div>
+            </div> -->
         </div>
-      </nav>
+      </header>
     </div>
   </section>
 </template>
