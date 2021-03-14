@@ -270,7 +270,7 @@
       <!-- フッター -->
       <footer class="text-gray-600">
         <div class="flex justify-around py-1 fixed z-10 bottom-0 bg-black w-full leading-4">
-          <nuxt-link to="/">
+          <nuxt-link to="/" aria-label="ホームへ戻る">
             <div class="text-center align-middle">
               <i class="material-icons">home</i>
               <p class="icon-text" style="font-size: 10px;">
@@ -278,7 +278,7 @@
               </p>
             </div>
           </nuxt-link>
-          <nuxt-link to="/suggest">
+          <nuxt-link to="/suggest" aria-label="オススメへ進む">
             <div class="text-center align-middle">
               <i class="material-icons">live_tv</i>
               <p class="icon-text" style="font-size: 10px;">
@@ -286,7 +286,7 @@
               </p>
             </div>
           </nuxt-link>
-          <nuxt-link to="/search" @click.native="focusSearch()">
+          <nuxt-link to="/search" aria-label="検索へ進む" @click.native="focusSearch()">
             <div class="text-center align-middle">
               <i class="material-icons">search</i>
               <p class="icon-text" style="font-size: 10px;">
