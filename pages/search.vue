@@ -7,7 +7,7 @@
           <client-only>
             <div class="flex">
               <i class="material-icons text-gray-500">search</i>
-              <h5 class="text-gray-500 text-lg">
+              <h5 class="text-gray-500 text-sm">
                 &nbsp;一致する検索結果はありません。
               </h5>
             </div>
@@ -31,7 +31,7 @@
                     {{ toHms(data.duration) }}
                   </h5>
                 </div>
-                <p class="text-gray-300 text-base hover:text-purple-500 break-all" style="width: 320px;">
+                <p class="text-white text-sm hover:text-purple-500 break-all" style="width: 320px;">
                   {{ data.title.slice(0,40) }}
                 </p>
               </nuxt-link>
@@ -52,13 +52,13 @@
                   </h6>
                 </template>
                 <template v-if="Number.isNaN(data.likes / (data.likes + data.dislikes) * 100)">
-                  <i class="material-icons text-gray-500" style="font-size: 18px;">thumb_up</i>
+                  <i class="material-icons text-gray-500" style="font-size: 16px;">thumb_up</i>
                   <h6 class="text-gray-500 px-1 text-xs">
                     0%
                   </h6>
                 </template>
                 <template v-else>
-                  <i class="material-icons text-gray-500" style="font-size: 18px;">thumb_up</i>
+                  <i class="material-icons text-gray-500" style="font-size: 16px;">thumb_up</i>
                   <h6 class="text-gray-500 px-1 text-xs">
                     {{ Math.ceil(data.likes / (data.likes + data.dislikes) * 100) }}%
                   </h6>
@@ -143,7 +143,7 @@
             <client-only>
               <div class="flex justify-center pt-2">
                 <i class="material-icons text-gray-500">search</i>
-                <h5 class="text-gray-500 text-lg">
+                <h5 class="text-gray-500 text-sm">
                   &nbsp;一致する検索結果はありません。
                 </h5>
               </div>
@@ -156,9 +156,12 @@
               :size="{ width: '40px', height: '40px' }"
             />
           </div>
-          <p v-else-if="$fetchState.error" class="text-white">
-            エラーが発生しました。
-          </p>
+          <template v-else-if="$fetchState.error" class="text-white">
+            <i class="material-icons text-gray-500">error</i>
+            <h5 class="text-gray-500 text-sm">
+              &nbsp;エラーが発生しました。
+            </h5>
+          </template>
           <template v-else>
             <div v-for="data in searchMessages" :key="data.vid">
               <div class="flex m-4">
@@ -184,7 +187,7 @@
                 <div class="ml-2" style="width: 175px; height: 90px">
                   <nuxt-link :to="{ path: 'embedded_url' + '/' + data.vid }" aria-label="動画埋め込みページへ遷移">
                     <!-- <vue-lazy-component> -->
-                    <p class="text-gray-300 text-sm hover:text-purple-500">
+                    <p class="text-white text-sm hover:text-purple-500">
                       {{ data.title.slice(0,36) }}
                     </p>
                     <!-- <SearchSkeletonTitle slot="skeleton" /> -->

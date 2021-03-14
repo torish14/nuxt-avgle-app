@@ -17,7 +17,7 @@
               height="100%"
             />
           </div>
-          <p class="text-gray-300 text-lg md:px-4 lg:px-4 xl:px-4 2xl:px-4 pt-1">
+          <p class="text-white text-sm md:px-4 lg:px-4 xl:px-4 2xl:px-4 pt-1">
             {{ messagesMatchVid.title }}
           </p>
         </template>
@@ -25,7 +25,7 @@
           <client-only>
             <div class="flex justify-center">
               <i class="material-icons text-gray-500">search</i>
-              <h5 class="text-gray-500 text-lg">
+              <h5 class="text-gray-500 text-sm">
                 &nbsp;一致する検索結果はありません。
               </h5>
             </div>
@@ -35,7 +35,7 @@
           <client-only>
             <div class="flex justify-center">
               <i class="material-icons text-gray-500">search</i>
-              <h5 class="text-gray-500 text-lg">
+              <h5 class="text-gray-500 text-sm">
                 &nbsp;一致する検索結果はありません。
               </h5>
             </div>
@@ -60,7 +60,7 @@
                   {{ toHms(data.duration) }}
                 </h5>
               </div>
-              <h5 class="text-gray-300 text-base hover:text-purple-500 pt-1" style="width: 320px;">
+              <h5 class="text-white text-sm hover:text-purple-500 pt-1" style="width: 320px;">
                 {{ data.title.slice(0,40) }}
               </h5>
             </nuxt-link>
@@ -81,13 +81,13 @@
                 </h6>
               </template>
               <template v-if="Number.isNaN(data.likes / (data.likes + data.dislikes) * 100)">
-                <i class="material-icons text-gray-500" style="font-size: 18px;">thumb_up</i>
+                <i class="material-icons text-gray-500" style="font-size: 16px;">thumb_up</i>
                 <h6 class="text-gray-500 px-1 text-sm">
                   0%
                 </h6>
               </template>
               <template v-else>
-                <i class="material-icons text-gray-500" style="font-size: 18px;">thumb_up</i>
+                <i class="material-icons text-gray-500" style="font-size: 16px;">thumb_up</i>
                 <h6 class="text-gray-500 px-1 text-sm">
                   {{ Math.ceil(data.likes / (data.likes + data.dislikes) * 100) }}%
                 </h6>
@@ -142,23 +142,23 @@
               height="100%"
             />
           </div>
-          <p class="text-gray-300 text-lg md:px-4 lg:px-4 xl:px-4 2xl:px-4 pt-2 pl-2">
+          <p class="text-white text-sm md:px-4 lg:px-4 xl:px-4 2xl:px-4 pt-2 pl-2">
             {{ messagesMatchVid.title }}
           </p>
           <div>
-            <h6 class="text-gray-500 mr-1 text-sm pl-2">
+            <h6 class="text-gray-500 mr-1 text-xs pl-2">
               {{ (messagesMatchVid.viewnumber).toLocaleString() }} 回視聴
             </h6>
           </div>
           <div class="flex">
             <div class="text-center mx-6 my-4">
-              <i class="material-icons text-gray-500" style="font-size: 20px;">thumb_up</i>
+              <i class="material-icons text-gray-500" style="font-size: 16px;">thumb_up</i>
               <h6 class="text-gray-500 px-1 text-xs">
                 {{ messagesMatchVid.likes }}
               </h6>
             </div>
             <div class="text-center mx-6 my-4">
-              <i class="material-icons text-gray-500" style="font-size: 20px;">thumb_down</i>
+              <i class="material-icons text-gray-500" style="font-size: 16px;">thumb_down</i>
               <h6 class="text-gray-500 px-1 text-xs">
                 {{ messagesMatchVid.dislikes }}
               </h6>
@@ -179,24 +179,24 @@
               height="100%"
             />
           </div>
-          <p class="text-gray-300 text-lg md:px-4 lg:px-4 xl:px-4 2xl:px-4 pt-2 pl-2">
+          <p class="text-white text-sm md:px-4 lg:px-4 xl:px-4 2xl:px-4 pt-2 pl-2">
             {{ suggestMessagesMatchVid.title }}
           </p>
           <div>
-            <h6 class="text-gray-500 mr-1 text-sm pl-2">
+            <h6 class="text-gray-500 mr-1 text-xs pl-2">
               {{ (suggestMessagesMatchVid.viewnumber).toLocaleString() }} 回視聴
             </h6>
           </div>
           <div class="flex">
             <div class="text-center mx-6 my-4">
-              <i class="material-icons text-gray-500" style="font-size: 24px;">thumb_up</i>
-              <h6 class="text-gray-500 px-1 text-sm">
+              <i class="material-icons text-gray-500" style="font-size: 16px;">thumb_up</i>
+              <h6 class="text-gray-500 px-1 text-xs">
                 {{ suggestMessagesMatchVid.likes }}
               </h6>
             </div>
             <div class="text-center mx-6 my-4">
-              <i class="material-icons text-gray-500" style="font-size: 24px;">thumb_down</i>
-              <h6 class="text-gray-500 px-1 text-sm">
+              <i class="material-icons text-gray-500" style="font-size: 16px;">thumb_down</i>
+              <h6 class="text-gray-500 px-1 text-xs">
                 {{ suggestMessagesMatchVid.dislikes }}
               </h6>
             </div>
@@ -216,24 +216,24 @@
               height="100%"
             />
           </div>
-          <p class="text-gray-300 text-lg md:px-4 lg:px-4 xl:px-4 2xl:px-4 pt-2 pl-2">
+          <p class="text-white text-sm md:px-4 lg:px-4 xl:px-4 2xl:px-4 pt-2 pl-2">
             {{ searchMessagesMatchVid.title }}
           </p>
           <div>
-            <h6 class="text-gray-500 mr-1 text-sm pl-2">
+            <h6 class="text-gray-500 mr-1 text-xs pl-2">
               {{ (searchMessagesMatchVid.viewnumber).toLocaleString() }} 回視聴
             </h6>
           </div>
           <div class="flex">
             <div class="text-center mx-6 my-4">
-              <i class="material-icons text-gray-500" style="font-size: 24px;">thumb_up</i>
-              <h6 class="text-gray-500 px-1 text-sm">
+              <i class="material-icons text-gray-500" style="font-size: 16px;">thumb_up</i>
+              <h6 class="text-gray-500 px-1 text-xs">
                 {{ searchMessagesMatchVid.likes }}
               </h6>
             </div>
             <div class="text-center mx-6 my-4">
-              <i class="material-icons text-gray-500" style="font-size: 24px;">thumb_down</i>
-              <h6 class="text-gray-500 px-1 text-sm">
+              <i class="material-icons text-gray-500" style="font-size: 16px;">thumb_down</i>
+              <h6 class="text-gray-500 px-1 text-xs">
                 {{ searchMessagesMatchVid.dislikes }}
               </h6>
             </div>
@@ -243,7 +243,7 @@
           <client-only>
             <div class="flex justify-center">
               <i class="material-icons text-gray-500">search</i>
-              <h5 class="text-gray-500 text-lg pt-2">
+              <h5 class="text-gray-500 text-sm pt-2">
                 &nbsp;一致する検索結果はありません。
               </h5>
             </div>
@@ -253,7 +253,7 @@
           <client-only>
             <div class="flex justify-center">
               <i class="material-icons text-gray-500">search</i>
-              <h5 class="text-gray-500 text-lg pt-2">
+              <h5 class="text-gray-500 text-sm pt-2">
                 &nbsp;一致する検索結果はありません。
               </h5>
             </div>
@@ -279,7 +279,7 @@
                     {{ toHms(data.duration) }}
                   </h5>
                 </div>
-                <h5 class="text-gray-300 text-base hover:text-purple-500 break-all pt-2 pl-2" style="width: 375px;">
+                <h5 class="text-white text-sm hover:text-purple-500 break-all pt-2 pl-2" style="width: 375px;">
                   {{ data.title.slice(0,40) }}
                 </h5>
               </nuxt-link>
@@ -300,13 +300,13 @@
                   </h6>
                 </template>
                 <template v-if="Number.isNaN(data.likes / (data.likes + data.dislikes) * 100)">
-                  <i class="material-icons text-gray-500" style="font-size: 18px;">thumb_up</i>
+                  <i class="material-icons text-gray-500" style="font-size: 16px;">thumb_up</i>
                   <h6 class="text-gray-500 px-1 text-sm">
                     0%
                   </h6>
                 </template>
                 <template v-else>
-                  <i class="material-icons  text-gray-500" style="font-size: 18px;">thumb_up</i>
+                  <i class="material-icons  text-gray-500" style="font-size: 16px;">thumb_up</i>
                   <h6 class="text-gray-500 px-1 text-sm">
                     {{ Math.ceil(data.likes / (data.likes + data.dislikes) * 100) }}%
                   </h6>
@@ -361,7 +361,7 @@
                     {{ toHms(data.duration) }}
                   </h5>
                 </div>
-                <h5 class="text-gray-300 text-base hover:text-purple-500 break-all pt-2 pl-2" style="width: 375px;">
+                <h5 class="text-white text-sm hover:text-purple-500 break-all pt-2 pl-2" style="width: 375px;">
                   {{ data.title.slice(0,40) }}
                 </h5>
               </nuxt-link>
@@ -382,13 +382,13 @@
                   </h6>
                 </template>
                 <template v-if="Number.isNaN(data.likes / (data.likes + data.dislikes) * 100)">
-                  <i class="material-icons text-gray-500" style="font-size: 18px;">thumb_up</i>
+                  <i class="material-icons text-gray-500" style="font-size: 16px;">thumb_up</i>
                   <h6 class="text-gray-500 px-1 text-sm">
                     0%
                   </h6>
                 </template>
                 <template v-else>
-                  <i class="material-icons  text-gray-500" style="font-size: 18px;">thumb_up</i>
+                  <i class="material-icons  text-gray-500" style="font-size: 16px;">thumb_up</i>
                   <h6 class="text-gray-500 px-1 text-sm">
                     {{ Math.ceil(data.likes / (data.likes + data.dislikes) * 100) }}%
                   </h6>
@@ -443,7 +443,7 @@
                     {{ toHms(data.duration) }}
                   </h5>
                 </div>
-                <h5 class="text-gray-300 text-base hover:text-purple-500 break-all pt-2 pl-2" style="width: 375px;">
+                <h5 class="text-white text-sm hover:text-purple-500 break-all pt-2 pl-2" style="width: 375px;">
                   {{ data.title.slice(0,40) }}
                 </h5>
               </nuxt-link>
@@ -464,13 +464,13 @@
                   </h6>
                 </template>
                 <template v-if="Number.isNaN(data.likes / (data.likes + data.dislikes) * 100)">
-                  <i class="material-icons text-gray-500" style="font-size: 18px;">thumb_up</i>
+                  <i class="material-icons text-gray-500" style="font-size: 16px;">thumb_up</i>
                   <h6 class="text-gray-500 px-1 text-sm">
                     0%
                   </h6>
                 </template>
                 <template v-else>
-                  <i class="material-icons  text-gray-500" style="font-size: 18px;">thumb_up</i>
+                  <i class="material-icons  text-gray-500" style="font-size: 16px;">thumb_up</i>
                   <h6 class="text-gray-500 px-1 text-sm">
                     {{ Math.ceil(data.likes / (data.likes + data.dislikes) * 100) }}%
                   </h6>

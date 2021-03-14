@@ -7,7 +7,7 @@
           <client-only>
             <div class="flex">
               <i class="material-icons text-gray-500">search</i>
-              <h5 class="text-gray-500 text-lg">
+              <h5 class="text-gray-500 text-sm">
                 &nbsp;一致する検索結果はありません。
               </h5>
             </div>
@@ -22,7 +22,7 @@
         </div>
         <template v-else-if="$fetchState.error" class="text-white">
           <i class="material-icons text-gray-500">error</i>
-          <h5 class="text-gray-500 text-lg">
+          <h5 class="text-gray-500 text-sm">
             &nbsp;エラーが発生しました。
           </h5>
         </template>
@@ -44,35 +44,35 @@
                     {{ toHms(data.duration) }}
                   </h5>
                 </div>
-                <p class="text-gray-300 text-base hover:text-purple-500 break-all pt-1" style="width: 320px;">
+                <p class="text-white text-sm hover:text-purple-500 break-all pt-1" style="width: 320px;">
                   {{ data.title.slice(0,40) }}
                 </p>
               </nuxt-link>
               <div class="flex flex-row my-1">
                 <template v-if="data.viewnumber >= 1000000">
-                  <h6 class="text-gray-500 mr-1 text-sm">
+                  <h6 class="text-gray-500 mr-1 text-xs">
                     再生数 {{ Math.ceil(data.viewnumber / 1000000) }}M・
                   </h6>
                 </template>
                 <template v-else-if="data.viewnumber >= 1000 && data.viewnumber < 1000000">
-                  <h6 class="text-gray-500 mr-1 text-sm">
+                  <h6 class="text-gray-500 mr-1 text-xs">
                     再生数 {{ Math.ceil(data.viewnumber / 1000) }}K・
                   </h6>
                 </template>
                 <template v-else>
-                  <h6 class="text-gray-500 mr-1 text-sm">
+                  <h6 class="text-gray-500 mr-1 text-xs">
                     再生数 {{ Math.ceil(data.viewnumber) }}・
                   </h6>
                 </template>
                 <template v-if="Number.isNaN(data.likes / (data.likes + data.dislikes) * 100)">
-                  <i class="material-icons text-gray-500" style="font-size: 18px;">thumb_up</i>
-                  <h6 class="text-gray-500 px-1 text-sm">
+                  <i class="material-icons text-gray-500" style="font-size: 16px;">thumb_up</i>
+                  <h6 class="text-gray-500 px-1 text-xs">
                     0%
                   </h6>
                 </template>
                 <template v-else>
-                  <i class="material-icons text-gray-500" style="font-size: 18px;">thumb_up</i>
-                  <h6 class="text-gray-500 px-1 text-sm">
+                  <i class="material-icons text-gray-500" style="font-size: 16px;">thumb_up</i>
+                  <h6 class="text-gray-500 px-1 text-xs">
                     {{ Math.ceil(data.likes / (data.likes + data.dislikes) * 100) }}%
                   </h6>
                 </template>
@@ -134,7 +134,7 @@
           <client-only>
             <div class="flex pt-2">
               <i class="material-icons text-gray-500">search</i>
-              <h5 class="text-gray-500 text-lg">
+              <h5 class="text-gray-500 text-sm">
                 &nbsp;一致する検索結果はありません。
               </h5>
             </div>
@@ -149,7 +149,7 @@
         </div>
         <template v-else-if="$fetchState.error" class="text-white">
           <i class="material-icons text-gray-500">error</i>
-          <h5 class="text-gray-500 text-lg">
+          <h5 class="text-gray-500 text-sm">
             &nbsp;エラーが発生しました。
           </h5>
         </template>
@@ -175,35 +175,35 @@
                     {{ toHms(data.duration) }}
                   </h5>
                 </div>
-                <p class="text-gray-300 text-base hover:text-purple-500 break-all pt-2 pl-2" style="width: 375px;">
+                <p class="text-white text-sm hover:text-purple-500 break-all pt-2 pl-2" style="width: 375px;">
                   {{ data.title.slice(0,44) }}
                 </p>
               </nuxt-link>
               <div class="flex flex-row my-1">
                 <template v-if="data.viewnumber >= 1000000">
-                  <h6 class="text-gray-500 mr-1 text-sm pl-2">
+                  <h6 class="text-gray-500 mr-1 text-xs pl-2">
                     再生数 {{ Math.ceil(data.viewnumber / 1000000) }}・
                   </h6>
                 </template>
                 <template v-else-if="data.viewnumber >= 1000 && data.viewnumber < 1000000">
-                  <h6 class="text-gray-500 mr-1 text-sm pl-2">
+                  <h6 class="text-gray-500 mr-1 text-xs pl-2">
                     再生数 {{ Math.ceil(data.viewnumber / 1000) }}K・
                   </h6>
                 </template>
                 <template v-else>
-                  <h6 class="text-gray-500 mr-1 text-sm pl-2">
+                  <h6 class="text-gray-500 mr-1 text-xs pl-2">
                     再生数 {{ Math.ceil(data.viewnumber) }}・
                   </h6>
                 </template>
                 <template v-if="Number.isNaN(data.likes / (data.likes + data.dislikes) * 100)">
-                  <i class="material-icons text-gray-500" style="font-size: 18px;">thumb_up</i>
-                  <h6 class="text-gray-500 px-1 text-sm">
+                  <i class="material-icons text-gray-500" style="font-size: 16px;">thumb_up</i>
+                  <h6 class="text-gray-500 px-1 text-xs">
                     0%
                   </h6>
                 </template>
                 <template v-else>
-                  <i class="material-icons text-gray-500" style="font-size: 18px;">thumb_up</i>
-                  <h6 class="text-gray-500 px-1 text-sm">
+                  <i class="material-icons text-gray-500" style="font-size: 16px;">thumb_up</i>
+                  <h6 class="text-gray-500 px-1 text-xs">
                     {{ Math.ceil(data.likes / (data.likes + data.dislikes) * 100) }}%
                   </h6>
                 </template>
@@ -471,12 +471,12 @@ body {
     初期動画表示
     <template v-if="soaringMessages.length === 0 && famousMessages.length === 0 && actressMessages.length === 0 && genreMessages.length === 0">
       <i class="material-icons text-gray-500">error</i>
-      <h5 class="text-gray-500 text-lg">
+      <h5 class="text-gray-500 text-sm">
         &nbsp;No results found for your keyword.
       </h5>
     </template>
     <template v-else>
-      <h1 class="text-gray-300 text-2xl font-semibold ml-6 pt-8">
+      <h1 class="text-white text-2xl font-semibold ml-6 pt-8">
         日本で急上昇
       </h1>
       <div class="flex flex-wrap p-4">
@@ -498,7 +498,7 @@ body {
                 {{ toHms(data.duration) }}
               </h5>
             </div>
-            <h5 class="text-gray-300 text-lg hover:text-purple-500">
+            <h5 class="text-white text-sm hover:text-purple-500">
               {{ data.title.slice(0,17) }} <p>
                 {{ data.title.slice(17,34) }}
               </p>
@@ -535,7 +535,7 @@ body {
           </div>
         </div>
       </div>
-      <h1 class="text-gray-300 text-2xl font-semibold ml-6">
+      <h1 class="text-white text-2xl font-semibold ml-6">
         日本で一番人気
       </h1>
       <div class="flex flex-wrap p-4">
@@ -557,7 +557,7 @@ body {
                 {{ toHms(data.duration) }}
               </h5>
             </div>
-            <h5 class="text-gray-300 text-lg hover:text-purple-500">
+            <h5 class="text-white text-sm hover:text-purple-500">
               {{ data.title.slice(0,17) }} <p>
                 {{ data.title.slice(17,34) }}
               </p>
@@ -594,7 +594,7 @@ body {
           </div>
         </div>
       </div>
-      <h1 class="text-gray-300 text-2xl font-semibold ml-6">
+      <h1 class="text-white text-2xl font-semibold ml-6">
         おすすめ女優
       </h1>
       <div class="flex flex-wrap p-4">
@@ -616,7 +616,7 @@ body {
                 {{ toHms(data.duration) }}
               </h5>
             </div>
-            <h5 class="text-gray-300 text-lg hover:text-purple-500">
+            <h5 class="text-white text-sm hover:text-purple-500">
               {{ data.title.slice(0,17) }} <p>
                 {{ data.title.slice(17,34) }}
               </p>
@@ -653,7 +653,7 @@ body {
           </div>
         </div>
       </div>
-      <h1 class="text-gray-300 text-2xl font-semibold ml-6">
+      <h1 class="text-white text-2xl font-semibold ml-6">
         おすすめジャンル
       </h1>
       <div class="flex flex-wrap p-4">
@@ -675,7 +675,7 @@ body {
                 {{ toHms(data.duration) }}
               </h5>
             </div>
-            <h5 class="text-gray-300 text-lg hover:text-purple-500">
+            <h5 class="text-white text-sm hover:text-purple-500">
               {{ data.title.slice(0,17) }} <p>
                 {{ data.title.slice(17,34) }}
               </p>
