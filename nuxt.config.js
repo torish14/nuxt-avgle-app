@@ -266,6 +266,13 @@ export default {
       changeOrigin: true,
     },
   },
+  robots: {
+    UserAgent: '*',
+    // クローリングしないパスを記述
+    // Disallow: '/preview',
+    // sitemap.xmlのURLを記述
+    Sitemap: 'https://porngle.love/sitemap.xml',
+  },
   /*
    ** Build configuration
    */
