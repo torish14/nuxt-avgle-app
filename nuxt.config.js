@@ -132,7 +132,6 @@ export default {
     { src: '~/plugins/localStorage.js', mode: 'client' },
     // { src: '~plugins/ga.js', mode: 'client' },
     { src: '~/plugins/axios.js', mode: 'client' },
-    '~/plugins/sentry.js',
     '~/plugins/logrocket.js',
     { src: '~/plugins/pagination.js', mode: 'client' },
     '~/plugins/scroll.js',
