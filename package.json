@@ -1,8 +1,8 @@
 {
-  "name": "nuxt-pornhub-api",
+  "name": "Porngle",
   "version": "1.0.0",
   "private": true,
-  "description": "My glorious Nuxt.js project",
+  "description": "This is an adult site",
   "author": "torish",
   "scripts": {
     "analyze": "nuxt build --analyze",
