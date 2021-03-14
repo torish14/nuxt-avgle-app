@@ -231,7 +231,7 @@ export default {
     // サイト名
     hostname: 'https://porngle.love',
     // 除外したいURL
-    exclude: ['/sampleSuggest', '/search', '/suggest'],
+    exclude: ['/sampleSuggest'],
   },
   /*
    ** Nuxt.js modules
@@ -269,7 +269,7 @@ export default {
   robots: {
     UserAgent: '*',
     // クローリングしないパスを記述
-    // Disallow: '/preview',
+    Disallow: '/sampleSuggest',
     // sitemap.xmlのURLを記述
     Sitemap: 'https://porngle.love/sitemap.xml',
   },
