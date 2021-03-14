@@ -55,7 +55,6 @@
 </template>
 
 <script lang="ts">
-// Todo ロゴのサイズ縮小
 import Vue from 'vue'
 
 export type DataType = {
