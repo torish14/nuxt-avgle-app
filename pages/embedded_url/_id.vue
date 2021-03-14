@@ -142,7 +142,7 @@
               height="100%"
             />
           </div>
-          <p class="text-white text-sm md:px-4 lg:px-4 xl:px-4 2xl:px-4 pt-2 pl-2">
+          <p class="text-white text-sm md:px-4 lg:px-4 xl:px-4 2xl:px-4 pt-2 px-2">
             {{ messagesMatchVid.title }}
           </p>
           <div>
@@ -179,7 +179,7 @@
               height="100%"
             />
           </div>
-          <p class="text-white text-sm md:px-4 lg:px-4 xl:px-4 2xl:px-4 pt-2 pl-2">
+          <p class="text-white text-sm md:px-4 lg:px-4 xl:px-4 2xl:px-4 pt-2 px-2">
             {{ suggestMessagesMatchVid.title }}
           </p>
           <div>
@@ -216,7 +216,7 @@
               height="100%"
             />
           </div>
-          <p class="text-white text-sm md:px-4 lg:px-4 xl:px-4 2xl:px-4 pt-2 pl-2">
+          <p class="text-white text-sm md:px-4 lg:px-4 xl:px-4 2xl:px-4 pt-2 px-2">
             {{ searchMessagesMatchVid.title }}
           </p>
           <div>
