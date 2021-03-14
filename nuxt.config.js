@@ -168,7 +168,7 @@ export default {
     // Doc: https://typed-vuex.roe.dev
     'nuxt-typed-vuex',
     // Doc: https://github.com/nuxt-community/device-module
-    '@nuxtjs/device'
+    '@nuxtjs/device',
   ],
   'nuxt-compress': {
     gzip: {
@@ -229,7 +229,7 @@ export default {
     // 生成されるサイトマップファイルの名前
     path: '/sitemap.xml',
     // サイト名
-    hostname: 'https://example.com',
+    hostname: 'https://porngle.love',
     // 除外したいURL
     exclude: ['/sampleSuggest', '/search', '/suggest'],
   },
