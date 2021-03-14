@@ -14,11 +14,12 @@
             type="search"
             placeholder="検索"
             inputmode="search"
+            role="search"
             @keydown.enter="search"
           >
         </div>
-      </nav>
-      <div class="flex flex-wrap justify-center">
+      </div>
+      <main class="flex flex-wrap justify-center">
         <div class="pt-10" style="width: 375px;">
           <template v-if="searchMessages.length === 0 && errorMessage || message === '無修正' || message === 'Uncensored' || message === 'uncensored' || message === 'PAKO' || message === 'Pako' || message === 'pako' || message === 'ぱこ' || message === 'パコ' || message === 'CARIB' || message === 'Carib' || message === 'carib' || message === 'かりぶ' || message === 'カリブ' || message === 'FC2' || message === 'Fc2' || message === 'fc2' || message === '完全素人' || message === '個人撮影' || message === 'DEEPFAKE' || message === 'DeepFake' || message === 'Deepfake' || message === 'deepfake'">
             <client-only>
@@ -147,7 +148,7 @@
             </InfiniteLoading> -->
           </template>
         </div>
-      </div>
+      </main>
       <!-- フッター -->
       <footer class="text-gray-600">
         <div class="flex justify-around py-1 fixed z-10 bottom-0 bg-black w-full leading-4">

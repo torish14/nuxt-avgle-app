@@ -2,7 +2,7 @@
   <section>
     <!-- デスクトップ -->
     <div v-if="$device.isDesktop">
-      <div class="flex flex-wrap justify-center">
+      <main class="flex flex-wrap justify-center">
         <template v-if="messages.length === 0 && errorMessage || message === '無修正' || message === 'Uncensored' || message === 'uncensored' || message === 'PAKO' || message === 'Pako' || message === 'pako' || message === 'ぱこ' || message === 'パコ' || message === 'CARIB' || message === 'Carib' || message === 'carib' || message === 'かりぶ' || message === 'カリブ' || message === 'FC2' || message === 'Fc2' || message === 'fc2' || message === '完全素人' || message === '個人撮影' || message === 'DEEPFAKE' || message === 'DeepFake' || message === 'Deepfake' || message === 'deepfake'">
           <client-only>
             <div class="flex">
@@ -125,11 +125,11 @@
             class="sm:pt-4 md:pt-6 lg:pt-8 xl:pt-8"
           />
         </template>
-      </div>
+      </main>
     </div>
     <!-- モバイル -->
     <div v-else class="pt-1 pb-20">
-      <div class="flex flex-wrap justify-center" style="width: 375px;">
+      <main class="flex flex-wrap justify-center" style="width: 375px;">
         <template v-if="messages.length === 0 && errorMessage || message === '無修正' || message === 'Uncensored' || message === 'uncensored' || message === 'PAKO' || message === 'Pako' || message === 'pako' || message === 'ぱこ' || message === 'パコ' || message === 'CARIB' || message === 'Carib' || message === 'carib' || message === 'かりぶ' || message === 'カリブ' || message === 'FC2' || message === 'Fc2' || message === 'fc2' || message === '完全素人' || message === '個人撮影' || message === 'DEEPFAKE' || message === 'DeepFake' || message === 'Deepfake' || message === 'deepfake'">
           <client-only>
             <div class="flex pt-2">
@@ -248,7 +248,7 @@
             </div>
           </InfiniteLoading> -->
         </template>
-      </div>
+      </main>
     </div>
   </section>
 </template>

@@ -2,7 +2,7 @@
   <section>
     <!-- デスクトップ -->
     <div v-if="$device.isDesktop">
-      <div>
+      <main role="main">
         <template v-if="messagesMatchVid">
           <div class="relative sm:w-full md:w-full lg:w-full xl:w-11/12 h-0" style="padding-top: 50%;">
             <iframe
@@ -41,8 +41,8 @@
             </div>
           </client-only>
         </template>
-      </div>
-      <div class="flex flex-wrap justify-center">
+      </main>
+      <main class="flex flex-wrap justify-center">
         <div v-for="data in getJapaneseItems" :key="data.vid" class=" md:px-2 lg:px-2 xl:px-2 2xl:px-2 lg:mt-8 xl:mt-8 2xl:mt-8">
           <vue-lazy-component>
             <nuxt-link :to="{ path: data.vid }" aria-label="動画埋め込みページへ遷移" no-prefetch>
@@ -123,11 +123,11 @@
             <Skeleton slot="skeleton" />
           </vue-lazy-component>
         </div>
-      </div>
+      </main>
     </div>
     <!-- モバイル -->
     <div v-else class="pt-1 pb-20">
-      <div>
+      <main role="main">
         <template v-if="messagesMatchVid">
           <div class="relative sm:w-full md:w-full lg:w-full xl:w-11/12 h-0" style="padding-top: 50%;">
             <iframe
@@ -259,8 +259,8 @@
             </div>
           </client-only>
         </template>
-      </div>
-      <div class="flex flex-wrap justify-center">
+      </main>
+      <main class="flex flex-wrap justify-center">
         <template v-if="messagesMatchVid">
           <div v-for="data in getJapaneseItems" :key="data.vid" class=" md:px-2 lg:px-2 xl:px-2 2xl:px-2 lg:mt-8 xl:mt-8 2xl:mt-8">
             <vue-lazy-component>
@@ -507,7 +507,7 @@
             </vue-lazy-component>
           </div>
         </template>
-      </div>
+      </main>
     </div>
   </section>
 </template>
