@@ -284,6 +284,16 @@ export default Vue.extend({
     this.$accessor.search.setJapaneseMessage()
     this.$accessor.search.getJapaneseItems()
   },
+  head: {
+    title: 'ホーム',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'ホームページです。'
+      }
+    ],
+  },
   computed: {
     ...mapGetters('search', ['message', 'messages', 'errorMessage', 'firstSkeleton']),
     // ? 現在ページのアイテムを返す

@@ -157,6 +157,16 @@ export default Vue.extend({
     this.$accessor.search.setSuggestMessage()
     this.$accessor.search.getSuggestItems()
   },
+  head: {
+    title: 'オススメ',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'オススメページです。'
+      }
+    ],
+  },
   computed: {
     ...mapGetters('search', ['message', 'suggestMessages', 'errorMessage', 'firstSkeleton']),
     // ? 現在ページのアイテムを返す

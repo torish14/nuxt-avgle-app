@@ -2,7 +2,7 @@
   <section>
     <!-- モバイル -->
     <div v-if="$device.isMobile" class="pt-1 pb-20">
-      <nav class="bg-black fixed top-0 z-20">
+      <div class="bg-black fixed top-0 z-20">
         <div class="bg-gray-800 flex items-center shadow-xl rounded-lg m-2" style="width: 359px;">
           <div class="bg-gray-800 text-gray-500 focus:outline-one w-12 h-12 flex items-center justify-center">
             <i class="material-icons">search</i>
@@ -219,6 +219,16 @@ export default Vue.extend({
     }
     this.$accessor.search.setSearchMessage()
     this.$accessor.search.getSearchItems()
+  },
+  head: {
+    title: '検索',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content: '検索ページです。'
+      }
+    ],
   },
   computed: {
     ...mapGetters('search', ['message', 'searchMessages', 'errorMessage']),

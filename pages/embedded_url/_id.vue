@@ -561,6 +561,16 @@ export default Vue.extend({
     }
     this.$accessor.search.getSearchItems()
   },
+  head: {
+    title: '動画埋め込み',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content: '動画埋め込みページです。'
+      }
+    ],
+  },
   computed: {
     ...mapGetters('search', ['message', 'messages', 'suggestMessages', 'searchMessages']),
     messagesMatchVid (): number {
