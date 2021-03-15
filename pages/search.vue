@@ -31,7 +31,7 @@
               </div>
             </client-only>
           </template>
-          <div v-else-if="$fetchState.pending" class="text-white">
+          <div v-else-if="$fetchState.pending">
             <client-only>
               <div class="flex justify-center pt-2">
                 <i class="material-icons text-gray-500">hourglass_empty</i>
@@ -41,7 +41,7 @@
               </div>
             </client-only>
           </div>
-          <template v-else-if="$fetchState.error" class="text-white">
+          <template v-else-if="$fetchState.error">
             <i class="material-icons text-gray-500">error</i>
             <h5 class="text-gray-500 text-sm">
               &nbsp;エラーが発生しました。
