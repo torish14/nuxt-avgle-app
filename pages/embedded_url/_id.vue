@@ -25,7 +25,7 @@
           <client-only>
             <div class="flex justify-center">
               <i class="material-icons text-gray-500">search</i>
-              <h5 class="text-gray-500 text-sm">
+              <h5 class="text-gray-500 text-lg">
                 &nbsp;一致する検索結果はありません。
               </h5>
             </div>
@@ -35,7 +35,7 @@
           <client-only>
             <div class="flex justify-center">
               <i class="material-icons text-gray-500">search</i>
-              <h5 class="text-gray-500 text-sm">
+              <h5 class="text-gray-500 text-lg">
                 &nbsp;一致する検索結果はありません。
               </h5>
             </div>
@@ -598,7 +598,7 @@ export default Vue.extend({
       // )
     },
     getSearchItems () {
-      return this.searchMessages.slice(0,50)  
+      return this.searchMessages.slice(0,50)
       // .sort(
       //   function() { return Math.random()-.5 }
       // )

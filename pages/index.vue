@@ -7,7 +7,7 @@
           <client-only>
             <div class="flex">
               <i class="material-icons text-gray-500">search</i>
-              <h5 class="text-gray-500 text-sm">
+              <h5 class="text-gray-500 text-lg">
                 &nbsp;一致する検索結果はありません。
               </h5>
             </div>
@@ -21,7 +21,7 @@
         </div>
         <template v-else-if="$fetchState.error">
           <i class="material-icons text-gray-500">error</i>
-          <h5 class="text-gray-500 text-sm">
+          <h5 class="text-gray-500 text-lg">
             &nbsp;エラーが発生しました。
           </h5>
         </template>
