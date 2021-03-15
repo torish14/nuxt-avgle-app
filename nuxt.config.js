@@ -289,8 +289,11 @@ export default {
         },
       },
       static: {
-        maxAge: 60 * 60 * 24 * 365 * 1000,
+        maxAge: 60 * 60 * 24 * 365 * 1000
       },
+      assets: {
+        maxAge: 60 * 60 * 24 * 365 * 1000
+      }
     },
     extend(config) {
       const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
