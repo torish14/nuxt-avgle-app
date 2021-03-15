@@ -1,4 +1,4 @@
 // import Vue from 'vue'
-// import VueLoading from 'vue-loading-template'
+// import { VueLoading } from 'vue-loading-template'
 
-// Vue.use(VueLoading)
+// Vue.component('VueLoading', VueLoading)
