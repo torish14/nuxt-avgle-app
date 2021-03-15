@@ -586,19 +586,19 @@ export default Vue.extend({
       return this.$accessor.search.searchMessages.find(value =>  value.vid === this.id)
     },
     getJapaneseItems () {
-      return this.messages.slice(0,12)
+      return this.messages.slice(0,50)
       // .sort(
       //   function() { return Math.random()-.5 }
       // )
     },
     getSuggestItems () {
-      return this.suggestMessages.slice(0,12)
+      return this.suggestMessages.slice(0,50)
       // .sort(
       //   function() { return Math.random()-.5 }
       // )
     },
     getSearchItems () {
-      return this.searchMessages.slice(0,12)
+      return this.searchMessages.slice(0,50)  
       // .sort(
       //   function() { return Math.random()-.5 }
       // )
