@@ -14,11 +14,13 @@
           </client-only>
         </template>
         <div v-else-if="$fetchState.pending" class="text-white">
-          <VueLoading
-            type="spin"
-            color="#a0aec0"
-            :size="{ width: '40px', height: '40px' }"
-          />
+          <client-only>
+            <VueLoading
+              type="spin"
+              color="#a0aec0"
+              :size="{ width: '40px', height: '40px' }"
+            />
+          </client-only>
         </div>
         <template v-else-if="$fetchState.error" class="text-white">
           <i class="material-icons text-gray-500">error</i>
@@ -129,7 +131,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import { mapGetters } from 'vuex'
-import { VueLoading } from 'vue-loading-template'
+// import { VueLoading } from 'vue-loading-template'
 import Skeleton from '~/components/Skeleton.vue'
 
 export type DataType = {
@@ -139,7 +141,7 @@ export type DataType = {
 export default Vue.extend({
   components: {
     // @ts-ignore
-    VueLoading,
+    // VueLoading,
     // @ts-ignore
     Skeleton
   },
