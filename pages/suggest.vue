@@ -125,7 +125,7 @@
 import Vue from 'vue'
 import { mapGetters } from 'vuex'
 // import { VueLoading } from 'vue-loading-template'
-import Skeleton from '~/components/Skeleton.vue'
+// import Skeleton from '~/components/Skeleton.vue'
 
 export type DataType = {
   parPage: number
@@ -136,7 +136,7 @@ export default Vue.extend({
     // @ts-ignore
     // VueLoading,
     // @ts-ignore
-    Skeleton
+    Skeleton: () => import('~/components/Skeleton')
   },
   scrollToTop: true,
   data (): DataType {

@@ -162,7 +162,7 @@
 import Vue from 'vue'
 import { mapGetters } from 'vuex'
 // import { VueLoading } from 'vue-loading-template'
-import SearchSkeletonImg from '~/components/SearchSkeletonImg.vue'
+// import SearchSkeletonImg from '~/components/SearchSkeletonImg.vue'
 // import SearchSkeletonTitle from '~/components/SearchSkeletonTitle.vue'
 // import SearchSkeletonGood from '~/components/SearchSkeletonGood.vue'
 
@@ -175,7 +175,7 @@ export default Vue.extend({
     // @ts-ignore
     // VueLoading,
     // @ts-ignore
-    SearchSkeletonImg,
+    SearchSkeletonImg: () => import('~/components/SearchSkeletonImg')
     // @ts-ignore
     // SearchSkeletonTitle,
     // @ts-ignore
