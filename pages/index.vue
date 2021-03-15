@@ -15,8 +15,16 @@
         </template>
         <div v-else-if="$fetchState.pending">
           <client-only>
-            <Skeleton />
-            <Skeleton />
+            <div class="flex flex-wrap justify-center">
+              <Skeleton class="md:px-2 lg:px-2 xl:px-2 2xl:px-2 lg:mt-8 xl:mt-8 2xl:mt-8" />
+              <Skeleton class="md:px-2 lg:px-2 xl:px-2 2xl:px-2 lg:mt-8 xl:mt-8 2xl:mt-8" />
+              <Skeleton class="md:px-2 lg:px-2 xl:px-2 2xl:px-2 lg:mt-8 xl:mt-8 2xl:mt-8" />
+              <Skeleton class="md:px-2 lg:px-2 xl:px-2 2xl:px-2 lg:mt-8 xl:mt-8 2xl:mt-8" />
+              <Skeleton class="md:px-2 lg:px-2 xl:px-2 2xl:px-2 lg:mt-8 xl:mt-8 2xl:mt-8" />
+              <Skeleton class="md:px-2 lg:px-2 xl:px-2 2xl:px-2 lg:mt-8 xl:mt-8 2xl:mt-8" />
+              <Skeleton class="md:px-2 lg:px-2 xl:px-2 2xl:px-2 lg:mt-8 xl:mt-8 2xl:mt-8" />
+              <Skeleton class="md:px-2 lg:px-2 xl:px-2 2xl:px-2 lg:mt-8 xl:mt-8 2xl:mt-8" />
+            </div>
           </client-only>
         </div>
         <template v-else-if="$fetchState.error">
