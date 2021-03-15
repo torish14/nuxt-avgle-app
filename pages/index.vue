@@ -15,11 +15,8 @@
         </template>
         <div v-else-if="$fetchState.pending" class="text-white">
           <client-only>
-            <VueLoading
-              type="spin"
-              color="#a0aec0"
-              :size="{ width: '40px', height: '40px' }"
-            />
+            <Skeleton />
+            <Skeleton />
           </client-only>
         </div>
         <template v-else-if="$fetchState.error" class="text-white">
@@ -144,11 +141,8 @@
         </template>
         <div v-else-if="$fetchState.pending" class="text-white">
           <client-only>
-            <VueLoading
-              type="spin"
-              color="#a0aec0"
-              :size="{ width: '40px', height: '40px' }"
-            />
+            <Skeleton />
+            <Skeleton />
           </client-only>
         </div>
         <template v-else-if="$fetchState.error" class="text-white">
@@ -158,10 +152,6 @@
           </h5>
         </template>
         <template v-else>
-          <div v-if="firstSkeleton">
-            <Skeleton />
-            <Skeleton />
-          </div>
           <div v-for="data in messages" :key="data.vid">
             <vue-lazy-component>
               <nuxt-link :to="{ path: 'embedded_url' + '/' + data.vid }" aria-label="動画埋め込みページへ遷移">

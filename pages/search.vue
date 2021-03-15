@@ -33,11 +33,12 @@
           </template>
           <div v-else-if="$fetchState.pending" class="text-white">
             <client-only>
-              <VueLoading
-                type="spin"
-                color="#a0aec0"
-                :size="{ width: '40px', height: '40px' }"
-              />
+              <div class="flex justify-center pt-2">
+                <i class="material-icons text-gray-500">hourglass_empty</i>
+                <h5 class="text-gray-500 text-sm">
+                  &nbsp;読み込んでいます...
+                </h5>
+              </div>
             </client-only>
           </div>
           <template v-else-if="$fetchState.error" class="text-white">
