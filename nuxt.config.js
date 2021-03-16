@@ -80,17 +80,22 @@ export default {
         content: siteDesc,
       },
       // {
-      //   hid: "og:image",
-      //   property: "og:image",
+      //   hid: 'og:image',
+      //   property: 'og:image',
       //   content: `${ogpImages}home.jpg`
       // },
       {
         hid: 'og:image',
         property: 'og:image',
+        content: 'https://porngle.love/assets/Porngle ロゴ.jpeg',
       },
       {
         name: 'twitter:card',
         content: 'summary_large_image',
+      },
+      {
+        name: 'twitter:site',
+        content: '@porngle_love',
       },
     ],
     // link: [{
@@ -132,7 +137,7 @@ export default {
     { src: '~/plugins/localStorage.js', mode: 'client' },
     // { src: '~plugins/ga.js', mode: 'client' },
     { src: '~/plugins/axios.js', mode: 'client' },
-    { src:'~/plugins/logRocket.js', mode: 'client' },
+    { src: '~/plugins/logRocket.js', mode: 'client' },
     { src: '~/plugins/pagination.js', mode: 'client' },
     { src: '~/plugins/scroll.js', mode: 'client' },
     { src: '~/plugins/lazyLoad.js', mode: 'client' },
@@ -289,11 +294,11 @@ export default {
         },
       },
       static: {
-        maxAge: 60 * 60 * 24 * 365 * 1000
+        maxAge: 60 * 60 * 24 * 365 * 1000,
       },
       assets: {
-        maxAge: 60 * 60 * 24 * 365 * 1000
-      }
+        maxAge: 60 * 60 * 24 * 365 * 1000,
+      },
     },
     extend(config) {
       const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
