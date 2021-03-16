@@ -41,7 +41,7 @@ export const mutations = mutationTree(state, {
     state.message = '日本人'
   },
   setSuggestMessage (state) {
-    state.message = '素人'
+    state.message = 'AV女優'
     // state.message = [
     //   '小倉由菜',
     //   '希崎ジェシカ',
