@@ -141,6 +141,7 @@ export default {
     { src: '~/plugins/pagination.js', mode: 'client' },
     { src: '~/plugins/scroll.js', mode: 'client' },
     { src: '~/plugins/lazyLoad.js', mode: 'client' },
+    { src: '~/plugins/jsonld.js', mode: 'client' },
     // { src: '~/plugins/loading.js', mode: 'client' },
     // { src: '~/plugins/infiniteloading.js', mode: 'client' }
   ],

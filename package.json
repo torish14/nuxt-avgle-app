@@ -52,6 +52,7 @@
     "logrocket": "^1.0.14",
     "nuxt": "^2.15.2",
     "nuxt-generate-cluster": "^2.7.0",
+    "nuxt-jsonld": "^1.5.0",
     "nuxt-material-design-icons": "^1.0.4",
     "nuxt-typed-vuex": "^0.1.22",
     "patch-package": "^6.2.2",

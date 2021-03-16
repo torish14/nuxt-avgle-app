@@ -262,7 +262,8 @@ import { mapGetters } from 'vuex'
 // import Skeleton from '~/components/Skeleton.vue'
 
 export type DataType = {
-  parPage: number
+  parPage: number,
+  breadcrumbs: object
 }
 
 export default Vue.extend({
@@ -276,8 +277,42 @@ export default Vue.extend({
   data (): DataType {
     return {
       // ? 1ページに表示するアイテム数
-      parPage: 20
+      parPage: 20,
+      breadcrumbs: [
+        {
+          url: 'https://porngle.love',
+          text: 'ホームページ',
+        },
+        {
+          url: 'https://porngle.love/embedded/_id',
+          text: '動画埋め込みページ',
+        },
+        {
+          url: 'https://porngle.love/suggest',
+          text: 'オススメページ',
+        },
+        {
+          url: 'https://porngle.love/search',
+          text: '検索ページ',
+        },
+      ]
     }
+  },
+  jsonld() {
+    // @ts-ignore
+    const items = this.breadcrumbs.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
+        '@id': item.url,
+        name: item.text,
+      },
+    }));
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: items,
+    };
   },
   fetch () {
     if(this.$accessor.search.messages.length > 0) {
