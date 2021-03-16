@@ -43,7 +43,7 @@
         </template>
       </main>
       <main class="flex flex-wrap justify-center">
-        <div v-for="data in getJapaneseItems" :key="data.vid" class=" md:px-2 lg:px-2 xl:px-2 2xl:px-2 lg:mt-8 xl:mt-8 2xl:mt-8">
+        <div v-for="data in getJapaneseItemsDesktop" :key="data.vid" class=" md:px-2 lg:px-2 xl:px-2 2xl:px-2 lg:mt-8 xl:mt-8 2xl:mt-8">
           <vue-lazy-component>
             <nuxt-link :to="{ path: data.vid }" aria-label="動画埋め込みページへ遷移" no-prefetch>
               <div class="relative">
@@ -613,6 +613,12 @@ export default Vue.extend({
     searchMessagesMatchVid (): number {
       // @ts-ignore
       return this.$accessor.search.searchMessages.find(value =>  value.vid === this.id)
+    },
+    getJapaneseItemsDesktop () {
+      return this.messages.slice(0,20)
+      // .sort(
+      //   function() { return Math.random()-.5 }
+      // )
     },
     getJapaneseItems () {
       return this.messages.slice(0,50)
