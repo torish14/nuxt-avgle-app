@@ -562,7 +562,7 @@ export default Vue.extend({
     this.$accessor.search.getSearchItems()
   },
   head: {
-    title: '動画埋め込み',
+    title: '動画埋め込みページ',
     meta: [
       {
         hid: 'description',

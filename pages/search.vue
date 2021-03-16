@@ -220,7 +220,7 @@ export default Vue.extend({
     this.$accessor.search.getSearchItems()
   },
   head: {
-    title: '検索',
+    title: '検索ページ',
     meta: [
       {
         hid: 'description',

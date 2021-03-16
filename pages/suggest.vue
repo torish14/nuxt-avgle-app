@@ -153,7 +153,7 @@ export default Vue.extend({
     this.$accessor.search.getSuggestItems()
   },
   head: {
-    title: 'オススメ',
+    title: 'オススメページ',
     meta: [
       {
         hid: 'description',

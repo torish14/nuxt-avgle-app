@@ -287,7 +287,9 @@ export default Vue.extend({
     this.$accessor.search.getJapaneseItems()
   },
   head: {
-    title: 'ホーム',
+    title: 'Porngle',
+    // @ts-ignore
+    titleTemplate: null,
     meta: [
       {
         hid: 'description',
