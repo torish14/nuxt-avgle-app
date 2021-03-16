@@ -33,11 +33,35 @@
           </template>
           <div v-else-if="$fetchState.pending">
             <client-only>
-              <div class="flex justify-center pt-8">
-                <i class="material-icons text-gray-500">hourglass_empty</i>
-                <h5 class="text-gray-500 text-sm">
-                  &nbsp;読み込んでいます...
-                </h5>
+              <div class="flex mt-2">
+                <SearchSkeletonImg class="ml-4 my-2" />
+                <div class="flex flex-wrap">
+                  <SearchSkeletonTitle />
+                </div>
+              </div>
+              <div class="flex">
+                <SearchSkeletonImg class="ml-4 my-2" />
+                <div class="flex flex-wrap">
+                  <SearchSkeletonTitle />
+                </div>
+              </div>
+              <div class="flex">
+                <SearchSkeletonImg class="ml-4 my-2" />
+                <div class="flex flex-wrap">
+                  <SearchSkeletonTitle />
+                </div>
+              </div>
+              <div class="flex">
+                <SearchSkeletonImg class="ml-4 my-2" />
+                <div class="flex flex-wrap">
+                  <SearchSkeletonTitle />
+                </div>
+              </div>
+              <div class="flex">
+                <SearchSkeletonImg class="ml-4 my-2" />
+                <div class="flex flex-wrap">
+                  <SearchSkeletonTitle />
+                </div>
               </div>
             </client-only>
           </div>
@@ -107,7 +131,6 @@
                         {{ Math.ceil(data.likes / (data.likes + data.dislikes) * 100) }}%
                       </h6>
                     </template>
-                    <!-- <SearchSkeletonGood slot="skeleton" /> -->
                     <!-- </vue-lazy-component> -->
                   </div>
                 </div>
@@ -164,7 +187,6 @@ import { mapGetters } from 'vuex'
 // import { VueLoading } from 'vue-loading-template'
 // import SearchSkeletonImg from '~/components/SearchSkeletonImg.vue'
 // import SearchSkeletonTitle from '~/components/SearchSkeletonTitle.vue'
-// import SearchSkeletonGood from '~/components/SearchSkeletonGood.vue'
 
 export type DataType = {
   parPage: number
@@ -175,11 +197,12 @@ export default Vue.extend({
     // @ts-ignore
     // VueLoading,
     // @ts-ignore
-    SearchSkeletonImg: () => import('~/components/SearchSkeletonImg')
+    SearchSkeletonImg: () => import('~/components/SearchSkeletonImg'),
+    // @ts-ignore
+    SearchSkeletonTitle: () => import('~/components/SearchSkeletonTitle')
     // @ts-ignore
     // SearchSkeletonTitle,
     // @ts-ignore
-    // SearchSkeletonGood
   },
   layout: 'custom',
   scrollToTop: true,
