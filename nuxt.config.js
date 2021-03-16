@@ -132,10 +132,10 @@ export default {
     { src: '~/plugins/localStorage.js', mode: 'client' },
     // { src: '~plugins/ga.js', mode: 'client' },
     { src: '~/plugins/axios.js', mode: 'client' },
-    { src:'~/plugins/logrocket.js', mode: 'client' },
+    { src:'~/plugins/logRocket.js', mode: 'client' },
     { src: '~/plugins/pagination.js', mode: 'client' },
     { src: '~/plugins/scroll.js', mode: 'client' },
-    { src: '~/plugins/lazyload.js', mode: 'client' },
+    { src: '~/plugins/lazyLoad.js', mode: 'client' },
     // { src: '~/plugins/loading.js', mode: 'client' },
     // { src: '~/plugins/infiniteloading.js', mode: 'client' }
   ],
