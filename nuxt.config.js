@@ -30,7 +30,7 @@ export default {
       lang,
       prefix: 'og: http://ogp.me/ns#',
     },
-    titleTemplate: 'Porngle',
+    titleTemplate: '%s - Porngle',
     title: process.env.npm_package_name || '',
     meta: [
       { charset: 'utf-8' },
