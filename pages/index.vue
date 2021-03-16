@@ -298,6 +298,35 @@ export default Vue.extend({
   },
   computed: {
     ...mapGetters('search', ['message', 'messages', 'errorMessage', 'firstSkeleton']),
+    // @ts-ignore
+    toHms () {
+      // @ts-ignore
+      return function(t) {
+        let hms = ''
+        const h = Math.ceil(t / 3600 | 0)
+        const m = Math.ceil(t % 3600 / 60 | 0)
+        const s = Math.ceil(t % 60)
+
+        if (h !== 0) {
+          hms = h + ':' + padZero(m) + ':' + padZero(s)
+        } else if (m !== 0) {
+          hms = m + ':' + padZero(s)
+        } else {
+          // @ts-ignore
+          hms = s
+        }
+        // @ts-ignore
+        return hms
+
+        function padZero (v: number) {
+          if (v < 10) {
+            return '0' + v
+          } else {
+            return v
+          }
+        }
+      }
+    },
     // ? 現在ページのアイテムを返す
     getPaginationItems (): number {
       // @ts-ignore
@@ -347,30 +376,6 @@ export default Vue.extend({
       window.scrollTo(0,0)
       this.$router.push({ path: `?page=${this.$accessor.currentIndexPage}` })
       this.$forceUpdate()
-    },
-    toHms (t: number): number {
-      let hms = '' as string | number
-      const h = Math.ceil(t / 3600 | 0)
-      const m = Math.ceil(t % 3600 / 60 | 0)
-      const s = Math.ceil(t % 60)
-
-      if (h !== 0) {
-        hms = h + ':' + padZero(m) + ':' + padZero(s)
-      } else if (m !== 0) {
-        hms = m + ':' + padZero(s)
-      } else {
-        hms = s
-      }
-      // @ts-ignore
-      return hms
-
-      function padZero (v: number) {
-        if (v < 10) {
-          return '0' + v
-        } else {
-          return v
-        }
-      }
     },
     changeForm () {
       this.$accessor.search.setJapaneseMessage()

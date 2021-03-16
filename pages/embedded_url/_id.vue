@@ -573,6 +573,35 @@ export default Vue.extend({
   },
   computed: {
     ...mapGetters('search', ['message', 'messages', 'suggestMessages', 'searchMessages']),
+    // @ts-ignore
+    toHms () {
+      // @ts-ignore
+      return function(t) {
+        let hms = ''
+        const h = Math.ceil(t / 3600 | 0)
+        const m = Math.ceil(t % 3600 / 60 | 0)
+        const s = Math.ceil(t % 60)
+
+        if (h !== 0) {
+          hms = h + ':' + padZero(m) + ':' + padZero(s)
+        } else if (m !== 0) {
+          hms = m + ':' + padZero(s)
+        } else {
+          // @ts-ignore
+          hms = s
+        }
+        // @ts-ignore
+        return hms
+
+        function padZero (v: number) {
+          if (v < 10) {
+            return '0' + v
+          } else {
+            return v
+          }
+        }
+      }
+    },
     messagesMatchVid (): number {
       // @ts-ignore
       return this.$accessor.search.messages.find(value =>  value.vid === this.id)
@@ -629,30 +658,6 @@ export default Vue.extend({
   methods: {
     changeForm () {
       this.$accessor.search.setJapaneseMessage()
-    },
-    toHms (t: number): number {
-      let hms = '' as string | number
-      const h = Math.ceil(t / 3600 | 0)
-      const m = Math.ceil(t % 3600 / 60 | 0)
-      const s = Math.ceil(t % 60)
-
-      if (h !== 0) {
-        hms = h + ':' + padZero(m) + ':' + padZero(s)
-      } else if (m !== 0) {
-        hms = m + ':' + padZero(s)
-      } else {
-        hms = s
-      }
-      // @ts-ignore
-      return hms
-
-      function padZero (v: number) {
-        if (v < 10) {
-          return '0' + v
-        } else {
-          return v
-        }
-      }
     },
     changeFormKeyword (keyword: string) {
       this.$router.push('/')
