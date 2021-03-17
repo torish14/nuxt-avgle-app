@@ -19,135 +19,137 @@
           >
         </div>
       </div>
-      <main class="flex flex-wrap justify-center">
-        <div class="pt-10" style="width: 375px;">
-          <template v-if="searchMessages.length === 0 && errorMessage || message === '無修正' || message === 'Uncensored' || message === 'uncensored' || message === 'PAKO' || message === 'Pako' || message === 'pako' || message === 'ぱこ' || message === 'パコ' || message === 'CARIB' || message === 'Carib' || message === 'carib' || message === 'かりぶ' || message === 'カリブ' || message === 'FC2' || message === 'Fc2' || message === 'fc2' || message === '完全素人' || message === '個人撮影' || message === 'DEEPFAKE' || message === 'DeepFake' || message === 'Deepfake' || message === 'deepfake'">
-            <client-only>
-              <div class="flex justify-center pt-8">
-                <i class="material-icons text-gray-500">search</i>
-                <h5 class="text-gray-500 text-sm">
-                  &nbsp;一致する検索結果はありません。
-                </h5>
-              </div>
-            </client-only>
-          </template>
-          <div v-else-if="$fetchState.pending">
-            <client-only>
-              <div class="flex mt-2">
-                <SearchSkeletonImg class="ml-4 my-2" />
-                <div class="flex flex-wrap">
-                  <SearchSkeletonTitle />
+      <client-only>
+        <main class="flex flex-wrap justify-center">
+          <div class="pt-10" style="width: 375px;">
+            <template v-if="searchMessages.length === 0 && errorMessage || message === '無修正' || message === 'Uncensored' || message === 'uncensored' || message === 'PAKO' || message === 'Pako' || message === 'pako' || message === 'ぱこ' || message === 'パコ' || message === 'CARIB' || message === 'Carib' || message === 'carib' || message === 'かりぶ' || message === 'カリブ' || message === 'FC2' || message === 'Fc2' || message === 'fc2' || message === '完全素人' || message === '個人撮影' || message === 'DEEPFAKE' || message === 'DeepFake' || message === 'Deepfake' || message === 'deepfake'">
+              <client-only>
+                <div class="flex justify-center pt-8">
+                  <i class="material-icons text-gray-500">search</i>
+                  <h5 class="text-gray-500 text-sm">
+                    &nbsp;一致する検索結果はありません。
+                  </h5>
                 </div>
-              </div>
-              <div class="flex">
-                <SearchSkeletonImg class="ml-4 my-2" />
-                <div class="flex flex-wrap">
-                  <SearchSkeletonTitle />
-                </div>
-              </div>
-              <div class="flex">
-                <SearchSkeletonImg class="ml-4 my-2" />
-                <div class="flex flex-wrap">
-                  <SearchSkeletonTitle />
-                </div>
-              </div>
-              <div class="flex">
-                <SearchSkeletonImg class="ml-4 my-2" />
-                <div class="flex flex-wrap">
-                  <SearchSkeletonTitle />
-                </div>
-              </div>
-              <div class="flex">
-                <SearchSkeletonImg class="ml-4 my-2" />
-                <div class="flex flex-wrap">
-                  <SearchSkeletonTitle />
-                </div>
-              </div>
-            </client-only>
-          </div>
-          <template v-else-if="$fetchState.error">
-            <i class="material-icons text-gray-500">error</i>
-            <h5 class="text-gray-500 text-sm">
-              &nbsp;エラーが発生しました。
-            </h5>
-          </template>
-          <template v-else>
-            <div v-for="data in searchMessages" :key="data.vid">
-              <div class="flex m-4">
-                <nuxt-link :to="{ path: 'embedded_url' + '/' + data.vid }" aria-label="動画埋め込みページへ遷移">
-                  <div class="relative" style="width: 160px; height: 90px;">
-                    <vue-lazy-component>
-                      <img
-                        :src="data.preview_url"
-                        alt="サムネイル"
-                        width="160"
-                        height="90"
-                        class="z-auto relative text-white"
-                        referrerpolicy="no-referrer"
-                        crossorigin
-                      >
-                      <SearchSkeletonImg slot="skeleton" />
-                    </vue-lazy-component>
-                    <h5 class="text-white z-10 absolute right-0 bottom-0 text-xs bg-black rounded-sm px-1 m-1">
-                      {{ toHms(data.duration) }}
-                    </h5>
-                  </div>
-                </nuxt-link>
-                <div class="ml-2" style="width: 175px; height: 90px">
-                  <nuxt-link :to="{ path: 'embedded_url' + '/' + data.vid }" aria-label="動画埋め込みページへ遷移">
-                    <!-- <vue-lazy-component> -->
-                    <p class="text-white text-sm hover:text-purple-500">
-                      {{ data.title.slice(0,36) }}
-                    </p>
-                    <!-- <SearchSkeletonTitle slot="skeleton" /> -->
-                    <!-- </vue-lazy-component> -->
-                  </nuxt-link>
-                  <div class="flex flex-row my-1">
-                    <!-- <vue-lazy-component> -->
-                    <template v-if="data.viewnumber >= 1000000">
-                      <h6 class="text-gray-500 mr-1 text-xs">
-                        再生数 {{ Math.ceil(data.viewnumber / 1000000) }}M・
-                      </h6>
-                    </template>
-                    <template v-else-if="data.viewnumber >= 1000 && data.viewnumber < 1000000">
-                      <h6 class="text-gray-500 mr-1 text-xs">
-                        再生数 {{ Math.ceil(data.viewnumber / 1000) }}K・
-                      </h6>
-                    </template>
-                    <template v-else>
-                      <h6 class="text-gray-500 mr-1 text-xs">
-                        再生数 {{ Math.ceil(data.viewnumber) }}・
-                      </h6>
-                    </template>
-                    <template v-if="Number.isNaN(data.likes / (data.likes + data.dislikes) * 100)">
-                      <i class="material-icons text-gray-500" style="font-size: 16px;">thumb_up</i>
-                      <h6 class="text-gray-500 px-1 text-xs">
-                        0%
-                      </h6>
-                    </template>
-                    <template v-else>
-                      <i class="material-icons text-gray-500" style="font-size: 16px;">thumb_up</i>
-                      <h6 class="text-gray-500 px-1 text-xs">
-                        {{ Math.ceil(data.likes / (data.likes + data.dislikes) * 100) }}%
-                      </h6>
-                    </template>
-                    <!-- </vue-lazy-component> -->
+              </client-only>
+            </template>
+            <div v-else-if="$fetchState.pending">
+              <client-only>
+                <div class="flex mt-2">
+                  <SearchSkeletonImg class="ml-4 my-2" />
+                  <div class="flex flex-wrap">
+                    <SearchSkeletonTitle />
                   </div>
                 </div>
-              </div>
+                <div class="flex">
+                  <SearchSkeletonImg class="ml-4 my-2" />
+                  <div class="flex flex-wrap">
+                    <SearchSkeletonTitle />
+                  </div>
+                </div>
+                <div class="flex">
+                  <SearchSkeletonImg class="ml-4 my-2" />
+                  <div class="flex flex-wrap">
+                    <SearchSkeletonTitle />
+                  </div>
+                </div>
+                <div class="flex">
+                  <SearchSkeletonImg class="ml-4 my-2" />
+                  <div class="flex flex-wrap">
+                    <SearchSkeletonTitle />
+                  </div>
+                </div>
+                <div class="flex">
+                  <SearchSkeletonImg class="ml-4 my-2" />
+                  <div class="flex flex-wrap">
+                    <SearchSkeletonTitle />
+                  </div>
+                </div>
+              </client-only>
             </div>
-            <!-- <InfiniteLoading
-              ref="infiniteLoading"
-              spinner="spiral"
-              @infinite="infiniteHandler"
-            >
-              <div slot="no-more">
-                これ以上結果はありません
+            <template v-else-if="$fetchState.error">
+              <i class="material-icons text-gray-500">error</i>
+              <h5 class="text-gray-500 text-sm">
+                &nbsp;エラーが発生しました。
+              </h5>
+            </template>
+            <template v-else>
+              <div v-for="data in searchMessages" :key="data.vid">
+                <div class="flex m-4">
+                  <nuxt-link :to="{ path: 'embedded_url' + '/' + data.vid }" aria-label="動画埋め込みページへ遷移">
+                    <div class="relative" style="width: 160px; height: 90px;">
+                      <vue-lazy-component>
+                        <img
+                          :src="data.preview_url"
+                          alt="サムネイル"
+                          width="160"
+                          height="90"
+                          class="z-auto relative text-white"
+                          referrerpolicy="no-referrer"
+                          crossorigin
+                        >
+                        <SearchSkeletonImg slot="skeleton" />
+                      </vue-lazy-component>
+                      <h5 class="text-white z-10 absolute right-0 bottom-0 text-xs bg-black rounded-sm px-1 m-1">
+                        {{ toHms(data.duration) }}
+                      </h5>
+                    </div>
+                  </nuxt-link>
+                  <div class="ml-2" style="width: 175px; height: 90px">
+                    <nuxt-link :to="{ path: 'embedded_url' + '/' + data.vid }" aria-label="動画埋め込みページへ遷移">
+                      <!-- <vue-lazy-component> -->
+                      <p class="text-white text-sm hover:text-purple-500">
+                        {{ data.title.slice(0,36) }}
+                      </p>
+                      <!-- <SearchSkeletonTitle slot="skeleton" /> -->
+                      <!-- </vue-lazy-component> -->
+                    </nuxt-link>
+                    <div class="flex flex-row my-1">
+                      <!-- <vue-lazy-component> -->
+                      <template v-if="data.viewnumber >= 1000000">
+                        <h6 class="text-gray-500 mr-1 text-xs">
+                          再生数 {{ Math.ceil(data.viewnumber / 1000000) }}M・
+                        </h6>
+                      </template>
+                      <template v-else-if="data.viewnumber >= 1000 && data.viewnumber < 1000000">
+                        <h6 class="text-gray-500 mr-1 text-xs">
+                          再生数 {{ Math.ceil(data.viewnumber / 1000) }}K・
+                        </h6>
+                      </template>
+                      <template v-else>
+                        <h6 class="text-gray-500 mr-1 text-xs">
+                          再生数 {{ Math.ceil(data.viewnumber) }}・
+                        </h6>
+                      </template>
+                      <template v-if="Number.isNaN(data.likes / (data.likes + data.dislikes) * 100)">
+                        <i class="material-icons text-gray-500" style="font-size: 16px;">thumb_up</i>
+                        <h6 class="text-gray-500 px-1 text-xs">
+                          0%
+                        </h6>
+                      </template>
+                      <template v-else>
+                        <i class="material-icons text-gray-500" style="font-size: 16px;">thumb_up</i>
+                        <h6 class="text-gray-500 px-1 text-xs">
+                          {{ Math.ceil(data.likes / (data.likes + data.dislikes) * 100) }}%
+                        </h6>
+                      </template>
+                      <!-- </vue-lazy-component> -->
+                    </div>
+                  </div>
+                </div>
               </div>
-            </InfiniteLoading> -->
-          </template>
-        </div>
-      </main>
+              <!-- <InfiniteLoading
+                ref="infiniteLoading"
+                spinner="spiral"
+                @infinite="infiniteHandler"
+              >
+                <div slot="no-more">
+                  これ以上結果はありません
+                </div>
+              </InfiniteLoading> -->
+            </template>
+          </div>
+        </main>
+      </client-only>
       <!-- フッター -->
       <footer class="text-gray-600">
         <div class="flex justify-around py-1 fixed z-10 bottom-0 bg-black w-full leading-4">
