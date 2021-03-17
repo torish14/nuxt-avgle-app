@@ -12,11 +12,8 @@ export default ({ store, isHMR }) => {
         paths: [
           'search.message',
           'search.messages',
-          'soaringMessages',
-          'FamousMessages',
-          'ActressMessages',
-          'GenreMessages',
-          'searchVid'
+          'search.suggestMessages',
+          'search.searchMessages'
         ]
       })(store)
     })
