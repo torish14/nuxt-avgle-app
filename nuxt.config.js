@@ -275,7 +275,12 @@ export default {
   robots: {
     UserAgent: '*',
     // クローリングしないパスを記述
-    Disallow: '/sampleSuggest',
+    Disallow: [
+      '/suggest',
+      '/search',
+      '/embedded_url/_id'
+      '/sampleSuggest'
+    ],
     // sitemap.xmlのURLを記述
     Sitemap: 'https://porngle.love/sitemap.xml',
   },
