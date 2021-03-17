@@ -135,7 +135,7 @@
       </main>
     </div>
     <!-- モバイル -->
-    <div v-else class="pt-1 pb-20">
+    <div v-else class="pt-1 pb-20 container">
       <main class="flex flex-wrap justify-center" style="width: 375px;">
         <template v-if="messages.length === 0 && errorMessage">
           <client-only>
@@ -452,6 +452,10 @@ export default Vue.extend({
   src: local('Pacifico Regular'), local('Pacifico-Regular'), url(https://fonts.gstatic.com/s/pacifico/v12/FwZY7-Qmy14u9lezJ-6H6MmBp0u-.woff2) format('woff2');
   font-display: swap;
 } */
+
+.container::-webkit-scrollbar {
+  display: none;
+}
 
 .page-item {
   color: #8763D7 !important;

@@ -1,7 +1,7 @@
 <template>
   <section>
     <!-- モバイル -->
-    <div v-if="$device.isMobile" class="pt-1 pb-20">
+    <div v-if="$device.isMobile" class="pt-1 pb-20 container">
       <main class="flex flex-wrap justify-center" style="width: 375px;">
         <template v-if="suggestMessages.length === 0 && errorMessage">
           <client-only>

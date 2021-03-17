@@ -1,7 +1,7 @@
 <template>
   <section>
     <!-- モバイル -->
-    <div v-if="$device.isMobile" class="pt-1 pb-20">
+    <div v-if="$device.isMobile" class="pt-1 pb-20 container">
       <div class="bg-black fixed top-0 z-20">
         <div class="bg-gray-800 flex items-center shadow-xl rounded-lg m-2" style="width: 359px;">
           <div class="bg-gray-800 text-gray-500 focus:outline-one w-12 h-12 flex items-center justify-center">

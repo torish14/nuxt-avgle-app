@@ -126,7 +126,7 @@
       </main>
     </div>
     <!-- モバイル -->
-    <div v-else class="pt-1 pb-20">
+    <div v-else class="pt-1 pb-20 container">
       <main role="main">
         <template v-if="messagesMatchVid">
           <div class="relative sm:w-full md:w-full lg:w-full xl:w-11/12 h-0" style="padding-top: 50%;">
