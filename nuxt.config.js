@@ -278,7 +278,7 @@ export default {
     Disallow: [
       '/suggest',
       '/search',
-      '/embedded_url/_id'
+      '/embedded_url/_id',
       '/sampleSuggest'
     ],
     // sitemap.xmlのURLを記述
