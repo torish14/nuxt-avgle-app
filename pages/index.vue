@@ -36,7 +36,7 @@
         <template v-else>
           <div v-for="data in getPaginationItems" :key="data.vid" class="md:px-2 lg:px-2 xl:px-2 2xl:px-2 lg:mt-8 xl:mt-8 2xl:mt-8">
             <vue-lazy-component>
-              <nuxt-link :to="{ path: 'embedded_url' + '/' + data.vid }" aria-label="動画埋め込みページへ遷移" no-prefetch>
+              <nuxt-link :to="{ path: 'embedded_url' + '/' + data.vid }" aria-label="動画埋め込みページへ遷移" no-prefetch @click.native="getRecommendTitle(data.title)">
                 <div class="relative">
                   <img
                     :src="data.preview_url"
@@ -162,7 +162,7 @@
         <template v-else>
           <div v-for="data in messages" :key="data.vid">
             <vue-lazy-component>
-              <nuxt-link :to="{ path: 'embedded_url' + '/' + data.vid }" aria-label="動画埋め込みページへ遷移">
+              <nuxt-link :to="{ path: 'embedded_url' + '/' + data.vid }" aria-label="動画埋め込みページへ遷移" @click.native="getRecommendTitle(data.title)">
                 <div class="relative">
                   <img
                     :src="data.preview_url"
@@ -432,6 +432,9 @@ export default Vue.extend({
     //     }
     //   }, 400)
     // },
+    getRecommendTitle (titles: string) {
+      console.log(titles)
+    },
     changeFormKeyword (keyword: string) {
       // @ts-ignore
       this.$accessor.search.changeKeyword(keyword)
