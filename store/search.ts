@@ -1,15 +1,21 @@
 import { getterTree, mutationTree, actionTree } from 'typed-vuex'
 
 const searchUrl = 'https://api.avgle.com/v1/search/'
+const translateUrl = 'https://script.google.com/macros/s/AKfycbzZtvOvf14TaMdRIYzocRcf3mktzGgXvlFvyczo/exec'
+// @ts-ignore
+// const obj = JSON.parse(localStorage.getItem('vuex'))
 
 export const state = () => ({
   message: '' as string ,
-  messages: [] as any,
-  suggestMessages: [] as any,
-  searchMessages: [] as any,
+  messages: [] as object,
+  translateMessages: [] as object,
+  // クリックしたサムネイル画像のタイトル・キーワード・検索キーワードの保存先
+  recommendMessages: [] as object,
+  suggestMessages: [] as object,
+  searchMessages: [] as object,
   errorMessage: false as boolean,
   firstSkeleton: false as boolean,
-  keywords: [] as any
+  keywords: [] as object
 })
 
 export type RootState = ReturnType<typeof state>
@@ -17,6 +23,8 @@ export type RootState = ReturnType<typeof state>
 export const getters = getterTree(state, {
   message: state => state.message,
   messages: state => state.messages,
+  translateMessages: state => state.translateMessages,
+  recommendMessage: state => state.recommendMessages,
   suggestMessages: state => state.suggestMessages,
   searchMessages: state => state.searchMessages,
   errorMessage: state => state.errorMessage,
@@ -28,13 +36,16 @@ export const mutations = mutationTree(state, {
   mutateMessage (state, payload: string): void {
     state.message = payload
   },
-  setJapaneseItems (state, messages: any): void {
+  setJapaneseItems (state, messages: object): void {
     state.messages = messages
   },
-  setSuggestItems (state, suggestMessages: any): void {
+  setTranslateItems (state, translateMessages: object) {
+    state.translateMessages = translateMessages
+  },
+  setSuggestItems (state, suggestMessages: object): void {
     state.suggestMessages = suggestMessages
   },
-  setSearchItems (state, searchMessages: any): void {
+  setSearchItems (state, searchMessages: object): void {
     state.searchMessages = searchMessages
   },
   setJapaneseMessage (state) {
@@ -233,5 +244,23 @@ export const actions = actionTree({ state, getters, mutations }, {
     )
     commit('showErrorMessage')
     commit('hideSkeleton')
+  },
+  async getTranslateTitles ({ commit }) {
+    const config = {
+      headers: { 'content-type': 'application/json' },
+    }
+    // @ts-ignore
+    const getSearchItemsResponse = await this.$axios
+      .$get(
+        encodeURI(
+          translateUrl + '?text=' + '[中文字幕]長野縣○○市○○旅館第一次的換妻對手大募集！！ 夫婦交換中出的混浴溫' + '&source=zh' + '&target=ja'
+        ),
+        config
+      )
+    commit(
+      'setTranslateItems',
+      // @ts-ignore
+      getSearchItemsResponse.text
+    )
   }
 })
