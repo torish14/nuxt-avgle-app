@@ -19,6 +19,14 @@ export default Vue.extend({
   },
   computed: {
     ...mapGetters('search', ['translateMessages'])
+  },
+  mounted() {
+    this.refresh()
+  },
+  methods: {
+    refresh () {
+      this.$fetch()
+    }
   }
 })
 </script>
