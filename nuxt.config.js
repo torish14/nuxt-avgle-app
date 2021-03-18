@@ -22,7 +22,6 @@ export default {
     fallback: true,
     exclude: [
       '/sampleSuggest',
-      '/search',
       '/translate'
     ],
   },
