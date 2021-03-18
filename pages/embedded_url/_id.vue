@@ -556,6 +556,7 @@ export default Vue.extend({
   },
   // ? layout: 'custom',
   fetch () {
+    // @ts-ignore
     if(this.$accessor.search.messages.length > 0) {
       return
     }
