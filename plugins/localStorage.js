@@ -11,6 +11,7 @@ export default ({ store, isHMR }) => {
         // key: 'my-key'
         paths: [
           'search.message',
+          'search.translateMessages',
           'search.messages',
           'search.suggestMessages',
           'search.searchMessages'
