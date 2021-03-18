@@ -144,7 +144,7 @@ export default Vue.extend({
         // @ts-ignore
         // this.isOpen = !this.isOpen
         this.$nextTick(() => {
-          e.target.blur()
+          // e.target.blur()
           window.scrollTo(0,0)
         })
       }
