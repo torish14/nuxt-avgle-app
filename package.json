@@ -13,6 +13,7 @@
     "debug": "node --inspect node_modules/.bin/nuxt",
     "deploy": "nuxt-generate -w 4 -b && firebase deploy",
     "dev": "nuxt",
+    "export": "nuxt build && nuxt export",
     "gcloud:gae": "nuxt build && nuxt-generate -w 4 -b && mv ~/nuxt-pornhub-api/dist/sitemap.xml ~/nuxt-pornhub-api/static/sitemap.xml && rm -rf ~/nuxt-pornhub-api/dist && gcloud app deploy && gcloud app browse",
     "generate": "nuxt-generate -w 4 -b",
     "lint": "eslint --ext .ts,.js,.vue --ignore-path .gitignore . --fix",
