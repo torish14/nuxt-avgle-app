@@ -21,8 +21,9 @@ export default {
   generate: {
     fallback: true,
     exclude: [
-      '/sampleSuggest', 
-      '/search'
+      '/sampleSuggest',
+      '/search',
+      '/translate'
     ],
   },
   /*
@@ -240,7 +241,10 @@ export default {
     // サイト名
     hostname: 'https://porngle.love',
     // 除外したいURL
-    exclude: ['/sampleSuggest'],
+    exclude: [
+      '/sampleSuggest',
+      '/translate'
+    ],
   },
   /*
    ** Nuxt.js modules
