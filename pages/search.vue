@@ -296,6 +296,7 @@ export default Vue.extend({
   mounted() {
     this.$nextTick(() => {
       this.clearForm()
+      this.refresh()
       // @ts-ignore
       this.$refs.focusInput.focus()
     })
@@ -362,6 +363,9 @@ export default Vue.extend({
         // @ts-ignore
         this.$refs.focusInput.focus()
       })
+    },
+    refresh () {
+      this.$nuxt.refresh() 
     },
     // infiniteHandler() {
     //   setTimeout(() => {
