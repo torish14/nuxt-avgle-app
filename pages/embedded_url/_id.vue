@@ -515,7 +515,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import { mapGetters } from 'vuex'
-import Skeleton from '~/components/Skeleton.vue'
+// import Skeleton from '~/components/Skeleton.vue'
 
 function youtubeDefer () {
   const iframes = document.querySelectorAll('.youtube')
@@ -537,7 +537,8 @@ export type DataType = {
 
 export default Vue.extend({
   components: {
-    Skeleton
+    // @ts-ignore
+    Skeleton: () => import('~/components/Skeleton')
   },
   // beforeRouteEnter(from, next) {
   //   this.$accessor.setPrevRoute(from)
