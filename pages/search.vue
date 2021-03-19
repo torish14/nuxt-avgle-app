@@ -208,6 +208,7 @@ export default Vue.extend({
   },
   layout: 'custom',
   scrollToTop: true,
+  transition: 'fade',
   data (): DataType {
     return {
       // ? 1ページに表示するアイテム数

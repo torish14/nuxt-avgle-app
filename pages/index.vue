@@ -274,6 +274,7 @@ export default Vue.extend({
     Skeleton: () => import('~/components/Skeleton')
   },
   scrollToTop: true,
+  transition: 'fade',
   data (): DataType {
     return {
       // ? 1ページに表示するアイテム数
