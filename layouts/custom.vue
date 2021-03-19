@@ -9,6 +9,7 @@
 // import Footer from '~/components/Footer'
 
 export default {
+  name: 'Custom',
   head () {
     return {
       link: [

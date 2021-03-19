@@ -11,6 +11,7 @@
 // import Footer from '~/components/Footer'
 
 export default {
+  name: 'Default',
   components: {
     Header: () => import('~/components/Header'),
     Footer: () => import('~/components/Footer')
