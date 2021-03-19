@@ -170,8 +170,6 @@ export default {
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/sitemap-module
     '@nuxtjs/sitemap',
-    // Doc: https://github.com/nuxt-community/gtm-module
-    '@nuxtjs/gtm',
     // Doc: https://typescript.nuxtjs.org/ja/
     '@nuxt/typescript-build',
     // Doc: https://typed-vuex.roe.dev
@@ -227,9 +225,6 @@ export default {
   },
   googleAnalytics: {
     // id: 'G-S2NZP1L0D8',
-  },
-  gtm: {
-    // id: 'G-S2NZP1L0D8'
   },
   env: {
     NODE_ENV: process.env.NODE_ENV,
