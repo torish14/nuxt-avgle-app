@@ -24,7 +24,7 @@
     <div v-else class="bg-black">
       <footer class="text-gray-600">
         <nav class="flex justify-around py-1 fixed z-10 bottom-0 bg-black w-full leading-4" role="navigation">
-          <nuxt-link to="/" aria-label="ホームへ戻る">
+          <nuxt-link to="/" aria-label="ホームへ戻る" @click.native="refresh">
             <div class="text-center align-middle">
               <i class="material-icons">home</i>
               <p class="icon-text" style="font-size: 10px;">
@@ -32,7 +32,7 @@
               </p>
             </div>
           </nuxt-link>
-          <nuxt-link to="/suggest" aria-label="オススメへ進む">
+          <nuxt-link to="/suggest" aria-label="オススメへ進む" @click.native="refresh">
             <div class="text-center align-middle">
               <i class="material-icons">live_tv</i>
               <p class="icon-text" style="font-size: 10px;">
@@ -40,7 +40,7 @@
               </p>
             </div>
           </nuxt-link>
-          <nuxt-link to="/search" aria-label="検索へ進む" @click.native="clearForm(); focusSearch()">
+          <nuxt-link to="/search" aria-label="検索へ進む" @click.native="clearForm(); refresh()">
             <div class="text-center align-middle">
               <i class="material-icons">search</i>
               <p class="icon-text" style="font-size: 10px;">
@@ -77,6 +77,9 @@ export default Vue.extend({
     focusSearch () {
       // @ts-ignore
       // this.$refs.textInput.focus()
+    },
+    refresh () {
+      this.$nuxt.refresh()
     }
   },
 })
