@@ -132,7 +132,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['ress'],
+  css: ['ress', '~/assets/css/main.css'],
   /*
    ** Plugins to load before mounting the App
    */
