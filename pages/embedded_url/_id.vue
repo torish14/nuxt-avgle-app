@@ -549,7 +549,6 @@ export default Vue.extend({
   //   })
   // },
   scrollToTop: true,
-  transition: 'fade',
   data (): DataType {
     return {
       id: this.$route.params.id,
