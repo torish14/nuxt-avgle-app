@@ -386,6 +386,7 @@ export default Vue.extend({
     '$route.query': '$fetch'
   },
   mounted() {
+    // @ts-ignore
     this.refresh()
   },
   activated() {
