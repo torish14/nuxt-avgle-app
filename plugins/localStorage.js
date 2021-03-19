@@ -11,11 +11,14 @@ export default ({ store, isHMR }) => {
         // key: 'my-key'
         paths: [
           'search.message',
-          'search.translateMessages',
           'search.messages',
+          'search.translateMessages',
           'search.suggestMessages',
-          'search.searchMessages'
-        ]
+          'search.searchMessages',
+          'search.recommendMessages',
+          'search.recommendTitles',
+          'search.recommendKeywords',
+        ],
       })(store)
     })
   }
