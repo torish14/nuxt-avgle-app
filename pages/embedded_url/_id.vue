@@ -275,7 +275,7 @@
                     referrerpolicy="no-referrer"
                     crossorigin
                   >
-                  <h5 class="text-white z-10 absolute right-0 bottom-0 text-xs bg-black rounded-sm px-1 m-1">
+                  <h5 class="text-white z-10 absolute right-0 bottom-0 bg-black rounded-sm px-1 m-1" style="font-size: 10px;">
                     {{ toHms(data.duration) }}
                   </h5>
                 </div>
@@ -357,7 +357,7 @@
                     referrerpolicy="no-referrer"
                     crossorigin
                   >
-                  <h5 class="text-white z-10 absolute right-0 bottom-0 text-xs bg-black rounded-sm px-1 m-1">
+                  <h5 class="text-white z-10 absolute right-0 bottom-0 bg-black rounded-sm px-1 m-1" style="font-size: 10px;">
                     {{ toHms(data.duration) }}
                   </h5>
                 </div>
@@ -439,7 +439,7 @@
                     referrerpolicy="no-referrer"
                     crossorigin
                   >
-                  <h5 class="text-white z-10 absolute right-0 bottom-0 text-xs bg-black rounded-sm px-1 m-1">
+                  <h5 class="text-white z-10 absolute right-0 bottom-0 bg-black rounded-sm px-1 m-1" style="font-size: 10px;">
                     {{ toHms(data.duration) }}
                   </h5>
                 </div>

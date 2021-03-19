@@ -89,13 +89,13 @@
                         >
                         <SearchSkeletonImg slot="skeleton" />
                       </vue-lazy-component>
-                      <h5 class="text-white z-10 absolute right-0 bottom-0 text-xs bg-black rounded-sm px-1 m-1">
+                      <h5 class="text-white z-10 absolute right-0 bottom-0 bg-black rounded-sm px-1 m-1" style="font-size: 10px;">
                         {{ toHms(data.duration) }}
                       </h5>
                     </div>
                   </nuxt-link>
                   <div class="ml-2" style="width: 175px; height: 90px">
-                    <nuxt-link :to="{ path: 'embedded_url' + '/' + data.vid }" aria-label="動画埋め込みページへ遷移">
+                    <nuxt-link :to="{ path: 'embedded_url' + '/' + data.vid }" aria-label="動画埋め込みページへ遷移" @click.native="getRecommendTitle(data.title)">
                       <!-- <vue-lazy-component> -->
                       <p class="text-white text-sm hover:text-purple-500">
                         {{ data.title.slice(0,36) }}
