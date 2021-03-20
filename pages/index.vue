@@ -6,8 +6,8 @@
         <template v-if="messages.length === 0 && errorMessage || message === '無修正' || message === 'Uncensored' || message === 'uncensored' || message === 'PAKO' || message === 'Pako' || message === 'pako' || message === 'ぱこ' || message === 'パコ' || message === 'CARIB' || message === 'Carib' || message === 'carib' || message === 'かりぶ' || message === 'カリブ' || message === 'FC2' || message === 'Fc2' || message === 'fc2' || message === '完全素人' || message === '個人撮影' || message === 'DEEPFAKE' || message === 'DeepFake' || message === 'Deepfake' || message === 'deepfake' || message === 'カリビアンコム' || message === '一本道' || message === 'HEYZO' || message === 'Heyzo' || message === 'heyzo' || message === '東京熱' || message === 'TOKYO-HOT' || message === 'Toyo-Hot' || message === 'Tokyo-hot' || message === 'tokyo-hot' || message === 'AV9898' || message === 'Av9898' || message === 'av9898' || message === 'PORNHUB' || message === 'PornHub' || message === 'Pornhub' || message === 'pornhub' || message === 'エッチな4610' || message === 'エッチな0930' || message === '人妻斬り' || message === 'SM-MIRACLE' || message === 'SM-Miracle' || message === 'SM-miracle' || message === 'sm-miracle' || message === 'のぞきザムライ' || message === '金8天国'">
           <client-only>
             <div class="flex">
-              <i class="material-icons text-gray-500">search</i>
-              <h5 class="text-gray-500 text-lg">
+              <i class="material-icons text-gray-400">search</i>
+              <h5 class="text-gray-400 text-lg">
                 &nbsp;一致する検索結果はありません。
               </h5>
             </div>
@@ -28,8 +28,8 @@
           </client-only>
         </div>
         <template v-else-if="$fetchState.error">
-          <i class="material-icons text-gray-500">error</i>
-          <h5 class="text-gray-500 text-lg">
+          <i class="material-icons text-gray-400">error</i>
+          <h5 class="text-gray-400 text-lg">
             &nbsp;エラーが発生しました。
           </h5>
         </template>
@@ -57,29 +57,29 @@
               </nuxt-link>
               <div class="flex flex-row my-1">
                 <template v-if="data.viewnumber >= 1000000">
-                  <h6 class="text-gray-500 mr-1 text-xs">
+                  <h6 class="text-gray-400 mr-1 text-xs">
                     再生数 {{ Math.ceil(data.viewnumber / 1000000) }}M・
                   </h6>
                 </template>
                 <template v-else-if="data.viewnumber >= 1000 && data.viewnumber < 1000000">
-                  <h6 class="text-gray-500 mr-1 text-xs">
+                  <h6 class="text-gray-400 mr-1 text-xs">
                     再生数 {{ Math.ceil(data.viewnumber / 1000) }}K・
                   </h6>
                 </template>
                 <template v-else>
-                  <h6 class="text-gray-500 mr-1 text-xs">
+                  <h6 class="text-gray-400 mr-1 text-xs">
                     再生数 {{ Math.ceil(data.viewnumber) }}・
                   </h6>
                 </template>
                 <template v-if="Number.isNaN(data.likes / (data.likes + data.dislikes) * 100)">
-                  <i class="material-icons text-gray-500" style="font-size: 16px;">thumb_up</i>
-                  <h6 class="text-gray-500 px-1 text-xs">
+                  <i class="material-icons text-gray-400" style="font-size: 16px;">thumb_up</i>
+                  <h6 class="text-gray-400 px-1 text-xs">
                     0%
                   </h6>
                 </template>
                 <template v-else>
-                  <i class="material-icons text-gray-500" style="font-size: 16px;">thumb_up</i>
-                  <h6 class="text-gray-500 px-1 text-xs">
+                  <i class="material-icons text-gray-400" style="font-size: 16px;">thumb_up</i>
+                  <h6 class="text-gray-400 px-1 text-xs">
                     {{ Math.ceil(data.likes / (data.likes + data.dislikes) * 100) }}%
                   </h6>
                 </template>
@@ -87,26 +87,26 @@
               <div class="flex flex-row my-2 mb-6">
                 <div v-if="data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足' && item !== 'マッサージ師' && item !== '素人' && item !== '巨乳' && item !== '美人' && item.length < 7).length === 0" />
                 <template v-else-if="data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足' && item !== 'マッサージ師' && item !== '素人' && item !== '巨乳' && item !== '美人' && item.length < 7).length === 1">
-                  <div class="text-gray-400 mr-2 text-xs py-1 px-2 bg-gray-800 rounded-full border-gray-800 hover:bg-gray-700 cursor-pointer" @click="changeFormKeyword(data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足' && item !== 'マッサージ師' && item !== '素人' && item !== '巨乳' && item !== '美人' && item.length < 7)[0])">
+                  <div class="text-gray-300 mr-2 text-xs py-1 px-2 bg-gray-700 rounded-full border-gray-700 hover:bg-gray-600 cursor-pointer" @click="changeFormKeyword(data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足' && item !== 'マッサージ師' && item !== '素人' && item !== '巨乳' && item !== '美人' && item.length < 7)[0])">
                     {{ data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足' && item !== 'マッサージ師' && item !== '素人' && item !== '巨乳' && item !== '美人' && item.length < 7)[0] }}
                   </div>
                 </template>
                 <template v-else-if="data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足' && item !== 'マッサージ師' && item !== '素人' && item !== '巨乳' && item !== '美人' && item.length < 7).length === 2">
-                  <div class="text-gray-400 mr-2 text-xs py-1 px-2 bg-gray-800 rounded-full border-gray-800 hover:bg-gray-700 cursor-pointer" @click="changeFormKeyword(data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足' && item !== 'マッサージ師' && item !== '素人' && item !== '巨乳' && item !== '美人' && item.length < 7)[0])">
+                  <div class="text-gray-300 mr-2 text-xs py-1 px-2 bg-gray-700 rounded-full border-gray-700 hover:bg-gray-600 cursor-pointer" @click="changeFormKeyword(data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足' && item !== 'マッサージ師' && item !== '素人' && item !== '巨乳' && item !== '美人' && item.length < 7)[0])">
                     {{ data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足' && item !== 'マッサージ師' && item !== '素人' && item !== '巨乳' && item !== '美人' && item.length < 7)[0] }}
                   </div>
-                  <div class="text-gray-400 mr-2 text-xs py-1 px-2 bg-gray-800 rounded-full border-gray-800 hover:bg-gray-700 cursor-pointer" @click="changeFormKeyword(data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足' && item !== 'マッサージ師' && item !== '素人' && item !== '巨乳' && item !== '美人' && item.length < 7)[1])">
+                  <div class="text-gray-300 mr-2 text-xs py-1 px-2 bg-gray-700 rounded-full border-gray-700 hover:bg-gray-600 cursor-pointer" @click="changeFormKeyword(data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足' && item !== 'マッサージ師' && item !== '素人' && item !== '巨乳' && item !== '美人' && item.length < 7)[1])">
                     {{ data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足' && item !== 'マッサージ師' && item !== '素人' && item !== '巨乳' && item !== '美人' && item.length < 7)[1] }}
                   </div>
                 </template>
                 <template v-else>
-                  <div class="text-gray-400 mr-2 text-xs py-1 px-2 bg-gray-800 rounded-full border-gray-800 hover:bg-gray-700 cursor-pointer" @click="changeFormKeyword(data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足' && item !== 'マッサージ師' && item !== '素人' && item !== '巨乳' && item !== '美人' && item.length < 7)[0])">
+                  <div class="text-gray-300 mr-2 text-xs py-1 px-2 bg-gray-700 rounded-full border-gray-700 hover:bg-gray-600 cursor-pointer" @click="changeFormKeyword(data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足' && item !== 'マッサージ師' && item !== '素人' && item !== '巨乳' && item !== '美人' && item.length < 7)[0])">
                     {{ data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足' && item !== 'マッサージ師' && item !== '素人' && item !== '巨乳' && item !== '美人' && item.length < 7)[0] }}
                   </div>
-                  <div class="text-gray-400 mr-2 text-xs py-1 px-2 bg-gray-800 rounded-full border-gray-800 hover:bg-gray-700 cursor-pointer" @click="changeFormKeyword(data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足' && item !== 'マッサージ師' && item !== '素人' && item !== '巨乳' && item !== '美人' && item.length < 7)[1])">
+                  <div class="text-gray-300 mr-2 text-xs py-1 px-2 bg-gray-700 rounded-full border-gray-700 hover:bg-gray-600 cursor-pointer" @click="changeFormKeyword(data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足' && item !== 'マッサージ師' && item !== '素人' && item !== '巨乳' && item !== '美人' && item.length < 7)[1])">
                     {{ data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足' && item !== 'マッサージ師' && item !== '素人' && item !== '巨乳' && item !== '美人' && item.length < 7)[1] }}
                   </div>
-                  <div class="text-gray-400 mr-2 text-xs py-1 px-2 bg-gray-800 rounded-full border-gray-800 hover:bg-gray-700 cursor-pointer" @click="changeFormKeyword(data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足' && item !== 'マッサージ師' && item !== '素人' && item !== '巨乳' && item !== '美人' && item.length < 7)[2])">
+                  <div class="text-gray-300 mr-2 text-xs py-1 px-2 bg-gray-700 rounded-full border-gray-700 hover:bg-gray-600 cursor-pointer" @click="changeFormKeyword(data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足' && item !== 'マッサージ師' && item !== '素人' && item !== '巨乳' && item !== '美人' && item.length < 7)[2])">
                     {{ data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足' && item !== 'マッサージ師' && item !== '素人' && item !== '巨乳' && item !== '美人' && item.length < 7)[2] }}
                   </div>
                 </template>
@@ -140,8 +140,8 @@
         <template v-if="messages.length === 0 && errorMessage">
           <client-only>
             <div class="flex pt-2">
-              <i class="material-icons text-gray-500">search</i>
-              <h5 class="text-gray-500 text-sm">
+              <i class="material-icons text-gray-400">search</i>
+              <h5 class="text-gray-400 text-sm">
                 &nbsp;一致する検索結果はありません。
               </h5>
             </div>
@@ -154,8 +154,8 @@
           </client-only>
         </div>
         <template v-else-if="$fetchState.error">
-          <i class="material-icons text-gray-500">error</i>
-          <h5 class="text-gray-500 text-sm">
+          <i class="material-icons text-gray-400">error</i>
+          <h5 class="text-gray-400 text-sm">
             &nbsp;エラーが発生しました。
           </h5>
         </template>
@@ -183,29 +183,29 @@
               </nuxt-link>
               <div class="flex flex-row my-1">
                 <template v-if="data.viewnumber >= 1000000">
-                  <h6 class="text-gray-500 mr-1 text-xs pl-2">
+                  <h6 class="text-gray-400 mr-1 text-xs pl-2">
                     再生数 {{ Math.ceil(data.viewnumber / 1000000) }}・
                   </h6>
                 </template>
                 <template v-else-if="data.viewnumber >= 1000 && data.viewnumber < 1000000">
-                  <h6 class="text-gray-500 mr-1 text-xs pl-2">
+                  <h6 class="text-gray-400 mr-1 text-xs pl-2">
                     再生数 {{ Math.ceil(data.viewnumber / 1000) }}K・
                   </h6>
                 </template>
                 <template v-else>
-                  <h6 class="text-gray-500 mr-1 text-xs pl-2">
+                  <h6 class="text-gray-400 mr-1 text-xs pl-2">
                     再生数 {{ Math.ceil(data.viewnumber) }}・
                   </h6>
                 </template>
                 <template v-if="Number.isNaN(data.likes / (data.likes + data.dislikes) * 100)">
-                  <i class="material-icons text-gray-500" style="font-size: 16px;">thumb_up</i>
-                  <h6 class="text-gray-500 px-1 text-xs">
+                  <i class="material-icons text-gray-400" style="font-size: 16px;">thumb_up</i>
+                  <h6 class="text-gray-400 px-1 text-xs">
                     0%
                   </h6>
                 </template>
                 <template v-else>
-                  <i class="material-icons text-gray-500" style="font-size: 16px;">thumb_up</i>
-                  <h6 class="text-gray-500 px-1 text-xs">
+                  <i class="material-icons text-gray-400" style="font-size: 16px;">thumb_up</i>
+                  <h6 class="text-gray-400 px-1 text-xs">
                     {{ Math.ceil(data.likes / (data.likes + data.dislikes) * 100) }}%
                   </h6>
                 </template>
@@ -213,26 +213,26 @@
               <div class="flex flex-row my-2 mb-6">
                 <div v-if="data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足' && item !== 'マッサージ師' && item !== '素人' && item !== '巨乳' && item !== '美人' && item.length < 7).length === 0" />
                 <template v-else-if="data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足' && item !== 'マッサージ師' && item !== '素人' && item !== '巨乳' && item !== '美人' && item.length < 7).length === 1">
-                  <div class="text-gray-400 mr-2 text-xs py-1 px-2 bg-gray-800 rounded-full border-gray-800 hover:bg-gray-700 cursor-pointer" style="margin-left: 8px;" @click="changeFormKeyword(data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足' && item !== 'マッサージ師' && item !== '素人' && item !== '巨乳' && item !== '美人' && item.length < 7)[0])">
+                  <div class="text-gray-300 mr-2 text-xs py-1 px-2 bg-gray-700 rounded-full border-gray-700 hover:bg-gray-600 cursor-pointer" style="margin-left: 8px;" @click="changeFormKeyword(data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足' && item !== 'マッサージ師' && item !== '素人' && item !== '巨乳' && item !== '美人' && item.length < 7)[0])">
                     {{ data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足' && item !== 'マッサージ師' && item !== '素人' && item !== '巨乳' && item !== '美人' && item.length < 7)[0] }}
                   </div>
                 </template>
                 <template v-else-if="data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足' && item !== 'マッサージ師' && item !== '素人' && item !== '巨乳' && item !== '美人' && item.length < 7).length === 2">
-                  <div class="text-gray-400 mr-2 text-xs py-1 px-2 bg-gray-800 rounded-full border-gray-800 hover:bg-gray-700 cursor-pointer" style="margin-left: 8px;" @click="changeFormKeyword(data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足' && item !== 'マッサージ師' && item !== '素人' && item !== '巨乳' && item !== '美人' && item.length < 7)[0])">
+                  <div class="text-gray-300 mr-2 text-xs py-1 px-2 bg-gray-700 rounded-full border-gray-700 hover:bg-gray-600 cursor-pointer" style="margin-left: 8px;" @click="changeFormKeyword(data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足' && item !== 'マッサージ師' && item !== '素人' && item !== '巨乳' && item !== '美人' && item.length < 7)[0])">
                     {{ data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足' && item !== 'マッサージ師' && item !== '素人' && item !== '巨乳' && item !== '美人' && item.length < 7)[0] }}
                   </div>
-                  <div class="text-gray-400 mr-2 text-xs py-1 px-2 bg-gray-800 rounded-full border-gray-800 hover:bg-gray-700 cursor-pointer" @click="changeFormKeyword(data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足' && item !== 'マッサージ師' && item !== '素人' && item !== '巨乳' && item !== '美人' && item.length < 7)[1])">
+                  <div class="text-gray-300 mr-2 text-xs py-1 px-2 bg-gray-700 rounded-full border-gray-700 hover:bg-gray-600 cursor-pointer" @click="changeFormKeyword(data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足' && item !== 'マッサージ師' && item !== '素人' && item !== '巨乳' && item !== '美人' && item.length < 7)[1])">
                     {{ data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足' && item !== 'マッサージ師' && item !== '素人' && item !== '巨乳' && item !== '美人' && item.length < 7)[1] }}
                   </div>
                 </template>
                 <template v-else>
-                  <div class="text-gray-400 mr-2 text-xs py-1 px-2 bg-gray-800 rounded-full border-gray-800 hover:bg-gray-700 cursor-pointer" style="margin-left: 8px;" @click="changeFormKeyword(data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足' && item !== 'マッサージ師' && item !== '素人' && item !== '巨乳' && item !== '美人' && item.length < 7)[0])">
+                  <div class="text-gray-300 mr-2 text-xs py-1 px-2 bg-gray-700 rounded-full border-gray-700 hover:bg-gray-600 cursor-pointer" style="margin-left: 8px;" @click="changeFormKeyword(data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足' && item !== 'マッサージ師' && item !== '素人' && item !== '巨乳' && item !== '美人' && item.length < 7)[0])">
                     {{ data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足' && item !== 'マッサージ師' && item !== '素人' && item !== '巨乳' && item !== '美人' && item.length < 7)[0] }}
                   </div>
-                  <div class="text-gray-400 mr-2 text-xs py-1 px-2 bg-gray-800 rounded-full border-gray-800 hover:bg-gray-700 cursor-pointer" @click="changeFormKeyword(data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足' && item !== 'マッサージ師' && item !== '素人' && item !== '巨乳' && item !== '美人' && item.length < 7)[1])">
+                  <div class="text-gray-300 mr-2 text-xs py-1 px-2 bg-gray-700 rounded-full border-gray-700 hover:bg-gray-600 cursor-pointer" @click="changeFormKeyword(data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足' && item !== 'マッサージ師' && item !== '素人' && item !== '巨乳' && item !== '美人' && item.length < 7)[1])">
                     {{ data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足' && item !== 'マッサージ師' && item !== '素人' && item !== '巨乳' && item !== '美人' && item.length < 7)[1] }}
                   </div>
-                  <div class="text-gray-400 mr-2 text-xs py-1 px-2 bg-gray-800 rounded-full border-gray-800 hover:bg-gray-700 cursor-pointer" @click="changeFormKeyword(data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足' && item !== 'マッサージ師' && item !== '素人' && item !== '巨乳' && item !== '美人' && item.length < 7)[2])">
+                  <div class="text-gray-300 mr-2 text-xs py-1 px-2 bg-gray-700 rounded-full border-gray-700 hover:bg-gray-600 cursor-pointer" @click="changeFormKeyword(data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足' && item !== 'マッサージ師' && item !== '素人' && item !== '巨乳' && item !== '美人' && item.length < 7)[2])">
                     {{ data.keyword.split(/,|\s/).filter(RegExp.prototype.test, /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/).filter(item => item !== data.title && item !== '日本人' && item !== 'アジア' && item !== 'アジア人' && item !== '日本' && item !== '無修正' && item !== '肛門' && item !== 'アナルセックス' && item !== '兼' && item !== '油' && item !== '中出' && item !== '人' && item !== 'アジアユニフォーム' && item !== 'ユニフォーム' && item !== '女' && item !== '熟' && item !== '膣' && item !== 'フェチ' && item !== 'ハードコア' && item !== 'ハイビジョン' && item !== '足' && item !== 'マッサージ師' && item !== '素人' && item !== '巨乳' && item !== '美人' && item.length < 7)[2] }}
                   </div>
                 </template>
@@ -528,8 +528,8 @@ body {
   <div class=">
     初期動画表示
     <template v-if="soaringMessages.length === 0 && famousMessages.length === 0 && actressMessages.length === 0 && genreMessages.length === 0">
-      <i class="material-icons text-gray-500">error</i>
-      <h5 class="text-gray-500 text-sm">
+      <i class="material-icons text-gray-400">error</i>
+      <h5 class="text-gray-400 text-sm">
         &nbsp;No results found for your keyword.
       </h5>
     </template>
@@ -564,29 +564,29 @@ body {
           </nuxt-link>
           <div class="flex flex-row my-1 mb-6">
             <template v-if="data.viewnumber >= 1000000">
-              <h5 class="text-gray-500 pr-1">
+              <h5 class="text-gray-400 pr-1">
                 再生数 {{ Math.ceil(data.viewnumber / 1000000) }}M
               </h5>
             </template>
             <template v-else-if="data.viewnumber >= 1000 && data.viewnumber < 1000000">
-              <h5 class="text-gray-500 pr-1">
+              <h5 class="text-gray-400 pr-1">
                 再生数 {{ Math.ceil(data.viewnumber / 1000) }}K
               </h5>
             </template>
             <template v-else>
-              <h5 class="text-gray-500 pr-1">
+              <h5 class="text-gray-400 pr-1">
                 再生数 {{ Math.ceil(data.viewnumber) }}
               </h5>
             </template>
             <template v-if="Number.isNaN(data.likes / (data.likes + data.dislikes) * 100)">
-              <i class="material-icons text-gray-500 text-xs">thumb_up</i>
-              <h5 class="text-gray-500 px-1">
+              <i class="material-icons text-gray-400 text-xs">thumb_up</i>
+              <h5 class="text-gray-400 px-1">
                 0%
               </h5>
             </template>
             <template v-else>
-              <i class="material-icons text-gray-500 text-xs">thumb_up</i>
-              <h5 class="text-gray-500 px-1">
+              <i class="material-icons text-gray-400 text-xs">thumb_up</i>
+              <h5 class="text-gray-400 px-1">
                 {{ Math.ceil(data.likes / (data.likes + data.dislikes) * 100) }}%
               </h5>
             </template>
@@ -623,29 +623,29 @@ body {
           </nuxt-link>
           <div class="flex flex-row my-1 mb-6">
             <template v-if="data.viewnumber >= 1000000">
-              <h5 class="text-gray-500 pr-1">
+              <h5 class="text-gray-400 pr-1">
                 再生数 {{ Math.ceil(data.viewnumber / 1000000) }}M
               </h5>
             </template>
             <template v-else-if="data.viewnumber >= 1000 && data.viewnumber < 1000000">
-              <h5 class="text-gray-500 pr-1">
+              <h5 class="text-gray-400 pr-1">
                 再生数 {{ Math.ceil(data.viewnumber / 1000) }}K
               </h5>
             </template>
             <template v-else>
-              <h5 class="text-gray-500 pr-1">
+              <h5 class="text-gray-400 pr-1">
                 再生数 {{ Math.ceil(data.viewnumber) }}
               </h5>
             </template>
             <template v-if="Number.isNaN(data.likes / (data.likes + data.dislikes) * 100)">
-              <i class="material-icons text-gray-500 text-xs">thumb_up</i>
-              <h5 class="text-gray-500 px-1">
+              <i class="material-icons text-gray-400 text-xs">thumb_up</i>
+              <h5 class="text-gray-400 px-1">
                 0%
               </h5>
             </template>
             <template v-else>
-              <i class="material-icons text-gray-500 text-xs">thumb_up</i>
-              <h5 class="text-gray-500 px-1">
+              <i class="material-icons text-gray-400 text-xs">thumb_up</i>
+              <h5 class="text-gray-400 px-1">
                 {{ Math.ceil(data.likes / (data.likes + data.dislikes) * 100) }}%
               </h5>
             </template>
@@ -682,29 +682,29 @@ body {
           </nuxt-link>
           <div class="flex flex-row my-1 mb-6">
             <template v-if="data.viewnumber >= 1000000">
-              <h5 class="text-gray-500 pr-1">
+              <h5 class="text-gray-400 pr-1">
                 再生数 {{ Math.ceil(data.viewnumber / 1000000) }}M
               </h5>
             </template>
             <template v-else-if="data.viewnumber >= 1000 && data.viewnumber < 1000000">
-              <h5 class="text-gray-500 pr-1">
+              <h5 class="text-gray-400 pr-1">
                 再生数 {{ Math.ceil(data.viewnumber / 1000) }}K
               </h5>
             </template>
             <template v-else>
-              <h5 class="text-gray-500 pr-1">
+              <h5 class="text-gray-400 pr-1">
                 再生数 {{ Math.ceil(data.viewnumber) }}
               </h5>
             </template>
             <template v-if="Number.isNaN(data.likes / (data.likes + data.dislikes) * 100)">
-              <i class="material-icons text-gray-500 text-xs">thumb_up</i>
-              <h5 class="text-gray-500 px-1">
+              <i class="material-icons text-gray-400 text-xs">thumb_up</i>
+              <h5 class="text-gray-400 px-1">
                 0%
               </h5>
             </template>
             <template v-else>
-              <i class="material-icons text-gray-500 text-xs">thumb_up</i>
-              <h5 class="text-gray-500 px-1">
+              <i class="material-icons text-gray-400 text-xs">thumb_up</i>
+              <h5 class="text-gray-400 px-1">
                 {{ Math.ceil(data.likes / (data.likes + data.dislikes) * 100) }}%
               </h5>
             </template>
@@ -741,29 +741,29 @@ body {
           </nuxt-link>
           <div class="flex flex-row my-1 mb-6">
             <template v-if="data.viewnumber >= 1000000">
-              <h5 class="text-gray-500 pr-1">
+              <h5 class="text-gray-400 pr-1">
                 再生数 {{ Math.ceil(data.viewnumber / 1000000) }}M
               </h5>
             </template>
             <template v-else-if="data.viewnumber >= 1000 && data.viewnumber < 1000000">
-              <h5 class="text-gray-500 pr-1">
+              <h5 class="text-gray-400 pr-1">
                 再生数 {{ Math.ceil(data.viewnumber / 1000) }}K
               </h5>
             </template>
             <template v-else>
-              <h5 class="text-gray-500 pr-1">
+              <h5 class="text-gray-400 pr-1">
                 再生数 {{ Math.ceil(data.viewnumber) }}
               </h5>
             </template>
             <template v-if="Number.isNaN(data.likes / (data.likes + data.dislikes) * 100)">
-              <i class="material-icons text-gray-500 text-xs">thumb_up</i>
-              <h5 class="text-gray-500 px-1">
+              <i class="material-icons text-gray-400 text-xs">thumb_up</i>
+              <h5 class="text-gray-400 px-1">
                 0%
               </h5>
             </template>
             <template v-else>
-              <i class="material-icons text-gray-500 text-xs">thumb_up</i>
-              <h5 class="text-gray-500 px-1">
+              <i class="material-icons text-gray-400 text-xs">thumb_up</i>
+              <h5 class="text-gray-400 px-1">
                 {{ Math.ceil(data.likes / (data.likes + data.dislikes) * 100) }}%
               </h5>
             </template>

@@ -3,14 +3,14 @@
     <!-- モバイル -->
     <div v-if="$device.isMobile" class="pt-1 pb-20 container">
       <div class="bg-black fixed top-0 z-20">
-        <div class="bg-gray-800 flex items-center shadow-xl rounded-lg m-2" style="width: 359px;">
-          <div class="bg-gray-800 text-gray-500 focus:outline-one w-12 h-12 flex items-center justify-center">
+        <div class="bg-gray-700 flex items-center shadow-xl rounded-lg m-2" style="width: 359px;">
+          <div class="bg-gray-700 text-gray-400 focus:outline-one w-12 h-12 flex items-center justify-center">
             <i class="material-icons">search</i>
           </div>
           <input
             ref="focusInput"
             v-model="computedGetState"
-            class="bg-gray-800 w-full py-2 text-gray-500 leading-tight focus:outline-none rounded-lg"
+            class="bg-gray-700 w-full py-2 text-gray-400 leading-tight focus:outline-none rounded-lg"
             type="search"
             placeholder="検索"
             inputmode="search"
@@ -25,8 +25,8 @@
             <template v-if="searchMessages.length === 0 && errorMessage || message === '無修正' || message === 'Uncensored' || message === 'uncensored' || message === 'PAKO' || message === 'Pako' || message === 'pako' || message === 'ぱこ' || message === 'パコ' || message === 'CARIB' || message === 'Carib' || message === 'carib' || message === 'かりぶ' || message === 'カリブ' || message === 'FC2' || message === 'Fc2' || message === 'fc2' || message === '完全素人' || message === '個人撮影' || message === 'DEEPFAKE' || message === 'DeepFake' || message === 'Deepfake' || message === 'deepfake' || message === 'カリビアンコム' || message === '一本道' || message === 'HEYZO' || message === 'Heyzo' || message === 'heyzo' || message === '東京熱' || message === 'TOKYO-HOT' || message === 'Toyo-Hot' || message === 'Tokyo-hot' || message === 'tokyo-hot' || message === 'AV9898' || message === 'Av9898' || message === 'av9898' || message === 'PORNHUB' || message === 'PornHub' || message === 'Pornhub' || message === 'pornhub' || message === 'エッチな4610' || message === 'エッチな0930' || message === '人妻斬り' || message === 'SM-MIRACLE' || message === 'SM-Miracle' || message === 'SM-miracle' || message === 'sm-miracle' || message === 'のぞきザムライ' || message === '金8天国'">
               <client-only>
                 <div class="flex justify-center pt-8">
-                  <i class="material-icons text-gray-500">search</i>
-                  <h5 class="text-gray-500 text-sm">
+                  <i class="material-icons text-gray-400">search</i>
+                  <h5 class="text-gray-400 text-sm">
                     &nbsp;一致する検索結果はありません。
                   </h5>
                 </div>
@@ -67,15 +67,15 @@
               </client-only>
             </div>
             <template v-else-if="$fetchState.error">
-              <i class="material-icons text-gray-500">error</i>
-              <h5 class="text-gray-500 text-sm">
+              <i class="material-icons text-gray-400">error</i>
+              <h5 class="text-gray-400 text-sm">
                 &nbsp;エラーが発生しました。
               </h5>
             </template>
             <template v-else>
               <div v-for="data in searchMessages" :key="data.vid">
                 <div class="flex m-4">
-                  <nuxt-link :to="{ path: 'embedded_url' + '/' + data.vid }" aria-label="動画埋め込みページへ遷移">
+                  <nuxt-link :to="{ path: 'embedded_url' + '/' + data.vid }" aria-label="動画埋め込みページへ遷移" @click.native="getRecommendTitle(data.title)">
                     <div class="relative" style="width: 160px; height: 90px;">
                       <vue-lazy-component>
                         <img
@@ -106,29 +106,29 @@
                     <div class="flex flex-row my-1">
                       <!-- <vue-lazy-component> -->
                       <template v-if="data.viewnumber >= 1000000">
-                        <h6 class="text-gray-500 mr-1 text-xs">
+                        <h6 class="text-gray-400 mr-1 text-xs">
                           再生数 {{ Math.ceil(data.viewnumber / 1000000) }}M・
                         </h6>
                       </template>
                       <template v-else-if="data.viewnumber >= 1000 && data.viewnumber < 1000000">
-                        <h6 class="text-gray-500 mr-1 text-xs">
+                        <h6 class="text-gray-400 mr-1 text-xs">
                           再生数 {{ Math.ceil(data.viewnumber / 1000) }}K・
                         </h6>
                       </template>
                       <template v-else>
-                        <h6 class="text-gray-500 mr-1 text-xs">
+                        <h6 class="text-gray-400 mr-1 text-xs">
                           再生数 {{ Math.ceil(data.viewnumber) }}・
                         </h6>
                       </template>
                       <template v-if="Number.isNaN(data.likes / (data.likes + data.dislikes) * 100)">
-                        <i class="material-icons text-gray-500" style="font-size: 16px;">thumb_up</i>
-                        <h6 class="text-gray-500 px-1 text-xs">
+                        <i class="material-icons text-gray-400" style="font-size: 16px;">thumb_up</i>
+                        <h6 class="text-gray-400 px-1 text-xs">
                           0%
                         </h6>
                       </template>
                       <template v-else>
-                        <i class="material-icons text-gray-500" style="font-size: 16px;">thumb_up</i>
-                        <h6 class="text-gray-500 px-1 text-xs">
+                        <i class="material-icons text-gray-400" style="font-size: 16px;">thumb_up</i>
+                        <h6 class="text-gray-400 px-1 text-xs">
                           {{ Math.ceil(data.likes / (data.likes + data.dislikes) * 100) }}%
                         </h6>
                       </template>
@@ -151,7 +151,7 @@
         </main>
       </client-only>
       <!-- フッター -->
-      <footer class="text-gray-600">
+      <footer class="text-gray-500">
         <div class="flex justify-around py-1 fixed z-10 bottom-0 bg-black w-full leading-4">
           <nuxt-link to="/" aria-label="ホームへ戻る" @click.native="refresh">
             <div class="text-center align-middle">

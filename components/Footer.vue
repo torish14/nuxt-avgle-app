@@ -2,7 +2,7 @@
   <section>
     <!-- デスクトップ -->
     <div v-if="$device.isDesktop" class="bg-black">
-      <footer class="text-gray-600" role="contentinfo">
+      <footer class="text-gray-400" role="contentinfo">
         <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col normal-footer">
           <a href="https://porngle.love" aria-label="ホームへ戻る" @click="changeForm">
             <img
@@ -11,10 +11,10 @@
               class="w-40"
             >
           </a>
-          <p class="text-sm text-gray-600 sm:ml-4 sm:pl-4 sm:py-2 sm:mt-0 mt-4">
+          <p class="text-sm text-gray-400 sm:ml-4 sm:pl-4 sm:py-2 sm:mt-0 mt-4">
             &copy; 2020 - Porngle
           </p>
-          <p class="text-xs text-gray-600 sm:ml-4 sm:pl-4 sm:py-2 sm:mt-0 mt-4">
+          <p class="text-xs text-gray-400 sm:ml-4 sm:pl-4 sm:py-2 sm:mt-0 mt-4">
             porngle.love@gmail.com
           </p>
         </div>
@@ -22,7 +22,7 @@
     </div>
     <!-- モバイル -->
     <div v-else class="bg-black">
-      <footer class="text-gray-600">
+      <footer class="text-gray-500">
         <nav class="flex justify-around py-1 fixed z-10 bottom-0 bg-black w-full leading-4" role="navigation">
           <nuxt-link to="/" aria-label="ホームへ戻る" @click.native="refresh">
             <div class="text-center align-middle">

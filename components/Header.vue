@@ -16,10 +16,10 @@
               </a>
             </h1>
           </div>
-          <div class="bg-gray-800 flex items-center rounded-full shadow-xl w-1/4 mr-20">
+          <div class="bg-gray-700 flex items-center rounded-full shadow-xl w-1/4 mr-20">
             <input
               v-model="computedGetState"
-              class="bg-gray-800 rounded-l-full w-full py-4 px-6 text-gray-500 leading-tight focus:outline-none"
+              class="bg-gray-700 rounded-l-full w-full py-4 px-6 text-gray-400 leading-tight focus:outline-none"
               type="search"
               autofocus
               placeholder="検索"
@@ -54,7 +54,7 @@
               <input
                 ref="focusInput"
                 v-model="computedGetState"
-                class="bg-gray-800 rounded-full w-full py-4 px-6 mt-2 ml-0 text-gray-500 leading-tight focus:outline-none"
+                class="bg-gray-700 rounded-full w-full py-4 px-6 mt-2 ml-0 text-gray-400 leading-tight focus:outline-none"
                 type="search"
                 placeholder="検索"
                 inputmode="search"
