@@ -513,6 +513,7 @@
 </template>
 
 <script lang="ts">
+import Meta from '~/assets/mixins/meta'
 import Vue from 'vue'
 import { mapGetters } from 'vuex'
 // import Skeleton from '~/components/Skeleton.vue'
@@ -536,6 +537,7 @@ export type DataType = {
 }
 
 export default Vue.extend({
+  mixins: [Meta],
   components: {
     // @ts-ignore
     Skeleton: () => import('~/components/Skeleton')
@@ -562,15 +564,13 @@ export default Vue.extend({
     }
     this.$accessor.search.getSearchItems()
   },
-  head: {
-    title: '動画埋め込みページ',
-    meta: [
-      {
-        hid: 'description',
-        name: 'description',
-        content: '動画埋め込みページです。'
-      }
-    ],
+  meta: {
+    title: '動画視聴',
+    description: '動画視聴ページです。',
+    type: 'website',
+    url: 'https://porngle.love/embedded_url/_id',
+    image: 'https://porngle.love/assets/PG ロゴ.jpeg',
+    robots: 'noindex'
   },
   computed: {
     ...mapGetters('search', ['message', 'messages', 'suggestMessages', 'searchMessages']),

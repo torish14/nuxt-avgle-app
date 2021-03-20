@@ -281,19 +281,19 @@ export default Vue.extend({
       breadcrumbs: [
         {
           url: 'https://porngle.love',
-          text: 'ホームページ',
+          text: 'ホーム',
         },
         {
           url: 'https://porngle.love/embedded/_id',
-          text: '動画埋め込みページ',
+          text: '動画視聴',
         },
         {
           url: 'https://porngle.love/suggest',
-          text: 'オススメページ',
+          text: 'オススメ',
         },
         {
           url: 'https://porngle.love/search',
-          text: '検索ページ',
+          text: '検索',
         },
       ]
     }
@@ -322,17 +322,13 @@ export default Vue.extend({
     this.$accessor.search.setJapaneseMessage()
     this.$accessor.search.getJapaneseItems()
   },
-  head: {
-    title: 'Porngle',
-    // @ts-ignore
-    titleTemplate: null,
-    meta: [
-      {
-        hid: 'description',
-        name: 'description',
-        content: 'ホームページです。'
-      }
-    ],
+  // @ts-ignore
+  head () {
+    return {
+      title: 'Porngle',
+      // @ts-ignore
+      titleTemplate: null
+    }
   },
   computed: {
     ...mapGetters('search', ['message', 'messages', 'errorMessage', 'firstSkeleton']),

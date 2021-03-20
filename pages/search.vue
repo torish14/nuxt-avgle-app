@@ -184,6 +184,7 @@
 </template>
 
 <script lang="ts">
+import Meta from '~/assets/mixins/meta'
 import Vue from 'vue'
 import { mapGetters } from 'vuex'
 // import { VueLoading } from 'vue-loading-template'
@@ -195,6 +196,7 @@ export type DataType = {
 }
 
 export default Vue.extend({
+  mixins: [Meta],
   components: {
     // @ts-ignore
     // VueLoading,
@@ -223,15 +225,13 @@ export default Vue.extend({
     this.$accessor.search.setSearchMessage()
     this.$accessor.search.getSearchItems()
   },
-  head: {
-    title: '検索ページ',
-    meta: [
-      {
-        hid: 'description',
-        name: 'description',
-        content: '検索ページです。'
-      }
-    ],
+  meta: {
+    title: '検索',
+    description: '検索ページです。',
+    type: 'website',
+    url: 'https://porngle.love/search',
+    image: 'https://porngle.love/assets/PG ロゴ.jpeg',
+    robots: 'noindex'
   },
   computed: {
     ...mapGetters('search', ['message', 'searchMessages', 'errorMessage']),

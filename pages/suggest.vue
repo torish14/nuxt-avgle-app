@@ -122,6 +122,7 @@
 </template>
 
 <script lang="ts">
+import Meta from '~/assets/mixins/meta'
 import Vue from 'vue'
 import { mapGetters } from 'vuex'
 // import { VueLoading } from 'vue-loading-template'
@@ -132,6 +133,7 @@ export type DataType = {
 }
 
 export default Vue.extend({
+  mixins: [Meta],
   components: {
     // @ts-ignore
     // VueLoading,
@@ -153,15 +155,13 @@ export default Vue.extend({
     this.$accessor.search.setSuggestMessage()
     this.$accessor.search.getSuggestItems()
   },
-  head: {
-    title: 'オススメページ',
-    meta: [
-      {
-        hid: 'description',
-        name: 'description',
-        content: 'オススメページです。'
-      }
-    ],
+  meta: {
+    title: 'オススメ',
+    description: 'オススメページです。',
+    type: 'website',
+    url: 'https://porngle.love/suggest',
+    image: 'https://porngle.love/assets/PG ロゴ.jpeg',
+    robots: 'noindex'
   },
   computed: {
     ...mapGetters('search', ['message', 'suggestMessages', 'errorMessage', 'firstSkeleton']),
