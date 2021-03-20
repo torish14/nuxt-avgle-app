@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: 'default',
+  name: 'Default',
   components: {
     Header: () => import('~/components/Header'),
     Footer: () => import('~/components/Footer')

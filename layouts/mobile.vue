@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'mobile',
+  name: 'Mobile',
   head () {
     return {
       link: [
