@@ -89,7 +89,7 @@ export default {
       {
         hid: 'og:image',
         property: 'og:image',
-        content: 'https://porngle.love/assets/Porngle ロゴ.jpeg',
+        content: 'https://porngle.love/assets/PG ロゴ.jpeg',
       },
       {
         name: 'twitter:card',
