@@ -122,9 +122,9 @@
 </template>
 
 <script lang="ts">
-import Meta from '~/assets/mixins/meta'
 import Vue from 'vue'
 import { mapGetters } from 'vuex'
+import Meta from '~/assets/mixins/meta'
 // import { VueLoading } from 'vue-loading-template'
 // import Skeleton from '~/components/Skeleton.vue'
 
@@ -133,13 +133,13 @@ export type DataType = {
 }
 
 export default Vue.extend({
-  mixins: [Meta],
   components: {
     // @ts-ignore
     // VueLoading,
     // @ts-ignore
     Skeleton: () => import('~/components/Skeleton')
   },
+  mixins: [Meta],
   scrollToTop: true,
   data (): DataType {
     return {

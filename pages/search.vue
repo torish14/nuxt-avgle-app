@@ -184,9 +184,9 @@
 </template>
 
 <script lang="ts">
-import Meta from '~/assets/mixins/meta'
 import Vue from 'vue'
 import { mapGetters } from 'vuex'
+import Meta from '~/assets/mixins/meta'
 // import { VueLoading } from 'vue-loading-template'
 // import SearchSkeletonImg from '~/components/SearchSkeletonImg.vue'
 // import SearchSkeletonTitle from '~/components/SearchSkeletonTitle.vue'
@@ -196,7 +196,6 @@ export type DataType = {
 }
 
 export default Vue.extend({
-  mixins: [Meta],
   components: {
     // @ts-ignore
     // VueLoading,
@@ -208,6 +207,7 @@ export default Vue.extend({
     // SearchSkeletonTitle,
     // @ts-ignore
   },
+  mixins: [Meta],
   // @ts-ignore
   layout: (ctx) => ctx.$device.isMobile ? 'mobile' : 'default',
   scrollToTop: true,

@@ -513,9 +513,9 @@
 </template>
 
 <script lang="ts">
-import Meta from '~/assets/mixins/meta'
 import Vue from 'vue'
 import { mapGetters } from 'vuex'
+import Meta from '~/assets/mixins/meta'
 // import Skeleton from '~/components/Skeleton.vue'
 
 function youtubeDefer () {
@@ -537,11 +537,11 @@ export type DataType = {
 }
 
 export default Vue.extend({
-  mixins: [Meta],
   components: {
     // @ts-ignore
     Skeleton: () => import('~/components/Skeleton')
   },
+  mixins: [Meta],
   // beforeRouteEnter(from, next) {
   //   this.$accessor.setPrevRoute(from)
   //   // @ts-ignore
