@@ -7,8 +7,10 @@ const baseUrl = baseHost + baseDir
 
 const lang = 'ja'
 const siteName = 'Porngle'
-const siteDesc = '無料えちえちサイトです。Porngleは検索機能に特化したアダルトサイトを目指しています。Pornhubの屍を越えていけ。'
-const siteKeywords = 'porn, Porn, porngle, Porngle, アダルト, アダルトサイト, エロ, エロサイト'
+const siteDesc =
+  '無料えちえちサイトです。Porngleは検索機能に特化したアダルトサイトを目指しています。Pornhubの屍を越えていけ。'
+const siteKeywords =
+  'porn, Porn, porngle, Porngle, アダルト, アダルトサイト, エロ, エロサイト'
 
 const shortName = 'Porngle'
 // const ogpImages = baseUrl + 'img/ogp/'
@@ -20,10 +22,7 @@ export default {
   telemetry: false,
   generate: {
     fallback: true,
-    exclude: [
-      '/sampleSuggest',
-      '/translate'
-    ],
+    exclude: ['/sampleSuggest', '/translate'],
   },
   /*
    ** Headers of the page
@@ -235,10 +234,7 @@ export default {
     // サイト名
     hostname: 'https://porngle.love',
     // 除外したいURL
-    exclude: [
-      '/sampleSuggest',
-      '/translate'
-    ],
+    exclude: ['/sampleSuggest', '/translate'],
   },
   /*
    ** Nuxt.js modules
@@ -276,12 +272,7 @@ export default {
   robots: {
     UserAgent: '*',
     // クローリングしないパスを記述
-    Disallow: [
-      '/suggest',
-      '/search',
-      '/embedded_url/_id',
-      '/sampleSuggest'
-    ],
+    Disallow: ['/suggest', '/search', '/embedded_url/_id', '/sampleSuggest'],
     // sitemap.xmlのURLを記述
     Sitemap: 'https://porngle.love/sitemap.xml',
   },
