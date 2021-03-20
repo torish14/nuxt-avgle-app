@@ -7,7 +7,7 @@
           <a href="https://porngle.love" aria-label="ホームへ戻る" @click="changeForm">
             <img
               src="~/assets/Porngle ロゴ.jpeg"
-              alt="ロゴ"
+              alt="Porngle"
               class="w-40"
             >
           </a>
