@@ -124,12 +124,13 @@
 <script lang="ts">
 import Vue from 'vue'
 import { mapGetters } from 'vuex'
-import Meta from '~/assets/mixins/meta'
+import Meta from '~/assets/mixins/meta.js'
 // import { VueLoading } from 'vue-loading-template'
 // import Skeleton from '~/components/Skeleton.vue'
 
 export type DataType = {
-  parPage: number
+  parPage: number,
+  meta: object
 }
 
 export default Vue.extend({
@@ -144,7 +145,15 @@ export default Vue.extend({
   data (): DataType {
     return {
       // ? 1ページに表示するアイテム数
-      parPage: 20
+      parPage: 20,
+      meta: {
+      title: 'オススメ',
+      description: 'オススメページです。',
+      type: 'website',
+      url: 'https://porngle.love/suggest',
+      image: 'https://porngle.love/assets/PG ロゴ.jpeg',
+      robots: 'noindex'
+    }
     }
   },
   fetch () {
@@ -154,14 +163,6 @@ export default Vue.extend({
     }
     this.$accessor.search.setSuggestMessage()
     this.$accessor.search.getSuggestItems()
-  },
-  meta: {
-    title: 'オススメ',
-    description: 'オススメページです。',
-    type: 'website',
-    url: 'https://porngle.love/suggest',
-    image: 'https://porngle.love/assets/PG ロゴ.jpeg',
-    robots: 'noindex'
   },
   computed: {
     ...mapGetters('search', ['message', 'suggestMessages', 'errorMessage', 'firstSkeleton']),

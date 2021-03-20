@@ -515,7 +515,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import { mapGetters } from 'vuex'
-import Meta from '~/assets/mixins/meta'
+import Meta from '~/assets/mixins/meta.js'
 // import Skeleton from '~/components/Skeleton.vue'
 
 function youtubeDefer () {
@@ -533,7 +533,8 @@ if (process.client) {
 
 export type DataType = {
   id: string,
-  prevRoute: any
+  prevRoute: any,
+  meta: object
 }
 
 export default Vue.extend({
@@ -554,7 +555,15 @@ export default Vue.extend({
   data (): DataType {
     return {
       id: this.$route.params.id,
-      prevRoute: null
+      prevRoute: null,
+      meta: {
+      title: '動画視聴',
+      description: '動画視聴ページです。',
+      type: 'website',
+      url: 'https://porngle.love/embedded_url/_id',
+      image: 'https://porngle.love/assets/PG ロゴ.jpeg',
+      robots: 'noindex'
+    },
     }
   },
   fetch () {
@@ -563,14 +572,6 @@ export default Vue.extend({
       return
     }
     this.$accessor.search.getSearchItems()
-  },
-  meta: {
-    title: '動画視聴',
-    description: '動画視聴ページです。',
-    type: 'website',
-    url: 'https://porngle.love/embedded_url/_id',
-    image: 'https://porngle.love/assets/PG ロゴ.jpeg',
-    robots: 'noindex'
   },
   computed: {
     ...mapGetters('search', ['message', 'messages', 'suggestMessages', 'searchMessages']),

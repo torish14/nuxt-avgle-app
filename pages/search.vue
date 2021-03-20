@@ -186,13 +186,14 @@
 <script lang="ts">
 import Vue from 'vue'
 import { mapGetters } from 'vuex'
-import Meta from '~/assets/mixins/meta'
+import Meta from '~/assets/mixins/meta.js'
 // import { VueLoading } from 'vue-loading-template'
 // import SearchSkeletonImg from '~/components/SearchSkeletonImg.vue'
 // import SearchSkeletonTitle from '~/components/SearchSkeletonTitle.vue'
 
 export type DataType = {
-  parPage: number
+  parPage: number,
+  meta: object
 }
 
 export default Vue.extend({
@@ -214,7 +215,15 @@ export default Vue.extend({
   data (): DataType {
     return {
       // ? 1ページに表示するアイテム数
-      parPage: 20
+      parPage: 20,
+      meta: {
+      title: '検索',
+      description: '検索ページです。',
+      type: 'website',
+      url: 'https://porngle.love/search',
+      image: 'https://porngle.love/assets/PG ロゴ.jpeg',
+      robots: 'noindex'
+    }
     }
   },
   fetch () {
@@ -224,14 +233,6 @@ export default Vue.extend({
     }
     this.$accessor.search.setSearchMessage()
     this.$accessor.search.getSearchItems()
-  },
-  meta: {
-    title: '検索',
-    description: '検索ページです。',
-    type: 'website',
-    url: 'https://porngle.love/search',
-    image: 'https://porngle.love/assets/PG ロゴ.jpeg',
-    robots: 'noindex'
   },
   computed: {
     ...mapGetters('search', ['message', 'searchMessages', 'errorMessage']),
