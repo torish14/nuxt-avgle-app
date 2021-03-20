@@ -7,11 +7,8 @@
 </template>
 
 <script>
-// import Header from '~/components/Header'
-// import Footer from '~/components/Footer'
-
 export default {
-  name: 'Default',
+  name: 'default',
   components: {
     Header: () => import('~/components/Header'),
     Footer: () => import('~/components/Footer')

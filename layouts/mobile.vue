@@ -1,15 +1,12 @@
 <template>
   <div>
     <nuxt keep-alive />
-    <!-- <Footer /> -->
   </div>
 </template>
 
 <script>
-// import Footer from '~/components/Footer'
-
 export default {
-  name: 'Custom',
+  name: 'mobile',
   head () {
     return {
       link: [
@@ -20,8 +17,5 @@ export default {
       ]
     }
   }
-  // components: {
-  //   Footer: () => import('~/components/Footer')
-  // }
 }
 </script>

@@ -206,7 +206,8 @@ export default Vue.extend({
     // SearchSkeletonTitle,
     // @ts-ignore
   },
-  layout: 'custom',
+  // @ts-ignore
+  layout: (ctx) => ctx.$device.isMobile ? 'mobile' : 'default',
   scrollToTop: true,
   data (): DataType {
     return {
