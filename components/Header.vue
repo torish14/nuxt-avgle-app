@@ -133,7 +133,7 @@ export default Vue.extend({
   //   window.removeEventListener('scroll', this.onScroll)
   // },
   methods: {
-    search (e: any) {
+    search (e: any): void {
       if (this.$accessor.search.message === '') {
         if (e.keyCode !== 13) { return }
         console.log('空文字です')
@@ -149,13 +149,13 @@ export default Vue.extend({
         })
       }
     },
-    sendRequest () {
+    sendRequest (): void {
       this.$accessor.search.getJapaneseItems()
       // @ts-ignore
       this.$accessor.changeIndexPagination()
       this.$router.push('/')
     },
-    changeForm () {
+    changeForm (): void {
       this.$accessor.search.setJapaneseMessage()
     },
     focus () {
@@ -180,10 +180,10 @@ export default Vue.extend({
     //   // }, 1)
     // },
     // スクロール値の取得
-    onScroll () {
+    onScroll (): void {
       this.$set(this, 'scrollY', window.pageYOffset)
     },
-    items () {
+    items (): string[] {
       return [
         'デビュー',
         '10代',

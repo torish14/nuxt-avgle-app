@@ -156,7 +156,7 @@ export default Vue.extend({
     }
     }
   },
-  fetch () {
+  fetch (): void {
     // @ts-ignore
     if(this.$accessor.search.suggestMessages.length > 0) {
       return
@@ -166,10 +166,9 @@ export default Vue.extend({
   },
   computed: {
     ...mapGetters('search', ['message', 'suggestMessages', 'errorMessage', 'firstSkeleton']),
-    // @ts-ignore
-    toHms () {
+    toHms (): (t: any) => string {
       // @ts-ignore
-      return function(t) {
+      return function(t): string {
         let hms = ''
         const h = Math.ceil(t / 3600 | 0)
         const m = Math.ceil(t % 3600 / 60 | 0)
@@ -215,28 +214,28 @@ export default Vue.extend({
   watch: {
     '$route.query': '$fetch'
   },
-  activated() {
+  activated(): void {
     // 最後の fetch から30秒以上経っていれば、fetch を呼び出す
     if (this.$fetchState.timestamp <= Date.now() - 30000) {
       this.$fetch()
     }
   },
-  created() {
+  created(): void {
     if (process.browser) {
       // @ts-ignore
       window.addEventListener('beforeunload', this.setSuggestForm) // eslint-disable-line
     }
   },
-  destroyed() {
+  destroyed(): void {
     // @ts-ignore
     window.removeEventListener('beforeunload', this.setSuggestForm)
   },
   methods: {
-    handler () {
+    handler (): void {
       console.log('Now loading')
     },
     // ? ページネーションをクリック時に、currentPage にページ番号を設定
-    clickCallback (pageNum: number) {
+    clickCallback (pageNum: number): void {
       // @ts-ignore
       this.$store.state.currentIndexPage = pageNum
       // @ts-ignore
@@ -245,7 +244,7 @@ export default Vue.extend({
       this.$router.push({ path: `?page=${this.$accessor.currentIndexPage}` })
       this.$forceUpdate()
     },
-    setSuggestForm () {
+    setSuggestForm (): void {
       this.$accessor.search.setSuggestMessage()
     },
     // infiniteHandler() {

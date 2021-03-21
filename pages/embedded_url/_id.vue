@@ -566,7 +566,7 @@ export default Vue.extend({
     },
     }
   },
-  fetch () {
+  fetch (): void {
     // @ts-ignore
     if(this.$accessor.search.messages.length > 0) {
       return
@@ -575,8 +575,7 @@ export default Vue.extend({
   },
   computed: {
     ...mapGetters('search', ['message', 'messages', 'suggestMessages', 'searchMessages']),
-    // @ts-ignore
-    toHms () {
+    toHms (): (t: any) => string {
       // @ts-ignore
       return function(t) {
         let hms = ''
@@ -616,25 +615,25 @@ export default Vue.extend({
       // @ts-ignore
       return this.$accessor.search.searchMessages.find(value =>  value.vid === this.id)
     },
-    getJapaneseItemsDesktop () {
+    getJapaneseItemsDesktop (): any {
       return this.messages.slice(0,20)
       // .sort(
       //   function() { return Math.random()-.5 }
       // )
     },
-    getJapaneseItems () {
+    getJapaneseItems (): any {
       return this.messages.slice(0,50)
       // .sort(
       //   function() { return Math.random()-.5 }
       // )
     },
-    getSuggestItems () {
+    getSuggestItems (): any {
       return this.suggestMessages.slice(0,50)
       // .sort(
       //   function() { return Math.random()-.5 }
       // )
     },
-    getSearchItems () {
+    getSearchItems (): any {
       return this.searchMessages.slice(0,50)
       // .sort(
       //   function() { return Math.random()-.5 }

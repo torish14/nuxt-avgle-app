@@ -226,7 +226,7 @@ export default Vue.extend({
     }
     }
   },
-  fetch () {
+  fetch (): void {
     // @ts-ignore
     if(this.$accessor.search.searchMessages.length > 0) {
       return
@@ -246,8 +246,7 @@ export default Vue.extend({
         this.$accessor.search.commitMessage(val)
       }
     },
-    // @ts-ignore
-    toHms () {
+    toHms (): (t: any) => string {
       // @ts-ignore
       return function(t) {
         let hms = ''
@@ -295,31 +294,31 @@ export default Vue.extend({
   watch: {
     '$route.query': '$fetch'
   },
-  mounted() {
+  mounted(): void {
     this.$nextTick(() => {
       this.clearForm()
       // @ts-ignore
       this.$refs.focusInput.focus()
     })
   },
-  activated() {
+  activated(): void {
     // 最後の fetch から30秒以上経っていれば、fetch を呼び出す
     if (this.$fetchState.timestamp <= Date.now() - 30000) {
       this.$fetch()
     }
   },
-  created() {
+  created(): void {
     if (process.browser) {
       // @ts-ignore
       window.addEventListener('beforeunload', this.changeForm) // eslint-disable-line
     }
   },
-  destroyed() {
+  destroyed(): void {
     // @ts-ignore
     window.removeEventListener('beforeunload', this.changeForm)
   },
   methods: {
-    search (e: any) {
+    search (e: any): void {
       if (this.$accessor.search.message === '') {
         if (e.keyCode !== 13) { return }
         console.log('空文字です')
@@ -353,19 +352,19 @@ export default Vue.extend({
       this.$router.push({ path: `?page=${this.$accessor.currentIndexPage}` })
       this.$forceUpdate()
     },
-    changeForm () {
+    changeForm (): void {
       this.$accessor.search.setSearchMessage()
     },
-    clearForm () {
+    clearForm (): void {
       this.$accessor.search.clearMessage()
     },
-    focusSearch () {
+    focusSearch (): void {
       this.$nextTick(() => {
         // @ts-ignore
         this.$refs.focusInput.focus()
       })
     },
-    refresh () {
+    refresh (): void {
       this.$nuxt.refresh()
     },
     // infiniteHandler() {

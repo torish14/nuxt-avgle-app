@@ -68,17 +68,17 @@ export default Vue.extend({
     }
   },
   methods: {
-    changeForm () {
+    changeForm (): void {
       this.$accessor.search.setJapaneseMessage()
     },
-    clearForm () {
+    clearForm (): void {
       this.$accessor.search.clearMessage()
     },
-    focusSearch () {
+    focusSearch (): void {
       // @ts-ignore
       // this.$refs.textInput.focus()
     },
-    refresh () {
+    refresh (): void {
       this.$nuxt.refresh()
     }
   },
