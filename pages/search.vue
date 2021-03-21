@@ -152,8 +152,8 @@
       </client-only>
       <!-- フッター -->
       <footer class="text-gray-500">
-        <div class="flex justify-around py-1 fixed z-10 bottom-0 bg-black w-full leading-4">
-          <ul>
+        <nav role="navigation">
+          <ul class="flex justify-around py-1 fixed z-10 bottom-0 bg-black w-full leading-4">
             <li>
               <nuxt-link to="/" aria-label="ホームへ戻る" @click.native="refresh">
                 <div class="text-center align-middle">

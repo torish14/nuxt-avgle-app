@@ -23,8 +23,8 @@
     <!-- モバイル -->
     <div v-else class="bg-black">
       <footer class="text-gray-500">
-        <nav class="flex justify-around py-1 fixed z-10 bottom-0 bg-black w-full leading-4" role="navigation">
-          <ul>
+        <nav role="navigation">
+          <ul class="flex justify-around py-1 fixed z-10 bottom-0 bg-black w-full leading-4">
             <li>
               <nuxt-link to="/" aria-label="ホームへ戻る" @click.native="refresh">
                 <div class="text-center align-middle">
