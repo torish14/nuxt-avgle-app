@@ -10,11 +10,11 @@ export default ({ store, isHMR }) => {
       createPersistedState({
         // key: 'my-key'
         paths: [
-          'search.message',
-          'search.messages',
-          'search.translateMessages',
-          'search.suggestMessages',
-          'search.searchMessages',
+          // 'search.message',
+          // 'search.messages',
+          // 'search.translateMessages',
+          // 'search.suggestMessages',
+          // 'search.searchMessages',
           'search.recommendMessages',
           'search.recommendTitles',
           'search.recommendKeywords',
