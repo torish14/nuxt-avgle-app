@@ -39,7 +39,7 @@
     <!-- モバイル -->
     <div v-else id="header" class="bg-black">
       <header v-show="isShow" role="banner">
-        <div class="flex justify-between bg-black top-0 w-full z-20 pb-1">
+        <div class="flex bg-black top-0 w-full z-20 pb-1">
           <div :class="isOpen ? 'hidden' : 'block'" class="flex items-center flex-shrink-0 text-white ml-2 py-2">
             <a href="https://porngle.love" aria-label="ホームへ戻る" @click="changeForm">
               <img
@@ -72,6 +72,15 @@
               </div>
             </div> -->
         </div>
+        <!-- <div>
+          <ul class="flex justify-center self-end text-sm text-white">
+            <li class="mx-1">童貞</li>
+            <li class="mx-1">カップル</li>
+            <li class="mx-1">ナンパ</li>
+            <li class="mx-1">エロアニメ</li>
+            <li class="mx-1">デビュー</li>
+          </ul>
+        </div> -->
       </header>
     </div>
   </section>
@@ -192,7 +201,7 @@ export default Vue.extend({
         'ナンパ',
         'オナニー',
         '痴漢',
-        'イチャイチャ',
+        'カップル',
         'SM'
       ]
     }
