@@ -8,6 +8,11 @@ export default {
           name: 'description',
           content: this.meta.description,
         },
+        {
+          hid: 'robots',
+          name: 'robots',
+          content: this.meta.robots,
+        },
         { hid: 'og:type', property: 'og:type', content: this.meta.type },
         { hid: 'og:title', property: 'og:title', content: this.meta.title },
         {
