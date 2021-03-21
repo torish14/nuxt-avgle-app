@@ -153,30 +153,38 @@
       <!-- フッター -->
       <footer class="text-gray-500">
         <div class="flex justify-around py-1 fixed z-10 bottom-0 bg-black w-full leading-4">
-          <nuxt-link to="/" aria-label="ホームへ戻る" @click.native="refresh">
-            <div class="text-center align-middle">
-              <i class="material-icons">home</i>
-              <p class="icon-text" style="font-size: 10px;">
-                ホーム
-              </p>
-            </div>
-          </nuxt-link>
-          <nuxt-link to="/suggest" aria-label="オススメへ進む" @click.native="refresh">
-            <div class="text-center align-middle">
-              <i class="material-icons">live_tv</i>
-              <p class="icon-text" style="font-size: 10px;">
-                オススメ
-              </p>
-            </div>
-          </nuxt-link>
-          <nuxt-link to="/search" aria-label="検索へ進む" @click.native="refresh(); focusSearch();">
-            <div class="text-center align-middle">
-              <i class="material-icons">search</i>
-              <p class="icon-text" style="font-size: 10px;">
-                検索
-              </p>
-            </div>
-          </nuxt-link>
+          <ul>
+            <li>
+              <nuxt-link to="/" aria-label="ホームへ戻る" @click.native="refresh">
+                <div class="text-center align-middle">
+                  <i class="material-icons">home</i>
+                  <p class="icon-text" style="font-size: 10px;">
+                    ホーム
+                  </p>
+                </div>
+              </nuxt-link>
+            </li>
+            <li>
+              <nuxt-link to="/suggest" aria-label="オススメへ進む" @click.native="refresh">
+                <div class="text-center align-middle">
+                  <i class="material-icons">live_tv</i>
+                  <p class="icon-text" style="font-size: 10px;">
+                    オススメ
+                  </p>
+                </div>
+              </nuxt-link>
+            </li>
+            <li>
+              <nuxt-link to="/search" aria-label="検索へ進む" @click.native="refresh(); focusSearch();">
+                <div class="text-center align-middle">
+                  <i class="material-icons">search</i>
+                  <p class="icon-text" style="font-size: 10px;">
+                    検索
+                  </p>
+                </div>
+              </nuxt-link>
+            </li>
+          </ul>
         </div>
       </footer>
     </div>
