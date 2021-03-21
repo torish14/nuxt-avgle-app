@@ -4,22 +4,24 @@
     <div v-if="$device.isDesktop">
       <main role="main">
         <template v-if="messagesMatchVid">
-          <div class="relative sm:w-full md:w-full lg:w-full xl:w-11/12 h-0" style="padding-top: 50%;">
-            <iframe
-              id="sub"
-              :src="messagesMatchVid.embedded_url"
-              frameborder="0"
-              scrolling="no"
-              allow="fullscreen"
-              referrerpolicy="no-referrer-down-grade"
-              class="youtube absolute top-0 left-0 w-full h-full"
-              width="100%"
-              height="100%"
-            />
-          </div>
-          <p class="text-white text-sm md:px-4 lg:px-4 xl:px-4 2xl:px-4 pt-1">
-            {{ messagesMatchVid.title }}
-          </p>
+          <article>
+            <div class="relative sm:w-full md:w-full lg:w-full xl:w-11/12 h-0" style="padding-top: 50%;">
+              <iframe
+                id="sub"
+                :src="messagesMatchVid.embedded_url"
+                frameborder="0"
+                scrolling="no"
+                allow="fullscreen"
+                referrerpolicy="no-referrer-down-grade"
+                class="youtube absolute top-0 left-0 w-full h-full"
+                width="100%"
+                height="100%"
+              />
+            </div>
+            <p class="text-white text-sm md:px-4 lg:px-4 xl:px-4 2xl:px-4 pt-1">
+              {{ messagesMatchVid.title }}
+            </p>
+          </article>
         </template>
         <template v-else-if="message === '無修正' || message === 'Uncensored' || message === 'uncensored' || message === 'PAKO' || message === 'Pako' || message === 'pako' || message === 'ぱこ' || message === 'パコ' || message === 'CARIB' || message === 'Carib' || message === 'carib' || message === 'かりぶ' || message === 'カリブ' || message === 'FC2' || message === 'Fc2' || message === 'fc2' || message === '完全素人' || message === '個人撮影' || message === 'DEEPFAKE' || message.match('DeepFake') || message === 'Deepfake' || message === 'deepfake' || message === 'カリビアンコム' || message === '一本道' || message === 'HEYZO' || message === 'Heyzo' || message === 'heyzo' || message === '東京熱' || message === 'TOKYO-HOT' || message === 'Toyo-Hot' || message === 'Tokyo-hot' || message === 'tokyo-hot' || message === 'AV9898' || message === 'Av9898' || message === 'av9898' || message === 'PORNHUB' || message === 'PornHub' || message === 'Pornhub' || message === 'pornhub' || message === 'エッチな4610' || message === 'エッチな0930' || message === '人妻斬り' || message === 'SM-MIRACLE' || message === 'SM-Miracle' || message === 'SM-miracle' || message === 'sm-miracle' || message === 'のぞきザムライ' || message === '金8天国'">
           <client-only>
@@ -129,115 +131,121 @@
     <div v-else class="pt-1 pb-20 container">
       <main role="main">
         <template v-if="messagesMatchVid">
-          <div class="relative sm:w-full md:w-full lg:w-full xl:w-11/12 h-0" style="padding-top: 50%;">
-            <iframe
-              id="sub"
-              :src="messagesMatchVid.embedded_url"
-              frameborder="0"
-              scrolling="no"
-              allow="fullscreen"
-              referrerpolicy="no-referrer-down-grade"
-              class="youtube absolute top-0 left-0 w-full h-full"
-              width="100%"
-              height="100%"
-            />
-          </div>
-          <p class="text-white text-sm md:px-4 lg:px-4 xl:px-4 2xl:px-4 pt-2 px-2">
-            {{ messagesMatchVid.title }}
-          </p>
-          <div>
-            <h6 class="text-gray-400 mr-1 text-xs pl-2">
-              {{ (messagesMatchVid.viewnumber).toLocaleString() }} 回視聴
-            </h6>
-          </div>
-          <div class="flex">
-            <div class="text-center mx-6 my-4">
-              <i class="material-icons text-gray-400" style="font-size: 16px;">thumb_up</i>
-              <h6 class="text-gray-400 px-1 text-xs">
-                {{ messagesMatchVid.likes }}
+          <article>
+            <div class="relative sm:w-full md:w-full lg:w-full xl:w-11/12 h-0" style="padding-top: 50%;">
+              <iframe
+                id="sub"
+                :src="messagesMatchVid.embedded_url"
+                frameborder="0"
+                scrolling="no"
+                allow="fullscreen"
+                referrerpolicy="no-referrer-down-grade"
+                class="youtube absolute top-0 left-0 w-full h-full"
+                width="100%"
+                height="100%"
+              />
+            </div>
+            <p class="text-white text-sm md:px-4 lg:px-4 xl:px-4 2xl:px-4 pt-2 px-2">
+              {{ messagesMatchVid.title }}
+            </p>
+            <div>
+              <h6 class="text-gray-400 mr-1 text-xs pl-2">
+                {{ (messagesMatchVid.viewnumber).toLocaleString() }} 回視聴
               </h6>
             </div>
-            <div class="text-center mx-6 my-4">
-              <i class="material-icons text-gray-400" style="font-size: 16px;">thumb_down</i>
-              <h6 class="text-gray-400 px-1 text-xs">
-                {{ messagesMatchVid.dislikes }}
-              </h6>
+            <div class="flex">
+              <div class="text-center mx-6 my-4">
+                <i class="material-icons text-gray-400" style="font-size: 16px;">thumb_up</i>
+                <h6 class="text-gray-400 px-1 text-xs">
+                  {{ messagesMatchVid.likes }}
+                </h6>
+              </div>
+              <div class="text-center mx-6 my-4">
+                <i class="material-icons text-gray-400" style="font-size: 16px;">thumb_down</i>
+                <h6 class="text-gray-400 px-1 text-xs">
+                  {{ messagesMatchVid.dislikes }}
+                </h6>
+              </div>
             </div>
-          </div>
+          </article>
         </template>
         <template v-else-if="suggestMessagesMatchVid">
-          <div class="relative sm:w-full md:w-full lg:w-full xl:w-11/12 h-0" style="padding-top: 50%;">
-            <iframe
-              id="sub"
-              :src="suggestMessagesMatchVid.embedded_url"
-              frameborder="0"
-              scrolling="no"
-              allow="fullscreen"
-              referrerpolicy="no-referrer-down-grade"
-              class="youtube absolute top-0 left-0 w-full h-full"
-              width="100%"
-              height="100%"
-            />
-          </div>
-          <p class="text-white text-sm md:px-4 lg:px-4 xl:px-4 2xl:px-4 pt-2 px-2">
-            {{ suggestMessagesMatchVid.title }}
-          </p>
-          <div>
-            <h6 class="text-gray-400 mr-1 text-xs pl-2">
-              {{ (suggestMessagesMatchVid.viewnumber).toLocaleString() }} 回視聴
-            </h6>
-          </div>
-          <div class="flex">
-            <div class="text-center mx-6 my-4">
-              <i class="material-icons text-gray-400" style="font-size: 16px;">thumb_up</i>
-              <h6 class="text-gray-400 px-1 text-xs">
-                {{ suggestMessagesMatchVid.likes }}
+          <article>
+            <div class="relative sm:w-full md:w-full lg:w-full xl:w-11/12 h-0" style="padding-top: 50%;">
+              <iframe
+                id="sub"
+                :src="suggestMessagesMatchVid.embedded_url"
+                frameborder="0"
+                scrolling="no"
+                allow="fullscreen"
+                referrerpolicy="no-referrer-down-grade"
+                class="youtube absolute top-0 left-0 w-full h-full"
+                width="100%"
+                height="100%"
+              />
+            </div>
+            <p class="text-white text-sm md:px-4 lg:px-4 xl:px-4 2xl:px-4 pt-2 px-2">
+              {{ suggestMessagesMatchVid.title }}
+            </p>
+            <div>
+              <h6 class="text-gray-400 mr-1 text-xs pl-2">
+                {{ (suggestMessagesMatchVid.viewnumber).toLocaleString() }} 回視聴
               </h6>
             </div>
-            <div class="text-center mx-6 my-4">
-              <i class="material-icons text-gray-400" style="font-size: 16px;">thumb_down</i>
-              <h6 class="text-gray-400 px-1 text-xs">
-                {{ suggestMessagesMatchVid.dislikes }}
-              </h6>
+            <div class="flex">
+              <div class="text-center mx-6 my-4">
+                <i class="material-icons text-gray-400" style="font-size: 16px;">thumb_up</i>
+                <h6 class="text-gray-400 px-1 text-xs">
+                  {{ suggestMessagesMatchVid.likes }}
+                </h6>
+              </div>
+              <div class="text-center mx-6 my-4">
+                <i class="material-icons text-gray-400" style="font-size: 16px;">thumb_down</i>
+                <h6 class="text-gray-400 px-1 text-xs">
+                  {{ suggestMessagesMatchVid.dislikes }}
+                </h6>
+              </div>
             </div>
-          </div>
+          </article>
         </template>
         <template v-else-if="searchMessagesMatchVid">
-          <div class="relative sm:w-full md:w-full lg:w-full xl:w-11/12 h-0" style="padding-top: 50%;">
-            <iframe
-              id="sub"
-              :src="searchMessagesMatchVid.embedded_url"
-              frameborder="0"
-              scrolling="no"
-              allow="fullscreen"
-              referrerpolicy="no-referrer-down-grade"
-              class="youtube absolute top-0 left-0 w-full h-full"
-              width="100%"
-              height="100%"
-            />
-          </div>
-          <p class="text-white text-sm md:px-4 lg:px-4 xl:px-4 2xl:px-4 pt-2 px-2">
-            {{ searchMessagesMatchVid.title }}
-          </p>
-          <div>
-            <h6 class="text-gray-400 mr-1 text-xs pl-2">
-              {{ (searchMessagesMatchVid.viewnumber).toLocaleString() }} 回視聴
-            </h6>
-          </div>
-          <div class="flex">
-            <div class="text-center mx-6 my-4">
-              <i class="material-icons text-gray-400" style="font-size: 16px;">thumb_up</i>
-              <h6 class="text-gray-400 px-1 text-xs">
-                {{ searchMessagesMatchVid.likes }}
+          <article>
+            <div class="relative sm:w-full md:w-full lg:w-full xl:w-11/12 h-0" style="padding-top: 50%;">
+              <iframe
+                id="sub"
+                :src="searchMessagesMatchVid.embedded_url"
+                frameborder="0"
+                scrolling="no"
+                allow="fullscreen"
+                referrerpolicy="no-referrer-down-grade"
+                class="youtube absolute top-0 left-0 w-full h-full"
+                width="100%"
+                height="100%"
+              />
+            </div>
+            <p class="text-white text-sm md:px-4 lg:px-4 xl:px-4 2xl:px-4 pt-2 px-2">
+              {{ searchMessagesMatchVid.title }}
+            </p>
+            <div>
+              <h6 class="text-gray-400 mr-1 text-xs pl-2">
+                {{ (searchMessagesMatchVid.viewnumber).toLocaleString() }} 回視聴
               </h6>
             </div>
-            <div class="text-center mx-6 my-4">
-              <i class="material-icons text-gray-400" style="font-size: 16px;">thumb_down</i>
-              <h6 class="text-gray-400 px-1 text-xs">
-                {{ searchMessagesMatchVid.dislikes }}
-              </h6>
+            <div class="flex">
+              <div class="text-center mx-6 my-4">
+                <i class="material-icons text-gray-400" style="font-size: 16px;">thumb_up</i>
+                <h6 class="text-gray-400 px-1 text-xs">
+                  {{ searchMessagesMatchVid.likes }}
+                </h6>
+              </div>
+              <div class="text-center mx-6 my-4">
+                <i class="material-icons text-gray-400" style="font-size: 16px;">thumb_down</i>
+                <h6 class="text-gray-400 px-1 text-xs">
+                  {{ searchMessagesMatchVid.dislikes }}
+                </h6>
+              </div>
             </div>
-          </div>
+          </article>
         </template>
         <template v-else-if="message === '無修正' || message === 'Uncensored' || message === 'uncensored' || message === 'PAKO' || message === 'Pako' || message === 'pako' || message === 'ぱこ' || message === 'パコ' || message === 'CARIB' || message === 'Carib' || message === 'carib' || message === 'かりぶ' || message === 'カリブ' || message === 'FC2' || message === 'Fc2' || message === 'fc2' || message === '完全素人' || message === '個人撮影' || message === 'DEEPFAKE' || message.match('DeepFake') || message === 'Deepfake' || message === 'deepfake' || message === 'カリビアンコム' || message === '一本道' || message === 'HEYZO' || message === 'Heyzo' || message === 'heyzo' || message === '東京熱' || message === 'TOKYO-HOT' || message === 'Toyo-Hot' || message === 'Tokyo-hot' || message === 'tokyo-hot' || message === 'AV9898' || message === 'Av9898' || message === 'av9898' || message === 'PORNHUB' || message === 'PornHub' || message === 'Pornhub' || message === 'pornhub' || message === 'エッチな4610' || message === 'エッチな0930' || message === '人妻斬り' || message === 'SM-MIRACLE' || message === 'SM-Miracle' || message === 'SM-miracle' || message === 'sm-miracle' || message === 'のぞきザムライ' || message === '金8天国'">
           <client-only>
