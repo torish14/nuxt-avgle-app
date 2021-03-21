@@ -120,9 +120,7 @@ export default {
   /*
    ** Customize the progress-bar color
    */
-  loading: {
-    color: '#6b46c1',
-  },
+  loading: false,
   // loadingIndicator: {
   //   name: 'circle',
   //   color: '#a0aec0',
