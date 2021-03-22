@@ -149,13 +149,40 @@ export const actions = actionTree({ state, getters, mutations }, {
         !(value.title).match('DeepFake') &&
         !(value.title).match('Deepfake') &&
         !(value.title).match('deepfake') &&
+        !(value.title).match('カリビアンコム') &&
+        !(value.title).match('一本道') &&
+        !(value.title).match('HEYZO') &&
+        !(value.title).match('Heyzo') &&
+        !(value.title).match('heyzo') &&
+        !(value.title).match('東京熱') &&
+        !(value.title).match('TOKYO-HOT') &&
+        !(value.title).match('Tokyo-Hot') &&
+        !(value.title).match('Tokyo-hot') &&
+        !(value.title).match('tokyo-hot') &&
+        !(value.title).match('AV9898') &&
+        !(value.title).match('Av9898') &&
+        !(value.title).match('av9898') &&
+        !(value.title).match('PORNHUB') &&
+        !(value.title).match('PornHub') &&
+        !(value.title).match('Pornhub') &&
+        !(value.title).match('pornhub') &&
+        !(value.title).match('エッチな4610') &&
+        !(value.title).match('エッチな0930') &&
+        !(value.title).match('人妻斬り') &&
+        !(value.title).match('SM-MIRACLE') &&
+        !(value.title).match('SM-Miracle') &&
+        !(value.title).match('SM-miracle') &&
+        !(value.title).match('sm-miracle') &&
+        !(value.title).match('のぞきザムライ') &&
+        !(value.title).match('金8天国') &&
+        !(value.title).match('carib') &&
         !(value.title).match(/^[a-zA-Z0-9-_.~+\s]+$/) &&
         !(value.keyword).match('無修正') &&
         !(value.keyword).match('FC2')
       )
     )
-    commit('showErrorMessage')
     commit('hideSkeleton')
+    commit('showErrorMessage')
   },
   async getSuggestItems ({ state, commit }) {
     commit('hideErrorMessage')
@@ -193,13 +220,40 @@ export const actions = actionTree({ state, getters, mutations }, {
         !(value.title).match('DeepFake') &&
         !(value.title).match('Deepfake') &&
         !(value.title).match('deepfake') &&
+        !(value.title).match('カリビアンコム') &&
+        !(value.title).match('一本道') &&
+        !(value.title).match('HEYZO') &&
+        !(value.title).match('Heyzo') &&
+        !(value.title).match('heyzo') &&
+        !(value.title).match('東京熱') &&
+        !(value.title).match('TOKYO-HOT') &&
+        !(value.title).match('Tokyo-Hot') &&
+        !(value.title).match('Tokyo-hot') &&
+        !(value.title).match('tokyo-hot') &&
+        !(value.title).match('AV9898') &&
+        !(value.title).match('Av9898') &&
+        !(value.title).match('av9898') &&
+        !(value.title).match('PORNHUB') &&
+        !(value.title).match('PornHub') &&
+        !(value.title).match('Pornhub') &&
+        !(value.title).match('pornhub') &&
+        !(value.title).match('エッチな4610') &&
+        !(value.title).match('エッチな0930') &&
+        !(value.title).match('人妻斬り') &&
+        !(value.title).match('SM-MIRACLE') &&
+        !(value.title).match('SM-Miracle') &&
+        !(value.title).match('SM-miracle') &&
+        !(value.title).match('sm-miracle') &&
+        !(value.title).match('のぞきザムライ') &&
+        !(value.title).match('金8天国') &&
+        !(value.title).match('carib') &&
         !(value.title).match(/^[a-zA-Z0-9-_.~+\s]+$/) &&
         !(value.keyword).match('無修正') &&
         !(value.keyword).match('FC2')
       )
     )
-    commit('showErrorMessage')
     commit('hideSkeleton')
+    commit('showErrorMessage')
   },
   async getSearchItems ({ state, commit }) {
     commit('hideErrorMessage')
@@ -237,13 +291,40 @@ export const actions = actionTree({ state, getters, mutations }, {
         !(value.title).match('DeepFake') &&
         !(value.title).match('Deepfake') &&
         !(value.title).match('deepfake') &&
+        !(value.title).match('カリビアンコム') &&
+        !(value.title).match('一本道') &&
+        !(value.title).match('HEYZO') &&
+        !(value.title).match('Heyzo') &&
+        !(value.title).match('heyzo') &&
+        !(value.title).match('東京熱') &&
+        !(value.title).match('TOKYO-HOT') &&
+        !(value.title).match('Tokyo-Hot') &&
+        !(value.title).match('Tokyo-hot') &&
+        !(value.title).match('tokyo-hot') &&
+        !(value.title).match('AV9898') &&
+        !(value.title).match('Av9898') &&
+        !(value.title).match('av9898') &&
+        !(value.title).match('PORNHUB') &&
+        !(value.title).match('PornHub') &&
+        !(value.title).match('Pornhub') &&
+        !(value.title).match('pornhub') &&
+        !(value.title).match('エッチな4610') &&
+        !(value.title).match('エッチな0930') &&
+        !(value.title).match('人妻斬り') &&
+        !(value.title).match('SM-MIRACLE') &&
+        !(value.title).match('SM-Miracle') &&
+        !(value.title).match('SM-miracle') &&
+        !(value.title).match('sm-miracle') &&
+        !(value.title).match('のぞきザムライ') &&
+        !(value.title).match('金8天国') &&
+        !(value.title).match('carib') &&
         !(value.title).match(/^[a-zA-Z0-9-_.~+\s]+$/) &&
         !(value.keyword).match('無修正') &&
         !(value.keyword).match('FC2')
       )
     )
-    commit('showErrorMessage')
     commit('hideSkeleton')
+    commit('showErrorMessage')
   },
   async getTranslateTitles ({ commit }) {
     const config = {
