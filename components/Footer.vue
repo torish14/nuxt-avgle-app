@@ -46,7 +46,7 @@
               </nuxt-link>
             </li>
             <li>
-              <nuxt-link to="/search" aria-label="検索へ進む" @click.native="refresh(); clearForm()">
+              <nuxt-link to="/search" aria-label="検索へ進む" @click.native="clearForm()">
                 <div class="text-center align-middle">
                   <i class="material-icons">search</i>
                   <p class="icon-text" style="font-size: 10px;">
