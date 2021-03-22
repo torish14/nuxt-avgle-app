@@ -15,7 +15,7 @@
           &nbsp;エラーが発生しました。
         </h5>
       </template>
-      <a href="https://porngle.love" aria-label="ホームへ戻る" class="text-gray-400 text-lg hover:text-purple-600" @click="changeForm">
+      <a href="https://porngle.love" aria-label="ホームへ戻る" class="text-gray-400 text-lg hover:text-purple-600" @click="setJapaneseForm">
         &nbsp;トップページに戻る
       </a>
     </div>
@@ -31,7 +31,7 @@ export default {
     }
   },
   methods: {
-    changeForm () {
+    setJapaneseForm () {
       this.$accessor.search.setJapaneseMessage()
     }
   },

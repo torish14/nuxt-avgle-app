@@ -316,7 +316,7 @@ export default Vue.extend({
   },
   fetch (): void {
     // @ts-ignore
-    if(this.$accessor.search.messages.length > 0) {
+    if(this.$accessor.search.message === '日本人') {
       return
     }
     this.$accessor.search.setJapaneseMessage()
@@ -394,12 +394,12 @@ export default Vue.extend({
   created(): void {
     if (process.browser) {
       // @ts-ignore
-      window.addEventListener('beforeunload', this.changeForm) // eslint-disable-line
+      window.addEventListener('beforeunload', this.setJapaneseForm) // eslint-disable-line
     }
   },
   destroyed(): void {
     // @ts-ignore
-    window.removeEventListener('beforeunload', this.changeForm)
+    window.removeEventListener('beforeunload', this.setJapaneseForm)
   },
   methods: {
     handler (): void {
@@ -415,7 +415,7 @@ export default Vue.extend({
       this.$router.push({ path: `?page=${this.$accessor.currentIndexPage}` })
       this.$forceUpdate()
     },
-    changeForm (): void {
+    setJapaneseForm (): void {
       this.$accessor.search.setJapaneseMessage()
     },
     // infiniteHandler() {
