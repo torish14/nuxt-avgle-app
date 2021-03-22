@@ -4,7 +4,7 @@
     <div v-if="$device.isDesktop" class="bg-black">
       <footer class="text-gray-400" role="contentinfo">
         <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col normal-footer">
-          <a href="https://porngle.love" aria-label="ホームへ戻る" @click="changeForm">
+          <a href="https://porngle.love" aria-label="ホームへ戻る" @click="setJapaneseForm">
             <img
               src="~/assets/Porngle ロゴ.jpeg"
               alt="Porngle"
@@ -26,7 +26,7 @@
         <nav role="navigation">
           <ul class="flex justify-around py-1 fixed z-10 bottom-0 bg-black w-full leading-4">
             <li>
-              <nuxt-link to="/" aria-label="ホームへ戻る" @click.native="refresh">
+              <nuxt-link to="/" aria-label="ホームへ戻る" @click.native="refresh(); setJapaneseForm()">
                 <div class="text-center align-middle">
                   <i class="material-icons">home</i>
                   <p class="icon-text" style="font-size: 10px;">
@@ -36,7 +36,7 @@
               </nuxt-link>
             </li>
             <li>
-              <nuxt-link to="/suggest" aria-label="オススメへ進む" @click.native="refresh">
+              <nuxt-link to="/suggest" aria-label="オススメへ進む" @click.native="refresh(); setSuggestForm()">
                 <div class="text-center align-middle">
                   <i class="material-icons">live_tv</i>
                   <p class="icon-text" style="font-size: 10px;">
@@ -46,7 +46,7 @@
               </nuxt-link>
             </li>
             <li>
-              <nuxt-link to="/search" aria-label="検索へ進む" @click.native="clearForm(); refresh()">
+              <nuxt-link to="/search" aria-label="検索へ進む" @click.native="refresh(); clearForm()">
                 <div class="text-center align-middle">
                   <i class="material-icons">search</i>
                   <p class="icon-text" style="font-size: 10px;">
@@ -76,8 +76,19 @@ export default Vue.extend({
     }
   },
   methods: {
-    changeForm (): void {
-      this.$accessor.search.setJapaneseMessage()
+    setJapaneseForm (): void {
+      if (this.$accessor.search.message !== '日本人') {
+        this.$accessor.search.setJapaneseMessage()
+      }
+      // @ts-ignore
+      this.$accessor.search.searchMessages.splice(0, this.$accessor.search.searchMessages.length)
+    },
+    setSuggestForm (): void {
+      if (this.$accessor.search.message !== 'AV女優') {
+        this.$accessor.search.setSuggestMessage()
+      }
+      // @ts-ignore
+      this.$accessor.search.searchMessages.splice(0, this.$accessor.search.searchMessages.length)
     },
     clearForm (): void {
       this.$accessor.search.clearMessage()

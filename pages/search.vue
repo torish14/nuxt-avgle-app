@@ -155,7 +155,7 @@
         <nav role="navigation">
           <ul class="flex justify-around py-1 fixed z-10 bottom-0 bg-black w-full leading-4">
             <li>
-              <nuxt-link to="/" aria-label="ホームへ戻る" @click.native="refresh">
+              <nuxt-link to="/" aria-label="ホームへ戻る" @click.native="refresh(); setJapaneseForm()">
                 <div class="text-center align-middle">
                   <i class="material-icons">home</i>
                   <p class="icon-text" style="font-size: 10px;">
@@ -165,7 +165,7 @@
               </nuxt-link>
             </li>
             <li>
-              <nuxt-link to="/suggest" aria-label="オススメへ進む" @click.native="refresh">
+              <nuxt-link to="/suggest" aria-label="オススメへ進む" @click.native="refresh(); setSuggestForm()">
                 <div class="text-center align-middle">
                   <i class="material-icons">live_tv</i>
                   <p class="icon-text" style="font-size: 10px;">
@@ -185,7 +185,7 @@
               </nuxt-link>
             </li>
           </ul>
-        </div>
+        </nav>
       </footer>
     </div>
   </section>
@@ -236,10 +236,10 @@ export default Vue.extend({
   },
   fetch (): void {
     // @ts-ignore
-    if(this.$accessor.search.searchMessages.length > 0) {
-      return
-    }
-    this.$accessor.search.setSearchMessage()
+    // if(this.$accessor.search.searchMessages.length > 0) {
+    //   return
+    // }
+    // this.$accessor.search.setSearchMessage()
     this.$accessor.search.getSearchItems()
   },
   computed: {
@@ -315,16 +315,6 @@ export default Vue.extend({
       this.$fetch()
     }
   },
-  created(): void {
-    if (process.browser) {
-      // @ts-ignore
-      window.addEventListener('beforeunload', this.changeForm) // eslint-disable-line
-    }
-  },
-  destroyed(): void {
-    // @ts-ignore
-    window.removeEventListener('beforeunload', this.changeForm)
-  },
   methods: {
     search (e: any): void {
       if (this.$accessor.search.message === '') {
@@ -360,8 +350,19 @@ export default Vue.extend({
       this.$router.push({ path: `?page=${this.$accessor.currentIndexPage}` })
       this.$forceUpdate()
     },
-    changeForm (): void {
-      this.$accessor.search.setSearchMessage()
+    setJapaneseForm (): void {
+      if (this.$accessor.search.message !== '日本人') {
+        this.$accessor.search.setJapaneseMessage()
+      }
+      // @ts-ignore
+      this.$accessor.search.searchMessages.splice(0, this.$accessor.search.searchMessages.length)
+    },
+    setSuggestForm (): void {
+      if (this.$accessor.search.message !== 'AV女優') {
+        this.$accessor.search.setSuggestMessage()
+      }
+      // @ts-ignore
+      this.$accessor.search.searchMessages.splice(0, this.$accessor.search.searchMessages.length)
     },
     clearForm (): void {
       this.$accessor.search.clearMessage()
