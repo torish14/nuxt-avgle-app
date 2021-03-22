@@ -153,6 +153,12 @@
             <Skeleton />
           </client-only>
         </div>
+        <div v-else-if="firstSkeleton">
+          <client-only>
+            <Skeleton />
+            <Skeleton />
+          </client-only>
+        </div>
         <template v-else-if="$fetchState.error">
           <i class="material-icons text-gray-400">error</i>
           <h5 class="text-gray-400 text-sm">
