@@ -3,9 +3,9 @@
     <!-- デスクトップ -->
     <div v-if="$device.isDesktop" id="header" class="bg-black">
       <client-only>
-        <header class="flex items-center justify-between flex-wrap p-6" role="banner">
-          <div class="flex items-center flex-shrink-0 text-white mr-6">
-            <h1 role="banner">
+        <header class="flex items-center justify-between flex-wrap p-6">
+          <div class="flex items-center flex-shrink-0 text-white mr-6" role="banner">
+            <h1>
               <a href="https://porngle.love" aria-label="ホームへ戻る" @click="setJapaneseForm">
                 <img
                   src="~/assets/Porngle ロゴ.jpeg"
@@ -16,7 +16,7 @@
               </a>
             </h1>
           </div>
-          <div class="bg-gray-700 flex items-center rounded-full shadow-xl w-1/4 mr-20">
+          <div class="bg-gray-700 flex items-center rounded-full shadow-xl w-1/4 mr-20" role="search">
             <input
               v-model="computedGetState"
               class="bg-gray-700 rounded-l-full w-full py-4 px-6 text-gray-400 leading-tight focus:outline-none"

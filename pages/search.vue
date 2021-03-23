@@ -1,8 +1,8 @@
 <template>
   <section>
     <!-- モバイル -->
-    <div v-if="$device.isMobile" class="pt-1 pb-20 container">
-      <div class="bg-black fixed top-0 z-20">
+    <div v-if="$device.isMobile" class="pt-1 pb-20">
+      <div class="bg-black fixed top-0 z-20" role="search">
         <div class="bg-gray-700 flex items-center shadow-xl rounded-lg m-2" style="width: 359px;">
           <div class="bg-gray-700 text-gray-400 focus:outline-one w-12 h-12 flex items-center justify-center">
             <i class="material-icons">search</i>
