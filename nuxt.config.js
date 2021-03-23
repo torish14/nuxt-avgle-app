@@ -157,8 +157,6 @@ export default {
     '@nuxtjs/eslint-module',
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
     '@nuxtjs/tailwindcss',
-    // Doc: https://google-analytics.nuxtjs.org
-    '@nuxtjs/google-analytics',
     // Doc: https://github.com/robcresswell/nuxt-compress
     'nuxt-compress',
     // Doc: https://github.com/juliomrqz/nuxt-optimized-images
