@@ -164,7 +164,7 @@ export default Vue.extend({
   },
   fetch (): void {
     // @ts-ignore
-    if(this.$accessor.search.message === 'AV女優') {
+    if(this.$accessor.search.suggestMessages.length > 0) {
       return
     }
     this.$accessor.search.setSuggestMessage()
@@ -200,6 +200,12 @@ export default Vue.extend({
         }
       }
     },
+    getSuggestItems (): any {
+      return this.suggestMessages.slice()
+      .sort(
+        function() { return Math.random()-.5 }
+      )
+    },
     // ? 現在ページのアイテムを返す
     getPaginationItems (): number {
       // @ts-ignore
@@ -207,9 +213,9 @@ export default Vue.extend({
       // @ts-ignore
       const start = current - this.parPage
       return this.suggestMessages.slice(start, current)
-      // .sort(
-      //   function() { return Math.random()-.5 }
-      // )
+      .sort(
+        function() { return Math.random()-.5 }
+      )
     },
     // ? ページネーションの最大ページ数を求めるためにitems をparPage で割って切り上げる
     getPageCount (): number {

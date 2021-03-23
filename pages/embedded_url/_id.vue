@@ -625,27 +625,27 @@ export default Vue.extend({
     },
     getJapaneseItemsDesktop (): any {
       return this.messages.slice(0,20)
-      // .sort(
-      //   function() { return Math.random()-.5 }
-      // )
+      .sort(
+        function() { return Math.random()-.5 }
+      )
     },
     getJapaneseItems (): any {
       return this.messages.slice(0,50)
-      // .sort(
-      //   function() { return Math.random()-.5 }
-      // )
+      .sort(
+        function() { return Math.random()-.5 }
+      )
     },
     getSuggestItems (): any {
       return this.suggestMessages.slice(0,50)
-      // .sort(
-      //   function() { return Math.random()-.5 }
-      // )
+      .sort(
+        function() { return Math.random()-.5 }
+      )
     },
     getSearchItems (): any {
       return this.searchMessages.slice(0,50)
-      // .sort(
-      //   function() { return Math.random()-.5 }
-      // )
+      .sort(
+        function() { return Math.random()-.5 }
+      )
     },
     // prevRouteChild() {
     //   return this.$accessor.prevRoute

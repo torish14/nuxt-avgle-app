@@ -236,14 +236,14 @@ export default Vue.extend({
   },
   fetch (): void {
     // @ts-ignore
-    // if(this.$accessor.search.searchMessages.length > 0) {
-    //   return
-    // }
-    // this.$accessor.search.setSearchMessage()
+    if(this.$accessor.search.searchMessages.length > 0) {
+      return
+    }
+    this.$accessor.search.setSearchMessage()
     this.$accessor.search.getSearchItems()
   },
   computed: {
-    ...mapGetters('search', ['message', 'searchMessages', 'errorMessage']),
+    ...mapGetters('search', ['message', 'searchMessages', 'errorMessage', 'firstSkeleton']),
     computedGetState: {
       get (): string {
         // @ts-ignore
@@ -282,6 +282,12 @@ export default Vue.extend({
         }
       }
     },
+    getSearchItems (): any {
+      return this.searchMessages.slice()
+      .sort(
+        function() { return Math.random()-.5 }
+      )
+    },
     // ? 現在ページのアイテムを返す
     getPaginationItems (): number {
       // @ts-ignore
@@ -289,9 +295,9 @@ export default Vue.extend({
       // @ts-ignore
       const start = current - this.parPage
       return this.searchMessages.slice(start, current)
-      // .sort(
-      //   function() { return Math.random()-.5 }
-      // )
+      .sort(
+        function() { return Math.random()-.5 }
+      )
     },
     // ? ページネーションの最大ページ数を求めるためにitems をparPage で割って切り上げる
     getPageCount (): number {
@@ -314,6 +320,16 @@ export default Vue.extend({
     if (this.$fetchState.timestamp <= Date.now() - 30000) {
       this.$fetch()
     }
+  },
+  created(): void {
+    if (process.browser) {
+      // @ts-ignore
+      window.addEventListener('beforeunload', this.setSearchForm) // eslint-disable-line
+    }
+  },
+  destroyed(): void {
+    // @ts-ignore
+    window.removeEventListener('beforeunload', this.setSearchForm)
   },
   methods: {
     search (e: any): void {
@@ -353,16 +369,32 @@ export default Vue.extend({
     setJapaneseForm (): void {
       if (this.$accessor.search.message !== '日本人') {
         this.$accessor.search.setJapaneseMessage()
+        this.$accessor.search.messages
+        // @ts-ignore
+        .sort(
+          function() { return Math.random()-.5 }
+        )
       }
-      // @ts-ignore
-      this.$accessor.search.searchMessages.splice(0, this.$accessor.search.searchMessages.length)
     },
     setSuggestForm (): void {
       if (this.$accessor.search.message !== 'AV女優') {
         this.$accessor.search.setSuggestMessage()
+        this.$accessor.search.suggestMessages
+        // @ts-ignore
+        .sort(
+          function() { return Math.random()-.5 }
+        )
       }
-      // @ts-ignore
-      this.$accessor.search.searchMessages.splice(0, this.$accessor.search.searchMessages.length)
+    },
+    setSearchForm (): void {
+      if (this.$accessor.search.message !== '美少女') {
+        this.$accessor.search.setSearchMessage()
+        this.$accessor.search.searchMessages
+        // @ts-ignore
+        .sort(
+          function() { return Math.random()-.5 }
+        )
+      }
     },
     clearForm (): void {
       this.$accessor.search.clearMessage()

@@ -79,16 +79,22 @@ export default Vue.extend({
     setJapaneseForm (): void {
       if (this.$accessor.search.message !== '日本人') {
         this.$accessor.search.setJapaneseMessage()
+        this.$accessor.search.messages
+        // @ts-ignore
+        .sort(
+          function() { return Math.random()-.5 }
+        )
       }
-      // @ts-ignore
-      this.$accessor.search.searchMessages.splice(0, this.$accessor.search.searchMessages.length)
     },
     setSuggestForm (): void {
       if (this.$accessor.search.message !== 'AV女優') {
         this.$accessor.search.setSuggestMessage()
+        this.$accessor.search.suggestMessages
+        // @ts-ignore
+        .sort(
+          function() { return Math.random()-.5 }
+        )
       }
-      // @ts-ignore
-      this.$accessor.search.searchMessages.splice(0, this.$accessor.search.searchMessages.length)
     },
     clearForm (): void {
       this.$accessor.search.clearMessage()

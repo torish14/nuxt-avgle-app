@@ -313,16 +313,16 @@ export default Vue.extend({
         '@id': item.url,
         name: item.text,
       },
-    }));
+    }))
     return {
       '@context': 'https://schema.org',
       '@type': 'BreadcrumbList',
       itemListElement: items,
-    };
+    }
   },
   fetch (): void {
     // @ts-ignore
-    if(this.$accessor.search.message === '日本人') {
+    if(this.$accessor.search.messages.length > 0) {
       return
     }
     this.$accessor.search.setJapaneseMessage()
@@ -371,6 +371,13 @@ export default Vue.extend({
         }
       }
     },
+    getJapaneseItems (): number {
+      // @ts-ignore
+      return this.messages.slice()
+      .sort(
+        function() { return Math.random()-.5 }
+      )
+    },
     // ? 現在ページのアイテムを返す
     getPaginationItems (): number {
       // @ts-ignore
@@ -378,9 +385,9 @@ export default Vue.extend({
       // @ts-ignore
       const start = current - this.parPage
       return this.messages.slice(start, current)
-      // .sort(
-      //   function() { return Math.random()-.5 }
-      // )
+      .sort(
+        function() { return Math.random()-.5 }
+      )
     },
     // ? ページネーションの最大ページ数を求めるためにitems をparPage で割って切り上げる
     getPageCount (): number {
