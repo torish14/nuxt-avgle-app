@@ -36,7 +36,10 @@ export default {
     title: process.env.npm_package_name || '',
     meta: [
       { charset: 'utf-8' },
-      { 'http-equiv': 'x-ua-compatible', content: 'ie=edge' },
+      {
+        'http-equiv': 'x-ua-compatible',
+        content: 'ie=edge',
+      },
       {
         name: 'viewport',
         content:
@@ -49,7 +52,8 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || siteDesc,
+        content:
+          process.env.npm_package_description || siteDesc,
       },
       {
         hid: 'keywords',
@@ -134,14 +138,35 @@ export default {
    ** Plugins to load before mounting the App
    */
   plugins: [
-    { src: '~/plugins/localStorage.js', mode: 'client' },
+    {
+      src: '~/plugins/localStorage.js',
+      mode: 'client',
+    },
     // { src: '~plugins/ga.js', mode: 'client' },
-    { src: '~/plugins/axios.js', mode: 'client' },
-    { src: '~/plugins/logRocket.js', mode: 'client' },
-    { src: '~/plugins/pagination.js', mode: 'client' },
-    { src: '~/plugins/scroll.js', mode: 'client' },
-    { src: '~/plugins/lazyLoad.js', mode: 'client' },
-    { src: '~/plugins/jsonld.js', mode: 'client' },
+    {
+      src: '~/plugins/axios.js',
+      mode: 'client',
+    },
+    {
+      src: '~/plugins/logRocket.js',
+      mode: 'client',
+    },
+    {
+      src: '~/plugins/pagination.js',
+      mode: 'client',
+    },
+    {
+      src: '~/plugins/scroll.js',
+      mode: 'client',
+    },
+    {
+      src: '~/plugins/lazyLoad.js',
+      mode: 'client',
+    },
+    {
+      src: '~/plugins/jsonld.js',
+      mode: 'client',
+    },
     // { src: '~/plugins/loading.js', mode: 'client' },
     // { src: '~/plugins/infiniteloading.js', mode: 'client' }
   ],
@@ -218,9 +243,6 @@ export default {
       ],
     },
   },
-  googleAnalytics: {
-    // id: 'G-S2NZP1L0D8',
-  },
   env: {
     NODE_ENV: process.env.NODE_ENV,
   },
@@ -268,7 +290,12 @@ export default {
   robots: {
     UserAgent: '*',
     // クローリングしないパスを記述
-    Disallow: ['/suggest', '/search', '/embedded_url/_id', '/sampleSuggest'],
+    Disallow: [
+      '/suggest',
+      '/search',
+      '/embedded_url/_id',
+      '/sampleSuggest',
+    ],
     // sitemap.xmlのURLを記述
     Sitemap: 'https://porngle.love/sitemap.xml',
   },
@@ -295,13 +322,6 @@ export default {
         maxAge: 60 * 60 * 24 * 365 * 1000,
       },
     },
-    extend(config) {
-      const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
-      config.plugins.push(new HardSourceWebpackPlugin())
-      config.performance = config.performance || {}
-      config.performance.maxEntrypointSize = 1200 * 1024
-      config.performance.maxAssetSize = 700 * 1024
-    },
     babel: {
       presets({ isServer }) {
         return [
@@ -316,8 +336,10 @@ export default {
       },
     },
     filenames: {
-      app: ({ isDev }) => (isDev ? '[name].[hash].js' : '[chunkhash].js'),
-      chunk: ({ isDev }) => (isDev ? '[name].[hash].js' : '[chunkhash].js'),
+      app: ({ isDev }) =>
+        isDev ? '[name].[hash].js' : '[chunkhash].js',
+      chunk: ({ isDev }) =>
+        isDev ? '[name].[hash].js' : '[chunkhash].js',
     },
     devMiddleware: {
       headers: {
@@ -327,7 +349,9 @@ export default {
     },
     terser: {
       terserOptions: {
-        compress: { drop_console: true },
+        compress: {
+          drop_console: true,
+        },
       },
     },
   },
