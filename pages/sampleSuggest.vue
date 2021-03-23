@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div class="container">
+    <div>
       <vue-autosuggest
         v-model="query"
         :suggestions="suggestions"
@@ -53,7 +53,7 @@ export default {
       // eslint-disable-next-line
       .filter(item => {
         if (item[field].toLowerCase().includes(text.toLowerCase())) {
-          return item[field];
+          return item[field]
         }
       })
       .sort()
@@ -66,7 +66,7 @@ export default {
 </script>
 
 <style>
-#app {
+/* #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -140,7 +140,7 @@ export default {
 .autosuggest__results
   .autosuggest__results-item.autosuggest__results-item--highlighted {
   background-color: #f6f6f6;
-}
+} */
 </style>
 
 <!-- <template>

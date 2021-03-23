@@ -470,10 +470,6 @@ export default Vue.extend({
   font-display: swap;
 } */
 
-.container::-webkit-scrollbar {
-  display: none;
-}
-
 .page-item {
   color: #8763D7 !important;
   font-weight: 600 !important;
