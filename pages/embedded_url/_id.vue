@@ -196,7 +196,7 @@
                 </h6>
               </template>
             </div>
-            <div class="flex flex-row my-2 mb-6">
+            <div class="flex flex-row my-2 mb-6 overflow-hidden">
               <div
                 v-if="
                   data.keyword
@@ -234,6 +234,7 @@
                         item !== '美人' &&
                         item !== '乳首' &&
                         item !== 'オ' &&
+                        item !== 'です' &&
                         item.length < 7
                     ).length === 0
                 "
@@ -275,6 +276,7 @@
                         item !== '美人' &&
                         item !== '乳首' &&
                         item !== 'オ' &&
+                        item !== 'です' &&
                         item.length < 7
                     ).length === 1
                 "
@@ -318,6 +320,7 @@
                             item !== '美人' &&
                             item !== '乳首' &&
                             item !== 'オ' &&
+                            item !== 'です' &&
                             item.length < 7
                         )[0]
                     )
@@ -359,6 +362,7 @@
                           item !== '美人' &&
                           item !== '乳首' &&
                           item !== 'オ' &&
+                          item !== 'です' &&
                           item.length < 7
                       )[0]
                   }}
@@ -401,6 +405,7 @@
                         item !== '美人' &&
                         item !== '乳首' &&
                         item !== 'オ' &&
+                        item !== 'です' &&
                         item.length < 7
                     ).length === 2
                 "
@@ -444,6 +449,7 @@
                             item !== '美人' &&
                             item !== '乳首' &&
                             item !== 'オ' &&
+                            item !== 'です' &&
                             item.length < 7
                         )[0]
                     )
@@ -485,6 +491,7 @@
                           item !== '美人' &&
                           item !== '乳首' &&
                           item !== 'オ' &&
+                          item !== 'です' &&
                           item.length < 7
                       )[0]
                   }}
@@ -528,6 +535,7 @@
                             item !== '美人' &&
                             item !== '乳首' &&
                             item !== 'オ' &&
+                            item !== 'です' &&
                             item.length < 7
                         )[1]
                     )
@@ -569,6 +577,7 @@
                           item !== '美人' &&
                           item !== '乳首' &&
                           item !== 'オ' &&
+                          item !== 'です' &&
                           item.length < 7
                       )[1]
                   }}
@@ -611,6 +620,7 @@
                         item !== '美人' &&
                         item !== '乳首' &&
                         item !== 'オ' &&
+                        item !== 'です' &&
                         item.length < 7
                     ).length === 3
                 "
@@ -654,6 +664,7 @@
                             item !== '美人' &&
                             item !== '乳首' &&
                             item !== 'オ' &&
+                            item !== 'です' &&
                             item.length < 7
                         )[0]
                     )
@@ -695,6 +706,7 @@
                           item !== '美人' &&
                           item !== '乳首' &&
                           item !== 'オ' &&
+                          item !== 'です' &&
                           item.length < 7
                       )[0]
                   }}
@@ -738,6 +750,7 @@
                             item !== '美人' &&
                             item !== '乳首' &&
                             item !== 'オ' &&
+                            item !== 'です' &&
                             item.length < 7
                         )[1]
                     )
@@ -779,6 +792,7 @@
                           item !== '美人' &&
                           item !== '乳首' &&
                           item !== 'オ' &&
+                          item !== 'です' &&
                           item.length < 7
                       )[1]
                   }}
@@ -822,6 +836,7 @@
                             item !== '美人' &&
                             item !== '乳首' &&
                             item !== 'オ' &&
+                            item !== 'です' &&
                             item.length < 7
                         )[2]
                     )
@@ -863,6 +878,7 @@
                           item !== '美人' &&
                           item !== '乳首' &&
                           item !== 'オ' &&
+                          item !== 'です' &&
                           item.length < 7
                       )[2]
                   }}
@@ -908,6 +924,7 @@
                             item !== '美人' &&
                             item !== '乳首' &&
                             item !== 'オ' &&
+                            item !== 'です' &&
                             item.length < 7
                         )[0]
                     )
@@ -949,6 +966,7 @@
                           item !== '美人' &&
                           item !== '乳首' &&
                           item !== 'オ' &&
+                          item !== 'です' &&
                           item.length < 7
                       )[0]
                   }}
@@ -992,6 +1010,7 @@
                             item !== '美人' &&
                             item !== '乳首' &&
                             item !== 'オ' &&
+                            item !== 'です' &&
                             item.length < 7
                         )[1]
                     )
@@ -1033,6 +1052,7 @@
                           item !== '美人' &&
                           item !== '乳首' &&
                           item !== 'オ' &&
+                          item !== 'です' &&
                           item.length < 7
                       )[1]
                   }}
@@ -1076,6 +1096,7 @@
                             item !== '美人' &&
                             item !== '乳首' &&
                             item !== 'オ' &&
+                            item !== 'です' &&
                             item.length < 7
                         )[2]
                     )
@@ -1117,6 +1138,7 @@
                           item !== '美人' &&
                           item !== '乳首' &&
                           item !== 'オ' &&
+                          item !== 'です' &&
                           item.length < 7
                       )[2]
                   }}
@@ -1160,6 +1182,7 @@
                             item !== '美人' &&
                             item !== '乳首' &&
                             item !== 'オ' &&
+                            item !== 'です' &&
                             item.length < 7
                         )[3]
                     )
@@ -1201,6 +1224,7 @@
                           item !== '美人' &&
                           item !== '乳首' &&
                           item !== 'オ' &&
+                          item !== 'です' &&
                           item.length < 7
                       )[3]
                   }}
@@ -1550,7 +1574,7 @@
                   </h6>
                 </template>
               </div>
-              <div class="flex flex-row my-2 mb-6">
+              <div class="flex flex-row my-2 mb-6 overflow-hidden">
                 <div
                   v-if="
                     data.keyword
@@ -1588,6 +1612,7 @@
                           item !== '美人' &&
                           item !== '乳首' &&
                           item !== 'オ' &&
+                          item !== 'です' &&
                           item.length < 7
                       ).length === 0
                   "
@@ -1629,6 +1654,7 @@
                           item !== '美人' &&
                           item !== '乳首' &&
                           item !== 'オ' &&
+                          item !== 'です' &&
                           item.length < 7
                       ).length === 1
                   "
@@ -1673,6 +1699,7 @@
                               item !== '美人' &&
                               item !== '乳首' &&
                               item !== 'オ' &&
+                              item !== 'です' &&
                               item.length < 7
                           )[0]
                       )
@@ -1714,6 +1741,7 @@
                             item !== '美人' &&
                             item !== '乳首' &&
                             item !== 'オ' &&
+                            item !== 'です' &&
                             item.length < 7
                         )[0]
                     }}
@@ -1756,6 +1784,7 @@
                           item !== '美人' &&
                           item !== '乳首' &&
                           item !== 'オ' &&
+                          item !== 'です' &&
                           item.length < 7
                       ).length === 2
                   "
@@ -1800,6 +1829,7 @@
                               item !== '美人' &&
                               item !== '乳首' &&
                               item !== 'オ' &&
+                              item !== 'です' &&
                               item.length < 7
                           )[0]
                       )
@@ -1841,6 +1871,7 @@
                             item !== '美人' &&
                             item !== '乳首' &&
                             item !== 'オ' &&
+                            item !== 'です' &&
                             item.length < 7
                         )[0]
                     }}
@@ -1884,6 +1915,7 @@
                               item !== '美人' &&
                               item !== '乳首' &&
                               item !== 'オ' &&
+                              item !== 'です' &&
                               item.length < 7
                           )[1]
                       )
@@ -1925,6 +1957,7 @@
                             item !== '美人' &&
                             item !== '乳首' &&
                             item !== 'オ' &&
+                            item !== 'です' &&
                             item.length < 7
                         )[1]
                     }}
@@ -1967,6 +2000,7 @@
                           item !== '美人' &&
                           item !== '乳首' &&
                           item !== 'オ' &&
+                          item !== 'です' &&
                           item.length < 7
                       ).length === 3
                   "
@@ -2011,6 +2045,7 @@
                               item !== '美人' &&
                               item !== '乳首' &&
                               item !== 'オ' &&
+                              item !== 'です' &&
                               item.length < 7
                           )[0]
                       )
@@ -2052,6 +2087,7 @@
                             item !== '美人' &&
                             item !== '乳首' &&
                             item !== 'オ' &&
+                            item !== 'です' &&
                             item.length < 7
                         )[0]
                     }}
@@ -2095,6 +2131,7 @@
                               item !== '美人' &&
                               item !== '乳首' &&
                               item !== 'オ' &&
+                              item !== 'です' &&
                               item.length < 7
                           )[1]
                       )
@@ -2136,6 +2173,7 @@
                             item !== '美人' &&
                             item !== '乳首' &&
                             item !== 'オ' &&
+                            item !== 'です' &&
                             item.length < 7
                         )[1]
                     }}
@@ -2179,6 +2217,7 @@
                               item !== '美人' &&
                               item !== '乳首' &&
                               item !== 'オ' &&
+                              item !== 'です' &&
                               item.length < 7
                           )[2]
                       )
@@ -2220,6 +2259,7 @@
                             item !== '美人' &&
                             item !== '乳首' &&
                             item !== 'オ' &&
+                            item !== 'です' &&
                             item.length < 7
                         )[2]
                     }}
@@ -2266,6 +2306,7 @@
                               item !== '美人' &&
                               item !== '乳首' &&
                               item !== 'オ' &&
+                              item !== 'です' &&
                               item.length < 7
                           )[0]
                       )
@@ -2307,6 +2348,7 @@
                             item !== '美人' &&
                             item !== '乳首' &&
                             item !== 'オ' &&
+                            item !== 'です' &&
                             item.length < 7
                         )[0]
                     }}
@@ -2350,6 +2392,7 @@
                               item !== '美人' &&
                               item !== '乳首' &&
                               item !== 'オ' &&
+                              item !== 'です' &&
                               item.length < 7
                           )[1]
                       )
@@ -2391,6 +2434,7 @@
                             item !== '美人' &&
                             item !== '乳首' &&
                             item !== 'オ' &&
+                            item !== 'です' &&
                             item.length < 7
                         )[1]
                     }}
@@ -2434,6 +2478,7 @@
                               item !== '美人' &&
                               item !== '乳首' &&
                               item !== 'オ' &&
+                              item !== 'です' &&
                               item.length < 7
                           )[2]
                       )
@@ -2475,6 +2520,7 @@
                             item !== '美人' &&
                             item !== '乳首' &&
                             item !== 'オ' &&
+                            item !== 'です' &&
                             item.length < 7
                         )[2]
                     }}
@@ -2518,6 +2564,7 @@
                               item !== '美人' &&
                               item !== '乳首' &&
                               item !== 'オ' &&
+                              item !== 'です' &&
                               item.length < 7
                           )[3]
                       )
@@ -2559,6 +2606,7 @@
                             item !== '美人' &&
                             item !== '乳首' &&
                             item !== 'オ' &&
+                            item !== 'です' &&
                             item.length < 7
                         )[3]
                     }}
@@ -2668,7 +2716,7 @@
                   </h6>
                 </template>
               </div>
-              <div class="flex flex-row my-2 mb-6">
+              <div class="flex flex-row my-2 mb-6 overflow-hidden">
                 <div
                   v-if="
                     data.keyword
@@ -2706,6 +2754,7 @@
                           item !== '美人' &&
                           item !== '乳首' &&
                           item !== 'オ' &&
+                          item !== 'です' &&
                           item.length < 7
                       ).length === 0
                   "
@@ -2747,6 +2796,7 @@
                           item !== '美人' &&
                           item !== '乳首' &&
                           item !== 'オ' &&
+                          item !== 'です' &&
                           item.length < 7
                       ).length === 1
                   "
@@ -2791,6 +2841,7 @@
                               item !== '美人' &&
                               item !== '乳首' &&
                               item !== 'オ' &&
+                              item !== 'です' &&
                               item.length < 7
                           )[0]
                       )
@@ -2832,6 +2883,7 @@
                             item !== '美人' &&
                             item !== '乳首' &&
                             item !== 'オ' &&
+                            item !== 'です' &&
                             item.length < 7
                         )[0]
                     }}
@@ -2874,6 +2926,7 @@
                           item !== '美人' &&
                           item !== '乳首' &&
                           item !== 'オ' &&
+                          item !== 'です' &&
                           item.length < 7
                       ).length === 2
                   "
@@ -2918,6 +2971,7 @@
                               item !== '美人' &&
                               item !== '乳首' &&
                               item !== 'オ' &&
+                              item !== 'です' &&
                               item.length < 7
                           )[0]
                       )
@@ -2959,6 +3013,7 @@
                             item !== '美人' &&
                             item !== '乳首' &&
                             item !== 'オ' &&
+                            item !== 'です' &&
                             item.length < 7
                         )[0]
                     }}
@@ -3002,6 +3057,7 @@
                               item !== '美人' &&
                               item !== '乳首' &&
                               item !== 'オ' &&
+                              item !== 'です' &&
                               item.length < 7
                           )[1]
                       )
@@ -3043,6 +3099,7 @@
                             item !== '美人' &&
                             item !== '乳首' &&
                             item !== 'オ' &&
+                            item !== 'です' &&
                             item.length < 7
                         )[1]
                     }}
@@ -3085,6 +3142,7 @@
                           item !== '美人' &&
                           item !== '乳首' &&
                           item !== 'オ' &&
+                          item !== 'です' &&
                           item.length < 7
                       ).length === 3
                   "
@@ -3129,6 +3187,7 @@
                               item !== '美人' &&
                               item !== '乳首' &&
                               item !== 'オ' &&
+                              item !== 'です' &&
                               item.length < 7
                           )[0]
                       )
@@ -3170,6 +3229,7 @@
                             item !== '美人' &&
                             item !== '乳首' &&
                             item !== 'オ' &&
+                            item !== 'です' &&
                             item.length < 7
                         )[0]
                     }}
@@ -3213,6 +3273,7 @@
                               item !== '美人' &&
                               item !== '乳首' &&
                               item !== 'オ' &&
+                              item !== 'です' &&
                               item.length < 7
                           )[1]
                       )
@@ -3254,6 +3315,7 @@
                             item !== '美人' &&
                             item !== '乳首' &&
                             item !== 'オ' &&
+                            item !== 'です' &&
                             item.length < 7
                         )[1]
                     }}
@@ -3297,6 +3359,7 @@
                               item !== '美人' &&
                               item !== '乳首' &&
                               item !== 'オ' &&
+                              item !== 'です' &&
                               item.length < 7
                           )[2]
                       )
@@ -3338,6 +3401,7 @@
                             item !== '美人' &&
                             item !== '乳首' &&
                             item !== 'オ' &&
+                            item !== 'です' &&
                             item.length < 7
                         )[2]
                     }}
@@ -3384,6 +3448,7 @@
                               item !== '美人' &&
                               item !== '乳首' &&
                               item !== 'オ' &&
+                              item !== 'です' &&
                               item.length < 7
                           )[0]
                       )
@@ -3425,6 +3490,7 @@
                             item !== '美人' &&
                             item !== '乳首' &&
                             item !== 'オ' &&
+                            item !== 'です' &&
                             item.length < 7
                         )[0]
                     }}
@@ -3468,6 +3534,7 @@
                               item !== '美人' &&
                               item !== '乳首' &&
                               item !== 'オ' &&
+                              item !== 'です' &&
                               item.length < 7
                           )[1]
                       )
@@ -3509,6 +3576,7 @@
                             item !== '美人' &&
                             item !== '乳首' &&
                             item !== 'オ' &&
+                            item !== 'です' &&
                             item.length < 7
                         )[1]
                     }}
@@ -3552,6 +3620,7 @@
                               item !== '美人' &&
                               item !== '乳首' &&
                               item !== 'オ' &&
+                              item !== 'です' &&
                               item.length < 7
                           )[2]
                       )
@@ -3593,6 +3662,7 @@
                             item !== '美人' &&
                             item !== '乳首' &&
                             item !== 'オ' &&
+                            item !== 'です' &&
                             item.length < 7
                         )[2]
                     }}
@@ -3636,6 +3706,7 @@
                               item !== '美人' &&
                               item !== '乳首' &&
                               item !== 'オ' &&
+                              item !== 'です' &&
                               item.length < 7
                           )[3]
                       )
@@ -3677,6 +3748,7 @@
                             item !== '美人' &&
                             item !== '乳首' &&
                             item !== 'オ' &&
+                            item !== 'です' &&
                             item.length < 7
                         )[3]
                     }}
@@ -3786,7 +3858,7 @@
                   </h6>
                 </template>
               </div>
-              <div class="flex flex-row my-2 mb-6">
+              <div class="flex flex-row my-2 mb-6 overflow-hidden">
                 <div
                   v-if="
                     data.keyword
@@ -3824,6 +3896,7 @@
                           item !== '美人' &&
                           item !== '乳首' &&
                           item !== 'オ' &&
+                          item !== 'です' &&
                           item.length < 7
                       ).length === 0
                   "
@@ -3865,6 +3938,7 @@
                           item !== '美人' &&
                           item !== '乳首' &&
                           item !== 'オ' &&
+                          item !== 'です' &&
                           item.length < 7
                       ).length === 1
                   "
@@ -3909,6 +3983,7 @@
                               item !== '美人' &&
                               item !== '乳首' &&
                               item !== 'オ' &&
+                              item !== 'です' &&
                               item.length < 7
                           )[0]
                       )
@@ -3950,6 +4025,7 @@
                             item !== '美人' &&
                             item !== '乳首' &&
                             item !== 'オ' &&
+                            item !== 'です' &&
                             item.length < 7
                         )[0]
                     }}
@@ -3992,6 +4068,7 @@
                           item !== '美人' &&
                           item !== '乳首' &&
                           item !== 'オ' &&
+                          item !== 'です' &&
                           item.length < 7
                       ).length === 2
                   "
@@ -4036,6 +4113,7 @@
                               item !== '美人' &&
                               item !== '乳首' &&
                               item !== 'オ' &&
+                              item !== 'です' &&
                               item.length < 7
                           )[0]
                       )
@@ -4077,6 +4155,7 @@
                             item !== '美人' &&
                             item !== '乳首' &&
                             item !== 'オ' &&
+                            item !== 'です' &&
                             item.length < 7
                         )[0]
                     }}
@@ -4120,6 +4199,7 @@
                               item !== '美人' &&
                               item !== '乳首' &&
                               item !== 'オ' &&
+                              item !== 'です' &&
                               item.length < 7
                           )[1]
                       )
@@ -4161,6 +4241,7 @@
                             item !== '美人' &&
                             item !== '乳首' &&
                             item !== 'オ' &&
+                            item !== 'です' &&
                             item.length < 7
                         )[1]
                     }}
@@ -4203,6 +4284,7 @@
                           item !== '美人' &&
                           item !== '乳首' &&
                           item !== 'オ' &&
+                          item !== 'です' &&
                           item.length < 7
                       ).length === 3
                   "
@@ -4247,6 +4329,7 @@
                               item !== '美人' &&
                               item !== '乳首' &&
                               item !== 'オ' &&
+                              item !== 'です' &&
                               item.length < 7
                           )[0]
                       )
@@ -4288,6 +4371,7 @@
                             item !== '美人' &&
                             item !== '乳首' &&
                             item !== 'オ' &&
+                            item !== 'です' &&
                             item.length < 7
                         )[0]
                     }}
@@ -4331,6 +4415,7 @@
                               item !== '美人' &&
                               item !== '乳首' &&
                               item !== 'オ' &&
+                              item !== 'です' &&
                               item.length < 7
                           )[1]
                       )
@@ -4372,6 +4457,7 @@
                             item !== '美人' &&
                             item !== '乳首' &&
                             item !== 'オ' &&
+                            item !== 'です' &&
                             item.length < 7
                         )[1]
                     }}
@@ -4415,6 +4501,7 @@
                               item !== '美人' &&
                               item !== '乳首' &&
                               item !== 'オ' &&
+                              item !== 'です' &&
                               item.length < 7
                           )[2]
                       )
@@ -4456,6 +4543,7 @@
                             item !== '美人' &&
                             item !== '乳首' &&
                             item !== 'オ' &&
+                            item !== 'です' &&
                             item.length < 7
                         )[2]
                     }}
@@ -4502,6 +4590,7 @@
                               item !== '美人' &&
                               item !== '乳首' &&
                               item !== 'オ' &&
+                              item !== 'です' &&
                               item.length < 7
                           )[0]
                       )
@@ -4543,6 +4632,7 @@
                             item !== '美人' &&
                             item !== '乳首' &&
                             item !== 'オ' &&
+                            item !== 'です' &&
                             item.length < 7
                         )[0]
                     }}
@@ -4586,6 +4676,7 @@
                               item !== '美人' &&
                               item !== '乳首' &&
                               item !== 'オ' &&
+                              item !== 'です' &&
                               item.length < 7
                           )[1]
                       )
@@ -4627,6 +4718,7 @@
                             item !== '美人' &&
                             item !== '乳首' &&
                             item !== 'オ' &&
+                            item !== 'です' &&
                             item.length < 7
                         )[1]
                     }}
@@ -4670,6 +4762,7 @@
                               item !== '美人' &&
                               item !== '乳首' &&
                               item !== 'オ' &&
+                              item !== 'です' &&
                               item.length < 7
                           )[2]
                       )
@@ -4711,6 +4804,7 @@
                             item !== '美人' &&
                             item !== '乳首' &&
                             item !== 'オ' &&
+                            item !== 'です' &&
                             item.length < 7
                         )[2]
                     }}
@@ -4754,6 +4848,7 @@
                               item !== '美人' &&
                               item !== '乳首' &&
                               item !== 'オ' &&
+                              item !== 'です' &&
                               item.length < 7
                           )[3]
                       )
@@ -4795,6 +4890,7 @@
                             item !== '美人' &&
                             item !== '乳首' &&
                             item !== 'オ' &&
+                            item !== 'です' &&
                             item.length < 7
                         )[3]
                     }}
