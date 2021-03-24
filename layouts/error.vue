@@ -1,5 +1,5 @@
 <template>
-  <div class="error bg-black">
+  <div class="error bg-gray-800">
     <div class="flex flex-wrap flex-shrink-0 justify-center">
       <template v-if="error.statusCode === 404">
         <i class="material-icons text-gray-400">error</i>
@@ -44,6 +44,6 @@ export default {
 }
 
 body {
-  background-color: black;
+  background-color: #1f2937;
 }
 </style>

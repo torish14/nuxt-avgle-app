@@ -1,22 +1,34 @@
 <template>
   <section>
     <!-- デスクトップ -->
-    <div v-if="$device.isDesktop" id="header" class="bg-black">
+    <div v-if="$device.isDesktop" id="header" class="bg-gray-800">
       <client-only>
-        <header class="flex items-center justify-between flex-wrap p-6">
-          <div class="flex items-center flex-shrink-0 text-white mr-6" role="banner">
+        <header
+          class="flex items-center justify-between flex-wrap p-6"
+        >
+          <div
+            class="flex items-center flex-shrink-0 text-gray-100 mr-6"
+            role="banner"
+          >
             <h1>
-              <a href="https://porngle.love" aria-label="ホームへ戻る" @click="setJapaneseForm">
+              <a
+                href="https://porngle.love"
+                aria-label="ホームへ戻る"
+                @click="setJapaneseForm"
+              >
                 <img
                   src="~/assets/Porngle ロゴ.jpeg"
                   alt="Porngle"
                   class="w-40"
-                  style="height: 60px;"
-                >
+                  style="height: 60px"
+                />
               </a>
             </h1>
           </div>
-          <div class="bg-gray-700 flex items-center rounded-full shadow-xl w-1/4 mr-20" role="search">
+          <div
+            class="bg-gray-700 flex items-center rounded-full shadow-xl w-1/4 mr-20"
+            role="search"
+          >
             <input
               v-model="computedGetState"
               class="bg-gray-700 rounded-l-full w-full py-4 px-6 text-gray-400 leading-tight focus:outline-none"
@@ -37,17 +49,24 @@
       </client-only>
     </div>
     <!-- モバイル -->
-    <div v-else id="header" class="bg-black">
+    <div v-else id="header" class="bg-gray-800">
       <header v-show="isShow" role="banner">
-        <div class="flex bg-black top-0 w-full z-20 pb-1">
-          <div :class="isOpen ? 'hidden' : 'block'" class="flex items-center flex-shrink-0 text-white ml-2 py-2">
-            <a href="https://porngle.love" aria-label="ホームへ戻る" @click="setJapaneseForm">
+        <div class="flex bg-gray-800 top-0 w-full z-20">
+          <div
+            :class="isOpen ? 'hidden' : 'block'"
+            class="flex items-center flex-shrink-0 text-gray-100 ml-2 py-2"
+          >
+            <a
+              href="https://porngle.love"
+              aria-label="ホームへ戻る"
+              @click="setJapaneseForm"
+            >
               <img
                 src="~/assets/Porngle ロゴ.jpeg"
                 alt="Porngle"
                 class="w-24"
-                style="height: 40px;"
-              >
+                style="height: 40px"
+              />
             </a>
           </div>
           <!-- <div :class="isOpen ? 'block' : 'hidden'" class="w-full pl-2">

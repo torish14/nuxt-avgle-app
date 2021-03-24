@@ -2,9 +2,14 @@
   <section>
     <!-- モバイル -->
     <div v-if="$device.isMobile" class="pt-1 pb-20">
-      <div class="bg-black fixed top-0 z-20" role="search">
-        <div class="bg-gray-700 flex items-center shadow-xl rounded-lg m-2" style="width: 359px;">
-          <div class="bg-gray-700 text-gray-400 focus:outline-one w-12 h-12 flex items-center justify-center">
+      <div class="bg-gray-800 fixed top-0 z-20" role="search">
+        <div
+          class="bg-gray-700 flex items-center shadow-xl rounded-lg m-2"
+          style="width: 359px"
+        >
+          <div
+            class="bg-gray-700 text-gray-400 focus:outline-one w-12 h-12 flex items-center justify-center"
+          >
             <i class="material-icons">search</i>
           </div>
           <input
@@ -153,32 +158,52 @@
       <!-- フッター -->
       <footer class="text-gray-500">
         <nav role="navigation">
-          <ul class="flex justify-around py-1 fixed z-10 bottom-0 bg-black w-full leading-4">
+          <ul
+            class="flex justify-around py-1 fixed z-10 bottom-0 bg-gray-800 w-full leading-4"
+          >
             <li>
-              <nuxt-link to="/" aria-label="ホームへ戻る" @click.native="refresh(); setJapaneseForm()">
+              <nuxt-link
+                to="/"
+                aria-label="ホームへ戻る"
+                @click.native="
+                  refresh()
+                  setJapaneseForm()
+                "
+              >
                 <div class="text-center align-middle">
                   <i class="material-icons">home</i>
-                  <p class="icon-text" style="font-size: 10px;">
+                  <p class="icon-text" style="font-size: 10px">
                     ホーム
                   </p>
                 </div>
               </nuxt-link>
             </li>
             <li>
-              <nuxt-link to="/suggest" aria-label="オススメへ進む" @click.native="refresh(); setSuggestForm()">
+              <nuxt-link
+                to="/suggest"
+                aria-label="オススメへ進む"
+                @click.native="
+                  refresh()
+                  setSuggestForm()
+                "
+              >
                 <div class="text-center align-middle">
                   <i class="material-icons">live_tv</i>
-                  <p class="icon-text" style="font-size: 10px;">
+                  <p class="icon-text" style="font-size: 10px">
                     オススメ
                   </p>
                 </div>
               </nuxt-link>
             </li>
             <li>
-              <nuxt-link to="/search" aria-label="検索へ進む" @click.native="focusSearch();">
+              <nuxt-link
+                to="/search"
+                aria-label="検索へ進む"
+                @click.native="focusSearch()"
+              >
                 <div class="text-center align-middle">
                   <i class="material-icons">search</i>
-                  <p class="icon-text" style="font-size: 10px;">
+                  <p class="icon-text" style="font-size: 10px">
                     検索
                   </p>
                 </div>

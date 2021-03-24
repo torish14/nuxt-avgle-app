@@ -533,7 +533,7 @@ li {
 }
 
 body {
-  background-color: black
+  background-color: #1f2937;
 }
 </style>
 
