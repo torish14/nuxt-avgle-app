@@ -105,46 +105,46 @@ export type DataType = {
 export default Vue.extend({
   data(): DataType {
     return {
-      activetab: 1
+      activetab: 1,
     }
   },
   methods: {
-    setJapaneseForm (): void {
+    setJapaneseForm(): void {
       if (this.$accessor.search.message !== '日本人') {
         this.$accessor.search.setJapaneseMessage()
-        this.$accessor.search.messages
-        // @ts-ignore
-        .sort(
-          function() { return Math.random()-.5 }
-        )
       }
+      this.$accessor.search.messages
+        // @ts-ignore
+        .sort(function () {
+          return Math.random() - 0.5
+        })
     },
-    setSuggestForm (): void {
+    setSuggestForm(): void {
       if (this.$accessor.search.message !== 'AV女優') {
         this.$accessor.search.setSuggestMessage()
-        this.$accessor.search.suggestMessages
-        // @ts-ignore
-        .sort(
-          function() { return Math.random()-.5 }
-        )
       }
+      this.$accessor.search.suggestMessages
+        // @ts-ignore
+        .sort(function () {
+          return Math.random() - 0.5
+        })
     },
-    clearForm (): void {
+    clearForm(): void {
       this.$accessor.search.clearMessage()
     },
-    focusSearch (): void {
+    focusSearch(): void {
       // @ts-ignore
       // this.$refs.textInput.focus()
     },
-    refresh (): void {
+    refresh(): void {
       this.$nuxt.refresh()
-    }
+    },
   },
 })
 </script>
 
 <style>
 .nuxt-link-exact-active {
-  color: white;
+  color: #e5e7eb;
 }
 </style>

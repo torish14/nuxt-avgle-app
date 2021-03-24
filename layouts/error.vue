@@ -15,7 +15,12 @@
           &nbsp;エラーが発生しました。
         </h5>
       </template>
-      <a href="https://porngle.love" aria-label="ホームへ戻る" class="text-gray-400 text-lg hover:text-purple-600" @click="setJapaneseForm">
+      <a
+        href="https://porngle.love"
+        aria-label="ホームへ戻る"
+        class="text-gray-400 text-lg hover:text-purple-600"
+        @click="setJapaneseForm"
+      >
         &nbsp;トップページに戻る
       </a>
     </div>
@@ -27,13 +32,13 @@ export default {
   props: {
     error: {
       type: Object,
-      default: null
-    }
+      default: null,
+    },
   },
   methods: {
-    setJapaneseForm () {
+    setJapaneseForm() {
       this.$accessor.search.setJapaneseMessage()
-    }
+    },
   },
 }
 </script>

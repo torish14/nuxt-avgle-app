@@ -1,11 +1,9 @@
 <template>
   <div v-if="$device.isDesktop">
-    <p class="text-white">
+    <p class="text-gray-100">
       {{ translateMessages }}
     </p>
-    <button @click="$fetch">
-      Refresh
-    </button>
+    <button @click="$fetch">Refresh</button>
   </div>
 </template>
 
@@ -14,19 +12,19 @@ import Vue from 'vue'
 import { mapGetters } from 'vuex'
 
 export default Vue.extend({
-  fetch () {
+  fetch() {
     this.$accessor.search.getTranslateTitles()
   },
   computed: {
-    ...mapGetters('search', ['translateMessages'])
+    ...mapGetters('search', ['translateMessages']),
   },
   mounted() {
     this.refresh()
   },
   methods: {
-    refresh () {
+    refresh() {
       this.$fetch()
-    }
-  }
+    },
+  },
 })
 </script>

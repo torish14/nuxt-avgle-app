@@ -21,13 +21,65 @@
             inputmode="search"
             role="search"
             @keydown.enter="search"
-          >
+          />
         </div>
       </div>
       <client-only>
         <main class="flex flex-wrap justify-center">
-          <div class="pt-10" style="width: 375px;">
-            <template v-if="searchMessages.length === 0 && errorMessage || message === '無修正' || message === 'Uncensored' || message === 'uncensored' || message === 'PAKO' || message === 'Pako' || message === 'pako' || message === 'ぱこ' || message === 'パコ' || message === 'CARIB' || message === 'Carib' || message === 'carib' || message === 'かりぶ' || message === 'カリブ' || message === 'FC2' || message === 'Fc2' || message === 'fc2' || message === '完全素人' || message === '個人撮影' || message === 'DEEPFAKE' || message === 'DeepFake' || message === 'Deepfake' || message === 'deepfake' || message === 'カリビアンコム' || message === '一本道' || message === 'HEYZO' || message === 'Heyzo' || message === 'heyzo' || message === '東京熱' || message === 'TOKYO-HOT' || message === 'Toyo-Hot' || message === 'Tokyo-hot' || message === 'tokyo-hot' || message === 'AV9898' || message === 'Av9898' || message === 'av9898' || message === 'PORNHUB' || message === 'PornHub' || message === 'Pornhub' || message === 'pornhub' || message === 'エッチな4610' || message === 'エッチな0930' || message === '人妻斬り' || message === 'SM-MIRACLE' || message === 'SM-Miracle' || message === 'SM-miracle' || message === 'sm-miracle' || message === 'のぞきザムライ' || message === '金8天国'">
+          <div class="pt-10" style="width: 375px">
+            <template
+              v-if="
+                (searchMessages.length === 0 && errorMessage) ||
+                message === '無修正' ||
+                message === 'Uncensored' ||
+                message === 'uncensored' ||
+                message === 'PAKO' ||
+                message === 'Pako' ||
+                message === 'pako' ||
+                message === 'ぱこ' ||
+                message === 'パコ' ||
+                message === 'CARIB' ||
+                message === 'Carib' ||
+                message === 'carib' ||
+                message === 'かりぶ' ||
+                message === 'カリブ' ||
+                message === 'FC2' ||
+                message === 'Fc2' ||
+                message === 'fc2' ||
+                message === '完全素人' ||
+                message === '個人撮影' ||
+                message === 'DEEPFAKE' ||
+                message === 'DeepFake' ||
+                message === 'Deepfake' ||
+                message === 'deepfake' ||
+                message === 'カリビアンコム' ||
+                message === '一本道' ||
+                message === 'HEYZO' ||
+                message === 'Heyzo' ||
+                message === 'heyzo' ||
+                message === '東京熱' ||
+                message === 'TOKYO-HOT' ||
+                message === 'Toyo-Hot' ||
+                message === 'Tokyo-hot' ||
+                message === 'tokyo-hot' ||
+                message === 'AV9898' ||
+                message === 'Av9898' ||
+                message === 'av9898' ||
+                message === 'PORNHUB' ||
+                message === 'PornHub' ||
+                message === 'Pornhub' ||
+                message === 'pornhub' ||
+                message === 'エッチな4610' ||
+                message === 'エッチな0930' ||
+                message === '人妻斬り' ||
+                message === 'SM-MIRACLE' ||
+                message === 'SM-Miracle' ||
+                message === 'SM-miracle' ||
+                message === 'sm-miracle' ||
+                message === 'のぞきザムライ' ||
+                message === '金8天国'
+              "
+            >
               <client-only>
                 <div class="flex justify-center pt-8">
                   <i class="material-icons text-gray-400">search</i>
@@ -37,7 +89,41 @@
                 </div>
               </client-only>
             </template>
-            <!-- <div v-else-if="$fetchState.pending">
+            <div v-else-if="$fetchState.pending">
+              <client-only>
+                <div class="flex mt-2">
+                  <SearchSkeletonImg class="ml-4 my-2" />
+                  <div class="flex flex-wrap">
+                    <SearchSkeletonTitle />
+                  </div>
+                </div>
+                <div class="flex">
+                  <SearchSkeletonImg class="ml-4 my-2" />
+                  <div class="flex flex-wrap">
+                    <SearchSkeletonTitle />
+                  </div>
+                </div>
+                <div class="flex">
+                  <SearchSkeletonImg class="ml-4 my-2" />
+                  <div class="flex flex-wrap">
+                    <SearchSkeletonTitle />
+                  </div>
+                </div>
+                <div class="flex">
+                  <SearchSkeletonImg class="ml-4 my-2" />
+                  <div class="flex flex-wrap">
+                    <SearchSkeletonTitle />
+                  </div>
+                </div>
+                <div class="flex">
+                  <SearchSkeletonImg class="ml-4 my-2" />
+                  <div class="flex flex-wrap">
+                    <SearchSkeletonTitle />
+                  </div>
+                </div>
+              </client-only>
+            </div>
+            <!-- <div v-else-if="firstSkeleton">
               <client-only>
                 <div class="flex mt-2">
                   <SearchSkeletonImg class="ml-4 my-2" />
@@ -78,32 +164,51 @@
               </h5>
             </template>
             <template v-else>
-              <div v-for="data in searchMessages" :key="data.vid">
+              <div v-for="data in getSearchItems" :key="data.vid">
                 <div class="flex m-4">
-                  <nuxt-link :to="{ path: 'embedded_url' + '/' + data.vid }" aria-label="動画埋め込みページへ遷移" @click.native="getRecommendTitle(data.title)">
-                    <div class="relative" style="width: 160px; height: 90px;">
+                  <nuxt-link
+                    :to="{ path: 'embedded_url' + '/' + data.vid }"
+                    aria-label="動画埋め込みページへ遷移"
+                    @click.native="getRecommendTitle(data.title)"
+                  >
+                    <div
+                      class="relative"
+                      style="width: 160px; height: 90px"
+                    >
                       <vue-lazy-component>
                         <img
                           :src="data.preview_url"
                           alt="サムネイル"
                           width="160"
                           height="90"
-                          class="z-auto relative text-white"
+                          class="z-auto relative text-gray-200"
                           referrerpolicy="no-referrer"
                           crossorigin
-                        >
+                        />
                         <SearchSkeletonImg slot="skeleton" />
                       </vue-lazy-component>
-                      <h5 class="text-white z-10 absolute right-0 bottom-0 bg-black rounded-sm px-1 m-1" style="font-size: 10px;">
+                      <h5
+                        class="text-gray-100 z-10 absolute right-0 bottom-0 bg-gray-900 rounded-sm px-1 py-px m-1"
+                        style="font-size: 10px"
+                      >
                         {{ toHms(data.duration) }}
                       </h5>
                     </div>
                   </nuxt-link>
-                  <div class="ml-2" style="width: 175px; height: 90px">
-                    <nuxt-link :to="{ path: 'embedded_url' + '/' + data.vid }" aria-label="動画埋め込みページへ遷移" @click.native="getRecommendTitle(data.title)">
+                  <div
+                    class="ml-2"
+                    style="width: 175px; height: 90px"
+                  >
+                    <nuxt-link
+                      :to="{ path: 'embedded_url' + '/' + data.vid }"
+                      aria-label="動画埋め込みページへ遷移"
+                      @click.native="getRecommendTitle(data.title)"
+                    >
                       <!-- <vue-lazy-component> -->
-                      <p class="text-white text-sm hover:text-purple-500">
-                        {{ data.title.slice(0,36) }}
+                      <p
+                        class="text-gray-200 text-sm hover:text-purple-500"
+                      >
+                        {{ data.title.slice(0, 36) }}
                       </p>
                       <!-- <SearchSkeletonTitle slot="skeleton" /> -->
                       <!-- </vue-lazy-component> -->
@@ -112,12 +217,21 @@
                       <!-- <vue-lazy-component> -->
                       <template v-if="data.viewnumber >= 1000000">
                         <h6 class="text-gray-400 mr-1 text-xs">
-                          再生数 {{ Math.ceil(data.viewnumber / 1000000) }}M・
+                          再生数
+                          {{
+                            Math.ceil(data.viewnumber / 1000000)
+                          }}M・
                         </h6>
                       </template>
-                      <template v-else-if="data.viewnumber >= 1000 && data.viewnumber < 1000000">
+                      <template
+                        v-else-if="
+                          data.viewnumber >= 1000 &&
+                          data.viewnumber < 1000000
+                        "
+                      >
                         <h6 class="text-gray-400 mr-1 text-xs">
-                          再生数 {{ Math.ceil(data.viewnumber / 1000) }}K・
+                          再生数
+                          {{ Math.ceil(data.viewnumber / 1000) }}K・
                         </h6>
                       </template>
                       <template v-else>
@@ -125,16 +239,36 @@
                           再生数 {{ Math.ceil(data.viewnumber) }}・
                         </h6>
                       </template>
-                      <template v-if="Number.isNaN(data.likes / (data.likes + data.dislikes) * 100)">
-                        <i class="material-icons text-gray-400" style="font-size: 16px;">thumb_up</i>
-                        <h6 class="text-gray-400 px-1 text-xs">
-                          0%
-                        </h6>
+                      <template
+                        v-if="
+                          Number.isNaN(
+                            (data.likes /
+                              (data.likes + data.dislikes)) *
+                              100
+                          )
+                        "
+                      >
+                        <i
+                          class="material-icons text-gray-400"
+                          style="font-size: 16px"
+                          >thumb_up</i
+                        >
+                        <h6 class="text-gray-400 px-1 text-xs">0%</h6>
                       </template>
                       <template v-else>
-                        <i class="material-icons text-gray-400" style="font-size: 16px;">thumb_up</i>
+                        <i
+                          class="material-icons text-gray-400"
+                          style="font-size: 16px"
+                          >thumb_up</i
+                        >
                         <h6 class="text-gray-400 px-1 text-xs">
-                          {{ Math.ceil(data.likes / (data.likes + data.dislikes) * 100) }}%
+                          {{
+                            Math.ceil(
+                              (data.likes /
+                                (data.likes + data.dislikes)) *
+                                100
+                            )
+                          }}%
                         </h6>
                       </template>
                       <!-- </vue-lazy-component> -->
@@ -225,7 +359,7 @@ import Meta from '~/assets/mixins/meta.js'
 // import SearchSkeletonTitle from '~/components/SearchSkeletonTitle.vue'
 
 export type DataType = {
-  parPage: number,
+  parPage: number
   meta: object
 }
 
@@ -236,55 +370,62 @@ export default Vue.extend({
     // @ts-ignore
     SearchSkeletonImg: () => import('~/components/SearchSkeletonImg'),
     // @ts-ignore
-    // SearchSkeletonTitle: () => import('~/components/SearchSkeletonTitle')
+    SearchSkeletonTitle: () =>
+      // @ts-ignore
+      import('~/components/SearchSkeletonTitle'),
     // @ts-ignore
     // SearchSkeletonTitle,
     // @ts-ignore
   },
   mixins: [Meta],
   // @ts-ignore
-  layout: (ctx) => ctx.$device.isMobile ? 'mobile' : 'default',
+  layout: (ctx) => (ctx.$device.isMobile ? 'mobile' : 'default'),
   scrollToTop: true,
-  data (): DataType {
+  data(): DataType {
     return {
       // ? 1ページに表示するアイテム数
       parPage: 20,
       meta: {
-      title: '検索',
-      description: '検索ページです。',
-      type: 'website',
-      url: 'https://porngle.love/search',
-      image: 'https://porngle.love/assets/PG ロゴ.jpeg',
-      robots: 'noindex'
-    }
+        title: '検索',
+        description: '検索ページです。',
+        type: 'website',
+        url: 'https://porngle.love/search',
+        image: 'https://porngle.love/assets/PG ロゴ.jpeg',
+        robots: 'noindex',
+      },
     }
   },
-  fetch (): void {
+  fetch(): void {
     // @ts-ignore
-    if(this.$accessor.search.searchMessages.length > 0) {
+    if (this.$accessor.search.searchMessages.length > 0) {
       return
     }
     this.$accessor.search.setSearchMessage()
     this.$accessor.search.getSearchItems()
   },
   computed: {
-    ...mapGetters('search', ['message', 'searchMessages', 'errorMessage', 'firstSkeleton']),
+    ...mapGetters('search', [
+      'message',
+      'searchMessages',
+      'errorMessage',
+      'firstSkeleton',
+    ]),
     computedGetState: {
-      get (): string {
+      get(): string {
         // @ts-ignore
         return this.$accessor.search.message
       },
-      set (val): void {
+      set(val): void {
         // @ts-ignore
         this.$accessor.search.commitMessage(val)
-      }
+      },
     },
-    toHms (): (t: any) => string {
+    toHms(): (t: any) => string {
       // @ts-ignore
-      return function(t) {
+      return function (t) {
         let hms = ''
-        const h = Math.ceil(t / 3600 | 0)
-        const m = Math.ceil(t % 3600 / 60 | 0)
+        const h = Math.ceil((t / 3600) | 0)
+        const m = Math.ceil(((t % 3600) / 60) | 0)
         const s = Math.ceil(t % 60)
 
         if (h !== 0) {
@@ -298,7 +439,7 @@ export default Vue.extend({
         // @ts-ignore
         return hms
 
-        function padZero (v: number) {
+        function padZero(v: number) {
           if (v < 10) {
             return '0' + v
           } else {
@@ -307,31 +448,31 @@ export default Vue.extend({
         }
       }
     },
-    getSearchItems (): any {
-      return this.searchMessages.slice()
-      .sort(
-        function() { return Math.random()-.5 }
-      )
+    getSearchItems(): any {
+      return this.searchMessages.slice().sort(function () {
+        return Math.random() - 0.5
+      })
     },
     // ? 現在ページのアイテムを返す
-    getPaginationItems (): number {
+    getPaginationItems(): number {
       // @ts-ignore
       const current = this.$accessor.currentIndexPage * this.parPage
       // @ts-ignore
       const start = current - this.parPage
-      return this.searchMessages.slice(start, current)
-      .sort(
-        function() { return Math.random()-.5 }
-      )
+      return this.searchMessages
+        .slice(start, current)
+        .sort(function () {
+          return Math.random() - 0.5
+        })
     },
     // ? ページネーションの最大ページ数を求めるためにitems をparPage で割って切り上げる
-    getPageCount (): number {
+    getPageCount(): number {
       // @ts-ignore
       return Math.ceil(this.searchMessages.length / this.parPage)
-    }
+    },
   },
   watch: {
-    '$route.query': '$fetch'
+    '$route.query': '$fetch',
   },
   mounted(): void {
     this.$nextTick(() => {
@@ -357,80 +498,96 @@ export default Vue.extend({
     window.removeEventListener('beforeunload', this.setSearchForm)
   },
   methods: {
-    search (e: any): void {
+    search(e: any): void {
       if (this.$accessor.search.message === '') {
-        if (e.keyCode !== 13) { return }
+        if (e.keyCode !== 13) {
+          return
+        }
         console.log('空文字です')
       } else {
-        if (e.keyCode !== 13) { return }
+        if (e.keyCode !== 13) {
+          return
+        }
         // @ts-ignore
         this.sendRequest()
         // @ts-ignore
         // this.show = true
         this.$nextTick(() => {
           e.target.blur()
-          window.scrollTo(0,0)
+          window.scrollTo(0, 0)
         })
       }
     },
-    sendRequest () {
+    sendRequest(): void {
       this.$accessor.search.getSearchItems()
       // @ts-ignore
       this.$accessor.changeIndexPagination()
+      // @ts-ignore
+      this.$accessor.search.addRecommendMessages(
+        this.$accessor.search.message
+      )
+      // @ts-ignore
+      this.$accessor.search.concatRecommendArray(
+        this.$store.state.search.recommendKeywords
+      )
     },
-    handler () {
+    handler(): void {
       console.log('Now loading')
     },
     // ? ページネーションをクリック時に、currentPage にページ番号を設定
-    clickCallback (pageNum: number) {
+    clickCallback(pageNum: number): void {
       // @ts-ignore
       this.$store.state.currentIndexPage = pageNum
       // @ts-ignore
-      this.$accessor.setCurrentIndexPage(this.$store.state.currentIndexPage)
-      window.scrollTo(0,0)
-      this.$router.push({ path: `?page=${this.$accessor.currentIndexPage}` })
+      this.$accessor.setCurrentIndexPage(
+        this.$store.state.currentIndexPage
+      )
+      window.scrollTo(0, 0)
+      this.$router.push({
+        path: `?page=${this.$accessor.currentIndexPage}`,
+      })
       this.$forceUpdate()
     },
-    setJapaneseForm (): void {
+    setJapaneseForm(): void {
       if (this.$accessor.search.message !== '日本人') {
         this.$accessor.search.setJapaneseMessage()
-        this.$accessor.search.messages
-        // @ts-ignore
-        .sort(
-          function() { return Math.random()-.5 }
-        )
       }
+      this.$accessor.search.messages
+        // @ts-ignore
+        .sort(function () {
+          return Math.random() - 0.5
+        })
     },
-    setSuggestForm (): void {
+    setSuggestForm(): void {
       if (this.$accessor.search.message !== 'AV女優') {
         this.$accessor.search.setSuggestMessage()
-        this.$accessor.search.suggestMessages
-        // @ts-ignore
-        .sort(
-          function() { return Math.random()-.5 }
-        )
       }
+      this.$accessor.search.suggestMessages
+        // @ts-ignore
+        .sort(function () {
+          return Math.random() - 0.5
+        })
     },
-    setSearchForm (): void {
+    setSearchForm(): void {
       if (this.$accessor.search.message !== '美少女') {
         this.$accessor.search.setSearchMessage()
-        this.$accessor.search.searchMessages
-        // @ts-ignore
-        .sort(
-          function() { return Math.random()-.5 }
-        )
       }
+      this.$accessor.search.searchMessages
+        // @ts-ignore
+        .sort(function () {
+          return Math.random() - 0.5
+        })
     },
-    clearForm (): void {
+    clearForm(): void {
       this.$accessor.search.clearMessage()
     },
-    focusSearch (): void {
+    focusSearch(): void {
       this.$nextTick(() => {
         // @ts-ignore
         this.$refs.focusInput.focus()
       })
     },
-    refresh (): void {
+    refresh(): void {
       this.$nuxt.refresh()
     },
     // infiniteHandler() {
@@ -447,21 +604,26 @@ export default Vue.extend({
     //     }
     //   }, 400)
     // },
-    changeFormSearchKeyword (keyword: string) {
+    getRecommendTitle(title: string): void {
+      // @ts-ignore
+      this.$accessor.search.addRecommendTitles(title)
+      console.log(title)
+    },
+    changeFormSearchKeyword(keyword: string): void {
       // @ts-ignore
       this.$accessor.search.changeKeyword(keyword)
       this.$accessor.search.getSearchItems()
       // @ts-ignore
       this.$accessor.changeIndexPagination()
-      window.scrollTo(0,0)
+      window.scrollTo(0, 0)
       console.log(keyword)
-    }
-  }
+    },
+  },
 })
 </script>
 
 <style>
 .nuxt-link-exact-active {
-  color: white;
+  color: #e5e7eb;
 }
 </style>
