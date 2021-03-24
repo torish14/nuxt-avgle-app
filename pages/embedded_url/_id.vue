@@ -129,12 +129,22 @@
                   {{ toHms(data.duration) }}
                 </h5>
               </div>
-              <h5
-                class="text-gray-200 text-sm hover:text-purple-500 pt-1"
-                style="width: 320px"
-              >
-                {{ data.title.slice(0, 40) }}
-              </h5>
+              <template v-if="data.title.length > 44">
+                <p
+                  class="text-gray-200 text-sm hover:text-purple-500 break-all pt-1"
+                  style="width: 320px"
+                >
+                  {{ data.title.slice(0, 44) }}…
+                </p>
+              </template>
+              <template v-else>
+                <p
+                  class="text-gray-200 text-sm hover:text-purple-500 break-all pt-1"
+                  style="width: 320px"
+                >
+                  {{ data.title }}
+                </p>
+              </template>
             </nuxt-link>
             <div class="flex flex-row my-1">
               <template v-if="data.viewnumber >= 1000000">
@@ -1470,12 +1480,22 @@
                     {{ toHms(data.duration) }}
                   </h5>
                 </div>
-                <h5
-                  class="text-gray-200 text-sm hover:text-purple-500 break-all pt-2 px-2"
-                  style="width: 375px"
-                >
-                  {{ data.title.slice(0, 50) }}
-                </h5>
+                <template v-if="data.title.length > 50">
+                  <p
+                    class="text-gray-200 text-sm hover:text-purple-500 break-all pt-2 px-2"
+                    style="width: 375px"
+                  >
+                    {{ data.title.slice(0, 50) }}…
+                  </p>
+                </template>
+                <template v-else>
+                  <p
+                    class="text-gray-200 text-sm hover:text-purple-500 break-all pt-2 px-2"
+                    style="width: 375px"
+                  >
+                    {{ data.title }}
+                  </p>
+                </template>
               </nuxt-link>
               <div class="flex flex-row my-1">
                 <template v-if="data.viewnumber >= 1000000">
@@ -2578,12 +2598,22 @@
                     {{ toHms(data.duration) }}
                   </h5>
                 </div>
-                <h5
-                  class="text-gray-200 text-sm hover:text-purple-500 break-all pt-2 px-2"
-                  style="width: 375px"
-                >
-                  {{ data.title.slice(0, 50) }}
-                </h5>
+                <template v-if="data.title.length > 50">
+                  <p
+                    class="text-gray-200 text-sm hover:text-purple-500 break-all pt-2 px-2"
+                    style="width: 375px"
+                  >
+                    {{ data.title.slice(0, 50) }}…
+                  </p>
+                </template>
+                <template v-else>
+                  <p
+                    class="text-gray-200 text-sm hover:text-purple-500 break-all pt-2 px-2"
+                    style="width: 375px"
+                  >
+                    {{ data.title }}
+                  </p>
+                </template>
               </nuxt-link>
               <div class="flex flex-row my-1">
                 <template v-if="data.viewnumber >= 1000000">
@@ -3686,12 +3716,22 @@
                     {{ toHms(data.duration) }}
                   </h5>
                 </div>
-                <h5
-                  class="text-gray-200 text-sm hover:text-purple-500 break-all pt-2 px-2"
-                  style="width: 375px"
-                >
-                  {{ data.title.slice(0, 50) }}
-                </h5>
+                <template v-if="data.title.length > 50">
+                  <p
+                    class="text-gray-200 text-sm hover:text-purple-500 break-all pt-2 px-2"
+                    style="width: 375px"
+                  >
+                    {{ data.title.slice(0, 50) }}…
+                  </p>
+                </template>
+                <template v-else>
+                  <p
+                    class="text-gray-200 text-sm hover:text-purple-500 break-all pt-2 px-2"
+                    style="width: 375px"
+                  >
+                    {{ data.title }}
+                  </p>
+                </template>
               </nuxt-link>
               <div class="flex flex-row my-1">
                 <template v-if="data.viewnumber >= 1000000">

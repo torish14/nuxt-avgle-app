@@ -59,12 +59,22 @@
                     {{ toHms(data.duration) }}
                   </h5>
                 </div>
-                <p
-                  class="text-gray-200 text-sm hover:text-purple-500 break-all pt-2 px-2"
-                  style="width: 375px"
-                >
-                  {{ data.title.slice(0, 50) }}
-                </p>
+                <template v-if="data.title.length > 50">
+                  <p
+                    class="text-gray-200 text-sm hover:text-purple-500 break-all pt-2 px-2"
+                    style="width: 375px"
+                  >
+                    {{ data.title.slice(0, 50) }}…
+                  </p>
+                </template>
+                <template v-else>
+                  <p
+                    class="text-gray-200 text-sm hover:text-purple-500 break-all pt-2 px-2"
+                    style="width: 375px"
+                  >
+                    {{ data.title }}
+                  </p>
+                </template>
               </nuxt-link>
               <div class="flex flex-row my-1">
                 <template v-if="data.viewnumber >= 1000000">

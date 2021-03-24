@@ -205,11 +205,20 @@
                       @click.native="getRecommendTitle(data.title)"
                     >
                       <!-- <vue-lazy-component> -->
-                      <p
-                        class="text-gray-200 text-sm hover:text-purple-500"
-                      >
-                        {{ data.title.slice(0, 36) }}
-                      </p>
+                      <template v-if="data.title.length > 36">
+                        <p
+                          class="text-gray-200 text-sm hover:text-purple-500"
+                        >
+                          {{ data.title.slice(0, 36) }}…
+                        </p>
+                      </template>
+                      <template v-else>
+                        <p
+                          class="text-gray-200 text-sm hover:text-purple-500"
+                        >
+                          {{ data.title }}
+                        </p>
+                      </template>
                       <!-- <SearchSkeletonTitle slot="skeleton" /> -->
                       <!-- </vue-lazy-component> -->
                     </nuxt-link>
