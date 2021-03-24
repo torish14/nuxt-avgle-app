@@ -1229,7 +1229,7 @@
               {{ messagesMatchVid.title }}
             </p>
             <div>
-              <h6 class="text-gray-400 mr-1 text-xs pl-2">
+              <h6 class="text-gray-400 mt-1 mr-1 text-xs pl-2">
                 {{ messagesMatchVid.viewnumber.toLocaleString() }}
                 回視聴
               </h6>
@@ -1282,7 +1282,7 @@
               {{ suggestMessagesMatchVid.title }}
             </p>
             <div>
-              <h6 class="text-gray-400 mr-1 text-xs pl-2">
+              <h6 class="text-gray-400 mt-1 mr-1 text-xs pl-2">
                 {{
                   suggestMessagesMatchVid.viewnumber.toLocaleString()
                 }}
@@ -1337,7 +1337,7 @@
               {{ searchMessagesMatchVid.title }}
             </p>
             <div>
-              <h6 class="text-gray-400 mr-1 text-xs pl-2">
+              <h6 class="text-gray-400 mt-1 mr-1 text-xs pl-2">
                 {{
                   searchMessagesMatchVid.viewnumber.toLocaleString()
                 }}
