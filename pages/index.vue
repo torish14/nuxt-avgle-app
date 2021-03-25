@@ -243,6 +243,7 @@
                           item !== '乳首' &&
                           item !== 'オ' &&
                           item !== 'です' &&
+                          item !== '内射' &&
                           item.length < 7
                       ).length === 0
                   "
@@ -285,6 +286,7 @@
                           item !== '乳首' &&
                           item !== 'オ' &&
                           item !== 'です' &&
+                          item !== '内射' &&
                           item.length < 7
                       ).length === 1
                   "
@@ -329,6 +331,7 @@
                               item !== '乳首' &&
                               item !== 'オ' &&
                               item !== 'です' &&
+                              item !== '内射' &&
                               item.length < 7
                           )[0]
                       )
@@ -371,6 +374,7 @@
                             item !== '乳首' &&
                             item !== 'オ' &&
                             item !== 'です' &&
+                            item !== '内射' &&
                             item.length < 7
                         )[0]
                     }}
@@ -414,6 +418,7 @@
                           item !== '乳首' &&
                           item !== 'オ' &&
                           item !== 'です' &&
+                          item !== '内射' &&
                           item.length < 7
                       ).length === 2
                   "
@@ -458,6 +463,7 @@
                               item !== '乳首' &&
                               item !== 'オ' &&
                               item !== 'です' &&
+                              item !== '内射' &&
                               item.length < 7
                           )[0]
                       )
@@ -500,6 +506,7 @@
                             item !== '乳首' &&
                             item !== 'オ' &&
                             item !== 'です' &&
+                            item !== '内射' &&
                             item.length < 7
                         )[0]
                     }}
@@ -544,6 +551,7 @@
                               item !== '乳首' &&
                               item !== 'オ' &&
                               item !== 'です' &&
+                              item !== '内射' &&
                               item.length < 7
                           )[1]
                       )
@@ -586,6 +594,7 @@
                             item !== '乳首' &&
                             item !== 'オ' &&
                             item !== 'です' &&
+                            item !== '内射' &&
                             item.length < 7
                         )[1]
                     }}
@@ -629,6 +638,7 @@
                           item !== '乳首' &&
                           item !== 'オ' &&
                           item !== 'です' &&
+                          item !== '内射' &&
                           item.length < 7
                       ).length === 3
                   "
@@ -673,6 +683,7 @@
                               item !== '乳首' &&
                               item !== 'オ' &&
                               item !== 'です' &&
+                              item !== '内射' &&
                               item.length < 7
                           )[0]
                       )
@@ -715,6 +726,7 @@
                             item !== '乳首' &&
                             item !== 'オ' &&
                             item !== 'です' &&
+                            item !== '内射' &&
                             item.length < 7
                         )[0]
                     }}
@@ -759,6 +771,7 @@
                               item !== '乳首' &&
                               item !== 'オ' &&
                               item !== 'です' &&
+                              item !== '内射' &&
                               item.length < 7
                           )[1]
                       )
@@ -801,6 +814,7 @@
                             item !== '乳首' &&
                             item !== 'オ' &&
                             item !== 'です' &&
+                            item !== '内射' &&
                             item.length < 7
                         )[1]
                     }}
@@ -845,6 +859,7 @@
                               item !== '乳首' &&
                               item !== 'オ' &&
                               item !== 'です' &&
+                              item !== '内射' &&
                               item.length < 7
                           )[2]
                       )
@@ -887,6 +902,7 @@
                             item !== '乳首' &&
                             item !== 'オ' &&
                             item !== 'です' &&
+                            item !== '内射' &&
                             item.length < 7
                         )[2]
                     }}
@@ -933,6 +949,7 @@
                               item !== '乳首' &&
                               item !== 'オ' &&
                               item !== 'です' &&
+                              item !== '内射' &&
                               item.length < 7
                           )[0]
                       )
@@ -975,6 +992,7 @@
                             item !== '乳首' &&
                             item !== 'オ' &&
                             item !== 'です' &&
+                            item !== '内射' &&
                             item.length < 7
                         )[0]
                     }}
@@ -1019,6 +1037,7 @@
                               item !== '乳首' &&
                               item !== 'オ' &&
                               item !== 'です' &&
+                              item !== '内射' &&
                               item.length < 7
                           )[1]
                       )
@@ -1061,6 +1080,7 @@
                             item !== '乳首' &&
                             item !== 'オ' &&
                             item !== 'です' &&
+                            item !== '内射' &&
                             item.length < 7
                         )[1]
                     }}
@@ -1105,6 +1125,7 @@
                               item !== '乳首' &&
                               item !== 'オ' &&
                               item !== 'です' &&
+                              item !== '内射' &&
                               item.length < 7
                           )[2]
                       )
@@ -1147,6 +1168,7 @@
                             item !== '乳首' &&
                             item !== 'オ' &&
                             item !== 'です' &&
+                            item !== '内射' &&
                             item.length < 7
                         )[2]
                     }}
@@ -1191,6 +1213,7 @@
                               item !== '乳首' &&
                               item !== 'オ' &&
                               item !== 'です' &&
+                              item !== '内射' &&
                               item.length < 7
                           )[3]
                       )
@@ -1233,6 +1256,7 @@
                             item !== '乳首' &&
                             item !== 'オ' &&
                             item !== 'です' &&
+                            item !== '内射' &&
                             item.length < 7
                         )[3]
                     }}
@@ -1434,6 +1458,7 @@
                           item !== '乳首' &&
                           item !== 'オ' &&
                           item !== 'です' &&
+                          item !== '内射' &&
                           item.length < 7
                       ).length === 0
                   "
@@ -1476,6 +1501,7 @@
                           item !== '乳首' &&
                           item !== 'オ' &&
                           item !== 'です' &&
+                          item !== '内射' &&
                           item.length < 7
                       ).length === 1
                   "
@@ -1521,6 +1547,7 @@
                               item !== '乳首' &&
                               item !== 'オ' &&
                               item !== 'です' &&
+                              item !== '内射' &&
                               item.length < 7
                           )[0]
                       )
@@ -1563,6 +1590,7 @@
                             item !== '乳首' &&
                             item !== 'オ' &&
                             item !== 'です' &&
+                            item !== '内射' &&
                             item.length < 7
                         )[0]
                     }}
@@ -1606,6 +1634,7 @@
                           item !== '乳首' &&
                           item !== 'オ' &&
                           item !== 'です' &&
+                          item !== '内射' &&
                           item.length < 7
                       ).length === 2
                   "
@@ -1651,6 +1680,7 @@
                               item !== '乳首' &&
                               item !== 'オ' &&
                               item !== 'です' &&
+                              item !== '内射' &&
                               item.length < 7
                           )[0]
                       )
@@ -1693,6 +1723,7 @@
                             item !== '乳首' &&
                             item !== 'オ' &&
                             item !== 'です' &&
+                            item !== '内射' &&
                             item.length < 7
                         )[0]
                     }}
@@ -1737,6 +1768,7 @@
                               item !== '乳首' &&
                               item !== 'オ' &&
                               item !== 'です' &&
+                              item !== '内射' &&
                               item.length < 7
                           )[1]
                       )
@@ -1779,6 +1811,7 @@
                             item !== '乳首' &&
                             item !== 'オ' &&
                             item !== 'です' &&
+                            item !== '内射' &&
                             item.length < 7
                         )[1]
                     }}
@@ -1822,6 +1855,7 @@
                           item !== '乳首' &&
                           item !== 'オ' &&
                           item !== 'です' &&
+                          item !== '内射' &&
                           item.length < 7
                       ).length === 3
                   "
@@ -1867,6 +1901,7 @@
                               item !== '乳首' &&
                               item !== 'オ' &&
                               item !== 'です' &&
+                              item !== '内射' &&
                               item.length < 7
                           )[0]
                       )
@@ -1909,6 +1944,7 @@
                             item !== '乳首' &&
                             item !== 'オ' &&
                             item !== 'です' &&
+                            item !== '内射' &&
                             item.length < 7
                         )[0]
                     }}
@@ -1953,6 +1989,7 @@
                               item !== '乳首' &&
                               item !== 'オ' &&
                               item !== 'です' &&
+                              item !== '内射' &&
                               item.length < 7
                           )[1]
                       )
@@ -1995,6 +2032,7 @@
                             item !== '乳首' &&
                             item !== 'オ' &&
                             item !== 'です' &&
+                            item !== '内射' &&
                             item.length < 7
                         )[1]
                     }}
@@ -2039,6 +2077,7 @@
                               item !== '乳首' &&
                               item !== 'オ' &&
                               item !== 'です' &&
+                              item !== '内射' &&
                               item.length < 7
                           )[2]
                       )
@@ -2081,6 +2120,7 @@
                             item !== '乳首' &&
                             item !== 'オ' &&
                             item !== 'です' &&
+                            item !== '内射' &&
                             item.length < 7
                         )[2]
                     }}
@@ -2128,6 +2168,7 @@
                               item !== '乳首' &&
                               item !== 'オ' &&
                               item !== 'です' &&
+                              item !== '内射' &&
                               item.length < 7
                           )[0]
                       )
@@ -2170,6 +2211,7 @@
                             item !== '乳首' &&
                             item !== 'オ' &&
                             item !== 'です' &&
+                            item !== '内射' &&
                             item.length < 7
                         )[0]
                     }}
@@ -2214,6 +2256,7 @@
                               item !== '乳首' &&
                               item !== 'オ' &&
                               item !== 'です' &&
+                              item !== '内射' &&
                               item.length < 7
                           )[1]
                       )
@@ -2256,6 +2299,7 @@
                             item !== '乳首' &&
                             item !== 'オ' &&
                             item !== 'です' &&
+                            item !== '内射' &&
                             item.length < 7
                         )[1]
                     }}
@@ -2300,6 +2344,7 @@
                               item !== '乳首' &&
                               item !== 'オ' &&
                               item !== 'です' &&
+                              item !== '内射' &&
                               item.length < 7
                           )[2]
                       )
@@ -2342,6 +2387,7 @@
                             item !== '乳首' &&
                             item !== 'オ' &&
                             item !== 'です' &&
+                            item !== '内射' &&
                             item.length < 7
                         )[2]
                     }}
@@ -2349,7 +2395,7 @@
                   <div
                     class="text-gray-300 mr-2 text-xs py-1 px-2 bg-gray-700 rounded-full border-gray-700 hover:bg-gray-600 cursor-pointer"
                     @click="
-                      changeFormSuggestKeyword(
+                      changeFormKeyword(
                         data.keyword
                           .split(/,|\s/)
                           .filter(
@@ -2386,6 +2432,7 @@
                               item !== '乳首' &&
                               item !== 'オ' &&
                               item !== 'です' &&
+                              item !== '内射' &&
                               item.length < 7
                           )[3]
                       )
@@ -2428,6 +2475,7 @@
                             item !== '乳首' &&
                             item !== 'オ' &&
                             item !== 'です' &&
+                            item !== '内射' &&
                             item.length < 7
                         )[3]
                     }}
