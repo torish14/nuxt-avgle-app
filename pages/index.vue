@@ -2534,7 +2534,7 @@ export default Vue.extend({
         },
         {
           url: 'https://porngle.love/suggest',
-          text: 'オススメ',
+          text: '探求',
         },
         {
           url: 'https://porngle.love/search',

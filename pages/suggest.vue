@@ -1236,8 +1236,8 @@ export default Vue.extend({
       // ? 1ページに表示するアイテム数
       parPage: 20,
       meta: {
-        title: 'オススメ',
-        description: 'オススメページです。',
+        title: '探求',
+        description: '探求ページです。',
         type: 'website',
         url: 'https://porngle.love/suggest',
         image: 'https://porngle.love/assets/PG ロゴ.jpeg',

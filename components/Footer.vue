@@ -57,16 +57,16 @@
             <li>
               <nuxt-link
                 to="/suggest"
-                aria-label="オススメへ進む"
+                aria-label="探求へ進む"
                 @click.native="
                   refresh()
                   setSuggestForm()
                 "
               >
                 <div class="text-center align-middle">
-                  <i class="material-icons">live_tv</i>
+                  <i class="material-icons">gps_fixed</i>
                   <p class="icon-text" style="font-size: 10px">
-                    オススメ
+                    探求
                   </p>
                 </div>
               </nuxt-link>
