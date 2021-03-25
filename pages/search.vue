@@ -21,6 +21,8 @@
             inputmode="search"
             role="search"
             @keydown.enter="search"
+            @focus="focus"
+            @blur="blur"
           />
         </div>
       </div>
@@ -164,6 +166,46 @@
               </h5>
             </template>
             <template v-else>
+              <div v-show="onFocus">
+                <div class="text-gray-400 bg-gray-700 mt-2">
+                  <p
+                    class="pl-2 py-2 hover:bg-gray-600 border border-gray-600"
+                    @click="changeFormList('ナンパ')"
+                  >
+                    ナンパ
+                  </p>
+                  <p
+                    class="pl-2 py-2 hover:bg-gray-600 border border-gray-600"
+                    @click="changeFormList('オナニー')"
+                  >
+                    オナニー
+                  </p>
+                  <p
+                    class="pl-2 py-2 hover:bg-gray-600 border border-gray-600"
+                    @click="changeFormList('カップル')"
+                  >
+                    カップル
+                  </p>
+                  <p
+                    class="pl-2 py-2 hover:bg-gray-600 border border-gray-600"
+                    @click="changeFormList('お姉さん')"
+                  >
+                    お姉さん
+                  </p>
+                  <p
+                    class="pl-2 py-2 hover:bg-gray-600 border border-gray-600"
+                    @click="changeFormList('デビュー')"
+                  >
+                    デビュー
+                  </p>
+                  <p
+                    class="pl-2 py-2 hover:bg-gray-600 border border-gray-600"
+                    @click="changeFormList('エロアニメ')"
+                  >
+                    エロアニメ
+                  </p>
+                </div>
+              </div>
               <div v-for="data in getSearchItems" :key="data.vid">
                 <div class="flex m-4">
                   <nuxt-link
@@ -370,6 +412,7 @@ import Meta from '~/assets/mixins/meta.js'
 export type DataType = {
   parPage: number
   meta: object
+  onFocus: boolean
 }
 
 export default Vue.extend({
@@ -402,6 +445,7 @@ export default Vue.extend({
         image: 'https://porngle.love/assets/PG ロゴ.jpeg',
         robots: 'noindex',
       },
+      onFocus: false,
     }
   },
   fetch(): void {
@@ -525,6 +569,9 @@ export default Vue.extend({
           e.target.blur()
           window.scrollTo(0, 0)
         })
+        setTimeout(() => {
+          this.onFocus = false
+        }, 1000)
       }
     },
     sendRequest(): void {
@@ -595,6 +642,23 @@ export default Vue.extend({
         // @ts-ignore
         this.$refs.focusInput.focus()
       })
+    },
+    focus(): void {
+      this.onFocus = true
+    },
+    blur(): void {
+      // this.$nextTick((): void => {
+      //   this.onFocus = false
+      // })
+    },
+    // @ts-ignore
+    changeFormList(list): void {
+      this.$accessor.search.changeKeyword(list)
+      this.$accessor.search.getSearchItems()
+      this.$nextTick((): void => {
+        this.onFocus = false
+      })
+      console.log(list)
     },
     refresh(): void {
       this.$nuxt.refresh()
