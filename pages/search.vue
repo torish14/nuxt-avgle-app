@@ -83,11 +83,20 @@
               "
             >
               <client-only>
-                <div class="flex justify-center pt-8">
-                  <i class="material-icons text-gray-400">search</i>
-                  <h5 class="text-gray-400 text-sm">
-                    &nbsp;一致する検索結果はありません。
+                <div
+                  class="flex flex-col flex-shrink-0 items-center pt-7"
+                >
+                  <h5 class="text-gray-200 text-base">
+                    &nbsp;作品が見つかりませんでした。
                   </h5>
+                  <a
+                    href="https://porngle.love"
+                    aria-label="ホームへ戻る"
+                    class="text-gray-400 text-sm hover:text-purple-500"
+                    @click="setJapaneseForm"
+                  >
+                    &nbsp;トップページに戻る
+                  </a>
                 </div>
               </client-only>
             </template>
