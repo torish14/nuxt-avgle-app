@@ -16,12 +16,12 @@
             </div>
           </client-only>
         </template>
-        <div v-else-if="$fetchState.pending">
+        <!-- <div v-else-if="$fetchState.pending">
           <client-only>
             <Skeleton />
             <Skeleton />
           </client-only>
-        </div>
+        </div> -->
         <!-- <div v-else-if="firstSkeleton">
           <client-only>
             <Skeleton />
