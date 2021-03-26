@@ -126,11 +126,11 @@ export default Vue.extend({
       if (this.$accessor.search.message !== 'AV女優') {
         this.$accessor.search.setSuggestMessage()
       }
-      this.$accessor.search.suggestMessages
-        // @ts-ignore
-        .sort(function () {
-          return Math.random() - 0.5
-        })
+      // this.$accessor.search.suggestMessages
+      //   // @ts-ignore
+      //   .sort(function () {
+      //     return Math.random() - 0.5
+      //   })
     },
     clearForm(): void {
       this.$accessor.search.clearMessage()
