@@ -91,7 +91,7 @@
                 </div>
               </client-only>
             </template>
-            <div v-else-if="$fetchState.pending">
+            <!-- <div v-else-if="$fetchState.pending">
               <client-only>
                 <div class="flex mt-2">
                   <SearchSkeletonImg class="ml-4 my-2" />
@@ -124,7 +124,7 @@
                   </div>
                 </div>
               </client-only>
-            </div>
+            </div> -->
             <!-- <div v-else-if="firstSkeleton">
               <client-only>
                 <div class="flex mt-2">
@@ -421,10 +421,10 @@ export default Vue.extend({
     // VueLoading,
     // @ts-ignore
     SearchSkeletonImg: () => import('~/components/SearchSkeletonImg'),
-    // @ts-ignore
-    SearchSkeletonTitle: () =>
-      // @ts-ignore
-      import('~/components/SearchSkeletonTitle'),
+    // // @ts-ignore
+    // SearchSkeletonTitle: () =>
+    //   // @ts-ignore
+    //   import('~/components/SearchSkeletonTitle'),
     // @ts-ignore
     // SearchSkeletonTitle,
     // @ts-ignore
