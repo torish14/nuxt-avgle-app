@@ -176,9 +176,27 @@
                   </p>
                   <p
                     class="pl-2 py-2 hover:bg-gray-600 border border-gray-600"
-                    @click="changeFormList('オナニー')"
+                    @click="changeFormList('お姉さん')"
                   >
-                    オナニー
+                    お姉さん
+                  </p>
+                  <p
+                    class="pl-2 py-2 hover:bg-gray-600 border border-gray-600"
+                    @click="changeFormList('ハーフ')"
+                  >
+                    ハーフ
+                  </p>
+                  <p
+                    class="pl-2 py-2 hover:bg-gray-600 border border-gray-600"
+                    @click="changeFormList('3P')"
+                  >
+                    3P
+                  </p>
+                  <p
+                    class="pl-2 py-2 hover:bg-gray-600 border border-gray-600"
+                    @click="changeFormList('10代')"
+                  >
+                    10代
                   </p>
                   <p
                     class="pl-2 py-2 hover:bg-gray-600 border border-gray-600"
@@ -188,9 +206,9 @@
                   </p>
                   <p
                     class="pl-2 py-2 hover:bg-gray-600 border border-gray-600"
-                    @click="changeFormList('お姉さん')"
+                    @click="changeFormList('オナニー')"
                   >
-                    お姉さん
+                    オナニー
                   </p>
                   <p
                     class="pl-2 py-2 hover:bg-gray-600 border border-gray-600"
@@ -200,9 +218,27 @@
                   </p>
                   <p
                     class="pl-2 py-2 hover:bg-gray-600 border border-gray-600"
+                    @click="changeFormList('潮吹き')"
+                  >
+                    潮吹き
+                  </p>
+                  <p
+                    class="pl-2 py-2 hover:bg-gray-600 border border-gray-600"
+                    @click="changeFormList('中出し')"
+                  >
+                    中出し
+                  </p>
+                  <p
+                    class="pl-2 py-2 hover:bg-gray-600 border border-gray-600"
                     @click="changeFormList('エロアニメ')"
                   >
                     エロアニメ
+                  </p>
+                  <p
+                    class="pl-2 py-2 hover:bg-gray-600 border border-gray-600"
+                    @click="changeFormList('SM')"
+                  >
+                    SM
                   </p>
                 </div>
               </div>
