@@ -49,7 +49,14 @@
               <nuxt-link
                 :to="{ path: 'embedded_url' + '/' + data.vid }"
                 aria-label="動画埋め込みページへ遷移"
-                @click.native="getRecommendTitle(data.title)"
+                @click.native="
+                  getRecommendTitle(
+                    data.keyword[0],
+                    data.keyword[1],
+                    data.keyword[2],
+                    data.keyword[3]
+                  )
+                "
               >
                 <div class="relative">
                   <img
