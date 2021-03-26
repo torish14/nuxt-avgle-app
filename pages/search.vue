@@ -567,11 +567,9 @@ export default Vue.extend({
         // this.show = true
         this.$nextTick(() => {
           e.target.blur()
+          this.onFocus = false
           window.scrollTo(0, 0)
         })
-        setTimeout(() => {
-          this.onFocus = false
-        }, 1000)
       }
     },
     sendRequest(): void {
