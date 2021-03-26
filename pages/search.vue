@@ -169,70 +169,81 @@
               <div v-show="onFocus">
                 <div class="text-gray-400 bg-gray-700 mt-2">
                   <p
-                    class="pl-2 py-2 hover:bg-gray-600 border border-gray-600"
+                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-600 border border-gray-600"
                     @click="changeFormList('ナンパ')"
                   >
                     ナンパ
+                    <i class="material-icons pr-4">play_arrow</i>
                   </p>
                   <p
-                    class="pl-2 py-2 hover:bg-gray-600 border border-gray-600"
+                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-600 border border-gray-600"
                     @click="changeFormList('お姉さん')"
                   >
                     お姉さん
+                    <i class="material-icons pr-4">play_arrow</i>
                   </p>
                   <p
-                    class="pl-2 py-2 hover:bg-gray-600 border border-gray-600"
+                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-600 border border-gray-600"
                     @click="changeFormList('ハーフ')"
                   >
                     ハーフ
+                    <i class="material-icons pr-4">play_arrow</i>
                   </p>
                   <p
-                    class="pl-2 py-2 hover:bg-gray-600 border border-gray-600"
+                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-600 border border-gray-600"
                     @click="changeFormList('3P')"
                   >
                     3P
+                    <i class="material-icons pr-4">play_arrow</i>
                   </p>
                   <p
-                    class="pl-2 py-2 hover:bg-gray-600 border border-gray-600"
+                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-600 border border-gray-600"
                     @click="changeFormList('10代')"
                   >
                     10代
+                    <i class="material-icons pr-4">play_arrow</i>
                   </p>
                   <p
-                    class="pl-2 py-2 hover:bg-gray-600 border border-gray-600"
+                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-600 border border-gray-600"
                     @click="changeFormList('カップル')"
                   >
                     カップル
+                    <i class="material-icons pr-4">play_arrow</i>
                   </p>
                   <p
-                    class="pl-2 py-2 hover:bg-gray-600 border border-gray-600"
+                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-600 border border-gray-600"
                     @click="changeFormList('オナニー')"
                   >
                     オナニー
+                    <i class="material-icons pr-4">play_arrow</i>
                   </p>
                   <p
-                    class="pl-2 py-2 hover:bg-gray-600 border border-gray-600"
+                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-600 border border-gray-600"
                     @click="changeFormList('デビュー')"
                   >
                     デビュー
+                    <i class="material-icons pr-4">play_arrow</i>
                   </p>
                   <p
-                    class="pl-2 py-2 hover:bg-gray-600 border border-gray-600"
+                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-600 border border-gray-600"
                     @click="changeFormList('潮吹き')"
                   >
                     潮吹き
+                    <i class="material-icons pr-4">play_arrow</i>
                   </p>
                   <p
-                    class="pl-2 py-2 hover:bg-gray-600 border border-gray-600"
+                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-600 border border-gray-600"
                     @click="changeFormList('中出し')"
                   >
                     中出し
+                    <i class="material-icons pr-4">play_arrow</i>
                   </p>
                   <p
-                    class="pl-2 py-2 hover:bg-gray-600 border border-gray-600"
+                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-600 border border-gray-600"
                     @click="changeFormList('エロアニメ')"
                   >
                     エロアニメ
+                    <i class="material-icons pr-4">play_arrow</i>
                   </p>
                 </div>
               </div>
