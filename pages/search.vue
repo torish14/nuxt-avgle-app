@@ -350,10 +350,7 @@
               <nuxt-link
                 to="/"
                 aria-label="ホームへ戻る"
-                @click.native="
-                  refresh()
-                  setJapaneseForm()
-                "
+                @click.native="setJapaneseForm()"
               >
                 <div class="text-center align-middle">
                   <i class="material-icons">home</i>
@@ -367,10 +364,7 @@
               <nuxt-link
                 to="/suggest"
                 aria-label="探求へ進む"
-                @click.native="
-                  refresh()
-                  setSuggestForm()
-                "
+                @click.native="setSuggestForm()"
               >
                 <div class="text-center align-middle">
                   <i class="material-icons">gps_fixed</i>
