@@ -234,12 +234,6 @@
                   >
                     エロアニメ
                   </p>
-                  <p
-                    class="pl-2 py-2 hover:bg-gray-600 border border-gray-600"
-                    @click="changeFormList('SM')"
-                  >
-                    SM
-                  </p>
                 </div>
               </div>
               <div v-for="data in getSearchItems" :key="data.vid">
