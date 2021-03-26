@@ -34,7 +34,7 @@
               class="bg-gray-700 rounded-l-full w-full py-4 px-6 text-gray-400 leading-tight focus:outline-none"
               type="search"
               autofocus
-              placeholder="検索"
+              placeholder="Porngle を検索"
               @keydown.enter="search"
               @focus="focus"
             />

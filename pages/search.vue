@@ -17,7 +17,7 @@
             v-model="computedGetState"
             class="bg-gray-700 w-full py-2 text-gray-400 leading-tight focus:outline-none rounded-lg"
             type="search"
-            placeholder="検索"
+            placeholder="Porngle を検索"
             inputmode="search"
             role="search"
             @keydown.enter="search"
