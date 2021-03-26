@@ -188,6 +188,7 @@
                           item !== '人妻' &&
                           item !== '痴女' &&
                           item !== '十代' &&
+                          item !== 'コ' &&
                           item.length < 7
                       ).length === 0
                   "
@@ -234,6 +235,7 @@
                           item !== '人妻' &&
                           item !== '痴女' &&
                           item !== '十代' &&
+                          item !== 'コ' &&
                           item.length < 7
                       ).length === 1
                   "
@@ -283,6 +285,7 @@
                               item !== '人妻' &&
                               item !== '痴女' &&
                               item !== '十代' &&
+                              item !== 'コ' &&
                               item.length < 7
                           )[0]
                       )
@@ -329,6 +332,7 @@
                             item !== '人妻' &&
                             item !== '痴女' &&
                             item !== '十代' &&
+                            item !== 'コ' &&
                             item.length < 7
                         )[0]
                     }}
@@ -376,6 +380,7 @@
                           item !== '人妻' &&
                           item !== '痴女' &&
                           item !== '十代' &&
+                          item !== 'コ' &&
                           item.length < 7
                       ).length === 2
                   "
@@ -425,6 +430,7 @@
                               item !== '人妻' &&
                               item !== '痴女' &&
                               item !== '十代' &&
+                              item !== 'コ' &&
                               item.length < 7
                           )[0]
                       )
@@ -471,6 +477,7 @@
                             item !== '人妻' &&
                             item !== '痴女' &&
                             item !== '十代' &&
+                            item !== 'コ' &&
                             item.length < 7
                         )[0]
                     }}
@@ -519,6 +526,7 @@
                               item !== '人妻' &&
                               item !== '痴女' &&
                               item !== '十代' &&
+                              item !== 'コ' &&
                               item.length < 7
                           )[1]
                       )
@@ -565,6 +573,7 @@
                             item !== '人妻' &&
                             item !== '痴女' &&
                             item !== '十代' &&
+                            item !== 'コ' &&
                             item.length < 7
                         )[1]
                     }}
@@ -612,6 +621,7 @@
                           item !== '人妻' &&
                           item !== '痴女' &&
                           item !== '十代' &&
+                          item !== 'コ' &&
                           item.length < 7
                       ).length === 3
                   "
@@ -661,6 +671,7 @@
                               item !== '人妻' &&
                               item !== '痴女' &&
                               item !== '十代' &&
+                              item !== 'コ' &&
                               item.length < 7
                           )[0]
                       )
@@ -707,6 +718,7 @@
                             item !== '人妻' &&
                             item !== '痴女' &&
                             item !== '十代' &&
+                            item !== 'コ' &&
                             item.length < 7
                         )[0]
                     }}
@@ -755,6 +767,7 @@
                               item !== '人妻' &&
                               item !== '痴女' &&
                               item !== '十代' &&
+                              item !== 'コ' &&
                               item.length < 7
                           )[1]
                       )
@@ -801,6 +814,7 @@
                             item !== '人妻' &&
                             item !== '痴女' &&
                             item !== '十代' &&
+                            item !== 'コ' &&
                             item.length < 7
                         )[1]
                     }}
@@ -849,6 +863,7 @@
                               item !== '人妻' &&
                               item !== '痴女' &&
                               item !== '十代' &&
+                              item !== 'コ' &&
                               item.length < 7
                           )[2]
                       )
@@ -895,6 +910,7 @@
                             item !== '人妻' &&
                             item !== '痴女' &&
                             item !== '十代' &&
+                            item !== 'コ' &&
                             item.length < 7
                         )[2]
                     }}
@@ -946,6 +962,7 @@
                               item !== '人妻' &&
                               item !== '痴女' &&
                               item !== '十代' &&
+                              item !== 'コ' &&
                               item.length < 7
                           )[0]
                       )
@@ -992,6 +1009,7 @@
                             item !== '人妻' &&
                             item !== '痴女' &&
                             item !== '十代' &&
+                            item !== 'コ' &&
                             item.length < 7
                         )[0]
                     }}
@@ -1040,6 +1058,7 @@
                               item !== '人妻' &&
                               item !== '痴女' &&
                               item !== '十代' &&
+                              item !== 'コ' &&
                               item.length < 7
                           )[1]
                       )
@@ -1086,6 +1105,7 @@
                             item !== '人妻' &&
                             item !== '痴女' &&
                             item !== '十代' &&
+                            item !== 'コ' &&
                             item.length < 7
                         )[1]
                     }}
@@ -1134,6 +1154,7 @@
                               item !== '人妻' &&
                               item !== '痴女' &&
                               item !== '十代' &&
+                              item !== 'コ' &&
                               item.length < 7
                           )[2]
                       )
@@ -1180,6 +1201,7 @@
                             item !== '人妻' &&
                             item !== '痴女' &&
                             item !== '十代' &&
+                            item !== 'コ' &&
                             item.length < 7
                         )[2]
                     }}
@@ -1228,6 +1250,7 @@
                               item !== '人妻' &&
                               item !== '痴女' &&
                               item !== '十代' &&
+                              item !== 'コ' &&
                               item.length < 7
                           )[3]
                       )
@@ -1274,6 +1297,7 @@
                             item !== '人妻' &&
                             item !== '痴女' &&
                             item !== '十代' &&
+                            item !== 'コ' &&
                             item.length < 7
                         )[3]
                     }}
