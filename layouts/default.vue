@@ -6,22 +6,24 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 export default {
   name: 'Default',
   components: {
+    // @ts-ignore
     Header: () => import('~/components/Header'),
-    Footer: () => import('~/components/Footer')
+    // @ts-ignore
+    Footer: () => import('~/components/Footer'),
   },
-  head () {
+  head() {
     return {
       link: [
         {
           rel: 'canonical',
           href: `https://porngle.love${this.$route.path}`,
         },
-      ]
+      ],
     }
-  }
+  },
 }
 </script>

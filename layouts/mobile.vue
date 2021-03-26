@@ -4,18 +4,18 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 export default {
   name: 'Mobile',
-  head () {
+  head() {
     return {
       link: [
         {
           rel: 'canonical',
           href: `https://porngle.love${this.$route.path}`,
         },
-      ]
+      ],
     }
-  }
+  },
 }
 </script>

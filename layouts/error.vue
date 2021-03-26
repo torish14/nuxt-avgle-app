@@ -27,20 +27,39 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue'
+import Meta from '~/assets/mixins/meta.js'
+
+export type DataType = {
+  meta: object
+}
+
+export default Vue.extend({
+  mixins: [Meta],
   props: {
     error: {
       type: Object,
       default: null,
     },
   },
+  data() {
+    return {
+      meta: {
+        title: 'エラー',
+        description: 'エラーページです。',
+        type: 'website',
+        image: 'https://porngle.love/assets/PG ロゴ.jpeg',
+        robots: 'noindex',
+      },
+    }
+  },
   methods: {
-    setJapaneseForm() {
+    setJapaneseForm(): void {
       this.$accessor.search.setJapaneseMessage()
     },
   },
-}
+})
 </script>
 
 <style>
