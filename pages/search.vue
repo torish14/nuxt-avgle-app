@@ -603,14 +603,26 @@ export default Vue.extend({
       this.$forceUpdate()
     },
     setJapaneseForm(): void {
-      if (this.$accessor.search.message !== '日本人') {
+      // if (this.$accessor.search.message !== '日本人') {
+      //   this.$accessor.search.setJapaneseMessage()
+      // }
+      // @ts-ignore
+      if (this.$accessor.search.dupConcatRecommend.length > 0) {
+        // @ts-ignore
+        this.$accessor.search.setDupConcatMessage()
+        // @ts-ignore
+      } else if (this.$accessor.search.concatRecommend.length > 0) {
+        // @ts-ignore
+        this.$accessor.search.setConcatMessage()
+      } else {
         this.$accessor.search.setJapaneseMessage()
       }
-      this.$accessor.search.messages
-        // @ts-ignore
-        .sort(function () {
-          return Math.random() - 0.5
-        })
+      this.$accessor.search.getJapaneseItems()
+      // this.$accessor.search.messages
+      //   // @ts-ignore
+      //   .sort(function () {
+      //     return Math.random() - 0.5
+      //   })
     },
     setSuggestForm(): void {
       if (this.$accessor.search.message !== 'AV女優') {

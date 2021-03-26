@@ -2664,7 +2664,17 @@ export default Vue.extend({
     if (this.$accessor.search.messages.length > 0) {
       return
     }
-    this.$accessor.search.setJapaneseMessage()
+    // @ts-ignore
+    if (this.$accessor.search.dupConcatRecommend.length > 0) {
+      // @ts-ignore
+      this.$accessor.search.setDupConcatMessage()
+      // @ts-ignore
+    } else if (this.$accessor.search.concatRecommend.length > 0) {
+      // @ts-ignore
+      this.$accessor.search.setConcatMessage()
+    } else {
+      this.$accessor.search.setJapaneseMessage()
+    }
     this.$accessor.search.getJapaneseItems()
   },
   // @ts-ignore
