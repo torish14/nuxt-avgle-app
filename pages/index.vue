@@ -2665,11 +2665,7 @@ export default Vue.extend({
       return
     }
     // @ts-ignore
-    if (this.$accessor.search.dupConcatRecommend.length > 0) {
-      // @ts-ignore
-      this.$accessor.search.setDupConcatMessage()
-      // @ts-ignore
-    } else if (this.$accessor.search.concatRecommend.length > 0) {
+    if (this.$accessor.search.concatRecommend.length > 0) {
       // @ts-ignore
       this.$accessor.search.setConcatMessage()
     } else {
