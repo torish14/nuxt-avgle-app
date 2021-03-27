@@ -129,8 +129,12 @@ export const mutations = mutationTree(state, {
     state.firstSkeleton = true
   },
   addRecommendMessages(state, message) {
-    // @ts-ignore
-    if (state.message.length > 0 && state.searchMessages.length > 0) {
+    if (
+      // @ts-ignore
+      state.messages.length > 0 &&
+      // @ts-ignore
+      state.searchMessages.length > 0
+    ) {
       // @ts-ignore
       state.recommendMessages.unshift(message)
       // @ts-ignore
@@ -147,7 +151,8 @@ export const mutations = mutationTree(state, {
   },
   addRecommendTitles(state, titles) {
     if (
-      state.message.length > 0 &&
+      // @ts-ignore
+      state.messages.length > 0 &&
       // @ts-ignore
       state.suggestMessages.length > 0 &&
       // @ts-ignore
@@ -167,7 +172,8 @@ export const mutations = mutationTree(state, {
   },
   addRecommendKeywords(state, keywords) {
     if (
-      state.message.length > 0 &&
+      // @ts-ignore
+      state.messages.length > 0 &&
       // @ts-ignore
       state.suggestMessages.length > 0
     ) {
@@ -185,7 +191,8 @@ export const mutations = mutationTree(state, {
     //   state.recommendKeywords.pop()
     // }
   },
-  concatRecommendArray(state, newArray) {
+  // @ts-ignore
+  concatRecommendArray(state: any, newArray: object) {
     // @ts-ignore
     state.concatRecommend = state.recommendMessages.concat(newArray)
     // @ts-ignore
