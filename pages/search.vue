@@ -256,137 +256,479 @@
                   </p>
                 </div>
               </div>
-              <div v-for="data in getSearchItems" :key="data.vid">
-                <div class="flex m-4">
-                  <nuxt-link
-                    :to="{ path: 'embedded_url' + '/' + data.vid }"
-                    aria-label="動画埋め込みページへ遷移"
-                    @click.native="
-                      getRecommendTitle(
-                        data.keyword[0],
-                        data.keyword[1],
-                        data.keyword[2],
-                        data.keyword[3]
-                      )
-                    "
-                  >
-                    <div
-                      class="relative"
-                      style="width: 160px; height: 90px"
-                    >
-                      <vue-lazy-component>
-                        <img
-                          :src="data.preview_url"
-                          alt="サムネイル"
-                          width="160"
-                          height="90"
-                          class="z-auto relative text-gray-200"
-                          referrerpolicy="no-referrer"
-                          crossorigin
-                        />
-                        <SearchSkeletonImg slot="skeleton" />
-                      </vue-lazy-component>
-                      <h5
-                        class="text-gray-100 z-10 absolute right-0 bottom-0 bg-gray-900 rounded-sm px-1 py-px m-1"
-                        style="font-size: 10px"
-                      >
-                        {{ toHms(data.duration) }}
-                      </h5>
-                    </div>
-                  </nuxt-link>
-                  <div
-                    class="ml-2"
-                    style="width: 175px; height: 90px"
-                  >
+              <div v-show="!onFocus">
+                <div v-for="data in getSearchItems" :key="data.vid">
+                  <div class="flex m-4">
                     <nuxt-link
                       :to="{ path: 'embedded_url' + '/' + data.vid }"
                       aria-label="動画埋め込みページへ遷移"
                       @click.native="
                         getRecommendTitle(
-                          data.keyword[0],
-                          data.keyword[1],
-                          data.keyword[2],
-                          data.keyword[3]
+                          data.keyword
+                            .split(/,|\s/)
+                            .filter(
+                              RegExp.prototype.test,
+                              /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/
+                            )
+                            .filter(
+                              (item) =>
+                                item !== data.title &&
+                                item !== '日本人' &&
+                                item !== 'アジア' &&
+                                item !== 'アジア人' &&
+                                item !== '日本' &&
+                                item !== '無修正' &&
+                                item !== '肛門' &&
+                                item !== 'アナルセックス' &&
+                                item !== '兼' &&
+                                item !== '油' &&
+                                item !== '中出' &&
+                                item !== '人' &&
+                                item !== 'アジアユニフォーム' &&
+                                item !== 'ユニフォーム' &&
+                                item !== '女' &&
+                                item !== '熟' &&
+                                item !== '膣' &&
+                                item !== 'フェチ' &&
+                                item !== 'ハードコア' &&
+                                item !== 'ハイビジョン' &&
+                                item !== '足' &&
+                                item !== 'マッサージ師' &&
+                                item !== '素人' &&
+                                item !== '巨乳' &&
+                                item !== '美人' &&
+                                item !== '乳首' &&
+                                item !== 'オ' &&
+                                item !== 'です' &&
+                                item !== '内射' &&
+                                item !== '人妻' &&
+                                item !== '痴女' &&
+                                item !== '十代' &&
+                                item !== 'コ' &&
+                                item.length < 7
+                            )[0],
+                          data.keyword
+                            .split(/,|\s/)
+                            .filter(
+                              RegExp.prototype.test,
+                              /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/
+                            )
+                            .filter(
+                              (item) =>
+                                item !== data.title &&
+                                item !== '日本人' &&
+                                item !== 'アジア' &&
+                                item !== 'アジア人' &&
+                                item !== '日本' &&
+                                item !== '無修正' &&
+                                item !== '肛門' &&
+                                item !== 'アナルセックス' &&
+                                item !== '兼' &&
+                                item !== '油' &&
+                                item !== '中出' &&
+                                item !== '人' &&
+                                item !== 'アジアユニフォーム' &&
+                                item !== 'ユニフォーム' &&
+                                item !== '女' &&
+                                item !== '熟' &&
+                                item !== '膣' &&
+                                item !== 'フェチ' &&
+                                item !== 'ハードコア' &&
+                                item !== 'ハイビジョン' &&
+                                item !== '足' &&
+                                item !== 'マッサージ師' &&
+                                item !== '素人' &&
+                                item !== '巨乳' &&
+                                item !== '美人' &&
+                                item !== '乳首' &&
+                                item !== 'オ' &&
+                                item !== 'です' &&
+                                item !== '内射' &&
+                                item !== '人妻' &&
+                                item !== '痴女' &&
+                                item !== '十代' &&
+                                item !== 'コ' &&
+                                item.length < 7
+                            )[1],
+                          data.keyword
+                            .split(/,|\s/)
+                            .filter(
+                              RegExp.prototype.test,
+                              /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/
+                            )
+                            .filter(
+                              (item) =>
+                                item !== data.title &&
+                                item !== '日本人' &&
+                                item !== 'アジア' &&
+                                item !== 'アジア人' &&
+                                item !== '日本' &&
+                                item !== '無修正' &&
+                                item !== '肛門' &&
+                                item !== 'アナルセックス' &&
+                                item !== '兼' &&
+                                item !== '油' &&
+                                item !== '中出' &&
+                                item !== '人' &&
+                                item !== 'アジアユニフォーム' &&
+                                item !== 'ユニフォーム' &&
+                                item !== '女' &&
+                                item !== '熟' &&
+                                item !== '膣' &&
+                                item !== 'フェチ' &&
+                                item !== 'ハードコア' &&
+                                item !== 'ハイビジョン' &&
+                                item !== '足' &&
+                                item !== 'マッサージ師' &&
+                                item !== '素人' &&
+                                item !== '巨乳' &&
+                                item !== '美人' &&
+                                item !== '乳首' &&
+                                item !== 'オ' &&
+                                item !== 'です' &&
+                                item !== '内射' &&
+                                item !== '人妻' &&
+                                item !== '痴女' &&
+                                item !== '十代' &&
+                                item !== 'コ' &&
+                                item.length < 7
+                            )[2],
+                          data.keyword
+                            .split(/,|\s/)
+                            .filter(
+                              RegExp.prototype.test,
+                              /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/
+                            )
+                            .filter(
+                              (item) =>
+                                item !== data.title &&
+                                item !== '日本人' &&
+                                item !== 'アジア' &&
+                                item !== 'アジア人' &&
+                                item !== '日本' &&
+                                item !== '無修正' &&
+                                item !== '肛門' &&
+                                item !== 'アナルセックス' &&
+                                item !== '兼' &&
+                                item !== '油' &&
+                                item !== '中出' &&
+                                item !== '人' &&
+                                item !== 'アジアユニフォーム' &&
+                                item !== 'ユニフォーム' &&
+                                item !== '女' &&
+                                item !== '熟' &&
+                                item !== '膣' &&
+                                item !== 'フェチ' &&
+                                item !== 'ハードコア' &&
+                                item !== 'ハイビジョン' &&
+                                item !== '足' &&
+                                item !== 'マッサージ師' &&
+                                item !== '素人' &&
+                                item !== '巨乳' &&
+                                item !== '美人' &&
+                                item !== '乳首' &&
+                                item !== 'オ' &&
+                                item !== 'です' &&
+                                item !== '内射' &&
+                                item !== '人妻' &&
+                                item !== '痴女' &&
+                                item !== '十代' &&
+                                item !== 'コ' &&
+                                item.length < 7
+                            )[3]
                         )
                       "
                     >
-                      <!-- <vue-lazy-component> -->
-                      <template v-if="data.title.length > 36">
-                        <p
-                          class="text-gray-200 text-sm hover:text-purple-500"
-                        >
-                          {{ data.title.slice(0, 36) }}…
-                        </p>
-                      </template>
-                      <template v-else>
-                        <p
-                          class="text-gray-200 text-sm hover:text-purple-500"
-                        >
-                          {{ data.title }}
-                        </p>
-                      </template>
-                      <!-- <SearchSkeletonTitle slot="skeleton" /> -->
-                      <!-- </vue-lazy-component> -->
-                    </nuxt-link>
-                    <div class="flex flex-row my-1">
-                      <!-- <vue-lazy-component> -->
-                      <template v-if="data.viewnumber >= 1000000">
-                        <h6 class="text-gray-400 mr-1 text-xs">
-                          再生数
-                          {{
-                            Math.ceil(data.viewnumber / 1000000)
-                          }}M・
-                        </h6>
-                      </template>
-                      <template
-                        v-else-if="
-                          data.viewnumber >= 1000 &&
-                          data.viewnumber < 1000000
-                        "
+                      <div
+                        class="relative"
+                        style="width: 160px; height: 90px"
                       >
-                        <h6 class="text-gray-400 mr-1 text-xs">
-                          再生数
-                          {{ Math.ceil(data.viewnumber / 1000) }}K・
-                        </h6>
-                      </template>
-                      <template v-else>
-                        <h6 class="text-gray-400 mr-1 text-xs">
-                          再生数 {{ Math.ceil(data.viewnumber) }}・
-                        </h6>
-                      </template>
-                      <template
-                        v-if="
-                          Number.isNaN(
-                            (data.likes /
-                              (data.likes + data.dislikes)) *
-                              100
+                        <vue-lazy-component>
+                          <img
+                            :src="data.preview_url"
+                            alt="サムネイル"
+                            width="160"
+                            height="90"
+                            class="z-auto relative text-gray-200"
+                            referrerpolicy="no-referrer"
+                            crossorigin
+                          />
+                          <SearchSkeletonImg slot="skeleton" />
+                        </vue-lazy-component>
+                        <h5
+                          class="text-gray-100 z-10 absolute right-0 bottom-0 bg-gray-900 rounded-sm px-1 py-px m-1"
+                          style="font-size: 10px"
+                        >
+                          {{ toHms(data.duration) }}
+                        </h5>
+                      </div>
+                    </nuxt-link>
+                    <div
+                      class="ml-2"
+                      style="width: 175px; height: 90px"
+                    >
+                      <nuxt-link
+                        :to="{
+                          path: 'embedded_url' + '/' + data.vid,
+                        }"
+                        aria-label="動画埋め込みページへ遷移"
+                        @click.native="
+                          getRecommendTitle(
+                            data.keyword
+                              .split(/,|\s/)
+                              .filter(
+                                RegExp.prototype.test,
+                                /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/
+                              )
+                              .filter(
+                                (item) =>
+                                  item !== data.title &&
+                                  item !== '日本人' &&
+                                  item !== 'アジア' &&
+                                  item !== 'アジア人' &&
+                                  item !== '日本' &&
+                                  item !== '無修正' &&
+                                  item !== '肛門' &&
+                                  item !== 'アナルセックス' &&
+                                  item !== '兼' &&
+                                  item !== '油' &&
+                                  item !== '中出' &&
+                                  item !== '人' &&
+                                  item !== 'アジアユニフォーム' &&
+                                  item !== 'ユニフォーム' &&
+                                  item !== '女' &&
+                                  item !== '熟' &&
+                                  item !== '膣' &&
+                                  item !== 'フェチ' &&
+                                  item !== 'ハードコア' &&
+                                  item !== 'ハイビジョン' &&
+                                  item !== '足' &&
+                                  item !== 'マッサージ師' &&
+                                  item !== '素人' &&
+                                  item !== '巨乳' &&
+                                  item !== '美人' &&
+                                  item !== '乳首' &&
+                                  item !== 'オ' &&
+                                  item !== 'です' &&
+                                  item !== '内射' &&
+                                  item !== '人妻' &&
+                                  item !== '痴女' &&
+                                  item !== '十代' &&
+                                  item !== 'コ' &&
+                                  item.length < 7
+                              )[0],
+                            data.keyword
+                              .split(/,|\s/)
+                              .filter(
+                                RegExp.prototype.test,
+                                /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/
+                              )
+                              .filter(
+                                (item) =>
+                                  item !== data.title &&
+                                  item !== '日本人' &&
+                                  item !== 'アジア' &&
+                                  item !== 'アジア人' &&
+                                  item !== '日本' &&
+                                  item !== '無修正' &&
+                                  item !== '肛門' &&
+                                  item !== 'アナルセックス' &&
+                                  item !== '兼' &&
+                                  item !== '油' &&
+                                  item !== '中出' &&
+                                  item !== '人' &&
+                                  item !== 'アジアユニフォーム' &&
+                                  item !== 'ユニフォーム' &&
+                                  item !== '女' &&
+                                  item !== '熟' &&
+                                  item !== '膣' &&
+                                  item !== 'フェチ' &&
+                                  item !== 'ハードコア' &&
+                                  item !== 'ハイビジョン' &&
+                                  item !== '足' &&
+                                  item !== 'マッサージ師' &&
+                                  item !== '素人' &&
+                                  item !== '巨乳' &&
+                                  item !== '美人' &&
+                                  item !== '乳首' &&
+                                  item !== 'オ' &&
+                                  item !== 'です' &&
+                                  item !== '内射' &&
+                                  item !== '人妻' &&
+                                  item !== '痴女' &&
+                                  item !== '十代' &&
+                                  item !== 'コ' &&
+                                  item.length < 7
+                              )[1],
+                            data.keyword
+                              .split(/,|\s/)
+                              .filter(
+                                RegExp.prototype.test,
+                                /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/
+                              )
+                              .filter(
+                                (item) =>
+                                  item !== data.title &&
+                                  item !== '日本人' &&
+                                  item !== 'アジア' &&
+                                  item !== 'アジア人' &&
+                                  item !== '日本' &&
+                                  item !== '無修正' &&
+                                  item !== '肛門' &&
+                                  item !== 'アナルセックス' &&
+                                  item !== '兼' &&
+                                  item !== '油' &&
+                                  item !== '中出' &&
+                                  item !== '人' &&
+                                  item !== 'アジアユニフォーム' &&
+                                  item !== 'ユニフォーム' &&
+                                  item !== '女' &&
+                                  item !== '熟' &&
+                                  item !== '膣' &&
+                                  item !== 'フェチ' &&
+                                  item !== 'ハードコア' &&
+                                  item !== 'ハイビジョン' &&
+                                  item !== '足' &&
+                                  item !== 'マッサージ師' &&
+                                  item !== '素人' &&
+                                  item !== '巨乳' &&
+                                  item !== '美人' &&
+                                  item !== '乳首' &&
+                                  item !== 'オ' &&
+                                  item !== 'です' &&
+                                  item !== '内射' &&
+                                  item !== '人妻' &&
+                                  item !== '痴女' &&
+                                  item !== '十代' &&
+                                  item !== 'コ' &&
+                                  item.length < 7
+                              )[2],
+                            data.keyword
+                              .split(/,|\s/)
+                              .filter(
+                                RegExp.prototype.test,
+                                /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/
+                              )
+                              .filter(
+                                (item) =>
+                                  item !== data.title &&
+                                  item !== '日本人' &&
+                                  item !== 'アジア' &&
+                                  item !== 'アジア人' &&
+                                  item !== '日本' &&
+                                  item !== '無修正' &&
+                                  item !== '肛門' &&
+                                  item !== 'アナルセックス' &&
+                                  item !== '兼' &&
+                                  item !== '油' &&
+                                  item !== '中出' &&
+                                  item !== '人' &&
+                                  item !== 'アジアユニフォーム' &&
+                                  item !== 'ユニフォーム' &&
+                                  item !== '女' &&
+                                  item !== '熟' &&
+                                  item !== '膣' &&
+                                  item !== 'フェチ' &&
+                                  item !== 'ハードコア' &&
+                                  item !== 'ハイビジョン' &&
+                                  item !== '足' &&
+                                  item !== 'マッサージ師' &&
+                                  item !== '素人' &&
+                                  item !== '巨乳' &&
+                                  item !== '美人' &&
+                                  item !== '乳首' &&
+                                  item !== 'オ' &&
+                                  item !== 'です' &&
+                                  item !== '内射' &&
+                                  item !== '人妻' &&
+                                  item !== '痴女' &&
+                                  item !== '十代' &&
+                                  item !== 'コ' &&
+                                  item.length < 7
+                              )[3]
                           )
                         "
                       >
-                        <i
-                          class="material-icons text-gray-400"
-                          style="font-size: 16px"
-                          >thumb_up</i
+                        <!-- <vue-lazy-component> -->
+                        <template v-if="data.title.length > 36">
+                          <p
+                            class="text-gray-200 text-sm hover:text-purple-500"
+                          >
+                            {{ data.title.slice(0, 36) }}…
+                          </p>
+                        </template>
+                        <template v-else>
+                          <p
+                            class="text-gray-200 text-sm hover:text-purple-500"
+                          >
+                            {{ data.title }}
+                          </p>
+                        </template>
+                        <!-- <SearchSkeletonTitle slot="skeleton" /> -->
+                        <!-- </vue-lazy-component> -->
+                      </nuxt-link>
+                      <div class="flex flex-row my-1">
+                        <!-- <vue-lazy-component> -->
+                        <template v-if="data.viewnumber >= 1000000">
+                          <h6 class="text-gray-400 mr-1 text-xs">
+                            再生数
+                            {{
+                              Math.ceil(data.viewnumber / 1000000)
+                            }}M・
+                          </h6>
+                        </template>
+                        <template
+                          v-else-if="
+                            data.viewnumber >= 1000 &&
+                            data.viewnumber < 1000000
+                          "
                         >
-                        <h6 class="text-gray-400 px-1 text-xs">0%</h6>
-                      </template>
-                      <template v-else>
-                        <i
-                          class="material-icons text-gray-400"
-                          style="font-size: 16px"
-                          >thumb_up</i
-                        >
-                        <h6 class="text-gray-400 px-1 text-xs">
-                          {{
-                            Math.ceil(
+                          <h6 class="text-gray-400 mr-1 text-xs">
+                            再生数
+                            {{ Math.ceil(data.viewnumber / 1000) }}K・
+                          </h6>
+                        </template>
+                        <template v-else>
+                          <h6 class="text-gray-400 mr-1 text-xs">
+                            再生数 {{ Math.ceil(data.viewnumber) }}・
+                          </h6>
+                        </template>
+                        <template
+                          v-if="
+                            Number.isNaN(
                               (data.likes /
                                 (data.likes + data.dislikes)) *
                                 100
                             )
-                          }}%
-                        </h6>
-                      </template>
-                      <!-- </vue-lazy-component> -->
+                          "
+                        >
+                          <i
+                            class="material-icons text-gray-400"
+                            style="font-size: 16px"
+                            >thumb_up</i
+                          >
+                          <h6 class="text-gray-400 px-1 text-xs">
+                            0%
+                          </h6>
+                        </template>
+                        <template v-else>
+                          <i
+                            class="material-icons text-gray-400"
+                            style="font-size: 16px"
+                            >thumb_up</i
+                          >
+                          <h6 class="text-gray-400 px-1 text-xs">
+                            {{
+                              Math.ceil(
+                                (data.likes /
+                                  (data.likes + data.dislikes)) *
+                                  100
+                              )
+                            }}%
+                          </h6>
+                        </template>
+                        <!-- </vue-lazy-component> -->
+                      </div>
                     </div>
                   </div>
                 </div>
