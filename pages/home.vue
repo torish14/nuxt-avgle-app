@@ -105,10 +105,18 @@
           </client-only>
         </div> -->
         <template v-else-if="$fetchState.error">
-          <i class="material-icons text-gray-400">error</i>
-          <h5 class="text-gray-400 text-sm">
-            &nbsp;エラーが発生しました。
-          </h5>
+          <div class="flex flex-col flex-shrink-0 items-center pt-8">
+            <h5 class="text-gray-200 text-base">
+              &nbsp;エラーが発生しました。
+            </h5>
+            <a
+              href="https://porngle.love/home"
+              aria-label="ホームへ戻る"
+              class="text-gray-400 text-sm hover:text-purple-500"
+              @click="setJapaneseForm"
+              >ｔ &nbsp;トップページに戻る
+            </a>
+          </div>
         </template>
         <template v-else>
           <div
@@ -1604,10 +1612,18 @@
           </client-only>
         </div> -->
         <template v-else-if="$fetchState.error">
-          <i class="material-icons text-gray-400">error</i>
-          <h5 class="text-gray-400 text-sm">
-            &nbsp;エラーが発生しました。
-          </h5>
+          <div class="flex flex-col flex-shrink-0 items-center pt-8">
+            <h5 class="text-gray-200 text-base">
+              &nbsp;エラーが発生しました。
+            </h5>
+            <a
+              href="https://porngle.love/home"
+              aria-label="ホームへ戻る"
+              class="text-gray-400 text-sm hover:text-purple-500"
+              @click="setJapaneseForm"
+              >ｔ &nbsp;トップページに戻る
+            </a>
+          </div>
         </template>
         <template v-else>
           <div v-for="data in getJapaneseItems" :key="data.vid">
