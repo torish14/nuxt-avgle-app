@@ -7,12 +7,12 @@
           class="px-5 py-8 mx-auto flex items-center sm:flex-row flex-col"
         >
           <a
-            href="https://porngle.love"
+            href="https://porngle.love/home"
             aria-label="ホームへ戻る"
             @click="setJapaneseForm"
           >
             <img
-              src="~/assets/Porngle ロゴ.jpeg"
+              src="~/assets/Porngle.jpeg"
               alt="Porngle"
               class="w-40"
             />
@@ -39,7 +39,7 @@
           >
             <li>
               <nuxt-link
-                to="/"
+                to="/home"
                 aria-label="ホームへ戻る"
                 @click.native="setJapaneseForm()"
               >

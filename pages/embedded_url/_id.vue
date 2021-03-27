@@ -88,7 +88,7 @@
                 &nbsp;作品が見つかりませんでした。
               </h5>
               <a
-                href="https://porngle.love"
+                href="https://porngle.love/home"
                 aria-label="ホームへ戻る"
                 class="text-gray-400 text-sm hover:text-purple-500"
                 @click="setJapaneseForm"
@@ -107,7 +107,7 @@
                 &nbsp;作品が見つかりませんでした。
               </h5>
               <a
-                href="https://porngle.love"
+                href="https://porngle.love/home"
                 aria-label="ホームへ戻る"
                 class="text-gray-400 text-sm hover:text-purple-500"
                 @click="setJapaneseForm"
@@ -1607,7 +1607,7 @@
                 &nbsp;作品が見つかりませんでした。
               </h5>
               <a
-                href="https://porngle.love"
+                href="https://porngle.love/home"
                 aria-label="ホームへ戻る"
                 class="text-gray-400 text-sm hover:text-purple-500"
                 @click="setJapaneseForm"
@@ -1626,7 +1626,7 @@
                 &nbsp;作品が見つかりませんでした。
               </h5>
               <a
-                href="https://porngle.love"
+                href="https://porngle.love/home"
                 aria-label="ホームへ戻る"
                 class="text-gray-400 text-sm hover:text-purple-500"
                 @click="setJapaneseForm"
@@ -5499,7 +5499,7 @@ export default Vue.extend({
         description: '動画視聴ページです。',
         type: 'website',
         url: 'https://porngle.love/embedded_url/_id',
-        image: 'https://porngle.love/assets/PG ロゴ.jpeg',
+        image: 'https://porngle.love/assets/PG.jpeg',
         robots: 'noindex',
       },
     }

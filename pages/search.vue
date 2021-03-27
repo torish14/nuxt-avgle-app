@@ -90,7 +90,7 @@
                     &nbsp;作品が見つかりませんでした。
                   </h5>
                   <a
-                    href="https://porngle.love"
+                    href="https://porngle.love/home"
                     aria-label="ホームへ戻る"
                     class="text-gray-400 text-sm hover:text-purple-500"
                     @click="setJapaneseForm"
@@ -412,7 +412,7 @@
           >
             <li>
               <nuxt-link
-                to="/"
+                to="/home"
                 aria-label="ホームへ戻る"
                 @click.native="setJapaneseForm()"
               >
@@ -500,7 +500,7 @@ export default Vue.extend({
         description: '検索ページです。',
         type: 'website',
         url: 'https://porngle.love/search',
-        image: 'https://porngle.love/assets/PG ロゴ.jpeg',
+        image: 'https://porngle.love/assets/PG.jpeg',
         robots: 'noindex',
       },
       onFocus: false,

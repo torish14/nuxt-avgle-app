@@ -14,7 +14,7 @@
         </h5>
       </template>
       <a
-        href="https://porngle.love"
+        href="https://porngle.love/home"
         aria-label="ホームへ戻る"
         class="text-gray-400 text-sm hover:text-purple-500"
         @click="setJapaneseForm"
@@ -47,7 +47,7 @@ export default Vue.extend({
         title: 'エラー',
         description: 'エラーページです。',
         type: 'website',
-        image: 'https://porngle.love/assets/PG ロゴ.jpeg',
+        image: 'https://porngle.love/assets/PG.jpeg',
         robots: 'noindex',
       },
     }

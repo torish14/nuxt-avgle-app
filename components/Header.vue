@@ -12,12 +12,12 @@
           >
             <h1>
               <a
-                href="https://porngle.love"
+                href="https://porngle.love/home"
                 aria-label="ホームへ戻る"
                 @click="setJapaneseForm"
               >
                 <img
-                  src="~/assets/Porngle ロゴ.jpeg"
+                  src="~/assets/Porngle.jpeg"
                   alt="Porngle"
                   class="w-40"
                   style="height: 60px"
@@ -60,12 +60,12 @@
             class="flex items-center flex-shrink-0 text-gray-100 ml-2 py-2"
           >
             <a
-              href="https://porngle.love"
+              href="https://porngle.love/home"
               aria-label="ホームへ戻る"
               @click="setJapaneseForm"
             >
               <img
-                src="~/assets/Porngle ロゴ.jpeg"
+                src="~/assets/Porngle.jpeg"
                 alt="Porngle"
                 class="w-24"
                 style="height: 40px"

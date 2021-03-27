@@ -52,8 +52,7 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content:
-          process.env.npm_package_description || siteDesc,
+        content: process.env.npm_package_description || siteDesc,
       },
       {
         hid: 'keywords',
@@ -93,7 +92,7 @@ export default {
       {
         hid: 'og:image',
         property: 'og:image',
-        content: 'https://porngle.love/assets/PG ロゴ.jpeg',
+        content: 'https://porngle.love/assets/PG.jpeg',
       },
       {
         name: 'twitter:card',
