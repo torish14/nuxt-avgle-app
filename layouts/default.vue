@@ -15,11 +15,12 @@ export default {
     // @ts-ignore
     Footer: () => import('~/components/Footer'),
   },
-  head() {
+  head(): { link: { rel: string; href: string }[] } {
     return {
       link: [
         {
           rel: 'canonical',
+          // @ts-ignore
           href: `https://porngle.love${this.$route.path}`,
         },
       ],

@@ -7,11 +7,12 @@
 <script lang="ts">
 export default {
   name: 'Mobile',
-  head() {
+  head(): { link: { rel: string; href: string }[] } {
     return {
       link: [
         {
           rel: 'canonical',
+          // @ts-ignore
           href: `https://porngle.love${this.$route.path}`,
         },
       ],
