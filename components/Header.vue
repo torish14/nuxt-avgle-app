@@ -196,7 +196,7 @@ export default Vue.extend({
       this.$accessor.search.concatRecommendArray(
         this.$store.state.search.recommendKeywords
       )
-      this.$router.push('/')
+      this.$router.push('/home')
     },
     setJapaneseForm(): void {
       this.$accessor.search.setJapaneseMessage()

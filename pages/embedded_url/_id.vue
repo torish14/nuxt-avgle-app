@@ -6295,7 +6295,7 @@ export default Vue.extend({
       )
     },
     changeFormKeyword(keyword: string): void {
-      this.$router.push('/')
+      this.$router.push('/home')
       // @ts-ignore
       this.$accessor.search.changeKeyword(keyword)
       this.$accessor.search.getJapaneseItems()
