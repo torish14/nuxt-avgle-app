@@ -1649,6 +1649,9 @@ export default Vue.extend({
       // @ts-ignore
       this.$accessor.search.addRecommendTitles(title)
       console.log(title)
+      this.$accessor.search.concatRecommendArray(
+        this.$store.state.search.recommendTitles
+      )
     },
     changeFormSuggestKeyword(keyword: string): void {
       // @ts-ignore
