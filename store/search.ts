@@ -100,9 +100,10 @@ export const mutations = mutationTree(state, {
     // @ts-ignore
     state.message =
       // @ts-ignore
-      state.concatRecommend[0]
-    // // @ts-ignore
-    // Math.floor(Math.random() * state.concatRecommend.length)
+      state.concatRecommend[
+        // @ts-ignore
+        Math.floor(Math.random() * state.concatRecommend.length)
+      ]
   },
   setDupConcatMessage(state) {
     // @ts-ignore
