@@ -264,6 +264,13 @@
                     エロアニメ
                     <i class="material-icons pr-4">play_arrow</i>
                   </p>
+                  <p
+                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-600 border border-gray-600"
+                    @click="changeFormList('SM')"
+                  >
+                    SM
+                    <i class="material-icons pr-4">play_arrow</i>
+                  </p>
                 </div>
               </div>
               <div v-show="!onFocus">
