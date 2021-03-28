@@ -3300,12 +3300,12 @@ export default Vue.extend({
       this.$accessor.search.getJapaneseItems()
     }
   },
-  activated(): void {
-    // 最後の fetch から30秒以上経っていれば、fetch を呼び出す
-    if (this.$fetchState.timestamp <= Date.now() - 30000) {
-      this.$fetch()
-    }
-  },
+  // activated(): void {
+  //   // 最後の fetch から30秒以上経っていれば、fetch を呼び出す
+  //   if (this.$fetchState.timestamp <= Date.now() - 30000) {
+  //     this.$fetch()
+  //   }
+  // },
   created(): void {
     if (process.browser) {
       // eslint-disable-next-line
