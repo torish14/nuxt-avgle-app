@@ -89,14 +89,17 @@
                   <h5 class="text-gray-200 text-base">
                     &nbsp;作品が見つかりませんでした。
                   </h5>
-                  <a
-                    href="https://porngle.love"
+                  <nuxt-link
+                    to="/"
                     aria-label="ホームへ戻る"
                     class="text-gray-400 text-sm hover:text-purple-500"
-                    @click="setJapaneseForm"
+                    @click.native="
+                      setJapaneseForm()
+                      refresh()
+                    "
                   >
                     &nbsp;トップページに戻る
-                  </a>
+                  </nuxt-link>
                 </div>
               </client-only>
             </template>
@@ -175,13 +178,16 @@
                 <h5 class="text-gray-200 text-base">
                   &nbsp;エラーが発生しました。
                 </h5>
-                <a
-                  href="https://porngle.love"
+                <nuxt-link
+                  to="/"
                   aria-label="ホームへ戻る"
                   class="text-gray-400 text-sm hover:text-purple-500"
-                  @click="setJapaneseForm"
-                  >ｔ &nbsp;トップページに戻る
-                </a>
+                  @click.native="
+                    setJapaneseForm()
+                    refresh()
+                  "
+                  >&nbsp;トップページに戻る
+                </nuxt-link>
               </div>
             </template>
             <template v-else>

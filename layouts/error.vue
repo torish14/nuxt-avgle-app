@@ -13,14 +13,17 @@
           &nbsp;エラーが発生しました。
         </h5>
       </template>
-      <a
-        href="https://porngle.love"
+      <nuxt-link
+        to="/"
         aria-label="ホームへ戻る"
         class="text-gray-400 text-sm hover:text-purple-500"
-        @click="setJapaneseForm"
+        @click.native="
+          setJapaneseForm()
+          refresh()
+        "
       >
         &nbsp;トップページに戻る
-      </a>
+      </nuxt-link>
     </div>
   </div>
 </template>
@@ -55,6 +58,9 @@ export default Vue.extend({
   methods: {
     setJapaneseForm(): void {
       this.$accessor.search.setJapaneseMessage()
+    },
+    refresh(): void {
+      this.$nuxt.refresh()
     },
   },
 })

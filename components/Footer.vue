@@ -6,17 +6,20 @@
         <div
           class="px-5 py-8 mx-auto flex items-center sm:flex-row flex-col"
         >
-          <a
-            href="https://porngle.love"
+          <nuxt-link
+            to="/"
             aria-label="ホームへ戻る"
-            @click="setJapaneseForm"
+            @click.native="
+              setJapaneseForm()
+              refresh()
+            "
           >
             <img
               src="~/assets/Porngle.jpeg"
               alt="Porngle"
               class="w-40"
             />
-          </a>
+          </nuxt-link>
           <p
             class="text-sm text-gray-400 sm:ml-4 sm:pl-4 sm:py-2 sm:mt-0 mt-4"
           >
@@ -112,6 +115,7 @@ export default Vue.extend({
         this.$accessor.search.setJapaneseMessage()
       }
       this.$accessor.search.getJapaneseItems()
+      window.scrollTo(0, 0)
       // this.$accessor.search.messages
       //   // @ts-ignore
       //   .sort(function () {

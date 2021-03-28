@@ -11,10 +11,13 @@
             role="banner"
           >
             <h1>
-              <a
-                href="https://porngle.love"
+              <nuxt-link
+                to="/"
                 aria-label="ホームへ戻る"
-                @click="setJapaneseForm"
+                @click.native="
+                  setJapaneseForm()
+                  refresh()
+                "
               >
                 <img
                   src="~/assets/Porngle.jpeg"
@@ -22,7 +25,7 @@
                   class="w-40"
                   style="height: 60px"
                 />
-              </a>
+              </nuxt-link>
             </h1>
           </div>
           <div
@@ -59,10 +62,13 @@
             :class="isOpen ? 'hidden' : 'block'"
             class="flex items-center flex-shrink-0 text-gray-100 ml-2 py-2"
           >
-            <a
-              href="https://porngle.love"
+            <nuxt-link
+              to="/"
               aria-label="ホームへ戻る"
-              @click="setJapaneseForm"
+              @click.native="
+                setJapaneseForm()
+                refresh()
+              "
             >
               <img
                 src="~/assets/Porngle.jpeg"
@@ -70,7 +76,7 @@
                 class="w-24"
                 style="height: 40px"
               />
-            </a>
+            </nuxt-link>
           </div>
           <!-- <div :class="isOpen ? 'block' : 'hidden'" class="w-full pl-2">
               <input
@@ -203,6 +209,9 @@ export default Vue.extend({
     },
     focus() {
       // this.$accessor.search.clearMessage()
+    },
+    refresh(): void {
+      this.$nuxt.refresh()
     },
     // focusSearch () {
     //   this.$accessor.search.clearMessage()
