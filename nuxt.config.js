@@ -95,12 +95,19 @@ export default {
         content: 'https://porngle.love/assets/PG.jpeg',
       },
       {
+        hid: 'twitter:card',
         name: 'twitter:card',
         content: 'summary_large_image',
       },
       {
+        hid: 'twitter:site',
         name: 'twitter:site',
         content: '@porngle_love',
+      },
+      {
+        hid: 'twitter:image',
+        name: 'twitter:image',
+        content: 'https://porngle.love/assets/PG.jpeg',
       },
     ],
     // link: [{
