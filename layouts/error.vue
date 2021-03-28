@@ -1,6 +1,6 @@
 <template>
   <div class="error bg-gray-800">
-    <div class="flex flex-col flex-shrink-0 items-center pt-8">
+    <div class="flex flex-col flex-shrink-0 items-center pt-12">
       <template v-if="error.statusCode === 404">
         <h5 class="text-gray-200 text-base">
           &nbsp;お探しのページが見つかりませんでした。

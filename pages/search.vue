@@ -84,7 +84,7 @@
             >
               <client-only>
                 <div
-                  class="flex flex-col flex-shrink-0 items-center pt-7"
+                  class="flex flex-col flex-shrink-0 items-center pt-11"
                 >
                   <h5 class="text-gray-200 text-base">
                     &nbsp;作品が見つかりませんでした。
@@ -170,7 +170,7 @@
             </div> -->
             <template v-else-if="$fetchState.error">
               <div
-                class="flex flex-col flex-shrink-0 items-center pt-8"
+                class="flex flex-col flex-shrink-0 items-center pt-12"
               >
                 <h5 class="text-gray-200 text-base">
                   &nbsp;エラーが発生しました。
