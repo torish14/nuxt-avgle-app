@@ -12,7 +12,7 @@
           >
             <h1>
               <a
-                href="https://porngle.love/home"
+                href="https://porngle.love"
                 aria-label="ホームへ戻る"
                 @click="setJapaneseForm"
               >
@@ -60,7 +60,7 @@
             class="flex items-center flex-shrink-0 text-gray-100 ml-2 py-2"
           >
             <a
-              href="https://porngle.love/home"
+              href="https://porngle.love"
               aria-label="ホームへ戻る"
               @click="setJapaneseForm"
             >
@@ -196,7 +196,7 @@ export default Vue.extend({
       this.$accessor.search.concatRecommendArray(
         this.$store.state.search.recommendKeywords
       )
-      this.$router.push('/home')
+      this.$router.push('/')
     },
     setJapaneseForm(): void {
       this.$accessor.search.setJapaneseMessage()

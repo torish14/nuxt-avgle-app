@@ -14,7 +14,7 @@
         </h5>
       </template>
       <a
-        href="https://porngle.love/home"
+        href="https://porngle.love"
         aria-label="ホームへ戻る"
         class="text-gray-400 text-sm hover:text-purple-500"
         @click="setJapaneseForm"

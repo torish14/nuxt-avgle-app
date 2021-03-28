@@ -7,7 +7,7 @@
           class="px-5 py-8 mx-auto flex items-center sm:flex-row flex-col"
         >
           <a
-            href="https://porngle.love/home"
+            href="https://porngle.love"
             aria-label="ホームへ戻る"
             @click="setJapaneseForm"
           >
@@ -39,7 +39,7 @@
           >
             <li>
               <nuxt-link
-                to="/home"
+                to="/"
                 aria-label="ホームへ戻る"
                 @click.native="setJapaneseForm()"
               >

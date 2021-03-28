@@ -90,7 +90,7 @@
                     &nbsp;作品が見つかりませんでした。
                   </h5>
                   <a
-                    href="https://porngle.love/home"
+                    href="https://porngle.love"
                     aria-label="ホームへ戻る"
                     class="text-gray-400 text-sm hover:text-purple-500"
                     @click="setJapaneseForm"
@@ -176,7 +176,7 @@
                   &nbsp;エラーが発生しました。
                 </h5>
                 <a
-                  href="https://porngle.love/home"
+                  href="https://porngle.love"
                   aria-label="ホームへ戻る"
                   class="text-gray-400 text-sm hover:text-purple-500"
                   @click="setJapaneseForm"
@@ -315,6 +315,7 @@
                                 item !== '痴女' &&
                                 item !== '十代' &&
                                 item !== 'コ' &&
+                                item !== '粗い' &&
                                 item.length < 7
                             )[0],
                           data.keyword
@@ -358,6 +359,7 @@
                                 item !== '痴女' &&
                                 item !== '十代' &&
                                 item !== 'コ' &&
+                                item !== '粗い' &&
                                 item.length < 7
                             )[1],
                           data.keyword
@@ -401,6 +403,7 @@
                                 item !== '痴女' &&
                                 item !== '十代' &&
                                 item !== 'コ' &&
+                                item !== '粗い' &&
                                 item.length < 7
                             )[2],
                           data.keyword
@@ -444,6 +447,7 @@
                                 item !== '痴女' &&
                                 item !== '十代' &&
                                 item !== 'コ' &&
+                                item !== '粗い' &&
                                 item.length < 7
                             )[3]
                         )
@@ -525,6 +529,7 @@
                                   item !== '痴女' &&
                                   item !== '十代' &&
                                   item !== 'コ' &&
+                                  item !== '粗い' &&
                                   item.length < 7
                               )[0],
                             data.keyword
@@ -568,6 +573,7 @@
                                   item !== '痴女' &&
                                   item !== '十代' &&
                                   item !== 'コ' &&
+                                  item !== '粗い' &&
                                   item.length < 7
                               )[1],
                             data.keyword
@@ -611,6 +617,7 @@
                                   item !== '痴女' &&
                                   item !== '十代' &&
                                   item !== 'コ' &&
+                                  item !== '粗い' &&
                                   item.length < 7
                               )[2],
                             data.keyword
@@ -654,6 +661,7 @@
                                   item !== '痴女' &&
                                   item !== '十代' &&
                                   item !== 'コ' &&
+                                  item !== '粗い' &&
                                   item.length < 7
                               )[3]
                           )
@@ -764,7 +772,7 @@
           >
             <li>
               <nuxt-link
-                to="/home"
+                to="/"
                 aria-label="ホームへ戻る"
                 @click.native="setJapaneseForm()"
               >
