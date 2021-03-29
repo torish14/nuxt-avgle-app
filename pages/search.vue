@@ -1085,6 +1085,7 @@ export default Vue.extend({
       this.$nextTick(() => {
         // @ts-ignore
         this.$refs.focusInput.focus()
+        window.scrollTo(0, 0)
       })
     },
     focus(): void {
