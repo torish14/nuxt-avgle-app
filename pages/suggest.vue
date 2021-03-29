@@ -108,7 +108,7 @@
                           item !== 'コ' &&
                           item !== '粗い' &&
                           item !== '熟女' &&
-                          item.length < 7
+                          item.length < 6
                       )[0],
                     data.keyword
                       .split(/,|\s/)
@@ -153,7 +153,7 @@
                           item !== 'コ' &&
                           item !== '粗い' &&
                           item !== '熟女' &&
-                          item.length < 7
+                          item.length < 6
                       )[1],
                     data.keyword
                       .split(/,|\s/)
@@ -198,7 +198,7 @@
                           item !== 'コ' &&
                           item !== '粗い' &&
                           item !== '熟女' &&
-                          item.length < 7
+                          item.length < 6
                       )[2],
                     data.keyword
                       .split(/,|\s/)
@@ -243,7 +243,7 @@
                           item !== 'コ' &&
                           item !== '粗い' &&
                           item !== '熟女' &&
-                          item.length < 7
+                          item.length < 6
                       )[3]
                   )
                 "
@@ -381,7 +381,7 @@
                           item !== 'コ' &&
                           item !== '粗い' &&
                           item !== '熟女' &&
-                          item.length < 7
+                          item.length < 6
                       ).length === 0
                   "
                 />
@@ -430,7 +430,7 @@
                           item !== 'コ' &&
                           item !== '粗い' &&
                           item !== '熟女' &&
-                          item.length < 7
+                          item.length < 6
                       ).length === 1
                   "
                 >
@@ -482,7 +482,7 @@
                               item !== 'コ' &&
                               item !== '粗い' &&
                               item !== '熟女' &&
-                              item.length < 7
+                              item.length < 6
                           )[0]
                       )
                     "
@@ -531,7 +531,7 @@
                             item !== 'コ' &&
                             item !== '粗い' &&
                             item !== '熟女' &&
-                            item.length < 7
+                            item.length < 6
                         )[0]
                     }}
                   </div>
@@ -581,7 +581,7 @@
                           item !== 'コ' &&
                           item !== '粗い' &&
                           item !== '熟女' &&
-                          item.length < 7
+                          item.length < 6
                       ).length === 2
                   "
                 >
@@ -633,7 +633,7 @@
                               item !== 'コ' &&
                               item !== '粗い' &&
                               item !== '熟女' &&
-                              item.length < 7
+                              item.length < 6
                           )[0]
                       )
                     "
@@ -682,7 +682,7 @@
                             item !== 'コ' &&
                             item !== '粗い' &&
                             item !== '熟女' &&
-                            item.length < 7
+                            item.length < 6
                         )[0]
                     }}
                   </div>
@@ -733,7 +733,7 @@
                               item !== 'コ' &&
                               item !== '粗い' &&
                               item !== '熟女' &&
-                              item.length < 7
+                              item.length < 6
                           )[1]
                       )
                     "
@@ -782,7 +782,7 @@
                             item !== 'コ' &&
                             item !== '粗い' &&
                             item !== '熟女' &&
-                            item.length < 7
+                            item.length < 6
                         )[1]
                     }}
                   </div>
@@ -832,7 +832,7 @@
                           item !== 'コ' &&
                           item !== '粗い' &&
                           item !== '熟女' &&
-                          item.length < 7
+                          item.length < 6
                       ).length === 3
                   "
                 >
@@ -884,7 +884,7 @@
                               item !== 'コ' &&
                               item !== '粗い' &&
                               item !== '熟女' &&
-                              item.length < 7
+                              item.length < 6
                           )[0]
                       )
                     "
@@ -933,7 +933,7 @@
                             item !== 'コ' &&
                             item !== '粗い' &&
                             item !== '熟女' &&
-                            item.length < 7
+                            item.length < 6
                         )[0]
                     }}
                   </div>
@@ -984,7 +984,7 @@
                               item !== 'コ' &&
                               item !== '粗い' &&
                               item !== '熟女' &&
-                              item.length < 7
+                              item.length < 6
                           )[1]
                       )
                     "
@@ -1033,7 +1033,7 @@
                             item !== 'コ' &&
                             item !== '粗い' &&
                             item !== '熟女' &&
-                            item.length < 7
+                            item.length < 6
                         )[1]
                     }}
                   </div>
@@ -1084,7 +1084,7 @@
                               item !== 'コ' &&
                               item !== '粗い' &&
                               item !== '熟女' &&
-                              item.length < 7
+                              item.length < 6
                           )[2]
                       )
                     "
@@ -1133,7 +1133,7 @@
                             item !== 'コ' &&
                             item !== '粗い' &&
                             item !== '熟女' &&
-                            item.length < 7
+                            item.length < 6
                         )[2]
                     }}
                   </div>
@@ -1187,7 +1187,7 @@
                               item !== 'コ' &&
                               item !== '粗い' &&
                               item !== '熟女' &&
-                              item.length < 7
+                              item.length < 6
                           )[0]
                       )
                     "
@@ -1236,7 +1236,7 @@
                             item !== 'コ' &&
                             item !== '粗い' &&
                             item !== '熟女' &&
-                            item.length < 7
+                            item.length < 6
                         )[0]
                     }}
                   </div>
@@ -1287,7 +1287,7 @@
                               item !== 'コ' &&
                               item !== '粗い' &&
                               item !== '熟女' &&
-                              item.length < 7
+                              item.length < 6
                           )[1]
                       )
                     "
@@ -1336,7 +1336,7 @@
                             item !== 'コ' &&
                             item !== '粗い' &&
                             item !== '熟女' &&
-                            item.length < 7
+                            item.length < 6
                         )[1]
                     }}
                   </div>
@@ -1387,7 +1387,7 @@
                               item !== 'コ' &&
                               item !== '粗い' &&
                               item !== '熟女' &&
-                              item.length < 7
+                              item.length < 6
                           )[2]
                       )
                     "
@@ -1436,7 +1436,7 @@
                             item !== 'コ' &&
                             item !== '粗い' &&
                             item !== '熟女' &&
-                            item.length < 7
+                            item.length < 6
                         )[2]
                     }}
                   </div>
@@ -1487,7 +1487,7 @@
                               item !== 'コ' &&
                               item !== '粗い' &&
                               item !== '熟女' &&
-                              item.length < 7
+                              item.length < 6
                           )[3]
                       )
                     "
@@ -1536,7 +1536,7 @@
                             item !== 'コ' &&
                             item !== '粗い' &&
                             item !== '熟女' &&
-                            item.length < 7
+                            item.length < 6
                         )[3]
                     }}
                   </div>

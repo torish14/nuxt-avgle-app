@@ -329,7 +329,7 @@
                                 item !== '十代' &&
                                 item !== 'コ' &&
                                 item !== '粗い' &&
-                                item.length < 7
+                                item.length < 6
                             )[0],
                           data.keyword
                             .split(/,|\s/)
@@ -373,7 +373,7 @@
                                 item !== '十代' &&
                                 item !== 'コ' &&
                                 item !== '粗い' &&
-                                item.length < 7
+                                item.length < 6
                             )[1],
                           data.keyword
                             .split(/,|\s/)
@@ -417,7 +417,7 @@
                                 item !== '十代' &&
                                 item !== 'コ' &&
                                 item !== '粗い' &&
-                                item.length < 7
+                                item.length < 6
                             )[2],
                           data.keyword
                             .split(/,|\s/)
@@ -461,7 +461,7 @@
                                 item !== '十代' &&
                                 item !== 'コ' &&
                                 item !== '粗い' &&
-                                item.length < 7
+                                item.length < 6
                             )[3]
                         )
                       "
@@ -543,7 +543,7 @@
                                   item !== '十代' &&
                                   item !== 'コ' &&
                                   item !== '粗い' &&
-                                  item.length < 7
+                                  item.length < 6
                               )[0],
                             data.keyword
                               .split(/,|\s/)
@@ -587,7 +587,7 @@
                                   item !== '十代' &&
                                   item !== 'コ' &&
                                   item !== '粗い' &&
-                                  item.length < 7
+                                  item.length < 6
                               )[1],
                             data.keyword
                               .split(/,|\s/)
@@ -631,7 +631,7 @@
                                   item !== '十代' &&
                                   item !== 'コ' &&
                                   item !== '粗い' &&
-                                  item.length < 7
+                                  item.length < 6
                               )[2],
                             data.keyword
                               .split(/,|\s/)
@@ -675,7 +675,7 @@
                                   item !== '十代' &&
                                   item !== 'コ' &&
                                   item !== '粗い' &&
-                                  item.length < 7
+                                  item.length < 6
                               )[3]
                           )
                         "
