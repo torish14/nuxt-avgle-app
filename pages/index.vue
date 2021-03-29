@@ -181,6 +181,7 @@
                           item !== '十代' &&
                           item !== 'コ' &&
                           item !== '粗い' &&
+                          item !== '熟女' &&
                           item.length < 7
                       )[0],
                     data.keyword
@@ -225,6 +226,7 @@
                           item !== '十代' &&
                           item !== 'コ' &&
                           item !== '粗い' &&
+                          item !== '熟女' &&
                           item.length < 7
                       )[1],
                     data.keyword
@@ -269,6 +271,7 @@
                           item !== '十代' &&
                           item !== 'コ' &&
                           item !== '粗い' &&
+                          item !== '熟女' &&
                           item.length < 7
                       )[2],
                     data.keyword
@@ -313,6 +316,7 @@
                           item !== '十代' &&
                           item !== 'コ' &&
                           item !== '粗い' &&
+                          item !== '熟女' &&
                           item.length < 7
                       )[3]
                   )
@@ -451,6 +455,7 @@
                           item !== '十代' &&
                           item !== 'コ' &&
                           item !== '粗い' &&
+                          item !== '熟女' &&
                           item.length < 7
                       ).length === 0
                   "
@@ -499,6 +504,7 @@
                           item !== '十代' &&
                           item !== 'コ' &&
                           item !== '粗い' &&
+                          item !== '熟女' &&
                           item.length < 7
                       ).length === 1
                   "
@@ -549,6 +555,7 @@
                               item !== '十代' &&
                               item !== 'コ' &&
                               item !== '粗い' &&
+                              item !== '熟女' &&
                               item.length < 7
                           )[0]
                       )
@@ -597,6 +604,7 @@
                             item !== '十代' &&
                             item !== 'コ' &&
                             item !== '粗い' &&
+                            item !== '熟女' &&
                             item.length < 7
                         )[0]
                     }}
@@ -646,6 +654,7 @@
                           item !== '十代' &&
                           item !== 'コ' &&
                           item !== '粗い' &&
+                          item !== '熟女' &&
                           item.length < 7
                       ).length === 2
                   "
@@ -696,6 +705,7 @@
                               item !== '十代' &&
                               item !== 'コ' &&
                               item !== '粗い' &&
+                              item !== '熟女' &&
                               item.length < 7
                           )[0]
                       )
@@ -744,6 +754,7 @@
                             item !== '十代' &&
                             item !== 'コ' &&
                             item !== '粗い' &&
+                            item !== '熟女' &&
                             item.length < 7
                         )[0]
                     }}
@@ -794,6 +805,7 @@
                               item !== '十代' &&
                               item !== 'コ' &&
                               item !== '粗い' &&
+                              item !== '熟女' &&
                               item.length < 7
                           )[1]
                       )
@@ -842,6 +854,7 @@
                             item !== '十代' &&
                             item !== 'コ' &&
                             item !== '粗い' &&
+                            item !== '熟女' &&
                             item.length < 7
                         )[1]
                     }}
@@ -891,6 +904,7 @@
                           item !== '十代' &&
                           item !== 'コ' &&
                           item !== '粗い' &&
+                          item !== '熟女' &&
                           item.length < 7
                       ).length === 3
                   "
@@ -941,6 +955,7 @@
                               item !== '十代' &&
                               item !== 'コ' &&
                               item !== '粗い' &&
+                              item !== '熟女' &&
                               item.length < 7
                           )[0]
                       )
@@ -989,6 +1004,7 @@
                             item !== '十代' &&
                             item !== 'コ' &&
                             item !== '粗い' &&
+                            item !== '熟女' &&
                             item.length < 7
                         )[0]
                     }}
@@ -1039,6 +1055,7 @@
                               item !== '十代' &&
                               item !== 'コ' &&
                               item !== '粗い' &&
+                              item !== '熟女' &&
                               item.length < 7
                           )[1]
                       )
@@ -1087,6 +1104,7 @@
                             item !== '十代' &&
                             item !== 'コ' &&
                             item !== '粗い' &&
+                            item !== '熟女' &&
                             item.length < 7
                         )[1]
                     }}
@@ -1137,6 +1155,7 @@
                               item !== '十代' &&
                               item !== 'コ' &&
                               item !== '粗い' &&
+                              item !== '熟女' &&
                               item.length < 7
                           )[2]
                       )
@@ -1185,6 +1204,7 @@
                             item !== '十代' &&
                             item !== 'コ' &&
                             item !== '粗い' &&
+                            item !== '熟女' &&
                             item.length < 7
                         )[2]
                     }}
@@ -1237,6 +1257,7 @@
                               item !== '十代' &&
                               item !== 'コ' &&
                               item !== '粗い' &&
+                              item !== '熟女' &&
                               item.length < 7
                           )[0]
                       )
@@ -1285,6 +1306,7 @@
                             item !== '十代' &&
                             item !== 'コ' &&
                             item !== '粗い' &&
+                            item !== '熟女' &&
                             item.length < 7
                         )[0]
                     }}
@@ -1335,6 +1357,7 @@
                               item !== '十代' &&
                               item !== 'コ' &&
                               item !== '粗い' &&
+                              item !== '熟女' &&
                               item.length < 7
                           )[1]
                       )
@@ -1383,6 +1406,7 @@
                             item !== '十代' &&
                             item !== 'コ' &&
                             item !== '粗い' &&
+                            item !== '熟女' &&
                             item.length < 7
                         )[1]
                     }}
@@ -1433,6 +1457,7 @@
                               item !== '十代' &&
                               item !== 'コ' &&
                               item !== '粗い' &&
+                              item !== '熟女' &&
                               item.length < 7
                           )[2]
                       )
@@ -1481,6 +1506,7 @@
                             item !== '十代' &&
                             item !== 'コ' &&
                             item !== '粗い' &&
+                            item !== '熟女' &&
                             item.length < 7
                         )[2]
                     }}
@@ -1531,6 +1557,7 @@
                               item !== '十代' &&
                               item !== 'コ' &&
                               item !== '粗い' &&
+                              item !== '熟女' &&
                               item.length < 7
                           )[3]
                       )
@@ -1579,6 +1606,7 @@
                             item !== '十代' &&
                             item !== 'コ' &&
                             item !== '粗い' &&
+                            item !== '熟女' &&
                             item.length < 7
                         )[3]
                     }}
@@ -1610,10 +1638,7 @@
     </div>
     <!-- モバイル -->
     <div v-else class="pt-1 pb-20">
-      <main
-        class="flex flex-wrap justify-center"
-        style="width: 375px"
-      >
+      <main class="flex flex-wrap justify-center">
         <template v-if="messages.length === 0 && errorMessage">
           <client-only>
             <div
@@ -1717,6 +1742,7 @@
                           item !== '十代' &&
                           item !== 'コ' &&
                           item !== '粗い' &&
+                          item !== '熟女' &&
                           item.length < 7
                       )[0],
                     data.keyword
@@ -1761,6 +1787,7 @@
                           item !== '十代' &&
                           item !== 'コ' &&
                           item !== '粗い' &&
+                          item !== '熟女' &&
                           item.length < 7
                       )[1],
                     data.keyword
@@ -1805,6 +1832,7 @@
                           item !== '十代' &&
                           item !== 'コ' &&
                           item !== '粗い' &&
+                          item !== '熟女' &&
                           item.length < 7
                       )[2],
                     data.keyword
@@ -1849,6 +1877,7 @@
                           item !== '十代' &&
                           item !== 'コ' &&
                           item !== '粗い' &&
+                          item !== '熟女' &&
                           item.length < 7
                       )[3]
                   )
@@ -1858,7 +1887,7 @@
                   <img
                     :src="data.preview_url"
                     alt="サムネイル"
-                    width="375"
+                    width="333"
                     height="210"
                     class="z-auto relative text-gray-200"
                     referrerpolicy="no-referrer"
@@ -1874,7 +1903,7 @@
                 <template v-if="data.title.length > 50">
                   <p
                     class="text-gray-200 text-sm hover:text-purple-500 break-all pt-2 px-2"
-                    style="width: 375px"
+                    style="width: 333px"
                   >
                     {{ data.title.slice(0, 50) }}…
                   </p>
@@ -1882,7 +1911,7 @@
                 <template v-else>
                   <p
                     class="text-gray-200 text-sm hover:text-purple-500 break-all pt-2 px-2"
-                    style="width: 375px"
+                    style="width: 333px"
                   >
                     {{ data.title }}
                   </p>
@@ -1988,6 +2017,7 @@
                           item !== '十代' &&
                           item !== 'コ' &&
                           item !== '粗い' &&
+                          item !== '熟女' &&
                           item.length < 7
                       ).length === 0
                   "
@@ -2036,6 +2066,7 @@
                           item !== '十代' &&
                           item !== 'コ' &&
                           item !== '粗い' &&
+                          item !== '熟女' &&
                           item.length < 7
                       ).length === 1
                   "
@@ -2087,6 +2118,7 @@
                               item !== '十代' &&
                               item !== 'コ' &&
                               item !== '粗い' &&
+                              item !== '熟女' &&
                               item.length < 7
                           )[0]
                       )
@@ -2135,6 +2167,7 @@
                             item !== '十代' &&
                             item !== 'コ' &&
                             item !== '粗い' &&
+                            item !== '熟女' &&
                             item.length < 7
                         )[0]
                     }}
@@ -2184,6 +2217,7 @@
                           item !== '十代' &&
                           item !== 'コ' &&
                           item !== '粗い' &&
+                          item !== '熟女' &&
                           item.length < 7
                       ).length === 2
                   "
@@ -2235,6 +2269,7 @@
                               item !== '十代' &&
                               item !== 'コ' &&
                               item !== '粗い' &&
+                              item !== '熟女' &&
                               item.length < 7
                           )[0]
                       )
@@ -2283,6 +2318,7 @@
                             item !== '十代' &&
                             item !== 'コ' &&
                             item !== '粗い' &&
+                            item !== '熟女' &&
                             item.length < 7
                         )[0]
                     }}
@@ -2333,6 +2369,7 @@
                               item !== '十代' &&
                               item !== 'コ' &&
                               item !== '粗い' &&
+                              item !== '熟女' &&
                               item.length < 7
                           )[1]
                       )
@@ -2381,6 +2418,7 @@
                             item !== '十代' &&
                             item !== 'コ' &&
                             item !== '粗い' &&
+                            item !== '熟女' &&
                             item.length < 7
                         )[1]
                     }}
@@ -2430,6 +2468,7 @@
                           item !== '十代' &&
                           item !== 'コ' &&
                           item !== '粗い' &&
+                          item !== '熟女' &&
                           item.length < 7
                       ).length === 3
                   "
@@ -2481,6 +2520,7 @@
                               item !== '十代' &&
                               item !== 'コ' &&
                               item !== '粗い' &&
+                              item !== '熟女' &&
                               item.length < 7
                           )[0]
                       )
@@ -2529,6 +2569,7 @@
                             item !== '十代' &&
                             item !== 'コ' &&
                             item !== '粗い' &&
+                            item !== '熟女' &&
                             item.length < 7
                         )[0]
                     }}
@@ -2579,6 +2620,7 @@
                               item !== '十代' &&
                               item !== 'コ' &&
                               item !== '粗い' &&
+                              item !== '熟女' &&
                               item.length < 7
                           )[1]
                       )
@@ -2627,6 +2669,7 @@
                             item !== '十代' &&
                             item !== 'コ' &&
                             item !== '粗い' &&
+                            item !== '熟女' &&
                             item.length < 7
                         )[1]
                     }}
@@ -2677,6 +2720,7 @@
                               item !== '十代' &&
                               item !== 'コ' &&
                               item !== '粗い' &&
+                              item !== '熟女' &&
                               item.length < 7
                           )[2]
                       )
@@ -2725,6 +2769,7 @@
                             item !== '十代' &&
                             item !== 'コ' &&
                             item !== '粗い' &&
+                            item !== '熟女' &&
                             item.length < 7
                         )[2]
                     }}
@@ -2778,6 +2823,7 @@
                               item !== '十代' &&
                               item !== 'コ' &&
                               item !== '粗い' &&
+                              item !== '熟女' &&
                               item.length < 7
                           )[0]
                       )
@@ -2826,6 +2872,7 @@
                             item !== '十代' &&
                             item !== 'コ' &&
                             item !== '粗い' &&
+                            item !== '熟女' &&
                             item.length < 7
                         )[0]
                     }}
@@ -2876,6 +2923,7 @@
                               item !== '十代' &&
                               item !== 'コ' &&
                               item !== '粗い' &&
+                              item !== '熟女' &&
                               item.length < 7
                           )[1]
                       )
@@ -2924,6 +2972,7 @@
                             item !== '十代' &&
                             item !== 'コ' &&
                             item !== '粗い' &&
+                            item !== '熟女' &&
                             item.length < 7
                         )[1]
                     }}
@@ -2974,6 +3023,7 @@
                               item !== '十代' &&
                               item !== 'コ' &&
                               item !== '粗い' &&
+                              item !== '熟女' &&
                               item.length < 7
                           )[2]
                       )
@@ -3022,6 +3072,7 @@
                             item !== '十代' &&
                             item !== 'コ' &&
                             item !== '粗い' &&
+                            item !== '熟女' &&
                             item.length < 7
                         )[2]
                     }}
@@ -3072,6 +3123,7 @@
                               item !== '十代' &&
                               item !== 'コ' &&
                               item !== '粗い' &&
+                              item !== '熟女' &&
                               item.length < 7
                           )[3]
                       )
@@ -3120,6 +3172,7 @@
                             item !== '十代' &&
                             item !== 'コ' &&
                             item !== '粗い' &&
+                            item !== '熟女' &&
                             item.length < 7
                         )[3]
                     }}
