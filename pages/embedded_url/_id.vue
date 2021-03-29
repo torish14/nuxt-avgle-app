@@ -6411,12 +6411,21 @@ export default Vue.extend({
       this.$accessor.search.setJapaneseMessage()
     },
     getRecommendTitle(title: string): void {
-      // @ts-ignore
-      this.$accessor.search.addRecommendTitles(title)
-      console.log(title)
-      this.$accessor.search.concatRecommendArray(
-        this.$store.state.search.recommendTitles
-      )
+      if (
+        // @ts-ignore
+        this.$accessor.search.messages.length > 0 &&
+        // @ts-ignore
+        this.$accessor.search.suggestMessages.length > 0 &&
+        // @ts-ignore
+        this.$accessor.search.searchMessages.length > 0
+      ) {
+        // @ts-ignore
+        this.$accessor.search.addRecommendTitles(title)
+        console.log(title)
+        this.$accessor.search.concatRecommendArray(
+          this.$store.state.search.recommendTitles
+        )
+      }
     },
     changeFormKeyword(keyword: string): void {
       this.$router.push('/')
@@ -6426,13 +6435,20 @@ export default Vue.extend({
       // @ts-ignore
       this.$accessor.changeIndexPagination()
       window.scrollTo(0, 0)
-      // @ts-ignore
-      this.$accessor.search.addRecommendKeywords(keyword)
-      console.log(keyword)
-      // @ts-ignore
-      this.$accessor.search.concatRecommendArray(
-        this.$store.state.search.recommendKeywords
-      )
+      if (
+        // @ts-ignore
+        this.$accessor.search.messages.length > 0 &&
+        // @ts-ignore
+        this.$accessor.search.suggestMessages.length > 0
+      ) {
+        // @ts-ignore
+        this.$accessor.search.addRecommendKeywords(keyword)
+        console.log(keyword)
+        // @ts-ignore
+        this.$accessor.search.concatRecommendArray(
+          this.$store.state.search.recommendKeywords
+        )
+      }
     },
     changeFormSuggestKeyword(keyword: string): void {
       this.$router.push('/suggest')
@@ -6442,13 +6458,20 @@ export default Vue.extend({
       // @ts-ignore
       this.$accessor.changeIndexPagination()
       window.scrollTo(0, 0)
-      // @ts-ignore
-      this.$accessor.search.addRecommendKeywords(keyword)
-      console.log(keyword)
-      // @ts-ignore
-      this.$accessor.search.concatRecommendArray(
-        this.$store.state.search.recommendKeywords
-      )
+      if (
+        // @ts-ignore
+        this.$accessor.search.messages.length > 0 &&
+        // @ts-ignore
+        this.$accessor.search.suggestMessages.length > 0
+      ) {
+        // @ts-ignore
+        this.$accessor.search.addRecommendKeywords(keyword)
+        console.log(keyword)
+        // @ts-ignore
+        this.$accessor.search.concatRecommendArray(
+          this.$store.state.search.recommendKeywords
+        )
+      }
     },
     changeFormSearchKeyword(keyword: string): void {
       this.$router.push('/search')
@@ -6458,13 +6481,23 @@ export default Vue.extend({
       // @ts-ignore
       this.$accessor.changeIndexPagination()
       window.scrollTo(0, 0)
-      // @ts-ignore
-      this.$accessor.search.addRecommendKeywords(keyword)
-      console.log(keyword)
-      // @ts-ignore
-      this.$accessor.search.concatRecommendArray(
-        this.$store.state.search.recommendKeywords
-      )
+      if (
+        // @ts-ignore
+        this.$accessor.search.messages.length > 0 &&
+        // @ts-ignore
+        this.$accessor.search.suggestMessages.length > 0
+      ) {
+        // @ts-ignore
+        this.$accessor.search.addRecommendKeywords(keyword)
+        console.log(keyword)
+        // @ts-ignore
+        this.$accessor.search.concatRecommendArray(
+          this.$store.state.search.recommendKeywords
+        )
+      }
+    },
+    refresh(): void {
+      this.$nuxt.refresh()
     },
   },
 })

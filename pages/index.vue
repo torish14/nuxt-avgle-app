@@ -3360,12 +3360,21 @@ export default Vue.extend({
     //   }, 400)
     // },
     getRecommendTitle(title: string): void {
-      // @ts-ignore
-      this.$accessor.search.addRecommendTitles(title)
-      console.log(title)
-      this.$accessor.search.concatRecommendArray(
-        this.$store.state.search.recommendTitles
-      )
+      if (
+        // @ts-ignore
+        this.$accessor.search.messages.length > 0 &&
+        // @ts-ignore
+        this.$accessor.search.suggestMessages.length > 0 &&
+        // @ts-ignore
+        this.$accessor.search.searchMessages.length > 0
+      ) {
+        // @ts-ignore
+        this.$accessor.search.addRecommendTitles(title)
+        console.log(title)
+        this.$accessor.search.concatRecommendArray(
+          this.$store.state.search.recommendTitles
+        )
+      }
     },
     changeFormKeyword(keyword: string): void {
       // @ts-ignore
@@ -3374,13 +3383,23 @@ export default Vue.extend({
       // @ts-ignore
       this.$accessor.changeIndexPagination()
       window.scrollTo(0, 0)
-      // @ts-ignore
-      this.$accessor.search.addRecommendKeywords(keyword)
-      console.log(keyword)
-      // @ts-ignore
-      this.$accessor.search.concatRecommendArray(
-        this.$store.state.search.recommendKeywords
-      )
+      if (
+        // @ts-ignore
+        this.$accessor.search.messages.length > 0 &&
+        // @ts-ignore
+        this.$accessor.search.suggestMessages.length > 0
+      ) {
+        // @ts-ignore
+        this.$accessor.search.addRecommendKeywords(keyword)
+        console.log(keyword)
+        // @ts-ignore
+        this.$accessor.search.concatRecommendArray(
+          this.$store.state.search.recommendKeywords
+        )
+      }
+    },
+    refresh(): void {
+      this.$nuxt.refresh()
     },
   },
 })

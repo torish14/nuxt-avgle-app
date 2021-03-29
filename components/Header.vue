@@ -194,14 +194,21 @@ export default Vue.extend({
       this.$accessor.search.getJapaneseItems()
       // @ts-ignore
       this.$accessor.changeIndexPagination()
-      // @ts-ignore
-      this.$accessor.search.addRecommendMessages(
-        this.$accessor.search.message
-      )
-      // @ts-ignore
-      this.$accessor.search.concatRecommendArray(
-        this.$store.state.search.recommendKeywords
-      )
+      if (
+        // @ts-ignore
+        this.$accessor.search.messages.length > 0 &&
+        // @ts-ignore
+        this.$accessor.search.suggestMessages.length > 0
+      ) {
+        // @ts-ignore
+        this.$accessor.search.addRecommendMessages(
+          this.$accessor.search.message
+        )
+        // @ts-ignore
+        this.$accessor.search.concatRecommendArray(
+          this.$store.state.search.recommendKeywords
+        )
+      }
       this.$router.push('/')
     },
     setJapaneseForm(): void {

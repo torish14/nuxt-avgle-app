@@ -1007,14 +1007,21 @@ export default Vue.extend({
       this.$accessor.search.getSearchItems()
       // @ts-ignore
       this.$accessor.changeIndexPagination()
-      // @ts-ignore
-      this.$accessor.search.addRecommendMessages(
-        this.$accessor.search.message
-      )
-      // @ts-ignore
-      this.$accessor.search.concatRecommendArray(
-        this.$store.state.search.recommendKeywords
-      )
+      if (
+        // @ts-ignore
+        this.$accessor.search.messages.length > 0 &&
+        // @ts-ignore
+        this.$accessor.search.suggestMessages.length > 0
+      ) {
+        // @ts-ignore
+        this.$accessor.search.addRecommendMessages(
+          this.$accessor.search.message
+        )
+        // @ts-ignore
+        this.$accessor.search.concatRecommendArray(
+          this.$store.state.search.recommendKeywords
+        )
+      }
     },
     handler(): void {
       console.log('Now loading')
@@ -1115,12 +1122,21 @@ export default Vue.extend({
     //   }, 400)
     // },
     getRecommendTitle(title: string): void {
-      // @ts-ignore
-      this.$accessor.search.addRecommendTitles(title)
-      console.log(title)
-      this.$accessor.search.concatRecommendArray(
-        this.$store.state.search.recommendTitles
-      )
+      if (
+        // @ts-ignore
+        this.$accessor.search.messages.length > 0 &&
+        // @ts-ignore
+        this.$accessor.search.suggestMessages.length > 0 &&
+        // @ts-ignore
+        this.$accessor.search.searchMessages.length > 0
+      ) {
+        // @ts-ignore
+        this.$accessor.search.addRecommendTitles(title)
+        console.log(title)
+        this.$accessor.search.concatRecommendArray(
+          this.$store.state.search.recommendTitles
+        )
+      }
     },
     changeFormSearchKeyword(keyword: string): void {
       // @ts-ignore
