@@ -1151,9 +1151,3 @@ export default Vue.extend({
   },
 })
 </script>
-
-<style>
-.nuxt-link-exact-active {
-  color: #e5e7eb;
-}
-</style>
