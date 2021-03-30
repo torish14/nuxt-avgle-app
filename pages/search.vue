@@ -329,6 +329,8 @@
                                 item !== '十代' &&
                                 item !== 'コ' &&
                                 item !== '粗い' &&
+                                item !== '熟女' &&
+                                item !== '美女' &&
                                 item.length < 6
                             )[0],
                           data.keyword
@@ -373,6 +375,8 @@
                                 item !== '十代' &&
                                 item !== 'コ' &&
                                 item !== '粗い' &&
+                                item !== '熟女' &&
+                                item !== '美女' &&
                                 item.length < 6
                             )[1],
                           data.keyword
@@ -417,6 +421,8 @@
                                 item !== '十代' &&
                                 item !== 'コ' &&
                                 item !== '粗い' &&
+                                item !== '熟女' &&
+                                item !== '美女' &&
                                 item.length < 6
                             )[2],
                           data.keyword
@@ -461,6 +467,8 @@
                                 item !== '十代' &&
                                 item !== 'コ' &&
                                 item !== '粗い' &&
+                                item !== '熟女' &&
+                                item !== '美女' &&
                                 item.length < 6
                             )[3]
                         )
@@ -543,6 +551,8 @@
                                   item !== '十代' &&
                                   item !== 'コ' &&
                                   item !== '粗い' &&
+                                  item !== '熟女' &&
+                                  item !== '美女' &&
                                   item.length < 6
                               )[0],
                             data.keyword
@@ -587,6 +597,8 @@
                                   item !== '十代' &&
                                   item !== 'コ' &&
                                   item !== '粗い' &&
+                                  item !== '熟女' &&
+                                  item !== '美女' &&
                                   item.length < 6
                               )[1],
                             data.keyword
@@ -631,6 +643,8 @@
                                   item !== '十代' &&
                                   item !== 'コ' &&
                                   item !== '粗い' &&
+                                  item !== '熟女' &&
+                                  item !== '美女' &&
                                   item.length < 6
                               )[2],
                             data.keyword
@@ -675,6 +689,8 @@
                                   item !== '十代' &&
                                   item !== 'コ' &&
                                   item !== '粗い' &&
+                                  item !== '熟女' &&
+                                  item !== '美女' &&
                                   item.length < 6
                               )[3]
                           )
