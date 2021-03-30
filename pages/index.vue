@@ -1887,7 +1887,7 @@
                   <img
                     :src="data.preview_url"
                     alt="サムネイル"
-                    width="333"
+                    width="375"
                     height="210"
                     class="z-auto relative text-gray-200"
                     referrerpolicy="no-referrer"
@@ -1903,7 +1903,7 @@
                 <template v-if="data.title.length > 50">
                   <p
                     class="text-gray-200 text-sm hover:text-purple-500 break-all pt-2 px-2"
-                    style="width: 333px"
+                    style="width: 375px"
                   >
                     {{ data.title.slice(0, 50) }}…
                   </p>
@@ -1911,7 +1911,7 @@
                 <template v-else>
                   <p
                     class="text-gray-200 text-sm hover:text-purple-500 break-all pt-2 px-2"
-                    style="width: 333px"
+                    style="width: 375px"
                   >
                     {{ data.title }}
                   </p>
