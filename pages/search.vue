@@ -29,59 +29,7 @@
       <client-only>
         <main class="flex flex-wrap justify-center">
           <div class="pt-10" style="width: 375px">
-            <template
-              v-if="
-                (searchMessages.length === 0 && errorMessage) ||
-                message === '無修正' ||
-                message === 'Uncensored' ||
-                message === 'uncensored' ||
-                message === 'PAKO' ||
-                message === 'Pako' ||
-                message === 'pako' ||
-                message === 'ぱこ' ||
-                message === 'パコ' ||
-                message === 'CARIB' ||
-                message === 'Carib' ||
-                message === 'carib' ||
-                message === 'かりぶ' ||
-                message === 'カリブ' ||
-                message === 'FC2' ||
-                message === 'Fc2' ||
-                message === 'fc2' ||
-                message === '完全素人' ||
-                message === '個人撮影' ||
-                message === 'DEEPFAKE' ||
-                message === 'DeepFake' ||
-                message === 'Deepfake' ||
-                message === 'deepfake' ||
-                message === 'カリビアンコム' ||
-                message === '一本道' ||
-                message === 'HEYZO' ||
-                message === 'Heyzo' ||
-                message === 'heyzo' ||
-                message === '東京熱' ||
-                message === 'TOKYO-HOT' ||
-                message === 'Toyo-Hot' ||
-                message === 'Tokyo-hot' ||
-                message === 'tokyo-hot' ||
-                message === 'AV9898' ||
-                message === 'Av9898' ||
-                message === 'av9898' ||
-                message === 'PORNHUB' ||
-                message === 'PornHub' ||
-                message === 'Pornhub' ||
-                message === 'pornhub' ||
-                message === 'エッチな4610' ||
-                message === 'エッチな0930' ||
-                message === '人妻斬り' ||
-                message === 'SM-MIRACLE' ||
-                message === 'SM-Miracle' ||
-                message === 'SM-miracle' ||
-                message === 'sm-miracle' ||
-                message === 'のぞきザムライ' ||
-                message === '金8天国'
-              "
-            >
+            <template v-if="filterMessage">
               <client-only>
                 <div
                   class="flex flex-col flex-shrink-0 items-center pt-11"
@@ -910,6 +858,59 @@ export default Vue.extend({
       'errorMessage',
       'firstSkeleton',
     ]),
+    filterMessage(): any {
+      return (
+        (this.searchMessages.length === 0 && this.errorMessage) ||
+        this.message === '無修正' ||
+        this.message === 'Uncensored' ||
+        this.message === 'uncensored' ||
+        this.message === 'PAKO' ||
+        this.message === 'Pako' ||
+        this.message === 'pako' ||
+        this.message === 'ぱこ' ||
+        this.message === 'パコ' ||
+        this.message === 'CARIB' ||
+        this.message === 'Carib' ||
+        this.message === 'carib' ||
+        this.message === 'かりぶ' ||
+        this.message === 'カリブ' ||
+        this.message === 'FC2' ||
+        this.message === 'Fc2' ||
+        this.message === 'fc2' ||
+        this.message === '完全素人' ||
+        this.message === '個人撮影' ||
+        this.message === 'DEEPFAKE' ||
+        this.message === 'DeepFake' ||
+        this.message === 'Deepfake' ||
+        this.message === 'deepfake' ||
+        this.message === 'カリビアンコム' ||
+        this.message === '一本道' ||
+        this.message === 'HEYZO' ||
+        this.message === 'Heyzo' ||
+        this.message === 'heyzo' ||
+        this.message === '東京熱' ||
+        this.message === 'TOKYO-HOT' ||
+        this.message === 'Toyo-Hot' ||
+        this.message === 'Tokyo-hot' ||
+        this.message === 'tokyo-hot' ||
+        this.message === 'AV9898' ||
+        this.message === 'Av9898' ||
+        this.message === 'av9898' ||
+        this.message === 'PORNHUB' ||
+        this.message === 'PornHub' ||
+        this.message === 'Pornhub' ||
+        this.message === 'pornhub' ||
+        this.message === 'エッチな4610' ||
+        this.message === 'エッチな0930' ||
+        this.message === '人妻斬り' ||
+        this.message === 'SM-MIRACLE' ||
+        this.message === 'SM-Miracle' ||
+        this.message === 'SM-miracle' ||
+        this.message === 'sm-miracle' ||
+        this.message === 'のぞきザムライ' ||
+        this.message === '金8天国'
+      )
+    },
     computedGetState: {
       get(): string {
         // @ts-ignore

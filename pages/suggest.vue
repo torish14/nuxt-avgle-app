@@ -6,7 +6,7 @@
         class="flex flex-wrap justify-center"
         style="width: 375px"
       >
-        <template v-if="suggestMessages.length === 0 && errorMessage">
+        <template v-if="filterMessage">
           <client-only>
             <div
               class="flex flex-col flex-shrink-0 items-center pt-11"
@@ -1638,6 +1638,59 @@ export default Vue.extend({
       'errorMessage',
       'firstSkeleton',
     ]),
+    filterMessage(): any {
+      return (
+        (this.suggestMessages.length === 0 && this.errorMessage) ||
+        this.message === '無修正' ||
+        this.message === 'Uncensored' ||
+        this.message === 'uncensored' ||
+        this.message === 'PAKO' ||
+        this.message === 'Pako' ||
+        this.message === 'pako' ||
+        this.message === 'ぱこ' ||
+        this.message === 'パコ' ||
+        this.message === 'CARIB' ||
+        this.message === 'Carib' ||
+        this.message === 'carib' ||
+        this.message === 'かりぶ' ||
+        this.message === 'カリブ' ||
+        this.message === 'FC2' ||
+        this.message === 'Fc2' ||
+        this.message === 'fc2' ||
+        this.message === '完全素人' ||
+        this.message === '個人撮影' ||
+        this.message === 'DEEPFAKE' ||
+        this.message === 'DeepFake' ||
+        this.message === 'Deepfake' ||
+        this.message === 'deepfake' ||
+        this.message === 'カリビアンコム' ||
+        this.message === '一本道' ||
+        this.message === 'HEYZO' ||
+        this.message === 'Heyzo' ||
+        this.message === 'heyzo' ||
+        this.message === '東京熱' ||
+        this.message === 'TOKYO-HOT' ||
+        this.message === 'Toyo-Hot' ||
+        this.message === 'Tokyo-hot' ||
+        this.message === 'tokyo-hot' ||
+        this.message === 'AV9898' ||
+        this.message === 'Av9898' ||
+        this.message === 'av9898' ||
+        this.message === 'PORNHUB' ||
+        this.message === 'PornHub' ||
+        this.message === 'Pornhub' ||
+        this.message === 'pornhub' ||
+        this.message === 'エッチな4610' ||
+        this.message === 'エッチな0930' ||
+        this.message === '人妻斬り' ||
+        this.message === 'SM-MIRACLE' ||
+        this.message === 'SM-Miracle' ||
+        this.message === 'SM-miracle' ||
+        this.message === 'sm-miracle' ||
+        this.message === 'のぞきザムライ' ||
+        this.message === '金8天国'
+      )
+    },
     toHms(): (t: any) => string {
       // @ts-ignore
       return function (t): string {
