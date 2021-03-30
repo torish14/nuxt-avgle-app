@@ -129,16 +129,18 @@ export const mutations = mutationTree(state, {
     state.firstSkeleton = true
   },
   addRecommendMessages(state, message) {
+    // @ts-ignore
+    state.recommendMessages.unshift(message)
+    // @ts-ignore
+    state.recommendMessages.filter((x) => x)
     if (
       // @ts-ignore
-      state.messages.length > 0 &&
+      state.messages.length === 0 ||
       // @ts-ignore
-      state.searchMessages.length > 0
+      state.searchMessages.length === 0
     ) {
       // @ts-ignore
-      state.recommendMessages.unshift(message)
-      // @ts-ignore
-      state.recommendMessages.filter((x) => x)
+      state.recommendMessages.splice(1, 1)
     }
     // @ts-ignore
     // state.recommendMessages.concat(state.recommendKeywords)
@@ -150,18 +152,20 @@ export const mutations = mutationTree(state, {
     // }
   },
   addRecommendTitles(state, titles) {
+    // @ts-ignore
+    state.recommendTitles.unshift(titles)
+    // @ts-ignore
+    state.recommendTitles.filter((x) => x)
     if (
       // @ts-ignore
-      state.messages.length > 0 &&
+      state.messages.length === 0 ||
       // @ts-ignore
-      state.suggestMessages.length > 0 &&
+      state.suggestMessages.length === 0 ||
       // @ts-ignore
-      state.searchMessages.length > 0
+      state.searchMessages.length === 0
     ) {
       // @ts-ignore
-      state.recommendTitles.unshift(titles)
-      // @ts-ignore
-      state.recommendTitles.filter((x) => x)
+      state.recommendMessages.splice(1, 1)
     }
     // ? 10個まで保存
     // // @ts-ignore
@@ -171,16 +175,18 @@ export const mutations = mutationTree(state, {
     // }
   },
   addRecommendKeywords(state, keywords) {
+    // @ts-ignore
+    state.recommendKeywords.unshift(keywords)
+    // @ts-ignore
+    state.recommendKeywords.filter((x) => x)
     if (
       // @ts-ignore
-      state.messages.length > 0 &&
+      state.messages.length === 0 ||
       // @ts-ignore
-      state.suggestMessages.length > 0
+      state.suggestMessages.length === 0
     ) {
       // @ts-ignore
-      state.recommendKeywords.unshift(keywords)
-      // @ts-ignore
-      state.recommendKeywords.filter((x) => x)
+      state.recommendMessages.splice(1, 1)
     }
     // @ts-ignore
     // state.recommendKeywords.concat(state.recommendMessages)
