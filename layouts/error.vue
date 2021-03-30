@@ -70,8 +70,4 @@ export default Vue.extend({
 .error {
   padding-top: 4px;
 }
-
-body {
-  background-color: #1f2937;
-}
 </style>
