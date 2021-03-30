@@ -270,28 +270,28 @@
                   </h5>
                 </div>
                 <template v-if="data.title.length > 50">
-                  <p
+                  <h2
                     class="text-gray-200 text-sm hover:text-purple-500 break-all pt-2 px-2"
                     style="width: 375px"
                   >
                     {{ data.title.slice(0, 50) }}…
-                  </p>
+                  </h2>
                 </template>
                 <template v-else>
-                  <p
+                  <h2
                     class="text-gray-200 text-sm hover:text-purple-500 break-all pt-2 px-2"
                     style="width: 375px"
                   >
                     {{ data.title }}
-                  </p>
+                  </h2>
                 </template>
               </nuxt-link>
               <div class="flex flex-row my-1">
                 <template v-if="data.viewnumber >= 1000000">
-                  <h6 class="text-gray-400 mr-1 text-xs pl-2">
+                  <h3 class="text-gray-400 mr-1 text-xs pl-2">
                     再生数
                     {{ Math.ceil(data.viewnumber / 1000000) }}M・
-                  </h6>
+                  </h3>
                 </template>
                 <template
                   v-else-if="
@@ -299,14 +299,14 @@
                     data.viewnumber < 1000000
                   "
                 >
-                  <h6 class="text-gray-400 mr-1 text-xs pl-2">
+                  <h3 class="text-gray-400 mr-1 text-xs pl-2">
                     再生数 {{ Math.ceil(data.viewnumber / 1000) }}K・
-                  </h6>
+                  </h3>
                 </template>
                 <template v-else>
-                  <h6 class="text-gray-400 mr-1 text-xs pl-2">
+                  <h3 class="text-gray-400 mr-1 text-xs pl-2">
                     再生数 {{ Math.ceil(data.viewnumber) }}・
-                  </h6>
+                  </h3>
                 </template>
                 <template
                   v-if="
@@ -321,7 +321,7 @@
                     style="font-size: 16px"
                     >thumb_up</i
                   >
-                  <h6 class="text-gray-400 px-1 text-xs">0%</h6>
+                  <h3 class="text-gray-400 px-1 text-xs">0%</h3>
                 </template>
                 <template v-else>
                   <i
@@ -329,14 +329,14 @@
                     style="font-size: 16px"
                     >thumb_up</i
                   >
-                  <h6 class="text-gray-400 px-1 text-xs">
+                  <h3 class="text-gray-400 px-1 text-xs">
                     {{
                       Math.ceil(
                         (data.likes / (data.likes + data.dislikes)) *
                           100
                       )
                     }}%
-                  </h6>
+                  </h3>
                 </template>
               </div>
               <div class="flex flex-row my-2 mb-6 overflow-hidden">
@@ -440,7 +440,7 @@
                       ).length === 1
                   "
                 >
-                  <div
+                  <h4
                     class="text-gray-300 mr-2 text-xs py-1 px-2 bg-gray-700 rounded-full border-gray-700 hover:bg-gray-600 cursor-pointer"
                     style="margin-left: 8px"
                     @click="
@@ -542,7 +542,7 @@
                             item.length < 6
                         )[0]
                     }}
-                  </div>
+                  </h4>
                 </template>
                 <template
                   v-else-if="
@@ -594,7 +594,7 @@
                       ).length === 2
                   "
                 >
-                  <div
+                  <h4
                     class="text-gray-300 mr-2 text-xs py-1 px-2 bg-gray-700 rounded-full border-gray-700 hover:bg-gray-600 cursor-pointer"
                     style="margin-left: 8px"
                     @click="
@@ -696,8 +696,8 @@
                             item.length < 6
                         )[0]
                     }}
-                  </div>
-                  <div
+                  </h4>
+                  <h4
                     class="text-gray-300 mr-2 text-xs py-1 px-2 bg-gray-700 rounded-full border-gray-700 hover:bg-gray-600 cursor-pointer"
                     @click="
                       changeFormSuggestKeyword(
@@ -798,7 +798,7 @@
                             item.length < 6
                         )[1]
                     }}
-                  </div>
+                  </h4>
                 </template>
                 <template
                   v-else-if="
@@ -850,7 +850,7 @@
                       ).length === 3
                   "
                 >
-                  <div
+                  <h4
                     class="text-gray-300 mr-2 text-xs py-1 px-2 bg-gray-700 rounded-full border-gray-700 hover:bg-gray-600 cursor-pointer"
                     style="margin-left: 8px"
                     @click="
@@ -952,8 +952,8 @@
                             item.length < 6
                         )[0]
                     }}
-                  </div>
-                  <div
+                  </h4>
+                  <h4
                     class="text-gray-300 mr-2 text-xs py-1 px-2 bg-gray-700 rounded-full border-gray-700 hover:bg-gray-600 cursor-pointer"
                     @click="
                       changeFormSuggestKeyword(
@@ -1054,8 +1054,8 @@
                             item.length < 6
                         )[1]
                     }}
-                  </div>
-                  <div
+                  </h4>
+                  <h4
                     class="text-gray-300 mr-2 text-xs py-1 px-2 bg-gray-700 rounded-full border-gray-700 hover:bg-gray-600 cursor-pointer"
                     @click="
                       changeFormSuggestKeyword(
@@ -1156,10 +1156,10 @@
                             item.length < 6
                         )[2]
                     }}
-                  </div>
+                  </h4>
                 </template>
                 <template v-else>
-                  <div
+                  <h4
                     class="text-gray-300 mr-2 text-xs py-1 px-2 bg-gray-700 rounded-full border-gray-700 hover:bg-gray-600 cursor-pointer"
                     style="margin-left: 8px"
                     @click="
@@ -1261,8 +1261,8 @@
                             item.length < 6
                         )[0]
                     }}
-                  </div>
-                  <div
+                  </h4>
+                  <h4
                     class="text-gray-300 mr-2 text-xs py-1 px-2 bg-gray-700 rounded-full border-gray-700 hover:bg-gray-600 cursor-pointer"
                     @click="
                       changeFormSuggestKeyword(
@@ -1363,8 +1363,8 @@
                             item.length < 6
                         )[1]
                     }}
-                  </div>
-                  <div
+                  </h4>
+                  <h4
                     class="text-gray-300 mr-2 text-xs py-1 px-2 bg-gray-700 rounded-full border-gray-700 hover:bg-gray-600 cursor-pointer"
                     @click="
                       changeFormSuggestKeyword(
@@ -1465,8 +1465,8 @@
                             item.length < 6
                         )[2]
                     }}
-                  </div>
-                  <div
+                  </h4>
+                  <h4
                     class="text-gray-300 mr-2 text-xs py-1 px-2 bg-gray-700 rounded-full border-gray-700 hover:bg-gray-600 cursor-pointer"
                     @click="
                       changeFormSuggestKeyword(
@@ -1567,7 +1567,7 @@
                             item.length < 6
                         )[3]
                     }}
-                  </div>
+                  </h4>
                 </template>
               </div>
               <Skeleton slot="skeleton" />

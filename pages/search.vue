@@ -646,18 +646,18 @@
                       >
                         <!-- <vue-lazy-component> -->
                         <template v-if="data.title.length > 36">
-                          <p
+                          <h2
                             class="text-gray-200 text-sm hover:text-purple-500"
                           >
                             {{ data.title.slice(0, 36) }}…
-                          </p>
+                          </h2>
                         </template>
                         <template v-else>
-                          <p
+                          <h2
                             class="text-gray-200 text-sm hover:text-purple-500"
                           >
                             {{ data.title }}
-                          </p>
+                          </h2>
                         </template>
                         <!-- <SearchSkeletonTitle slot="skeleton" /> -->
                         <!-- </vue-lazy-component> -->
@@ -665,12 +665,12 @@
                       <div class="flex flex-row my-1">
                         <!-- <vue-lazy-component> -->
                         <template v-if="data.viewnumber >= 1000000">
-                          <h6 class="text-gray-400 mr-1 text-xs">
+                          <h3 class="text-gray-400 mr-1 text-xs">
                             再生数
                             {{
                               Math.ceil(data.viewnumber / 1000000)
                             }}M・
-                          </h6>
+                          </h3>
                         </template>
                         <template
                           v-else-if="
@@ -678,15 +678,15 @@
                             data.viewnumber < 1000000
                           "
                         >
-                          <h6 class="text-gray-400 mr-1 text-xs">
+                          <h3 class="text-gray-400 mr-1 text-xs">
                             再生数
                             {{ Math.ceil(data.viewnumber / 1000) }}K・
-                          </h6>
+                          </h3>
                         </template>
                         <template v-else>
-                          <h6 class="text-gray-400 mr-1 text-xs">
+                          <h3 class="text-gray-400 mr-1 text-xs">
                             再生数 {{ Math.ceil(data.viewnumber) }}・
-                          </h6>
+                          </h3>
                         </template>
                         <template
                           v-if="
@@ -702,9 +702,9 @@
                             style="font-size: 16px"
                             >thumb_up</i
                           >
-                          <h6 class="text-gray-400 px-1 text-xs">
+                          <h3 class="text-gray-400 px-1 text-xs">
                             0%
-                          </h6>
+                          </h3>
                         </template>
                         <template v-else>
                           <i
@@ -712,7 +712,7 @@
                             style="font-size: 16px"
                             >thumb_up</i
                           >
-                          <h6 class="text-gray-400 px-1 text-xs">
+                          <h3 class="text-gray-400 px-1 text-xs">
                             {{
                               Math.ceil(
                                 (data.likes /
@@ -720,7 +720,7 @@
                                   100
                               )
                             }}%
-                          </h6>
+                          </h3>
                         </template>
                         <!-- </vue-lazy-component> -->
                       </div>
