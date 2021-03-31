@@ -49,8 +49,6 @@
               {{ messagesMatchVid.title }}
             </p>
           </article>
-        </template>
-        <template v-else>
           <main class="flex flex-wrap justify-center">
             <div
               v-for="data in getJapaneseItemsDesktop"
@@ -1570,6 +1568,28 @@
               </vue-lazy-component>
             </div>
           </main>
+        </template>
+        <template v-else>
+          <client-only>
+            <div
+              class="flex flex-col flex-shrink-0 items-center pt-12"
+            >
+              <h5 class="text-gray-200 text-base">
+                &nbsp;作品が見つかりませんでした。
+              </h5>
+              <nuxt-link
+                to="/"
+                aria-label="ホームへ戻る"
+                class="text-gray-400 text-sm hover:text-purple-500"
+                @click.native="
+                  setJapaneseForm()
+                  refresh()
+                "
+              >
+                &nbsp;トップページに戻る
+              </nuxt-link>
+            </div>
+          </client-only>
         </template>
       </main>
     </div>
@@ -6384,6 +6404,8 @@ export default Vue.extend({
     Skeleton: () => import('~/components/Skeleton'),
   },
   mixins: [Meta],
+  // @ts-ignore
+  layout: (ctx) => (ctx.$device.isMobile ? 'non-footer' : 'default'),
   // beforeRouteEnter(from, next) {
   //   this.$accessor.setPrevRoute(from)
   //   // @ts-ignore
