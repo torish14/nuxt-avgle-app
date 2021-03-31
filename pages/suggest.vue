@@ -110,6 +110,9 @@
                           item !== '熟女' &&
                           item !== '美女' &&
                           item.length < 6
+                      )
+                      .filter(
+                        (x, i, self) => self.indexOf(x) === i
                       )[0],
                     data.keyword
                       .split(/,|\s/)
@@ -156,6 +159,9 @@
                           item !== '熟女' &&
                           item !== '美女' &&
                           item.length < 6
+                      )
+                      .filter(
+                        (x, i, self) => self.indexOf(x) === i
                       )[1],
                     data.keyword
                       .split(/,|\s/)
@@ -202,6 +208,9 @@
                           item !== '熟女' &&
                           item !== '美女' &&
                           item.length < 6
+                      )
+                      .filter(
+                        (x, i, self) => self.indexOf(x) === i
                       )[2],
                     data.keyword
                       .split(/,|\s/)
@@ -248,6 +257,9 @@
                           item !== '熟女' &&
                           item !== '美女' &&
                           item.length < 6
+                      )
+                      .filter(
+                        (x, i, self) => self.indexOf(x) === i
                       )[3]
                   )
                 "
@@ -387,7 +399,9 @@
                           item !== '熟女' &&
                           item !== '美女' &&
                           item.length < 6
-                      ).length === 0
+                      )
+                      .filter((x, i, self) => self.indexOf(x) === i)
+                      .length === 0
                   "
                 />
                 <template
@@ -437,7 +451,9 @@
                           item !== '熟女' &&
                           item !== '美女' &&
                           item.length < 6
-                      ).length === 1
+                      )
+                      .filter((x, i, self) => self.indexOf(x) === i)
+                      .length === 1
                   "
                 >
                   <h4
@@ -490,6 +506,9 @@
                               item !== '熟女' &&
                               item !== '美女' &&
                               item.length < 6
+                          )
+                          .filter(
+                            (x, i, self) => self.indexOf(x) === i
                           )[0]
                       )
                     "
@@ -540,6 +559,9 @@
                             item !== '熟女' &&
                             item !== '美女' &&
                             item.length < 6
+                        )
+                        .filter(
+                          (x, i, self) => self.indexOf(x) === i
                         )[0]
                     }}
                   </h4>
@@ -591,7 +613,9 @@
                           item !== '熟女' &&
                           item !== '美女' &&
                           item.length < 6
-                      ).length === 2
+                      )
+                      .filter((x, i, self) => self.indexOf(x) === i)
+                      .length === 2
                   "
                 >
                   <h4
@@ -644,6 +668,9 @@
                               item !== '熟女' &&
                               item !== '美女' &&
                               item.length < 6
+                          )
+                          .filter(
+                            (x, i, self) => self.indexOf(x) === i
                           )[0]
                       )
                     "
@@ -694,6 +721,9 @@
                             item !== '熟女' &&
                             item !== '美女' &&
                             item.length < 6
+                        )
+                        .filter(
+                          (x, i, self) => self.indexOf(x) === i
                         )[0]
                     }}
                   </h4>
@@ -746,6 +776,9 @@
                               item !== '熟女' &&
                               item !== '美女' &&
                               item.length < 6
+                          )
+                          .filter(
+                            (x, i, self) => self.indexOf(x) === i
                           )[1]
                       )
                     "
@@ -796,6 +829,9 @@
                             item !== '熟女' &&
                             item !== '美女' &&
                             item.length < 6
+                        )
+                        .filter(
+                          (x, i, self) => self.indexOf(x) === i
                         )[1]
                     }}
                   </h4>
@@ -847,7 +883,9 @@
                           item !== '熟女' &&
                           item !== '美女' &&
                           item.length < 6
-                      ).length === 3
+                      )
+                      .filter((x, i, self) => self.indexOf(x) === i)
+                      .length === 3
                   "
                 >
                   <h4
@@ -900,6 +938,9 @@
                               item !== '熟女' &&
                               item !== '美女' &&
                               item.length < 6
+                          )
+                          .filter(
+                            (x, i, self) => self.indexOf(x) === i
                           )[0]
                       )
                     "
@@ -950,6 +991,9 @@
                             item !== '熟女' &&
                             item !== '美女' &&
                             item.length < 6
+                        )
+                        .filter(
+                          (x, i, self) => self.indexOf(x) === i
                         )[0]
                     }}
                   </h4>
@@ -1002,6 +1046,9 @@
                               item !== '熟女' &&
                               item !== '美女' &&
                               item.length < 6
+                          )
+                          .filter(
+                            (x, i, self) => self.indexOf(x) === i
                           )[1]
                       )
                     "
@@ -1052,6 +1099,9 @@
                             item !== '熟女' &&
                             item !== '美女' &&
                             item.length < 6
+                        )
+                        .filter(
+                          (x, i, self) => self.indexOf(x) === i
                         )[1]
                     }}
                   </h4>
@@ -1104,6 +1154,9 @@
                               item !== '熟女' &&
                               item !== '美女' &&
                               item.length < 6
+                          )
+                          .filter(
+                            (x, i, self) => self.indexOf(x) === i
                           )[2]
                       )
                     "
@@ -1154,6 +1207,9 @@
                             item !== '熟女' &&
                             item !== '美女' &&
                             item.length < 6
+                        )
+                        .filter(
+                          (x, i, self) => self.indexOf(x) === i
                         )[2]
                     }}
                   </h4>
@@ -1209,6 +1265,9 @@
                               item !== '熟女' &&
                               item !== '美女' &&
                               item.length < 6
+                          )
+                          .filter(
+                            (x, i, self) => self.indexOf(x) === i
                           )[0]
                       )
                     "
@@ -1259,6 +1318,9 @@
                             item !== '熟女' &&
                             item !== '美女' &&
                             item.length < 6
+                        )
+                        .filter(
+                          (x, i, self) => self.indexOf(x) === i
                         )[0]
                     }}
                   </h4>
@@ -1311,6 +1373,9 @@
                               item !== '熟女' &&
                               item !== '美女' &&
                               item.length < 6
+                          )
+                          .filter(
+                            (x, i, self) => self.indexOf(x) === i
                           )[1]
                       )
                     "
@@ -1361,6 +1426,9 @@
                             item !== '熟女' &&
                             item !== '美女' &&
                             item.length < 6
+                        )
+                        .filter(
+                          (x, i, self) => self.indexOf(x) === i
                         )[1]
                     }}
                   </h4>
@@ -1413,6 +1481,9 @@
                               item !== '熟女' &&
                               item !== '美女' &&
                               item.length < 6
+                          )
+                          .filter(
+                            (x, i, self) => self.indexOf(x) === i
                           )[2]
                       )
                     "
@@ -1463,6 +1534,9 @@
                             item !== '熟女' &&
                             item !== '美女' &&
                             item.length < 6
+                        )
+                        .filter(
+                          (x, i, self) => self.indexOf(x) === i
                         )[2]
                     }}
                   </h4>
@@ -1515,6 +1589,9 @@
                               item !== '熟女' &&
                               item !== '美女' &&
                               item.length < 6
+                          )
+                          .filter(
+                            (x, i, self) => self.indexOf(x) === i
                           )[3]
                       )
                     "
@@ -1565,6 +1642,9 @@
                             item !== '熟女' &&
                             item !== '美女' &&
                             item.length < 6
+                        )
+                        .filter(
+                          (x, i, self) => self.indexOf(x) === i
                         )[3]
                     }}
                   </h4>

@@ -280,6 +280,9 @@
                                 item !== '熟女' &&
                                 item !== '美女' &&
                                 item.length < 6
+                            )
+                            .filter(
+                              (x, i, self) => self.indexOf(x) === i
                             )[0],
                           data.keyword
                             .split(/,|\s/)
@@ -326,6 +329,9 @@
                                 item !== '熟女' &&
                                 item !== '美女' &&
                                 item.length < 6
+                            )
+                            .filter(
+                              (x, i, self) => self.indexOf(x) === i
                             )[1],
                           data.keyword
                             .split(/,|\s/)
@@ -372,6 +378,9 @@
                                 item !== '熟女' &&
                                 item !== '美女' &&
                                 item.length < 6
+                            )
+                            .filter(
+                              (x, i, self) => self.indexOf(x) === i
                             )[2],
                           data.keyword
                             .split(/,|\s/)
@@ -418,6 +427,9 @@
                                 item !== '熟女' &&
                                 item !== '美女' &&
                                 item.length < 6
+                            )
+                            .filter(
+                              (x, i, self) => self.indexOf(x) === i
                             )[3]
                         )
                       "
@@ -502,6 +514,9 @@
                                   item !== '熟女' &&
                                   item !== '美女' &&
                                   item.length < 6
+                              )
+                              .filter(
+                                (x, i, self) => self.indexOf(x) === i
                               )[0],
                             data.keyword
                               .split(/,|\s/)
@@ -548,6 +563,9 @@
                                   item !== '熟女' &&
                                   item !== '美女' &&
                                   item.length < 6
+                              )
+                              .filter(
+                                (x, i, self) => self.indexOf(x) === i
                               )[1],
                             data.keyword
                               .split(/,|\s/)
@@ -594,6 +612,9 @@
                                   item !== '熟女' &&
                                   item !== '美女' &&
                                   item.length < 6
+                              )
+                              .filter(
+                                (x, i, self) => self.indexOf(x) === i
                               )[2],
                             data.keyword
                               .split(/,|\s/)
@@ -640,6 +661,9 @@
                                   item !== '熟女' &&
                                   item !== '美女' &&
                                   item.length < 6
+                              )
+                              .filter(
+                                (x, i, self) => self.indexOf(x) === i
                               )[3]
                           )
                         "
