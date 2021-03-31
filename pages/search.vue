@@ -1061,7 +1061,8 @@ export default Vue.extend({
       } else {
         this.$accessor.search.setJapaneseMessage()
       }
-      this.$accessor.search.getJapaneseItems()
+      // this.$accessor.search.getJapaneseItems()
+      window.scrollTo(0, 0)
       // this.$accessor.search.messages
       //   // @ts-ignore
       //   .sort(function () {
@@ -1072,6 +1073,7 @@ export default Vue.extend({
       if (this.$accessor.search.message !== 'AV女優') {
         this.$accessor.search.setSuggestMessage()
       }
+      window.scrollTo(0, 0)
       // this.$accessor.search.suggestMessages
       //   // @ts-ignore
       //   .sort(function () {
@@ -1082,6 +1084,7 @@ export default Vue.extend({
       if (this.$accessor.search.message !== '美少女') {
         this.$accessor.search.setSearchMessage()
       }
+      window.scrollTo(0, 0)
       // this.$accessor.search.searchMessages
       //   // @ts-ignore
       //   .sort(function () {

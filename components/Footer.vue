@@ -114,7 +114,7 @@ export default Vue.extend({
       } else {
         this.$accessor.search.setJapaneseMessage()
       }
-      this.$accessor.search.getJapaneseItems()
+      // this.$accessor.search.getJapaneseItems()
       window.scrollTo(0, 0)
       // this.$accessor.search.messages
       //   // @ts-ignore
@@ -126,6 +126,7 @@ export default Vue.extend({
       if (this.$accessor.search.message !== 'AV女優') {
         this.$accessor.search.setSuggestMessage()
       }
+      window.scrollTo(0, 0)
       // this.$accessor.search.suggestMessages
       //   // @ts-ignore
       //   .sort(function () {
