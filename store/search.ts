@@ -8,12 +8,18 @@ const translateUrl =
 
 export const state = () => ({
   message: '' as string,
-  messages: [] as object,
+  messagesFirst: [] as object,
+  messagesSecond: [] as object,
+  messagesThird: [] as object,
   translateMessages: [] as object,
   // クリックしたキーワード・検索キーワードの保存先
   recommendMessages: [] as object,
-  suggestMessages: [] as object,
-  searchMessages: [] as object,
+  suggestMessagesFirst: [] as object,
+  suggestMessagesSecond: [] as object,
+  suggestMessagesThird: [] as object,
+  searchMessagesFirst: [] as object,
+  searchMessagesSecond: [] as object,
+  searchMessagesThird: [] as object,
   errorMessage: false as boolean,
   firstSkeleton: false as boolean,
   recommendTitles: [] as object,
@@ -26,11 +32,17 @@ export type RootState = ReturnType<typeof state>
 
 export const getters = getterTree(state, {
   message: (state) => state.message,
-  messages: (state) => state.messages,
+  messagesFirst: (state) => state.messagesFirst,
+  messagesSecond: (state) => state.messagesSecond,
+  messagesThird: (state) => state.messagesThird,
   translateMessages: (state) => state.translateMessages,
   recommendMessages: (state) => state.recommendMessages,
-  suggestMessages: (state) => state.suggestMessages,
-  searchMessages: (state) => state.searchMessages,
+  suggestMessagesFirst: (state) => state.suggestMessagesFirst,
+  suggestMessagesSecond: (state) => state.suggestMessagesSecond,
+  suggestMessagesThird: (state) => state.suggestMessagesThird,
+  searchMessagesFirst: (state) => state.searchMessagesFirst,
+  searchMessagesSecond: (state) => state.searchMessagesSecond,
+  searchMessagesThird: (state) => state.searchMessagesThird,
   errorMessage: (state) => state.errorMessage,
   firstSkeleton: (state) => state.firstSkeleton,
   recommendTitles: (state) => state.recommendTitles,
@@ -43,17 +55,35 @@ export const mutations = mutationTree(state, {
   mutateMessage(state, payload: string): void {
     state.message = payload
   },
-  setJapaneseItems(state, messages: object): void {
-    state.messages = messages
+  setJapaneseFirstItems(state, messagesFirst: object): void {
+    state.messagesFirst = messagesFirst
+  },
+  setJapaneseSecondItems(state, messagesSecond: object): void {
+    state.messagesSecond = messagesSecond
+  },
+  setJapaneseThirdItems(state, messagesThird: object): void {
+    state.messagesThird = messagesThird
   },
   setTranslateItems(state, translateMessages: object) {
     state.translateMessages = translateMessages
   },
-  setSuggestItems(state, suggestMessages: object): void {
-    state.suggestMessages = suggestMessages
+  setSuggestFirstItems(state, suggestMessagesFirst: object): void {
+    state.suggestMessagesFirst = suggestMessagesFirst
   },
-  setSearchItems(state, searchMessages: object): void {
-    state.searchMessages = searchMessages
+  setSuggestSecondItems(state, suggestMessagesSecond: object): void {
+    state.suggestMessagesSecond = suggestMessagesSecond
+  },
+  setSuggestThirdItems(state, suggestMessagesThird: object): void {
+    state.suggestMessagesThird = suggestMessagesThird
+  },
+  setSearchFirstItems(state, searchMessagesFirst: object): void {
+    state.searchMessagesFirst = searchMessagesFirst
+  },
+  setSearchSecondItems(state, searchMessagesSecond: object): void {
+    state.searchMessagesSecond = searchMessagesSecond
+  },
+  setSearchThirdItems(state, searchMessagesThird: object): void {
+    state.searchMessagesThird = searchMessagesThird
   },
   setJapaneseMessage(state) {
     state.message = '日本人'
@@ -135,9 +165,9 @@ export const mutations = mutationTree(state, {
     state.recommendMessages.filter((x) => x)
     if (
       // @ts-ignore
-      state.messages.length === 0 ||
+      state.messagesFirst.length === 0 ||
       // @ts-ignore
-      state.searchMessages.length === 0
+      state.searchMessagesFirst.length === 0
     ) {
       // @ts-ignore
       state.recommendMessages.splice(1, 1)
@@ -158,11 +188,11 @@ export const mutations = mutationTree(state, {
     state.recommendTitles.filter((x) => x)
     if (
       // @ts-ignore
-      state.messages.length === 0 ||
+      state.messagesFirst.length === 0 ||
       // @ts-ignore
-      state.suggestMessages.length === 0 ||
+      state.suggestMessagesFirst.length === 0 ||
       // @ts-ignore
-      state.searchMessages.length === 0
+      state.searchMessagesFirst.length === 0
     ) {
       // @ts-ignore
       state.recommendMessages.splice(1, 1)
@@ -181,9 +211,9 @@ export const mutations = mutationTree(state, {
     state.recommendKeywords.filter((x) => x)
     if (
       // @ts-ignore
-      state.messages.length === 0 ||
+      state.messagesFirst.length === 0 ||
       // @ts-ignore
-      state.suggestMessages.length === 0
+      state.suggestMessagesFirst.length === 0
     ) {
       // @ts-ignore
       state.recommendMessages.splice(1, 1)
@@ -201,6 +231,7 @@ export const mutations = mutationTree(state, {
   concatRecommendArray(state: any, newArray: object) {
     // @ts-ignore
     state.concatRecommend = state.recommendMessages.concat(newArray)
+    state.concatRecommend.filter((x: any) => x)
     // @ts-ignore
     state.dupConcatRecommend = state.concatRecommend.filter(
       (x: any, i: any, self: any) =>
@@ -225,28 +256,168 @@ export const actions = actionTree(
         headers: { 'content-type': 'application/json' },
       }
       // @ts-ignore
-      const getSearchItemsResponse = await this.$axios
-        .$get(
-          encodeURI(
-            searchUrl +
-              state.message +
-              '/0' +
-              '?limit=250' +
-              '?type=public'
-          ),
-          config
-        )
-        // @ts-ignore
-        .catch((err) => {
-          if (err.response.status !== 403) {
-            commit('hideSkeleton')
-            this.$router.push('/error')
-          }
-        })
+      const [
+        getJapaneseFirstItemsResponse,
+        getJapaneseSecondItemsResponse,
+        getJapaneseThirdItemsResponse,
+      ] = await Promise.all([
+        this.$axios
+          .$get(
+            encodeURI(
+              searchUrl +
+                state.message +
+                '/0' +
+                '?limit=250' +
+                '?type=public'
+            ),
+            config
+          )
+          // @ts-ignore
+          .catch((err) => {
+            if (err.response.status !== 403) {
+              commit('hideSkeleton')
+              this.$router.push('/error')
+            }
+          }),
+        this.$axios
+          .$get(
+            encodeURI(
+              searchUrl +
+                state.message +
+                '/1' +
+                '?limit=250' +
+                '?type=public'
+            ),
+            config
+          )
+          // @ts-ignore
+          .catch((err) => {
+            if (err.response.status !== 403) {
+              commit('hideSkeleton')
+              this.$router.push('/error')
+            }
+          }),
+        this.$axios
+          .$get(
+            encodeURI(
+              searchUrl +
+                state.message +
+                '/2' +
+                '?limit=250' +
+                '?type=public'
+            ),
+            config
+          )
+          // @ts-ignore
+          .catch((err) => {
+            if (err.response.status !== 403) {
+              commit('hideSkeleton')
+              this.$router.push('/error')
+            }
+          }),
+      ])
       commit(
-        'setJapaneseItems',
+        'setJapaneseFirstItems',
         // @ts-ignore
-        getSearchItemsResponse.response.videos.filter(
+        getJapaneseFirstItemsResponse.response.videos.filter(
+          // @ts-ignore
+          (value) =>
+            !value.title.match('無修正') &&
+            !value.title.match('無') &&
+            !value.title.match('完全素人') &&
+            !value.title.match('個人撮影') &&
+            !value.title.match('FC2') &&
+            !value.title.match('Fc2') &&
+            !value.title.match('fc2') &&
+            !value.title.match('DEEPFAKE') &&
+            !value.title.match('DeepFake') &&
+            !value.title.match('Deepfake') &&
+            !value.title.match('deepfake') &&
+            !value.title.match('カリビアンコム') &&
+            !value.title.match('一本道') &&
+            !value.title.match('HEYZO') &&
+            !value.title.match('Heyzo') &&
+            !value.title.match('heyzo') &&
+            !value.title.match('東京熱') &&
+            !value.title.match('TOKYO-HOT') &&
+            !value.title.match('Tokyo-Hot') &&
+            !value.title.match('Tokyo-hot') &&
+            !value.title.match('tokyo-hot') &&
+            !value.title.match('AV9898') &&
+            !value.title.match('Av9898') &&
+            !value.title.match('av9898') &&
+            !value.title.match('PORNHUB') &&
+            !value.title.match('PornHub') &&
+            !value.title.match('Pornhub') &&
+            !value.title.match('pornhub') &&
+            !value.title.match('エッチな4610') &&
+            !value.title.match('エッチな0930') &&
+            !value.title.match('人妻斬り') &&
+            !value.title.match('SM-MIRACLE') &&
+            !value.title.match('SM-Miracle') &&
+            !value.title.match('SM-miracle') &&
+            !value.title.match('sm-miracle') &&
+            !value.title.match('のぞきザムライ') &&
+            !value.title.match('金8天国') &&
+            !value.title.match('carib') &&
+            !value.title.match(/^[a-zA-Z0-9-_.~+\s]+$/) &&
+            !value.keyword.match('無修正') &&
+            !value.keyword.match('FC2')
+        )
+      )
+      commit(
+        'setJapaneseSecondItems',
+        // @ts-ignore
+        getJapaneseSecondItemsResponse.response.videos.filter(
+          // @ts-ignore
+          (value) =>
+            !value.title.match('無修正') &&
+            !value.title.match('無') &&
+            !value.title.match('完全素人') &&
+            !value.title.match('個人撮影') &&
+            !value.title.match('FC2') &&
+            !value.title.match('Fc2') &&
+            !value.title.match('fc2') &&
+            !value.title.match('DEEPFAKE') &&
+            !value.title.match('DeepFake') &&
+            !value.title.match('Deepfake') &&
+            !value.title.match('deepfake') &&
+            !value.title.match('カリビアンコム') &&
+            !value.title.match('一本道') &&
+            !value.title.match('HEYZO') &&
+            !value.title.match('Heyzo') &&
+            !value.title.match('heyzo') &&
+            !value.title.match('東京熱') &&
+            !value.title.match('TOKYO-HOT') &&
+            !value.title.match('Tokyo-Hot') &&
+            !value.title.match('Tokyo-hot') &&
+            !value.title.match('tokyo-hot') &&
+            !value.title.match('AV9898') &&
+            !value.title.match('Av9898') &&
+            !value.title.match('av9898') &&
+            !value.title.match('PORNHUB') &&
+            !value.title.match('PornHub') &&
+            !value.title.match('Pornhub') &&
+            !value.title.match('pornhub') &&
+            !value.title.match('エッチな4610') &&
+            !value.title.match('エッチな0930') &&
+            !value.title.match('人妻斬り') &&
+            !value.title.match('SM-MIRACLE') &&
+            !value.title.match('SM-Miracle') &&
+            !value.title.match('SM-miracle') &&
+            !value.title.match('sm-miracle') &&
+            !value.title.match('のぞきザムライ') &&
+            !value.title.match('金8天国') &&
+            !value.title.match('carib') &&
+            !value.title.match(/^[a-zA-Z0-9-_.~+\s]+$/) &&
+            !value.keyword.match('無修正') &&
+            !value.keyword.match('FC2')
+        )
+      )
+      commit(
+        'setJapaneseThirdItems',
+        // @ts-ignore
+        getJapaneseThirdItemsResponse.response.videos.filter(
           // @ts-ignore
           (value) =>
             !value.title.match('無修正') &&
@@ -302,28 +473,168 @@ export const actions = actionTree(
         headers: { 'content-type': 'application/json' },
       }
       // @ts-ignore
-      const getSearchItemsResponse = await this.$axios
-        .$get(
-          encodeURI(
-            searchUrl +
-              state.message +
-              '/0' +
-              '?limit=250' +
-              '?type=public'
-          ),
-          config
-        )
-        // @ts-ignore
-        .catch((err) => {
-          if (err.response.status !== 403) {
-            commit('hideSkeleton')
-            this.$router.push('/error')
-          }
-        })
+      const [
+        getSuggestFirstItemsResponse,
+        getSuggestSecondItemsResponse,
+        getSuggestThirdItemsResponse,
+      ] = await Promise.all([
+        this.$axios
+          .$get(
+            encodeURI(
+              searchUrl +
+                state.message +
+                '/0' +
+                '?limit=250' +
+                '?type=public'
+            ),
+            config
+          )
+          // @ts-ignore
+          .catch((err) => {
+            if (err.response.status !== 403) {
+              commit('hideSkeleton')
+              this.$router.push('/error')
+            }
+          }),
+        this.$axios
+          .$get(
+            encodeURI(
+              searchUrl +
+                state.message +
+                '/1' +
+                '?limit=250' +
+                '?type=public'
+            ),
+            config
+          )
+          // @ts-ignore
+          .catch((err) => {
+            if (err.response.status !== 403) {
+              commit('hideSkeleton')
+              this.$router.push('/error')
+            }
+          }),
+        this.$axios
+          .$get(
+            encodeURI(
+              searchUrl +
+                state.message +
+                '/2' +
+                '?limit=250' +
+                '?type=public'
+            ),
+            config
+          )
+          // @ts-ignore
+          .catch((err) => {
+            if (err.response.status !== 403) {
+              commit('hideSkeleton')
+              this.$router.push('/error')
+            }
+          }),
+      ])
       commit(
-        'setSuggestItems',
+        'setSuggestFirstItems',
         // @ts-ignore
-        getSearchItemsResponse.response.videos.filter(
+        getSuggestFirstItemsResponse.response.videos.filter(
+          // @ts-ignore
+          (value) =>
+            !value.title.match('無修正') &&
+            !value.title.match('無') &&
+            !value.title.match('完全素人') &&
+            !value.title.match('個人撮影') &&
+            !value.title.match('FC2') &&
+            !value.title.match('Fc2') &&
+            !value.title.match('fc2') &&
+            !value.title.match('DEEPFAKE') &&
+            !value.title.match('DeepFake') &&
+            !value.title.match('Deepfake') &&
+            !value.title.match('deepfake') &&
+            !value.title.match('カリビアンコム') &&
+            !value.title.match('一本道') &&
+            !value.title.match('HEYZO') &&
+            !value.title.match('Heyzo') &&
+            !value.title.match('heyzo') &&
+            !value.title.match('東京熱') &&
+            !value.title.match('TOKYO-HOT') &&
+            !value.title.match('Tokyo-Hot') &&
+            !value.title.match('Tokyo-hot') &&
+            !value.title.match('tokyo-hot') &&
+            !value.title.match('AV9898') &&
+            !value.title.match('Av9898') &&
+            !value.title.match('av9898') &&
+            !value.title.match('PORNHUB') &&
+            !value.title.match('PornHub') &&
+            !value.title.match('Pornhub') &&
+            !value.title.match('pornhub') &&
+            !value.title.match('エッチな4610') &&
+            !value.title.match('エッチな0930') &&
+            !value.title.match('人妻斬り') &&
+            !value.title.match('SM-MIRACLE') &&
+            !value.title.match('SM-Miracle') &&
+            !value.title.match('SM-miracle') &&
+            !value.title.match('sm-miracle') &&
+            !value.title.match('のぞきザムライ') &&
+            !value.title.match('金8天国') &&
+            !value.title.match('carib') &&
+            !value.title.match(/^[a-zA-Z0-9-_.~+\s]+$/) &&
+            !value.keyword.match('無修正') &&
+            !value.keyword.match('FC2')
+        )
+      )
+      commit(
+        'setSuggestSecondItems',
+        // @ts-ignore
+        getSuggestSecondItemsResponse.response.videos.filter(
+          // @ts-ignore
+          (value) =>
+            !value.title.match('無修正') &&
+            !value.title.match('無') &&
+            !value.title.match('完全素人') &&
+            !value.title.match('個人撮影') &&
+            !value.title.match('FC2') &&
+            !value.title.match('Fc2') &&
+            !value.title.match('fc2') &&
+            !value.title.match('DEEPFAKE') &&
+            !value.title.match('DeepFake') &&
+            !value.title.match('Deepfake') &&
+            !value.title.match('deepfake') &&
+            !value.title.match('カリビアンコム') &&
+            !value.title.match('一本道') &&
+            !value.title.match('HEYZO') &&
+            !value.title.match('Heyzo') &&
+            !value.title.match('heyzo') &&
+            !value.title.match('東京熱') &&
+            !value.title.match('TOKYO-HOT') &&
+            !value.title.match('Tokyo-Hot') &&
+            !value.title.match('Tokyo-hot') &&
+            !value.title.match('tokyo-hot') &&
+            !value.title.match('AV9898') &&
+            !value.title.match('Av9898') &&
+            !value.title.match('av9898') &&
+            !value.title.match('PORNHUB') &&
+            !value.title.match('PornHub') &&
+            !value.title.match('Pornhub') &&
+            !value.title.match('pornhub') &&
+            !value.title.match('エッチな4610') &&
+            !value.title.match('エッチな0930') &&
+            !value.title.match('人妻斬り') &&
+            !value.title.match('SM-MIRACLE') &&
+            !value.title.match('SM-Miracle') &&
+            !value.title.match('SM-miracle') &&
+            !value.title.match('sm-miracle') &&
+            !value.title.match('のぞきザムライ') &&
+            !value.title.match('金8天国') &&
+            !value.title.match('carib') &&
+            !value.title.match(/^[a-zA-Z0-9-_.~+\s]+$/) &&
+            !value.keyword.match('無修正') &&
+            !value.keyword.match('FC2')
+        )
+      )
+      commit(
+        'setSuggestThirdItems',
+        // @ts-ignore
+        getSuggestThirdItemsResponse.response.videos.filter(
           // @ts-ignore
           (value) =>
             !value.title.match('無修正') &&
@@ -379,30 +690,174 @@ export const actions = actionTree(
         headers: { 'content-type': 'application/json' },
       }
       // @ts-ignore
-      const getSearchItemsResponse = await this.$axios
-        .$get(
-          encodeURI(
-            searchUrl +
-              state.message +
-              '/0' +
-              '?limit=250' +
-              '?type=public'
-          ),
-          config
-        )
-        // @ts-ignore
-        .catch((err) => {
-          if (err.response.status !== 403) {
-            if (err.response.status !== 404) {
-              commit('hideSkeleton')
-              this.$router.push('/error')
+      const [
+        getSearchFirstItemsResponse,
+        getSearchSecondItemsResponse,
+        getSearchThirdItemsResponse,
+      ] = await Promise.all([
+        this.$axios
+          .$get(
+            encodeURI(
+              searchUrl +
+                state.message +
+                '/0' +
+                '?limit=250' +
+                '?type=public'
+            ),
+            config
+          )
+          // @ts-ignore
+          .catch((err) => {
+            if (err.response.status !== 403) {
+              if (err.response.status !== 404) {
+                commit('hideSkeleton')
+                this.$router.push('/error')
+              }
             }
-          }
-        })
+          }),
+        this.$axios
+          .$get(
+            encodeURI(
+              searchUrl +
+                state.message +
+                '/1' +
+                '?limit=250' +
+                '?type=public'
+            ),
+            config
+          )
+          // @ts-ignore
+          .catch((err) => {
+            if (err.response.status !== 403) {
+              if (err.response.status !== 404) {
+                commit('hideSkeleton')
+                this.$router.push('/error')
+              }
+            }
+          }),
+        this.$axios
+          .$get(
+            encodeURI(
+              searchUrl +
+                state.message +
+                '/2' +
+                '?limit=250' +
+                '?type=public'
+            ),
+            config
+          )
+          // @ts-ignore
+          .catch((err) => {
+            if (err.response.status !== 403) {
+              if (err.response.status !== 404) {
+                commit('hideSkeleton')
+                this.$router.push('/error')
+              }
+            }
+          }),
+      ])
       commit(
-        'setSearchItems',
+        'setSearchFirstItems',
         // @ts-ignore
-        getSearchItemsResponse.response.videos.filter(
+        getSearchFirstItemsResponse.response.videos.filter(
+          // @ts-ignore
+          (value) =>
+            !value.title.match('無修正') &&
+            !value.title.match('無') &&
+            !value.title.match('完全素人') &&
+            !value.title.match('個人撮影') &&
+            !value.title.match('FC2') &&
+            !value.title.match('Fc2') &&
+            !value.title.match('fc2') &&
+            !value.title.match('DEEPFAKE') &&
+            !value.title.match('DeepFake') &&
+            !value.title.match('Deepfake') &&
+            !value.title.match('deepfake') &&
+            !value.title.match('カリビアンコム') &&
+            !value.title.match('一本道') &&
+            !value.title.match('HEYZO') &&
+            !value.title.match('Heyzo') &&
+            !value.title.match('heyzo') &&
+            !value.title.match('東京熱') &&
+            !value.title.match('TOKYO-HOT') &&
+            !value.title.match('Tokyo-Hot') &&
+            !value.title.match('Tokyo-hot') &&
+            !value.title.match('tokyo-hot') &&
+            !value.title.match('AV9898') &&
+            !value.title.match('Av9898') &&
+            !value.title.match('av9898') &&
+            !value.title.match('PORNHUB') &&
+            !value.title.match('PornHub') &&
+            !value.title.match('Pornhub') &&
+            !value.title.match('pornhub') &&
+            !value.title.match('エッチな4610') &&
+            !value.title.match('エッチな0930') &&
+            !value.title.match('人妻斬り') &&
+            !value.title.match('SM-MIRACLE') &&
+            !value.title.match('SM-Miracle') &&
+            !value.title.match('SM-miracle') &&
+            !value.title.match('sm-miracle') &&
+            !value.title.match('のぞきザムライ') &&
+            !value.title.match('金8天国') &&
+            !value.title.match('carib') &&
+            !value.title.match(/^[a-zA-Z0-9-_.~+\s]+$/) &&
+            !value.keyword.match('無修正') &&
+            !value.keyword.match('FC2')
+        )
+      )
+      commit(
+        'setSearchSecondItems',
+        // @ts-ignore
+        getSearchSecondItemsResponse.response.videos.filter(
+          // @ts-ignore
+          (value) =>
+            !value.title.match('無修正') &&
+            !value.title.match('無') &&
+            !value.title.match('完全素人') &&
+            !value.title.match('個人撮影') &&
+            !value.title.match('FC2') &&
+            !value.title.match('Fc2') &&
+            !value.title.match('fc2') &&
+            !value.title.match('DEEPFAKE') &&
+            !value.title.match('DeepFake') &&
+            !value.title.match('Deepfake') &&
+            !value.title.match('deepfake') &&
+            !value.title.match('カリビアンコム') &&
+            !value.title.match('一本道') &&
+            !value.title.match('HEYZO') &&
+            !value.title.match('Heyzo') &&
+            !value.title.match('heyzo') &&
+            !value.title.match('東京熱') &&
+            !value.title.match('TOKYO-HOT') &&
+            !value.title.match('Tokyo-Hot') &&
+            !value.title.match('Tokyo-hot') &&
+            !value.title.match('tokyo-hot') &&
+            !value.title.match('AV9898') &&
+            !value.title.match('Av9898') &&
+            !value.title.match('av9898') &&
+            !value.title.match('PORNHUB') &&
+            !value.title.match('PornHub') &&
+            !value.title.match('Pornhub') &&
+            !value.title.match('pornhub') &&
+            !value.title.match('エッチな4610') &&
+            !value.title.match('エッチな0930') &&
+            !value.title.match('人妻斬り') &&
+            !value.title.match('SM-MIRACLE') &&
+            !value.title.match('SM-Miracle') &&
+            !value.title.match('SM-miracle') &&
+            !value.title.match('sm-miracle') &&
+            !value.title.match('のぞきザムライ') &&
+            !value.title.match('金8天国') &&
+            !value.title.match('carib') &&
+            !value.title.match(/^[a-zA-Z0-9-_.~+\s]+$/) &&
+            !value.keyword.match('無修正') &&
+            !value.keyword.match('FC2')
+        )
+      )
+      commit(
+        'setSearchThirdItems',
+        // @ts-ignore
+        getSearchThirdItemsResponse.response.videos.filter(
           // @ts-ignore
           (value) =>
             !value.title.match('無修正') &&

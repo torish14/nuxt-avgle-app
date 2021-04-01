@@ -3345,7 +3345,10 @@
           </div>
         </template>
         <template v-else>
-          <div v-for="(data, index) in getJapaneseFirstItems" :key="`first-${index}`">
+          <div
+            v-for="(data, index) in getJapaneseFirstItems"
+            :key="`first-${index}`"
+          >
             <vue-lazy-component>
               <nuxt-link
                 :to="{
@@ -4944,7 +4947,10 @@
               <Skeleton slot="skeleton" />
             </vue-lazy-component>
           </div>
-          <div v-for="(data, index) in getJapaneseSecondItems" :key="`second-${index}`">
+          <div
+            v-for="(data, index) in getJapaneseSecondItems"
+            :key="`second-${index}`"
+          >
             <vue-lazy-component>
               <nuxt-link
                 :to="{
@@ -6543,7 +6549,10 @@
               <Skeleton slot="skeleton" />
             </vue-lazy-component>
           </div>
-          <div v-for="(data, index) in getJapaneseThirdItems" :key="`third-${index}`">
+          <div
+            v-for="(data, index) in getJapaneseThirdItems"
+            :key="`third-${index}`"
+          >
             <vue-lazy-component>
               <nuxt-link
                 :to="{
@@ -8454,10 +8463,21 @@ export default Vue.extend({
     //     }
     //   }, 400)
     // },
-    getRecommendTitle(title: string): void {
+    getRecommendTitle(
+      titleFirst: string,
+      titleSecond: string,
+      titleThird: string,
+      titleFourth: string
+    ): void {
       // @ts-ignore
-      this.$accessor.search.addRecommendTitles(title)
-      console.log(title)
+      this.$accessor.search.addRecommendTitles(titleFirst)
+      console.log(titleFirst)
+      this.$accessor.search.addRecommendTitles(titleSecond)
+      console.log(titleSecond)
+      this.$accessor.search.addRecommendTitles(titleThird)
+      console.log(titleThird)
+      this.$accessor.search.addRecommendTitles(titleFourth)
+      console.log(titleFourth)
       this.$accessor.search.concatRecommendArray(
         this.$store.state.search.recommendTitles
       )
