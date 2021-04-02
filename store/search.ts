@@ -168,7 +168,8 @@ export const mutations = mutationTree(state, {
       state.messagesFirst.length === 0 ||
       // @ts-ignore
       state.searchMessagesFirst.length === 0
-    ) {
+    )
+    {
       // @ts-ignore
       state.recommendMessages.splice(1, 1)
     }

@@ -52,11 +52,11 @@ export default {
       return data
       // eslint-disable-next-line
       .filter(item => {
-        if (item[field].toLowerCase().includes(text.toLowerCase())) {
-          return item[field]
-        }
-      })
-      .sort()
+          if (item[field].toLowerCase().includes(text.toLowerCase())) {
+            return item[field]
+          }
+        })
+        .sort()
     },
     renderSuggestion(suggestion) {
       return suggestion.item.name
