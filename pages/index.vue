@@ -26,36 +26,6 @@
             </div>
           </client-only>
         </template>
-        <!-- <div v-else-if="$fetchState.pending">
-          <client-only>
-            <div class="flex flex-wrap justify-center">
-              <Skeletonｓ
-                class="md:px-2 lg:px-2 xl:px-2 2xl:px-2 lg:mt-8 xl:mt-8 2xl:mt-8"
-              />
-              <Skeleton
-                class="md:px-2 lg:px-2 xl:px-2 2xl:px-2 lg:mt-8 xl:mt-8 2xl:mt-8"
-              />
-              <Skeleton
-                class="md:px-2 lg:px-2 xl:px-2 2xl:px-2 lg:mt-8 xl:mt-8 2xl:mt-8"
-              />
-              <Skeleton
-                class="md:px-2 lg:px-2 xl:px-2 2xl:px-2 lg:mt-8 xl:mt-8 2xl:mt-8"
-              />
-              <Skeleton
-                class="md:px-2 lg:px-2 xl:px-2 2xl:px-2 lg:mt-8 xl:mt-8 2xl:mt-8"
-              />
-              <Skeleton
-                class="md:px-2 lg:px-2 xl:px-2 2xl:px-2 lg:mt-8 xl:mt-8 2xl:mt-8"
-              />
-              <Skeleton
-                class="md:px-2 lg:px-2 xl:px-2 2xl:px-2 lg:mt-8 xl:mt-8 2xl:mt-8"
-              />
-              <Skeleton
-                class="md:px-2 lg:px-2 xl:px-2 2xl:px-2 lg:mt-8 xl:mt-8 2xl:mt-8"
-              />
-            </div>
-          </client-only>
-        </div> -->
         <template v-else-if="$fetchState.error">
           <div class="flex flex-col flex-shrink-0 items-center pt-12">
             <h5 class="text-gray-200 text-base">
@@ -3315,18 +3285,6 @@
             </div>
           </client-only>
         </template>
-        <!-- <div v-else-if="$fetchState.pending">
-          <client-only>
-            <Skeleton />
-            <Skeleton />
-          </client-only>
-        </div> -->
-        <!-- <div v-else-if="firstSkeleton">
-          <client-only>
-            <Skeleton />
-            <Skeleton />
-          </client-only>
-        </div> -->
         <template v-else-if="$fetchState.error">
           <div class="flex flex-col flex-shrink-0 items-center pt-12">
             <h5 class="text-gray-200 text-base">
@@ -8228,7 +8186,7 @@ export default Vue.extend({
     title: string
     // @ts-ignore
     titleTemplate: null
-  } {
+    } {
     return {
       title: 'Porngle',
       // @ts-ignore
@@ -8239,7 +8197,7 @@ export default Vue.extend({
     '@context': 'https://schema.org'
     '@type': 'BreadcrumbList'
     itemListElement: any
-  } {
+    } {
     // @ts-ignore
     const items = this.breadcrumbs.map((item, index) => ({
       '@type': 'ListItem',

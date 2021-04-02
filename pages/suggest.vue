@@ -28,18 +28,6 @@
             </div>
           </client-only>
         </template>
-        <!-- <div v-else-if="$fetchState.pending">
-          <client-only>
-            <Skeleton />
-            <Skeleton />
-          </client-only>
-        </div> -->
-        <!-- <div v-else-if="firstSkeleton">
-          <client-only>
-            <Skeleton />
-            <Skeleton />
-          </client-only>
-        </div> -->
         <template v-else-if="$fetchState.error">
           <div class="flex flex-col flex-shrink-0 items-center pt-12">
             <h5 class="text-gray-200 text-base">
