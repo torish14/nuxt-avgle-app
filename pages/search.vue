@@ -2108,9 +2108,6 @@ export default Vue.extend({
         this.$store.state.search.recommendKeywords
       )
     },
-    handler(): void {
-      console.log('Now loading')
-    },
     // ? ページネーションをクリック時に、currentPage にページ番号を設定
     clickCallback(pageNum: number): void {
       // @ts-ignore
