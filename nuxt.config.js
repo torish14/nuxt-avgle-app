@@ -22,7 +22,7 @@ export default {
   telemetry: false,
   generate: {
     fallback: true,
-    exclude: ['/sampleSuggest', '/translate'],
+    exclude: ['/sampleSuggest', '/translate', '/sample'],
   },
   /*
    ** Headers of the page
@@ -258,7 +258,7 @@ export default {
     // サイト名
     hostname: 'https://porngle.love',
     // 除外したいURL
-    exclude: ['/sampleSuggest', '/translate'],
+    exclude: ['/sampleSuggest', '/translate', '/sample'],
   },
   /*
    ** Nuxt.js modules
@@ -301,6 +301,7 @@ export default {
       '/search',
       '/embedded_url/_id',
       '/sampleSuggest',
+      '/sample',
     ],
     // sitemap.xmlのURLを記述
     Sitemap: 'https://porngle.love/sitemap.xml',
