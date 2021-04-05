@@ -1490,7 +1490,7 @@
     mkdirp "^1.0.4"
     rimraf "^3.0.2"
 
-"@nuxt/babel-preset-app@2.15.4", "@nuxt/babel-preset-app@^2.15.3":
+"@nuxt/babel-preset-app@2.15.4", "@nuxt/babel-preset-app@^2.15.4":
   version "2.15.4"
   resolved "https://registry.yarnpkg.com/@nuxt/babel-preset-app/-/babel-preset-app-2.15.4.tgz#e5ca0714806db1ede41ae6f0a42d34022ab68150"
   integrity sha512-49boY5aSfs7ImExW2EHutkfyxoipZeCF2MxF8kYKyhJz/9esoJdo6eY8JNhzDZYISDaWSeN2w5HjiMVo9zTrjg==
@@ -1718,7 +1718,7 @@
     rc9 "^1.2.0"
     std-env "^2.2.1"
 
-"@nuxt/types@^2.15.3":
+"@nuxt/types@^2.15.4":
   version "2.15.4"
   resolved "https://registry.yarnpkg.com/@nuxt/types/-/types-2.15.4.tgz#7d385757eb4faa28bb03cddc5f677c5c6677ab42"
   integrity sha512-caDwN0mFIBd5E3y9Gtgb8nAfg+Uqz2QlLKW1qHwLP546A97lC3jIdGlRGoiEUblIxXjEOOBYJ/G5sUBWThXZLQ==
@@ -1945,7 +1945,7 @@
     minimatch "^3.0.4"
     sitemap "^4.1.1"
 
-"@nuxtjs/tailwindcss@^4.0.2":
+"@nuxtjs/tailwindcss@^4.0.3":
   version "4.0.3"
   resolved "https://registry.yarnpkg.com/@nuxtjs/tailwindcss/-/tailwindcss-4.0.3.tgz#c90d6facc6718dbc6f56f28c3d1daf82544276f7"
   integrity sha512-dr+Bq4chALKllQaIoGrAV3JplP141wL50lfO8BwAD2R99ywwwM5DUMAUrpppuWHT4x/Lp/SzUwbCKsRJBhuQGA==
@@ -7564,7 +7564,7 @@ firebase-tools@^9.8.0:
     winston-transport "^4.4.0"
     ws "^7.2.3"
 
-firebase@^8.3.1:
+firebase@^8.3.2:
   version "8.3.2"
   resolved "https://registry.yarnpkg.com/firebase/-/firebase-8.3.2.tgz#f647770472ede31e4411ce5ffdc2ab84796fe4dd"
   integrity sha512-qGKASp6lXcV8NriHz/3wdltyLUjHOVkON6TQ1syGjW0sS5q/yTl9LK4O83hDLwG+UeRVRhLOaVa3jaLG4o3gnw==
@@ -11544,7 +11544,7 @@ nuxt-typed-vuex@^0.1.22:
     normalize-path "^3.0.0"
     typed-vuex "0.1.22"
 
-nuxt@^2.15.3:
+nuxt@^2.15.4:
   version "2.15.4"
   resolved "https://registry.yarnpkg.com/nuxt/-/nuxt-2.15.4.tgz#5e2b441acec7344a1124bb550904b5576c850cef"
   integrity sha512-o11VE61EwLj05PBPUN5RlDpaFb7vKbg3d5c+gfLi0gLVMpLUmjksRVTLzE9Ie8MB/TEnipy5BkhxMNppy0FKVg==
