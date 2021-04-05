@@ -8,7 +8,7 @@ const baseUrl = baseHost + baseDir
 const lang = 'ja'
 const siteName = 'Porngle'
 const siteDesc =
-  '無料えちえちサイトです。Porngleは検索機能に特化したアダルトサイトを目指しています。Pornhubの屍を越えていけ。'
+  '自分だけの性癖を見つける無料アダルトサイトです。Porngle は検索機能に特化したアダルトサイトを目指しています。'
 const siteKeywords =
   'porn, Porn, porngle, Porngle, アダルト, アダルトサイト, エロ, エロサイト'
 
