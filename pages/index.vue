@@ -8189,7 +8189,7 @@ export default Vue.extend({
     title: string
     // @ts-ignore
     titleTemplate: null
-  } {
+    } {
     return {
       title: 'Porngle',
       // @ts-ignore
@@ -8200,7 +8200,7 @@ export default Vue.extend({
     '@context': 'https://schema.org'
     '@type': 'BreadcrumbList'
     itemListElement: any
-  } {
+    } {
     // @ts-ignore
     const items = this.breadcrumbs.map((item, index) => ({
       '@type': 'ListItem',
