@@ -8,9 +8,9 @@
             <div
               class="flex flex-col flex-shrink-0 items-center pt-12"
             >
-              <h5 class="text-gray-200 text-base">
+              <p class="text-gray-200 text-base">
                 &nbsp;作品が見つかりませんでした。
-              </h5>
+              </p>
               <nuxt-link
                 to="/"
                 aria-label="ホームへ戻る"
@@ -28,9 +28,9 @@
         </template>
         <template v-else-if="$fetchState.error">
           <div class="flex flex-col flex-shrink-0 items-center pt-12">
-            <h5 class="text-gray-200 text-base">
+            <p class="text-gray-200 text-base">
               &nbsp;エラーが発生しました。
-            </h5>
+            </p>
             <nuxt-link
               to="/"
               aria-label="ホームへ戻る"
@@ -3267,9 +3267,9 @@
             <div
               class="flex flex-col flex-shrink-0 items-center pt-11"
             >
-              <h5 class="text-gray-200 text-base">
+              <p class="text-gray-200 text-base">
                 &nbsp;作品が見つかりませんでした。
-              </h5>
+              </p>
               <nuxt-link
                 to="/"
                 aria-label="ホームへ戻る"
@@ -3287,9 +3287,9 @@
         </template>
         <template v-else-if="$fetchState.error">
           <div class="flex flex-col flex-shrink-0 items-center pt-12">
-            <h5 class="text-gray-200 text-base">
+            <p class="text-gray-200 text-base">
               &nbsp;エラーが発生しました。
-            </h5>
+            </p>
             <nuxt-link
               to="/"
               aria-label="ホームへ戻る"
@@ -8189,7 +8189,7 @@ export default Vue.extend({
     title: string
     // @ts-ignore
     titleTemplate: null
-    } {
+  } {
     return {
       title: 'Porngle',
       // @ts-ignore
@@ -8200,7 +8200,7 @@ export default Vue.extend({
     '@context': 'https://schema.org'
     '@type': 'BreadcrumbList'
     itemListElement: any
-    } {
+  } {
     // @ts-ignore
     const items = this.breadcrumbs.map((item, index) => ({
       '@type': 'ListItem',

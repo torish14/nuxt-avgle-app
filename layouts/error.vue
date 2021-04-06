@@ -2,16 +2,16 @@
   <div class="error bg-gray-800">
     <div class="flex flex-col flex-shrink-0 items-center pt-12">
       <template v-if="error.statusCode === 404">
-        <h5 class="text-gray-200 text-base">
+        <p class="text-gray-200 text-base">
           &nbsp;お探しのページが見つかりませんでした。
-        </h5>
+        </p>
       </template>
       <template v-else class="text-gray-400 text-base">
-        <h5 class="text-gray-200 text-sm">
+        <p class="text-gray-200 text-sm">
           <!-- {{ error.statusCode }} -->
           <!-- {{ error.message }} -->
           &nbsp;エラーが発生しました。
-        </h5>
+        </p>
       </template>
       <nuxt-link
         to="/"
