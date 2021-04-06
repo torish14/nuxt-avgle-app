@@ -22,6 +22,9 @@ export const getters = getterTree(state, {
 })
 
 export const mutations = mutationTree(state, {
+  mutateCurrentIndexPage(state, payload: number) {
+    state.currentIndexPage = payload
+  },
   setCurrentIndexPage(state, currentIndexPage) {
     state.currentIndexPage = currentIndexPage
   },
@@ -39,7 +42,14 @@ export const mutations = mutationTree(state, {
   },
 })
 
-export const actions = actionTree({ state, getters, mutations }, {})
+export const actions = actionTree(
+  { state, getters, mutations },
+  {
+    commitCurrentIndexPage({ commit }, payload) {
+      return commit('mutateCurrentIndexPage', payload)
+    },
+  }
+)
 
 export const accessorType = getAccessorType({
   state,

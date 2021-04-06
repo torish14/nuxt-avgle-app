@@ -3240,7 +3240,7 @@
             </vue-lazy-component>
           </div>
           <Paginate
-            v-model="$store.state.currentIndexPage"
+            v-model="computedGetState"
             :page-count="getPageCount"
             :page-range="3"
             :margin-pages="1"
@@ -8225,6 +8225,16 @@ export default Vue.extend({
       'errorMessage',
       'firstSkeleton',
     ]),
+    computedGetState: {
+      get(): number {
+        // @ts-ignore
+        return this.$accessor.currentIndexPage
+      },
+      set(val): void {
+        // @ts-ignore
+        this.$accessor.commitCurrentIndexPage(val)
+      },
+    },
     filterMessage(): any {
       return (
         (this.messagesFirst.length === 0 && this.errorMessage) ||
