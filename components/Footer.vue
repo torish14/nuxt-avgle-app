@@ -17,6 +17,8 @@
             <img
               src="~/assets/Porngle.jpeg"
               alt="Porngle"
+              width="160"
+              height="60"
               class="w-40"
             />
           </nuxt-link>

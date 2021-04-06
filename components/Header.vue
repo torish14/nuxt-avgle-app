@@ -22,6 +22,8 @@
                 <img
                   src="~/assets/Porngle.jpeg"
                   alt="Porngle"
+                  width="160"
+                  height="60"
                   class="w-40"
                   style="height: 60px"
                 />
@@ -73,6 +75,8 @@
               <img
                 src="~/assets/Porngle.jpeg"
                 alt="Porngle"
+                width="96"
+                height="40"
                 class="w-24"
                 style="height: 40px"
               />
