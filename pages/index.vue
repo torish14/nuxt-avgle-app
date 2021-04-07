@@ -8374,6 +8374,10 @@ export default Vue.extend({
     if (this.$accessor.search.messagesFirst.length === 0) {
       this.$accessor.search.getJapaneseItems()
     }
+    console.log(
+      '%cWelcome To Porngle!',
+      'color: #6b46c1; font-size: 24px'
+    )
   },
   // activated(): void {
   //   // 最後の fetch から30秒以上経っていれば、fetch を呼び出す
