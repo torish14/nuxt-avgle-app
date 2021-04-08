@@ -1,4 +1,7 @@
-import { cacheAdapterEnhancer, throttleAdapterEnhancer } from 'axios-extensions'
+import {
+  cacheAdapterEnhancer,
+  throttleAdapterEnhancer,
+} from 'axios-extensions'
 import LRU from 'lru-cache'
 
 const ONE_HOUR = 1000 * 60 * 60
@@ -13,6 +16,7 @@ export default function ({ $axios, ssrContext }) {
         enabledByDefault: false,
         cacheFlag: 'useCache',
         defaultCache,
+        threshold: 2 * 1000,
       })
     )
     // $axios.onResponse(() => {
