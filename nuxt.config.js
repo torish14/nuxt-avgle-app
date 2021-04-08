@@ -17,7 +17,7 @@ const shortName = 'Porngle'
 
 export default {
   // srcDir: 'app',
-  ssr: true,
+  ssr: false,
   target: 'static',
   telemetry: false,
   generate: {
