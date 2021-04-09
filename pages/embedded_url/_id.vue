@@ -18289,7 +18289,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import { mapGetters } from 'vuex'
-import Meta from '~/assets/mixins/meta.js'
+import Meta from '~/assets/mixins/meta'
 // import Skeleton from '~/components/Skeleton.vue'
 
 function youtubeDefer() {

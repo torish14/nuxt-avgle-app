@@ -30,7 +30,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import Meta from '~/assets/mixins/meta.js'
+import Meta from '~/assets/mixins/meta'
 
 export type DataType = {
   meta: object

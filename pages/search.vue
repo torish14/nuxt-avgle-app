@@ -1816,7 +1816,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import { mapGetters } from 'vuex'
-import Meta from '~/assets/mixins/meta.js'
+import Meta from '~/assets/mixins/meta'
 // import { VueLoading } from 'vue-loading-template'
 // import SearchSkeletonImg from '~/components/SearchSkeletonImg.vue'
 // import SearchSkeletonTitle from '~/components/SearchSkeletonTitle.vue'
