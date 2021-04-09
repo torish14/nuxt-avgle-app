@@ -167,7 +167,27 @@
 
 <script lang="ts">
 import Vue from 'vue'
-export default Vue.extend({})
+import Meta from '~/assets/mixins/meta'
+
+export type DataType = {
+  meta: object
+}
+
+export default Vue.extend({
+  mixins: [Meta],
+  data(): DataType {
+    return {
+      meta: {
+        title: 'プライバシーポリシー',
+        description: 'プライバシーポリシーページです。',
+        type: 'website',
+        url: 'https://porngle.love/privacy',
+        image: 'https://porngle.love/assets/PG.jpeg',
+        robots: 'noindex',
+      },
+    }
+  },
+})
 </script>
 
 <style scoped>

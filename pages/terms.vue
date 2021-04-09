@@ -311,7 +311,27 @@
 
 <script lang="ts">
 import Vue from 'vue'
-export default Vue.extend({})
+import Meta from '~/assets/mixins/meta'
+
+export type DataType = {
+  meta: object
+}
+
+export default Vue.extend({
+  mixins: [Meta],
+  data(): DataType {
+    return {
+      meta: {
+        title: '利用規約',
+        description: '利用規約ページです。',
+        type: 'website',
+        url: 'https://porngle.love/terms',
+        image: 'https://porngle.love/assets/PG.jpeg',
+        robots: 'noindex',
+      },
+    }
+  },
+})
 </script>
 
 <style scoped>
