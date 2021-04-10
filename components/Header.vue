@@ -30,6 +30,38 @@
               </nuxt-link>
             </h1>
           </div>
+          <!-- <div
+            class="w-full block flex-grow ml-24 lg:flex lg:items-center lg:w-auto"
+          >
+            <div class="text-sm lg:flex-grow">
+              <nuxt-link
+                to="/"
+                aria-label="ホームへ戻る"
+                class="block mt-4 lg:inline-block lg:mt-0 text-gray-400 hover:text-gray-200 mr-10"
+              >
+                ホーム
+              </nuxt-link>
+              <nuxt-link
+                to="/suggest"
+                aria-label="探求へ進む"
+                class="block mt-4 lg:inline-block lg:mt-0 text-gray-400 hover:text-gray-200 mr-10"
+              >
+                探求
+              </nuxt-link>
+              <a
+                href="#responsive-header"
+                class="block mt-4 lg:inline-block lg:mt-0 text-gray-400 hover:text-gray-200 mr-10"
+              >
+                女優を探す
+              </a>
+              <a
+                href="#responsive-header"
+                class="block mt-4 lg:inline-block lg:mt-0 text-gray-400 hover:text-gray-200"
+              >
+                カテゴリー
+              </a>
+            </div>
+          </div> -->
           <div
             class="bg-gray-700 flex items-center rounded-full shadow-xl w-1/4 mr-20"
             role="search"
