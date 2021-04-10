@@ -28,17 +28,17 @@
             &copy; 2020 - Porngle
           </p>
           <p
-            class="text-gray-400 text-xs hover:text-purple-500 cursor-pointer sm:ml-4 sm:pl-4 sm:py-2 sm:mt-0 mt-4"
+            class="text-gray-400 text-xs hover:text-gray-200 cursor-pointer sm:ml-4 sm:pl-4 sm:py-2 sm:mt-0 mt-4"
           >
             <nuxt-link to="/terms">利用規約</nuxt-link>
           </p>
           <p
-            class="text-gray-400 text-xs hover:text-purple-500 cursor-pointer sm:ml-4 sm:pl-4 sm:py-2 sm:mt-0 mt-4"
+            class="text-gray-400 text-xs hover:text-gray-200 cursor-pointer sm:ml-4 sm:pl-4 sm:py-2 sm:mt-0 mt-4"
           >
             <nuxt-link to="/privacy">プライバシーポリシー</nuxt-link>
           </p>
           <p
-            class="text-gray-400 text-xs hover:text-purple-500 sm:ml-4 sm:pl-4 sm:py-2 sm:mt-0 mt-4"
+            class="text-gray-400 text-xs hover:text-gray-200 sm:ml-4 sm:pl-4 sm:py-2 sm:mt-0 mt-4"
           >
             <a
               href="mailto:porngle.love@gmail.com"
