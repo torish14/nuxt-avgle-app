@@ -114,27 +114,16 @@
               />
             </nuxt-link>
           </div>
-          <!-- <div :class="isOpen ? 'block' : 'hidden'" class="w-full pl-2">
-              <input
-                ref="focusInput"
-                v-model="computedGetState"
-                class="bg-gray-700 rounded-full w-full py-4 px-6 mt-2 ml-0 text-gray-400 leading-tight focus:outline-none"
-                type="search"
-                placeholder="検索"
-                inputmode="search"
-                @keydown.enter="search"
+          <!-- <div class="w-full pl-2"></div>
+          <div class="flex items-center px-3 py-2">
+            <div>
+              <button
+                class="text-gray-300 rounded-full p-2 hover:bg-purple-800 focus:outline-none w-12 h-12 flex items-center justify-center"
               >
+                <i class="material-icons">more_horiz</i>
+              </button>
             </div>
-            <div class="flex items-center px-3 py-2">
-              <div>
-                <button
-                  class="bg-purple-700 text-gray-300 rounded-full p-2 hover:bg-purple-800 focus:outline-none w-12 h-12 flex items-center justify-center"
-                  @click="isOpen = !isOpen; focusSearch()"
-                >
-                  <i class="material-icons">search</i>
-                </button>
-              </div>
-            </div> -->
+          </div> -->
         </div>
         <!-- <div>
           <ul class="flex justify-center self-end text-sm text-gray-100">
