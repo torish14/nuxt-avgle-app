@@ -36,14 +36,12 @@
                   <p class="text-gray-200 text-base">
                     &nbsp;作品が見つかりませんでした。
                   </p>
+                  <!-- prettier-ignore -->
                   <nuxt-link
                     to="/"
                     aria-label="ホームへ戻る"
                     class="text-gray-400 text-sm hover:text-purple-500"
-                    @click.native="
-                      setJapaneseForm()
-                      refresh()
-                    "
+                    @click.native="setJapaneseForm(); refresh()"
                   >
                     &nbsp;トップページに戻る
                   </nuxt-link>
@@ -57,15 +55,14 @@
                 <p class="text-gray-200 text-base">
                   &nbsp;エラーが発生しました。
                 </p>
+                <!-- prettier-ignore -->
                 <nuxt-link
                   to="/"
                   aria-label="ホームへ戻る"
                   class="text-gray-400 text-sm hover:text-purple-500"
-                  @click.native="
-                    setJapaneseForm()
-                    refresh()
-                  "
-                  >&nbsp;トップページに戻る
+                  @click.native="setJapaneseForm(); refresh()"
+                >
+                  &nbsp;トップページに戻る
                 </nuxt-link>
               </div>
             </template>
