@@ -18290,7 +18290,6 @@
 import Vue from 'vue'
 import { mapGetters } from 'vuex'
 import Meta from '~/assets/mixins/meta'
-// import Skeleton from '~/components/Skeleton.vue'
 
 function youtubeDefer() {
   const iframes = document.querySelectorAll('.youtube')
@@ -18319,14 +18318,6 @@ export default Vue.extend({
   mixins: [Meta],
   // @ts-ignore
   layout: (ctx) => (ctx.$device.isMobile ? 'non-footer' : 'default'),
-  // beforeRouteEnter(from, next) {
-  //   this.$accessor.setPrevRoute(from)
-  //   // @ts-ignore
-  //   next(vm => {
-  //     // @ts-ignore
-  //     vm.prevRoute = from
-  //   })
-  // },
   scrollToTop: true,
   data(): DataType {
     return {
@@ -18557,19 +18548,10 @@ export default Vue.extend({
         return Math.random() - 0.5
       })
     },
-    // prevRouteChild() {
-    //   return this.$accessor.prevRoute
-    // }
   },
   watch: {
     '$route.query': '$fetch',
   },
-  // activated(): void {
-  //   // 最後の fetch から30秒以上経っていれば、fetch を呼び出す
-  //   if (this.$fetchState.timestamp <= Date.now() - 30000) {
-  //     this.$fetch()
-  //   }
-  // },
   created(): void {
     if (process.browser) {
       // @ts-ignore

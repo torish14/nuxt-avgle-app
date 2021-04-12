@@ -8112,15 +8112,6 @@
               <Skeleton slot="skeleton" />
             </vue-lazy-component>
           </div>
-          <!-- <InfiniteLoading
-            ref="infiniteLoading"
-            spinner="spiral"
-            @infinite="infiniteHandler"
-          >
-            <div slot="no-more">
-              これ以上結果はありません
-            </div>
-          </InfiniteLoading> -->
         </template>
       </main>
     </div>
@@ -8130,8 +8121,6 @@
 <script lang="ts">
 import Vue from 'vue'
 import { mapGetters } from 'vuex'
-// import { VueLoading } from 'vue-loading-template'
-// import Skeleton from '~/components/Skeleton.vue'
 
 export type DataType = {
   parPage: number
@@ -8140,8 +8129,6 @@ export type DataType = {
 
 export default Vue.extend({
   components: {
-    // @ts-ignore
-    // VueLoading,
     // @ts-ignore
     Skeleton: () => import('~/components/Skeleton'),
   },
@@ -8379,12 +8366,6 @@ export default Vue.extend({
       'color: #6b46c1; font-size: 24px'
     )
   },
-  // activated(): void {
-  //   // 最後の fetch から30秒以上経っていれば、fetch を呼び出す
-  //   if (this.$fetchState.timestamp <= Date.now() - 30000) {
-  //     this.$fetch()
-  //   }
-  // },
   created(): void {
     if (process.browser) {
       // eslint-disable-next-line
@@ -8421,20 +8402,6 @@ export default Vue.extend({
     setJapaneseForm(): void {
       this.$accessor.search.setSearchMessage()
     },
-    // infiniteHandler() {
-    //   setTimeout(() => {
-    //     // @ts-ignore
-    //     if (this.parPage < this.messagesFirst.length) {
-    //       // @ts-ignore
-    //       this.parPage += 20
-    //       // @ts-ignore
-    //       this.$refs.infiniteLoading.stateChanger.loaded()
-    //     } else {
-    //       // @ts-ignore
-    //       this.$refs.infiniteLoading.stateChanger.complete()
-    //     }
-    //   }, 400)
-    // },
     getRecommendTitle(
       titleFirst: string,
       titleSecond: string,

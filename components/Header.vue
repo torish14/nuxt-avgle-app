@@ -73,7 +73,6 @@
               autofocus
               placeholder="Porngle を検索"
               @keydown.enter="search"
-              @focus="focus"
             />
 
             <div class="p-4">
@@ -233,30 +232,9 @@ export default Vue.extend({
           return Math.random() - 0.5
         })
     },
-    focus() {
-      // this.$accessor.search.clearMessage()
-    },
     refresh(): void {
       this.$nuxt.refresh()
     },
-    // focusSearch () {
-    //   this.$accessor.search.clearMessage()
-    //   this.$nextTick(() => {
-    //     // ? https://github.com/rigor789/vue-scrollto
-    //     this.$scrollTo(
-    //       '#header',
-    //       { duration: 500 },
-    //       { easing: 'ease-out' },
-    //       // @ts-ignore
-    //       { offset: -60 }
-    //     )
-    //     // @ts-ignore
-    //     this.$refs.focusInput.focus()
-    //   })
-    //   // setTimeout(() => {
-    //   //   this.$refs.focusInput.focus()
-    //   // }, 1)
-    // },
     // スクロール値の取得
     onScroll(): void {
       this.$set(this, 'scrollY', window.pageYOffset)

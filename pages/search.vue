@@ -22,7 +22,6 @@
             role="search"
             @keydown.enter="search"
             @focus="focus"
-            @blur="blur"
           />
         </div>
       </div>
@@ -644,11 +643,8 @@
                             {{ data.title }}
                           </h2>
                         </template>
-                        <!-- <SearchSkeletonTitle slot="skeleton" /> -->
-                        <!-- </vue-lazy-component> -->
                       </nuxt-link>
                       <div class="flex flex-row my-1">
-                        <!-- <vue-lazy-component> -->
                         <template v-if="data.viewnumber >= 1000000">
                           <h3 class="text-gray-400 mr-1 text-xs">
                             再生数
@@ -707,7 +703,6 @@
                             }}%
                           </h3>
                         </template>
-                        <!-- </vue-lazy-component> -->
                       </div>
                     </div>
                   </div>
@@ -1172,11 +1167,8 @@
                             {{ data.title }}
                           </h2>
                         </template>
-                        <!-- <SearchSkeletonTitle slot="skeleton" /> -->
-                        <!-- </vue-lazy-component> -->
                       </nuxt-link>
                       <div class="flex flex-row my-1">
-                        <!-- <vue-lazy-component> -->
                         <template v-if="data.viewnumber >= 1000000">
                           <h3 class="text-gray-400 mr-1 text-xs">
                             再生数
@@ -1235,7 +1227,6 @@
                             }}%
                           </h3>
                         </template>
-                        <!-- </vue-lazy-component> -->
                       </div>
                     </div>
                   </div>
@@ -1700,11 +1691,8 @@
                             {{ data.title }}
                           </h2>
                         </template>
-                        <!-- <SearchSkeletonTitle slot="skeleton" /> -->
-                        <!-- </vue-lazy-component> -->
                       </nuxt-link>
                       <div class="flex flex-row my-1">
-                        <!-- <vue-lazy-component> -->
                         <template v-if="data.viewnumber >= 1000000">
                           <h3 class="text-gray-400 mr-1 text-xs">
                             再生数
@@ -1763,21 +1751,11 @@
                             }}%
                           </h3>
                         </template>
-                        <!-- </vue-lazy-component> -->
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <!-- <InfiniteLoading
-                ref="infiniteLoading"
-                spinner="spiral"
-                @infinite="infiniteHandler"
-              >
-                <div slot="no-more">
-                  これ以上結果はありません
-                </div>
-              </InfiniteLoading> -->
             </template>
           </div>
         </main>
@@ -1841,9 +1819,6 @@
 import Vue from 'vue'
 import { mapGetters } from 'vuex'
 import Meta from '~/assets/mixins/meta'
-// import { VueLoading } from 'vue-loading-template'
-// import SearchSkeletonImg from '~/components/SearchSkeletonImg.vue'
-// import SearchSkeletonTitle from '~/components/SearchSkeletonTitle.vue'
 
 export type DataType = {
   parPage: number
@@ -1854,16 +1829,7 @@ export type DataType = {
 export default Vue.extend({
   components: {
     // @ts-ignore
-    // VueLoading,
-    // @ts-ignore
     SearchSkeletonImg: () => import('~/components/SearchSkeletonImg'),
-    // // @ts-ignore
-    // SearchSkeletonTitle: () =>
-    //   // @ts-ignore
-    //   import('~/components/SearchSkeletonTitle'),
-    // @ts-ignore
-    // SearchSkeletonTitle,
-    // @ts-ignore
   },
   mixins: [Meta],
   // @ts-ignore
@@ -2019,12 +1985,6 @@ export default Vue.extend({
       this.$refs.focusInput.focus()
     })
   },
-  // activated(): void {
-  //   // 最後の fetch から30秒以上経っていれば、fetch を呼び出す
-  //   if (this.$fetchState.timestamp <= Date.now() - 30000) {
-  //     this.$fetch()
-  //   }
-  // },
   created(): void {
     if (process.browser) {
       // @ts-ignore
@@ -2049,7 +2009,6 @@ export default Vue.extend({
         // @ts-ignore
         this.sendRequest()
         // @ts-ignore
-        // this.show = true
         this.$nextTick(() => {
           e.target.blur()
           this.onFocus = false
@@ -2085,9 +2044,6 @@ export default Vue.extend({
       this.$forceUpdate()
     },
     setJapaneseForm(): void {
-      // if (this.$accessor.search.message !== '日本人') {
-      //   this.$accessor.search.setJapaneseMessage()
-      // }
       // @ts-ignore
       if (this.$accessor.search.concatRecommend.length > 0) {
         // @ts-ignore
@@ -2095,35 +2051,19 @@ export default Vue.extend({
       } else {
         this.$accessor.search.setJapaneseMessage()
       }
-      // this.$accessor.search.getJapaneseItems()
       window.scrollTo(0, 0)
-      // this.$accessor.search.messagesFirst
-      //   // @ts-ignore
-      //   .sort(function () {
-      //     return Math.random() - 0.5
-      //   })
     },
     setSuggestForm(): void {
       if (this.$accessor.search.message !== 'AV女優') {
         this.$accessor.search.setSuggestMessage()
       }
       window.scrollTo(0, 0)
-      // this.$accessor.search.suggestMessages
-      //   // @ts-ignore
-      //   .sort(function () {
-      //     return Math.random() - 0.5
-      //   })
     },
     setSearchForm(): void {
       if (this.$accessor.search.message !== '美少女') {
         this.$accessor.search.setSearchMessage()
       }
       window.scrollTo(0, 0)
-      // this.$accessor.search.searchMessagesFirst
-      //   // @ts-ignore
-      //   .sort(function () {
-      //     return Math.random() - 0.5
-      //   })
     },
     clearForm(): void {
       this.$accessor.search.clearMessage()
@@ -2138,11 +2078,6 @@ export default Vue.extend({
     focus(): void {
       this.onFocus = true
     },
-    blur(): void {
-      // this.$nextTick((): void => {
-      //   this.onFocus = false
-      // })
-    },
     // @ts-ignore
     changeFormList(list): void {
       this.$accessor.search.changeKeyword(list)
@@ -2155,20 +2090,6 @@ export default Vue.extend({
     refresh(): void {
       this.$nuxt.refresh()
     },
-    // infiniteHandler() {
-    //   setTimeout(() => {
-    //     // @ts-ignore
-    //     if (this.parPage < this.searchMessagesFirst.length) {
-    //       // @ts-ignore
-    //       this.parPage += 20
-    //       // @ts-ignore
-    //       this.$refs.infiniteLoading.stateChanger.loaded()
-    //     } else {
-    //       // @ts-ignore
-    //       this.$refs.infiniteLoading.stateChanger.complete()
-    //     }
-    //   }, 400)
-    // },
     getRecommendTitle(
       titleFirst: string,
       titleSecond: string,
