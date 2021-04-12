@@ -1622,6 +1622,7 @@ export default Vue.extend({
       )
     },
     changeFormKeyword(keyword: string): void {
+      this.$router.push('/suggest')
       // @ts-ignore
       this.$accessor.search.changeKeyword(keyword)
       this.$accessor.search.getSuggestItems()
