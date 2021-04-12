@@ -91,9 +91,8 @@
     <!-- モバイル -->
     <div v-else id="header" class="bg-gray-800">
       <header v-show="isShow" role="banner">
-        <div class="flex bg-gray-800 top-0 w-full z-20">
+        <div class="flex bg-gray-800 fixed top-0 w-full z-20">
           <div
-            :class="isOpen ? 'hidden' : 'block'"
             class="flex items-center flex-shrink-0 text-gray-100 ml-2 py-2"
           >
             <nuxt-link
@@ -125,15 +124,6 @@
             </div>
           </div> -->
         </div>
-        <!-- <div>
-          <ul class="flex justify-center self-end text-sm text-gray-100">
-            <li class="mx-1">童貞</li>
-            <li class="mx-1">カップル</li>
-            <li class="mx-1">ナンパ</li>
-            <li class="mx-1">エロアニメ</li>
-            <li class="mx-1">デビュー</li>
-          </ul>
-        </div> -->
       </header>
     </div>
   </section>
@@ -143,7 +133,6 @@
 import Vue from 'vue'
 
 export type DataType = {
-  isOpen: Boolean
   scrollY: number
   isShow: Boolean
   selected: string
@@ -152,7 +141,6 @@ export type DataType = {
 export default Vue.extend({
   data(): DataType {
     return {
-      isOpen: false,
       scrollY: 0,
       isShow: true,
       selected: '',
@@ -170,30 +158,30 @@ export default Vue.extend({
       },
     },
   },
-  // watch: {
-  //   // 上にスクロールした時に表示
-  //   scrollY (newValue, oldValue) {
-  //     this.$set(this, 'isShow', newValue < oldValue || newValue <= 1)
-  //     // this.$set(this, 'isShow', newValue < oldValue || newValue <= 1 || newValue >= 5000)
-  //     // console.log('新しい',newValue)
-  //     // console.log('古い',oldValue)
-  //   }
-  // },
-  // mounted () {
-  //   // スクロールイベントを取得
-  //   // @ts-ignore
-  //   window.addEventListener('scroll', this.onScroll)
-  //   window.addEventListener('load', () => {
-  //     // @ts-ignore
-  //     this.onScroll()
-  //   })
-  //   // this.$nextTick(() => this.onScroll())
-  // },
-  // // @ts-ignore
-  // beforeDestroyed () {
-  //   // @ts-ignore
-  //   window.removeEventListener('scroll', this.onScroll)
-  // },
+  watch: {
+    // 上にスクロールした時に表示
+    scrollY(newValue, oldValue) {
+      this.$set(this, 'isShow', newValue < oldValue || newValue <= 1)
+      // this.$set(this, 'isShow', newValue < oldValue || newValue <= 1 || newValue >= 5000)
+      // console.log('新しい',newValue)
+      // console.log('古い',oldValue)
+    },
+  },
+  mounted() {
+    // スクロールイベントを取得
+    // @ts-ignore
+    window.addEventListener('scroll', this.onScroll)
+    window.addEventListener('load', () => {
+      // @ts-ignore
+      this.onScroll()
+    })
+    // this.$nextTick(() => this.onScroll())
+  },
+  // @ts-ignore
+  beforeDestroyed() {
+    // @ts-ignore
+    window.removeEventListener('scroll', this.onScroll)
+  },
   methods: {
     search(e: any): void {
       if (this.$accessor.search.message === '') {
@@ -207,8 +195,6 @@ export default Vue.extend({
         }
         // @ts-ignore
         this.sendRequest()
-        // @ts-ignore
-        // this.isOpen = !this.isOpen
         this.$nextTick(() => {
           // e.target.blur()
           window.scrollTo(0, 0)
