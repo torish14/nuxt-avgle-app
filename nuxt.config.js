@@ -269,6 +269,7 @@ export default {
     'nuxt-material-design-icons',
     ['@nuxtjs/pwa', { icon: false }],
     '@nuxtjs/robots',
+    '@nuxtjs/cloudinary',
   ],
   /*
    ** Axios module configuration
@@ -305,6 +306,11 @@ export default {
     ],
     // sitemap.xmlのURLを記述
     Sitemap: 'https://porngle.love/sitemap.xml',
+  },
+  cloudinary: {
+    cloudName: 'porngle',
+    apiKey: '985431389837859',
+    apiSecret: 'MiQ9meWW43qQBO0ciVcZSWU-Dvg',
   },
   /*
    ** Build configuration
