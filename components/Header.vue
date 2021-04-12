@@ -88,7 +88,12 @@
       </client-only>
     </div>
     <!-- モバイル -->
-    <div v-else id="header" class="bg-gray-800">
+    <div
+      v-else
+      id="header"
+      class="bg-gray-800"
+      style="padding-bottom: 56px"
+    >
       <header v-show="isShow" role="banner">
         <div class="flex bg-gray-800 fixed top-0 w-full z-20">
           <div
