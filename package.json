@@ -57,7 +57,6 @@
     "patch-package": "^6.4.7",
     "postinstall-postinstall": "^2.1.0",
     "prettier": "^2.2.1",
-    "vue-autosuggest": "^2.2.0",
     "vue-jest": "^3.0.7",
     "vue-scrollto": "^2.20.0",
     "vuejs-paginate": "^2.1.0",
