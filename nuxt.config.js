@@ -270,6 +270,7 @@ export default {
     ['@nuxtjs/pwa', { icon: false }],
     '@nuxtjs/robots',
     '@nuxtjs/cloudinary',
+    '@nuxtjs/firebase',
   ],
   /*
    ** Axios module configuration
@@ -311,6 +312,22 @@ export default {
     cloudName: 'porngle',
     apiKey: '985431389837859',
     apiSecret: 'MiQ9meWW43qQBO0ciVcZSWU-Dvg',
+  },
+  firebase: {
+    config: {
+      apiKey: 'AIzaSyAq1PXgPMg8TZfr7DMKKHMPr7Fe1KQLiq0',
+      authDomain: 'nuxt-pornhub-api.firebaseapp.com',
+      databaseURL: 'https://nuxt-pornhub-api.firebaseio.com',
+      projectId: 'nuxt-pornhub-api',
+      storageBucket: 'nuxt-pornhub-api.appspot.com',
+      messagingSenderId: '982073604670',
+      appId: '1:982073604670:web:f7943d0c6f0f64d62b2f6f',
+      measurementId: 'G-WLSF08X5HZ',
+    },
+    services: {
+      auth: true,
+      firestore: true,
+    },
   },
   /*
    ** Build configuration
