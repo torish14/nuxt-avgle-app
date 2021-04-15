@@ -118,16 +118,16 @@
               />
             </nuxt-link>
           </div>
-          <!-- <div class="w-full pl-2"></div>
+          <div class="w-full pl-2"></div>
           <div class="flex items-center px-3 py-2">
-            <div>
-              <button
-                class="text-gray-300 rounded-full p-2 hover:bg-purple-800 focus:outline-none w-12 h-12 flex items-center justify-center"
+            <div class="text-gray-200">
+              <nuxt-link to="/account" aria-label="アカウントに進む"
+                ><i class="material-icons"
+                  >account_circle</i
+                ></nuxt-link
               >
-                <i class="material-icons">more_horiz</i>
-              </button>
             </div>
-          </div> -->
+          </div>
         </div>
       </header>
     </div>
