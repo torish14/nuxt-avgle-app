@@ -1,5 +1,6 @@
 <template>
   <section>
+    <!-- デスクトップ -->
     <div v-if="$device.isDesktop">
       <main class="container mx-auto px-96">
         <h2 class="text-xl text-gray-100">利用規約</h2>
@@ -316,9 +317,15 @@
         </div>
       </main>
     </div>
-    <div v-else class="pt-1 pb-20">
+    <!-- モバイル -->
+    <div v-else class="pt-1">
+      <div class="flex text-gray-200">
+        <nuxt-link to="/" aria-label="ホームへ戻る">
+          <i class="material-icons m-2">close</i>
+        </nuxt-link>
+        <h1 class="text-base m-2">利用規約</h1>
+      </div>
       <main class="container mx-auto px-8">
-        <h2 class="text-base text-gray-100">利用規約</h2>
         <br />
         <h3 class="text-gray-200 text-sm font-medium underline">
           利用規約への同意
@@ -649,6 +656,8 @@ export type DataType = {
 
 export default Vue.extend({
   mixins: [Meta],
+  // @ts-ignore
+  layout: (ctx) => (ctx.$device.isMobile ? 'mobile' : 'default'),
   data(): DataType {
     return {
       meta: {
