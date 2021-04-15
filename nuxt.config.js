@@ -332,7 +332,10 @@ export default {
         },
         ssr: false,
       },
-      firestore: true,
+      firestore: {
+        memoryOnly: false,
+        enablePersistence: true,
+      },
     },
   },
   /*
