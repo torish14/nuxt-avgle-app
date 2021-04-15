@@ -78,6 +78,7 @@
             <div class="p-4">
               <button
                 class="bg-purple-700 text-gray-300 rounded-full p-2 hover:bg-purple-800 focus:outline-none w-12 h-12 flex items-center justify-center"
+                type="submit"
                 @click="sendRequest"
               >
                 <i class="material-icons">search</i>
