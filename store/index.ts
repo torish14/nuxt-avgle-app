@@ -5,6 +5,7 @@ import {
   actionTree,
 } from 'typed-vuex'
 
+import * as auth from '~/store/auth'
 import * as search from '~/store/search'
 
 export const state = () => ({
@@ -57,6 +58,7 @@ export const accessorType = getAccessorType({
   mutations,
   actions,
   modules: {
+    auth,
     search,
   },
 })
