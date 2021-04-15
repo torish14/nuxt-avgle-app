@@ -33,6 +33,12 @@
                 <div
                   class="flex flex-col flex-shrink-0 items-center pt-11"
                 >
+                  <img
+                    src="~/assets/No_data.jpeg"
+                    alt="残念ながら、作品が見つかりませんでした。"
+                    width="250"
+                    height="223"
+                  />
                   <p class="text-gray-200 text-base">
                     &nbsp;作品が見つかりませんでした。
                   </p>
