@@ -68,7 +68,7 @@
             </template>
             <template v-else>
               <div v-show="onFocus">
-                <div class="text-gray-400 bg-gray-700 mt-2">
+                <div class="text-gray-400 bg-gray-700 mt-3">
                   <p
                     class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-600 border border-gray-600"
                     @click="changeFormList('ナンパ')"
