@@ -325,7 +325,13 @@ export default {
       measurementId: 'G-WLSF08X5HZ',
     },
     services: {
-      auth: true,
+      auth: {
+        persistense: 'local',
+        initialize: {
+          onAuthStateChangedAction: 'onAuthStateChanged',
+        },
+        ssr: false,
+      },
       firestore: true,
     },
   },
