@@ -8,14 +8,14 @@
           style="width: 359px"
         >
           <div
-            class="bg-gray-700 text-gray-400 focus:outline-one w-12 h-12 flex items-center justify-center"
+            class="bg-gray-700 text-gray-500 focus:outline-one w-12 h-12 flex items-center justify-center"
           >
             <i class="material-icons">search</i>
           </div>
           <input
             ref="focusInput"
             v-model="computedGetState"
-            class="bg-gray-700 w-full py-2 text-gray-400 leading-tight focus:outline-none rounded-lg"
+            class="bg-gray-700 w-full py-2 text-gray-400 placeholder-gray-500 focus:placeholder-gray-400 leading-tight focus:outline-none rounded-lg"
             type="search"
             placeholder="Porngle を検索"
             inputmode="search"
