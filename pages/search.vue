@@ -192,7 +192,7 @@
       <footer class="text-gray-500">
         <nav role="navigation">
           <ul
-            class="flex justify-around py-1 fixed z-10 bottom-0 bg-gray-800 w-full leading-4"
+            class="flex justify-around py-1 fixed z-10 bottom-0 bg-gray-800 w-full leading-4 border-t border-gray-600"
           >
             <li>
               <nuxt-link
