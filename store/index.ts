@@ -11,7 +11,7 @@ import * as search from '~/store/search'
 export const state = () => ({
   currentIndexPage: 1 as number,
   currentIdPage: 1 as number,
-  prevRoute: [] as object,
+  prevRoute: [] as string[],
 })
 
 export type RootState = ReturnType<typeof state>
