@@ -11,12 +11,8 @@ export default ({ store, isHMR }) => {
         // key: 'my-key'
         paths: [
           'search.message',
-          'search.messagesFirst',
-          'search.messagesSecond',
-          'search.messagesThird',
-          'search.suggestMessagesFirst',
-          'search.suggestMessagesSecond',
-          'search.suggestMessagesThird',
+          'search.messages',
+          'search.suggestMessages',
           'search.searchMessagesFirst',
           'search.searchMessagesSecond',
           'search.searchMessagesThird',

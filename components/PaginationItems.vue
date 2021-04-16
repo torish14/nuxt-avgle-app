@@ -1,13 +1,15 @@
 <template>
   <div class="flex flex-wrap justify-center">
     <div
-      v-for="(data, index) in getJapaneseItemsDesktop"
+      v-for="(data, index) in getPaginationItems"
       :key="`first-${index}`"
       class="md:px-2 lg:px-2 xl:px-2 2xl:px-2 lg:mt-8 xl:mt-8 2xl:mt-8"
     >
       <vue-lazy-component>
         <nuxt-link
-          :to="{ path: data.vid }"
+          :to="{
+            path: 'embedded_url' + '/' + data.vid,
+          }"
           aria-label="動画埋め込みページへ遷移"
           no-prefetch
           @click.native="
@@ -208,7 +210,8 @@
           </template>
           <template v-else>
             <h3 class="text-gray-400 mr-1 text-xs">
-              再生数 {{ Math.ceil(data.viewnumber) }}・
+              再生数
+              {{ Math.ceil(data.viewnumber) }}・
             </h3>
           </template>
           <template
@@ -1052,10 +1055,13 @@ export default Vue.extend({
   },
   computed: {
     ...mapGetters('search', ['messages']),
-    getJapaneseItemsDesktop(): any {
-      return this.messages.slice(0, 20).sort(function () {
-        return Math.random() - 0.5
-      })
+    getPaginationItems(): number {
+      const current =
+        // @ts-ignore
+        this.$accessor.currentIndexPage * this.parPage
+      // @ts-ignore
+      const start = current - this.parPage
+      return this.messages.slice(start, current)
     },
     // @ts-ignore
     toHms(): (t: any) => string {

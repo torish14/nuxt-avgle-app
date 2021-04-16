@@ -29,12 +29,12 @@
             </div>
           </client-only>
         </template>
-        <template v-else-if="messagesFirstMatchVid">
+        <template v-else-if="messagesMatchVid">
           <article>
             <div class="relative w-2/3" style="padding-top: 50%">
               <iframe
                 id="sub"
-                :src="messagesFirstMatchVid.embedded_url"
+                :src="messagesMatchVid.embedded_url"
                 frameborder="0"
                 scrolling="no"
                 allow="fullscreen"
@@ -46,13 +46,11 @@
               <h2
                 class="text-gray-200 text-base absolute bottom-0 pl-20 pb-44"
               >
-                {{ messagesFirstMatchVid.title }}
+                {{ messagesMatchVid.title }}
               </h2>
               <div class="absolute bottom-0 pl-20 pb-36">
                 <h3 class="text-gray-400 text-sm">
-                  {{
-                    messagesFirstMatchVid.viewnumber.toLocaleString()
-                  }}
+                  {{ messagesMatchVid.viewnumber.toLocaleString() }}
                   回視聴
                 </h3>
               </div>
@@ -64,7 +62,7 @@
                     >thumb_up</i
                   >
                   <h3 class="text-gray-400 px-1 text-sm">
-                    {{ messagesFirstMatchVid.likes }}
+                    {{ messagesMatchVid.likes }}
                   </h3>
                 </div>
                 <div class="text-center mx-6 my-4">
@@ -74,7 +72,7 @@
                     >thumb_down</i
                   >
                   <h3 class="text-gray-400 px-1 text-sm">
-                    {{ messagesFirstMatchVid.dislikes }}
+                    {{ messagesMatchVid.dislikes }}
                   </h3>
                 </div>
               </div>
@@ -139,61 +137,7 @@
             <DesktopJapaneseItems />
           </main>
         </template>
-        <template v-else-if="messagesThirdMatchVid">
-          <article>
-            <div class="relative w-2/3" style="padding-top: 50%">
-              <iframe
-                id="sub"
-                :src="messagesThirdMatchVid.embedded_url"
-                frameborder="0"
-                scrolling="no"
-                allow="fullscreen"
-                referrerpolicy="no-referrer-down-grade"
-                class="youtube absolute top-0 left-0 w-full h-full"
-                width="100%"
-                height="70%"
-              />
-              <h2
-                class="text-gray-200 text-base absolute bottom-0 pl-20 pb-44"
-              >
-                {{ messagesThirdMatchVid.title }}
-              </h2>
-              <div class="absolute bottom-0 pl-20 pb-36">
-                <h3 class="text-gray-400 text-sm">
-                  {{
-                    messagesThirdMatchVid.viewnumber.toLocaleString()
-                  }}
-                  回視聴
-                </h3>
-              </div>
-              <div class="flex absolute bottom-0 pl-20 pb-16">
-                <div class="text-center mx-6 my-4">
-                  <i
-                    class="material-icons text-gray-400"
-                    style="font-size: 18px"
-                    >thumb_up</i
-                  >
-                  <h3 class="text-gray-400 px-1 text-sm">
-                    {{ messagesThirdMatchVid.likes }}
-                  </h3>
-                </div>
-                <div class="text-center mx-6 my-4">
-                  <i
-                    class="material-icons text-gray-400"
-                    style="font-size: 18px"
-                    >thumb_down</i
-                  >
-                  <h3 class="text-gray-400 px-1 text-sm">
-                    {{ messagesThirdMatchVid.dislikes }}
-                  </h3>
-                </div>
-              </div>
-            </div>
-          </article>
-          <main>
-            <DesktopJapaneseItems />
-          </main>
-        </template>
+
         <template v-else>
           <client-only>
             <div
@@ -225,7 +169,7 @@
     <!-- モバイル -->
     <div v-else class="pt-1 pb-20">
       <main role="main">
-        <template v-if="messagesFirstMatchVid">
+        <template v-if="messagesMatchVid">
           <article>
             <div
               class="relative sm:w-full md:w-full lg:w-full xl:w-2/3 h-0"
@@ -233,7 +177,7 @@
             >
               <iframe
                 id="sub"
-                :src="messagesFirstMatchVid.embedded_url"
+                :src="messagesMatchVid.embedded_url"
                 frameborder="0"
                 scrolling="no"
                 allow="fullscreen"
@@ -246,13 +190,11 @@
             <h2
               class="text-gray-200 text-sm md:px-4 lg:px-4 xl:px-4 2xl:px-4 pt-2 px-2"
             >
-              {{ messagesFirstMatchVid.title }}
+              {{ messagesMatchVid.title }}
             </h2>
             <div>
               <h3 class="text-gray-400 mt-1 mr-1 text-xs pl-2">
-                {{
-                  messagesFirstMatchVid.viewnumber.toLocaleString()
-                }}
+                {{ messagesMatchVid.viewnumber.toLocaleString() }}
                 回視聴
               </h3>
             </div>
@@ -264,7 +206,7 @@
                   >thumb_up</i
                 >
                 <h3 class="text-gray-400 px-1 text-xs">
-                  {{ messagesFirstMatchVid.likes }}
+                  {{ messagesMatchVid.likes }}
                 </h3>
               </div>
               <div class="text-center mx-6 my-4">
@@ -274,7 +216,7 @@
                   >thumb_down</i
                 >
                 <h3 class="text-gray-400 px-1 text-xs">
-                  {{ messagesFirstMatchVid.dislikes }}
+                  {{ messagesMatchVid.dislikes }}
                 </h3>
               </div>
             </div>
@@ -335,7 +277,7 @@
             </div>
           </article>
         </template>
-        <template v-else-if="messagesThirdMatchVid">
+        <template v-else-if="suggestMessagesMatchVid">
           <article>
             <div
               class="relative sm:w-full md:w-full lg:w-full xl:w-2/3 h-0"
@@ -343,7 +285,7 @@
             >
               <iframe
                 id="sub"
-                :src="messagesThirdMatchVid.embedded_url"
+                :src="suggestMessagesMatchVid.embedded_url"
                 frameborder="0"
                 scrolling="no"
                 allow="fullscreen"
@@ -356,12 +298,12 @@
             <h2
               class="text-gray-200 text-sm md:px-4 lg:px-4 xl:px-4 2xl:px-4 pt-2 px-2"
             >
-              {{ messagesThirdMatchVid.title }}
+              {{ suggestMessagesMatchVid.title }}
             </h2>
             <div>
               <h3 class="text-gray-400 mt-1 mr-1 text-xs pl-2">
                 {{
-                  messagesThirdMatchVid.viewnumber.toLocaleString()
+                  suggestMessagesMatchVid.viewnumber.toLocaleString()
                 }}
                 回視聴
               </h3>
@@ -374,7 +316,7 @@
                   >thumb_up</i
                 >
                 <h3 class="text-gray-400 px-1 text-xs">
-                  {{ messagesThirdMatchVid.likes }}
+                  {{ suggestMessagesMatchVid.likes }}
                 </h3>
               </div>
               <div class="text-center mx-6 my-4">
@@ -384,172 +326,7 @@
                   >thumb_down</i
                 >
                 <h3 class="text-gray-400 px-1 text-xs">
-                  {{ messagesThirdMatchVid.dislikes }}
-                </h3>
-              </div>
-            </div>
-          </article>
-        </template>
-        <template v-else-if="suggestMessagesFirstMatchVid">
-          <article>
-            <div
-              class="relative sm:w-full md:w-full lg:w-full xl:w-2/3 h-0"
-              style="padding-top: 50%"
-            >
-              <iframe
-                id="sub"
-                :src="suggestMessagesFirstMatchVid.embedded_url"
-                frameborder="0"
-                scrolling="no"
-                allow="fullscreen"
-                referrerpolicy="no-referrer-down-grade"
-                class="youtube absolute top-0 left-0 w-full h-full"
-                width="100%"
-                height="100%"
-              />
-            </div>
-            <h2
-              class="text-gray-200 text-sm md:px-4 lg:px-4 xl:px-4 2xl:px-4 pt-2 px-2"
-            >
-              {{ suggestMessagesFirstMatchVid.title }}
-            </h2>
-            <div>
-              <h3 class="text-gray-400 mt-1 mr-1 text-xs pl-2">
-                {{
-                  suggestMessagesFirstMatchVid.viewnumber.toLocaleString()
-                }}
-                回視聴
-              </h3>
-            </div>
-            <div class="flex">
-              <div class="text-center mx-6 my-4">
-                <i
-                  class="material-icons text-gray-400"
-                  style="font-size: 16px"
-                  >thumb_up</i
-                >
-                <h3 class="text-gray-400 px-1 text-xs">
-                  {{ suggestMessagesFirstMatchVid.likes }}
-                </h3>
-              </div>
-              <div class="text-center mx-6 my-4">
-                <i
-                  class="material-icons text-gray-400"
-                  style="font-size: 16px"
-                  >thumb_down</i
-                >
-                <h3 class="text-gray-400 px-1 text-xs">
-                  {{ suggestMessagesFirstMatchVid.dislikes }}
-                </h3>
-              </div>
-            </div>
-          </article>
-        </template>
-        <template v-else-if="suggestMessagesSecondMatchVid">
-          <article>
-            <div
-              class="relative sm:w-full md:w-full lg:w-full xl:w-2/3 h-0"
-              style="padding-top: 50%"
-            >
-              <iframe
-                id="sub"
-                :src="suggestMessagesSecondMatchVid.embedded_url"
-                frameborder="0"
-                scrolling="no"
-                allow="fullscreen"
-                referrerpolicy="no-referrer-down-grade"
-                class="youtube absolute top-0 left-0 w-full h-full"
-                width="100%"
-                height="100%"
-              />
-            </div>
-            <h2
-              class="text-gray-200 text-sm md:px-4 lg:px-4 xl:px-4 2xl:px-4 pt-2 px-2"
-            >
-              {{ suggestMessagesSecondMatchVid.title }}
-            </h2>
-            <div>
-              <h3 class="text-gray-400 mt-1 mr-1 text-xs pl-2">
-                {{
-                  suggestMessagesSecondMatchVid.viewnumber.toLocaleString()
-                }}
-                回視聴
-              </h3>
-            </div>
-            <div class="flex">
-              <div class="text-center mx-6 my-4">
-                <i
-                  class="material-icons text-gray-400"
-                  style="font-size: 16px"
-                  >thumb_up</i
-                >
-                <h3 class="text-gray-400 px-1 text-xs">
-                  {{ suggestMessagesSecondMatchVid.likes }}
-                </h3>
-              </div>
-              <div class="text-center mx-6 my-4">
-                <i
-                  class="material-icons text-gray-400"
-                  style="font-size: 16px"
-                  >thumb_down</i
-                >
-                <h3 class="text-gray-400 px-1 text-xs">
-                  {{ suggestMessagesSecondMatchVid.dislikes }}
-                </h3>
-              </div>
-            </div>
-          </article>
-        </template>
-        <template v-else-if="suggestMessagesThirdMatchVid">
-          <article>
-            <div
-              class="relative sm:w-full md:w-full lg:w-full xl:w-2/3 h-0"
-              style="padding-top: 50%"
-            >
-              <iframe
-                id="sub"
-                :src="suggestMessagesThirdMatchVid.embedded_url"
-                frameborder="0"
-                scrolling="no"
-                allow="fullscreen"
-                referrerpolicy="no-referrer-down-grade"
-                class="youtube absolute top-0 left-0 w-full h-full"
-                width="100%"
-                height="100%"
-              />
-            </div>
-            <h2
-              class="text-gray-200 text-sm md:px-4 lg:px-4 xl:px-4 2xl:px-4 pt-2 px-2"
-            >
-              {{ suggestMessagesThirdMatchVid.title }}
-            </h2>
-            <div>
-              <h3 class="text-gray-400 mt-1 mr-1 text-xs pl-2">
-                {{
-                  suggestMessagesThirdMatchVid.viewnumber.toLocaleString()
-                }}
-                回視聴
-              </h3>
-            </div>
-            <div class="flex">
-              <div class="text-center mx-6 my-4">
-                <i
-                  class="material-icons text-gray-400"
-                  style="font-size: 16px"
-                  >thumb_up</i
-                >
-                <h3 class="text-gray-400 px-1 text-xs">
-                  {{ suggestMessagesThirdMatchVid.likes }}
-                </h3>
-              </div>
-              <div class="text-center mx-6 my-4">
-                <i
-                  class="material-icons text-gray-400"
-                  style="font-size: 16px"
-                  >thumb_down</i
-                >
-                <h3 class="text-gray-400 px-1 text-xs">
-                  {{ suggestMessagesThirdMatchVid.dislikes }}
+                  {{ suggestMessagesMatchVid.dislikes }}
                 </h3>
               </div>
             </div>
@@ -774,23 +551,11 @@
         </template>
       </main>
       <main class="flex flex-wrap justify-center">
-        <template v-if="messagesFirstMatchVid">
-          <JapaneseFirstItems />
+        <template v-if="messagesMatchVid">
+          <JapaneseItems />
         </template>
-        <template v-else-if="messagesSecondMatchVid">
-          <JapaneseSecondItems />
-        </template>
-        <template v-else-if="messagesThirdMatchVid">
-          <JapaneseThirdItems />
-        </template>
-        <template v-else-if="suggestMessagesFirstMatchVid">
-          <SuggestFirstItems />
-        </template>
-        <template v-else-if="suggestMessagesSecondMatchVid">
-          <SuggestSecondItems />
-        </template>
-        <template v-else-if="suggestMessagesThirdMatchVid">
-          <SuggestThirdItems />
+        <template v-else-if="suggestMessagesMatchVid">
+          <SuggestItems />
         </template>
         <template v-else-if="searchMessagesFirstMatchVid">
           <SearchFirstItems />
@@ -826,7 +591,7 @@ if (process.client) {
 
 export type DataType = {
   id: string
-  prevRoute: any
+  prevRoute: string[]
   meta: object
 }
 
@@ -835,24 +600,12 @@ export default Vue.extend({
     DesktopJapaneseItems: () =>
       // @ts-ignore
       import('~/components/DesktopJapaneseItems'),
-    JapaneseFirstItems: () =>
+    JapaneseItems: () =>
       // @ts-ignore
-      import('~/components/JapaneseFirstItems'),
-    JapaneseSecondItems: () =>
+      import('~/components/JapaneseItems'),
+    SuggestItems: () =>
       // @ts-ignore
-      import('~/components/JapaneseSecondItems'),
-    JapaneseThirdItems: () =>
-      // @ts-ignore
-      import('~/components/JapaneseThirdItems'),
-    SuggestFirstItems: () =>
-      // @ts-ignore
-      import('~/components/SuggestFirstItems'),
-    SuggestSecondItems: () =>
-      // @ts-ignore
-      import('~/components/SuggestSecondItems'),
-    SuggestThirdItems: () =>
-      // @ts-ignore
-      import('~/components/SuggestThirdItems'),
+      import('~/components/SuggestItems'),
     // @ts-ignore
     SearchFirstItems: () => import('~/components/SearchFirstItems'),
     // @ts-ignore
@@ -880,7 +633,7 @@ export default Vue.extend({
   },
   fetch(): void {
     // @ts-ignore
-    if (this.$accessor.search.messagesFirst.length > 0) {
+    if (this.$accessor.search.messages.length > 0) {
       return
     }
     this.$accessor.search.getSearchItems()
@@ -888,12 +641,8 @@ export default Vue.extend({
   computed: {
     ...mapGetters('search', [
       'message',
-      'messagesFirst',
-      'messagesSecond',
-      'messagesThird',
-      'suggestMessagesFirst',
-      'suggestMessagesSecond',
-      'suggestMessagesThird',
+      'messages',
+      'suggestMessages',
       'searchMessagesFirst',
       'searchMessagesSecond',
       'searchMessagesThird',
@@ -950,44 +699,16 @@ export default Vue.extend({
         this.message === '金8天国'
       )
     },
-    messagesFirstMatchVid(): number {
+    messagesMatchVid(): number {
       // @ts-ignore
-      return this.$accessor.search.messagesFirst.find(
+      return this.$accessor.search.messages.find(
         // @ts-ignore
         (value) => value.vid === this.id
       )
     },
-    messagesSecondMatchVid(): number {
+    suggestMessagesMatchVid(): number {
       // @ts-ignore
-      return this.$accessor.search.messagesSecond.find(
-        // @ts-ignore
-        (value) => value.vid === this.id
-      )
-    },
-    messagesThirdMatchVid(): number {
-      // @ts-ignore
-      return this.$accessor.search.messagesThird.find(
-        // @ts-ignore
-        (value) => value.vid === this.id
-      )
-    },
-    suggestMessagesFirstMatchVid(): number {
-      // @ts-ignore
-      return this.$accessor.search.suggestMessagesFirst.find(
-        // @ts-ignore
-        (value) => value.vid === this.id
-      )
-    },
-    suggestMessagesSecondMatchVid(): number {
-      // @ts-ignore
-      return this.$accessor.search.suggestMessagesSecond.find(
-        // @ts-ignore
-        (value) => value.vid === this.id
-      )
-    },
-    suggestMessagesThirdMatchVid(): number {
-      // @ts-ignore
-      return this.$accessor.search.suggestMessagesThird.find(
+      return this.$accessor.search.suggestMessages.find(
         // @ts-ignore
         (value) => value.vid === this.id
       )

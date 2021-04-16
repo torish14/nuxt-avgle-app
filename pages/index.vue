@@ -48,9 +48,7 @@
           </div>
         </template>
         <template v-else>
-          <PaginationFirstItems />
-          <PaginationSecondItems />
-          <PaginationThirdItems />
+          <PaginationItems />
           <Paginate
             v-model="computedGetState"
             :page-count="getPageCount"
@@ -118,9 +116,7 @@
           </div>
         </template>
         <template v-else>
-          <JapaneseFirstItems />
-          <JapaneseSecondItems />
-          <JapaneseThirdItems />
+          <JapaneseItems />
         </template>
       </main>
     </div>
@@ -138,24 +134,12 @@ export type DataType = {
 
 export default Vue.extend({
   components: {
-    PaginationFirstItems: () =>
+    PaginationItems: () =>
       // @ts-ignore
-      import('~/components/PaginationFirstItems'),
-    PaginationSecondItems: () =>
+      import('~/components/PaginationItems'),
+    JapaneseItems: () =>
       // @ts-ignore
-      import('~/components/PaginationSecondItems'),
-    PaginationThirdItems: () =>
-      // @ts-ignore
-      import('~/components/PaginationThirdItems'),
-    JapaneseFirstItems: () =>
-      // @ts-ignore
-      import('~/components/JapaneseFirstItems'),
-    JapaneseSecondItems: () =>
-      // @ts-ignore
-      import('~/components/JapaneseSecondItems'),
-    JapaneseThirdItems: () =>
-      // @ts-ignore
-      import('~/components/JapaneseThirdItems'),
+      import('~/components/JapaneseItems'),
   },
   scrollToTop: true,
   data(): DataType {
@@ -184,7 +168,7 @@ export default Vue.extend({
   },
   fetch(): void {
     // @ts-ignore
-    if (this.$accessor.search.messagesFirst.length > 0) {
+    if (this.$accessor.search.messages.length > 0) {
       return
     }
     // @ts-ignore
@@ -231,11 +215,7 @@ export default Vue.extend({
     }
   },
   computed: {
-    ...mapGetters('search', [
-      'message',
-      'messagesFirst',
-      'errorMessage',
-    ]),
+    ...mapGetters('search', ['message', 'messages', 'errorMessage']),
     computedGetState: {
       get(): number {
         // @ts-ignore
@@ -248,7 +228,7 @@ export default Vue.extend({
     },
     filterMessage(): any {
       return (
-        (this.messagesFirst.length === 0 && this.errorMessage) ||
+        (this.messages.length === 0 && this.errorMessage) ||
         this.message === '無修正' ||
         this.message === 'Uncensored' ||
         this.message === 'uncensored' ||
@@ -302,7 +282,7 @@ export default Vue.extend({
     // ? ページネーションの最大ページ数を求めるためにitems をparPage で割って切り上げる
     getPageCount(): number {
       // @ts-ignore
-      return Math.ceil(this.messagesFirst.length / this.parPage)
+      return Math.ceil(this.messages.length / this.parPage)
     },
   },
   watch: {
@@ -310,7 +290,7 @@ export default Vue.extend({
   },
   mounted(): void {
     // @ts-ignore
-    if (this.$accessor.search.messagesFirst.length === 0) {
+    if (this.$accessor.search.messages.length === 0) {
       this.$accessor.search.getJapaneseItems()
     }
     console.log(

@@ -222,17 +222,7 @@ export default Vue.extend({
     },
     setJapaneseForm(): void {
       this.$accessor.search.setJapaneseMessage()
-      this.$accessor.search.messagesFirst
-        // @ts-ignore
-        .sort(function () {
-          return Math.random() - 0.5
-        })
-      this.$accessor.search.messagesSecond
-        // @ts-ignore
-        .sort(function () {
-          return Math.random() - 0.5
-        })
-      this.$accessor.search.messagesThird
+      this.$accessor.search.messages
         // @ts-ignore
         .sort(function () {
           return Math.random() - 0.5

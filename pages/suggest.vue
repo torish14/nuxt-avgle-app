@@ -11,7 +11,7 @@
             <div
               class="flex flex-col flex-shrink-0 items-center pt-11"
             >
-            <img
+              <img
                 src="~/assets/No_data.jpeg"
                 alt="残念ながら、作品が見つかりませんでした。"
                 width="250"
@@ -49,9 +49,7 @@
           </div>
         </template>
         <template v-else>
-          <SuggestFirstItems />
-          <SuggestSecondItems />
-          <SuggestThirdItems />
+          <SuggestItems />
         </template>
       </main>
     </div>
@@ -69,15 +67,9 @@ export type DataType = {
 
 export default Vue.extend({
   components: {
-    SuggestFirstItems: () =>
+    SuggestItems: () =>
       // @ts-ignore
-      import('~/components/SuggestFirstItems'),
-    SuggestSecondItems: () =>
-      // @ts-ignore
-      import('~/components/SuggestSecondItems'),
-    SuggestThirdItems: () =>
-      // @ts-ignore
-      import('~/components/SuggestThirdItems'),
+      import('~/components/SuggestItems'),
   },
   mixins: [Meta],
   scrollToTop: true,
@@ -95,7 +87,7 @@ export default Vue.extend({
   },
   fetch(): void {
     // @ts-ignore
-    if (this.$accessor.search.suggestMessagesFirst.length > 0) {
+    if (this.$accessor.search.suggestMessages.length > 0) {
       return
     }
     this.$accessor.search.setSuggestMessage()
@@ -104,13 +96,12 @@ export default Vue.extend({
   computed: {
     ...mapGetters('search', [
       'message',
-      'suggestMessagesFirst',
+      'suggestMessages',
       'errorMessage',
     ]),
     filterMessage(): any {
       return (
-        (this.suggestMessagesFirst.length === 0 &&
-          this.errorMessage) ||
+        (this.suggestMessages.length === 0 && this.errorMessage) ||
         this.message === '無修正' ||
         this.message === 'Uncensored' ||
         this.message === 'uncensored' ||
