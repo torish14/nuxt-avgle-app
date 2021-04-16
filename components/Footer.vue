@@ -65,7 +65,10 @@
               >
                 <div class="text-center align-middle">
                   <i class="material-icons">home</i>
-                  <p class="icon-text" style="font-size: 10px">
+                  <p
+                    class="icon-text underline"
+                    style="font-size: 10px"
+                  >
                     ホーム
                   </p>
                 </div>
@@ -79,7 +82,10 @@
               >
                 <div class="text-center align-middle">
                   <i class="material-icons">gps_fixed</i>
-                  <p class="icon-text" style="font-size: 10px">
+                  <p
+                    class="icon-text underline"
+                    style="font-size: 10px"
+                  >
                     探求
                   </p>
                 </div>
@@ -93,7 +99,10 @@
               >
                 <div class="text-center align-middle">
                   <i class="material-icons">search</i>
-                  <p class="icon-text" style="font-size: 10px">
+                  <p
+                    class="icon-text underline"
+                    style="font-size: 10px"
+                  >
                     検索
                   </p>
                 </div>
