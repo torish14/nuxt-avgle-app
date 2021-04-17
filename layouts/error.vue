@@ -31,6 +31,7 @@
           to="/"
           aria-label="ホームへ戻る"
           class="text-gray-400 text-sm hover:text-purple-500"
+          style="color: #9ca3af"
           @click.native="setJapaneseForm(); refresh()"
         >
           &nbsp;トップページに戻る
@@ -57,7 +58,7 @@
             width="250"
             height="223"
           />
-          <p class="text-gray-200 text-sm">
+          <p class="text-gray-200 text-base">
             <!-- {{ error.statusCode }} -->
             <!-- {{ error.message }} -->
             &nbsp;エラーが発生しました。
@@ -68,6 +69,7 @@
           to="/"
           aria-label="ホームへ戻る"
           class="text-gray-400 text-sm hover:text-purple-500"
+          style="color: #9ca3af"
           @click.native="setJapaneseForm(); refresh()"
         >
           &nbsp;トップページに戻る
