@@ -615,12 +615,12 @@ export default Vue.extend({
   },
   mixins: [Meta],
   // @ts-ignore
-  layout: (ctx) => (ctx.$device.isMobile ? 'non-footer' : 'default'),
+  layout: (ctx) => (ctx.$device.isMobile ? 'non-header' : 'default'),
   scrollToTop: true,
   data(): DataType {
     return {
       id: this.$route.params.id,
-      prevRoute: null,
+      prevRoute: [],
       meta: {
         title: '動画視聴',
         description: '動画視聴ページです。',
