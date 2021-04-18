@@ -166,7 +166,7 @@
       </main>
     </div>
     <!-- モバイル -->
-    <div v-else class="pt-1">
+    <div v-else class="pt-1 pb-20">
       <div class="flex text-gray-200">
         <nuxt-link to="/" aria-label="ホームへ戻る">
           <i class="material-icons m-2">close</i>
