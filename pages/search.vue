@@ -301,7 +301,6 @@ export default Vue.extend({
       return
     }
     this.$accessor.search.setSearchMessage()
-    this.$accessor.search.getSearchItems()
   },
   computed: {
     ...mapGetters('search', [
@@ -416,7 +415,9 @@ export default Vue.extend({
       }
     },
     sendRequest(): void {
-      this.$accessor.search.getSearchItems()
+      this.$accessor.search.getSearchFirstItems()
+      this.$accessor.search.getSearchSecondItems()
+      this.$accessor.search.getSearchThirdItems()
       // @ts-ignore
       this.$accessor.changeIndexPagination()
       // @ts-ignore
@@ -466,7 +467,9 @@ export default Vue.extend({
     // @ts-ignore
     changeFormList(list): void {
       this.$accessor.search.changeKeyword(list)
-      this.$accessor.search.getSearchItems()
+      this.$accessor.search.getSearchFirstItems()
+      this.$accessor.search.getSearchSecondItems()
+      this.$accessor.search.getSearchThirdItems()
       this.$nextTick((): void => {
         this.onFocus = false
       })
