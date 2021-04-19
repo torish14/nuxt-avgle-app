@@ -424,9 +424,9 @@
             "
           >
             <!-- <vue-lazy-component> -->
-            <template v-if="data.title.length > 36">
+            <template v-if="data.title.length > 33">
               <h2 class="text-gray-200 text-sm hover:text-purple-500">
-                {{ data.title.slice(0, 36) }}…
+                {{ data.title.slice(0, 33) }}…
               </h2>
             </template>
             <template v-else>
