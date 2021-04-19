@@ -499,14 +499,14 @@ export default Vue.extend({
     SuggestItems: () =>
       // @ts-ignore
       import('~/components/SuggestItems'),
-    // @ts-ignore
     EmbeddedSearchFirstItems: () =>
+      // @ts-ignore
       import('~/components/EmbeddedSearchFirstItems'),
-    // @ts-ignore
     EmbeddedSearchSecondItems: () =>
+      // @ts-ignore
       import('~/components/EmbeddedSearchSecondItems'),
-    // @ts-ignore
     EmbeddedSearchThirdItems: () =>
+      // @ts-ignore
       import('~/components/EmbeddedSearchThirdItems'),
   },
   mixins: [Meta],
