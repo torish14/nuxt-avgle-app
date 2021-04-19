@@ -83,61 +83,6 @@
             <DesktopJapaneseItems />
           </main>
         </template>
-        <template v-else-if="messagesSecondMatchVid">
-          <article>
-            <div class="relative w-2/3" style="padding-top: 50%">
-              <iframe
-                id="sub"
-                :src="messagesSecondMatchVid.embedded_url"
-                frameborder="0"
-                scrolling="no"
-                allow="fullscreen"
-                referrerpolicy="no-referrer-down-grade"
-                class="youtube absolute top-0 left-0 w-full h-full"
-                width="100%"
-                height="70%"
-              />
-              <h2
-                class="text-gray-200 text-base absolute bottom-0 pl-20 pb-44"
-              >
-                {{ messagesSecondMatchVid.title }}
-              </h2>
-              <div class="absolute bottom-0 pl-20 pb-36">
-                <h3 class="text-gray-400 text-sm">
-                  {{
-                    messagesSecondMatchVid.viewnumber.toLocaleString()
-                  }}
-                  回視聴
-                </h3>
-              </div>
-              <div class="flex absolute bottom-0 pl-20 pb-16">
-                <div class="text-center mx-6 my-4">
-                  <i
-                    class="material-icons text-gray-400"
-                    style="font-size: 18px"
-                    >thumb_up</i
-                  >
-                  <h3 class="text-gray-400 px-1 text-sm">
-                    {{ messagesSecondMatchVid.likes }}
-                  </h3>
-                </div>
-                <div class="text-center mx-6 my-4">
-                  <i
-                    class="material-icons text-gray-400"
-                    style="font-size: 18px"
-                    >thumb_down</i
-                  >
-                  <h3 class="text-gray-400 px-1 text-sm">
-                    {{ messagesSecondMatchVid.dislikes }}
-                  </h3>
-                </div>
-              </div>
-            </div>
-          </article>
-          <main>
-            <DesktopJapaneseItems />
-          </main>
-        </template>
         <template v-else>
           <client-only>
             <div
@@ -218,61 +163,6 @@
                 >
                 <h3 class="text-gray-400 px-1 text-xs">
                   {{ messagesMatchVid.dislikes }}
-                </h3>
-              </div>
-            </div>
-          </article>
-        </template>
-        <template v-else-if="messagesSecondMatchVid">
-          <article>
-            <div
-              class="relative sm:w-full md:w-full lg:w-full xl:w-2/3 h-0"
-              style="padding-top: 50%"
-            >
-              <iframe
-                id="sub"
-                :src="messagesSecondMatchVid.embedded_url"
-                frameborder="0"
-                scrolling="no"
-                allow="fullscreen"
-                referrerpolicy="no-referrer-down-grade"
-                class="youtube absolute top-0 left-0 w-full h-full"
-                width="100%"
-                height="100%"
-              />
-            </div>
-            <h2
-              class="text-gray-200 text-sm md:px-4 lg:px-4 xl:px-4 2xl:px-4 pt-2 px-2"
-            >
-              {{ messagesSecondMatchVid.title }}
-            </h2>
-            <div>
-              <h3 class="text-gray-400 mt-1 mr-1 text-xs pl-2">
-                {{
-                  messagesSecondMatchVid.viewnumber.toLocaleString()
-                }}
-                回視聴
-              </h3>
-            </div>
-            <div class="flex">
-              <div class="text-center mx-6 my-4">
-                <i
-                  class="material-icons text-gray-400"
-                  style="font-size: 16px"
-                  >thumb_up</i
-                >
-                <h3 class="text-gray-400 px-1 text-xs">
-                  {{ messagesSecondMatchVid.likes }}
-                </h3>
-              </div>
-              <div class="text-center mx-6 my-4">
-                <i
-                  class="material-icons text-gray-400"
-                  style="font-size: 16px"
-                  >thumb_down</i
-                >
-                <h3 class="text-gray-400 px-1 text-xs">
-                  {{ messagesSecondMatchVid.dislikes }}
                 </h3>
               </div>
             </div>
