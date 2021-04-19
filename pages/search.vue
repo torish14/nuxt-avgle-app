@@ -8,14 +8,14 @@
           style="width: 359px"
         >
           <div
-            class="bg-gray-700 text-gray-500 focus:outline-one w-12 h-12 flex items-center justify-center"
+            class="bg-gray-700 text-gray-400 focus:outline-one w-12 h-12 flex items-center justify-center"
           >
             <i class="material-icons">search</i>
           </div>
           <input
             ref="focusInput"
             v-model="computedGetState"
-            class="bg-gray-700 w-full py-2 text-gray-400 placeholder-gray-500 focus:placeholder-gray-400 leading-tight focus:outline-none rounded-lg"
+            class="bg-gray-700 w-full py-2 text-gray-200 placeholder-gray-400 focus:placeholder-gray-200 leading-tight focus:outline-none rounded-lg"
             type="search"
             placeholder="Porngle を検索"
             inputmode="search"
@@ -75,9 +75,9 @@
             </template>
             <template v-else>
               <div v-show="onFocus">
-                <div class="text-gray-400 bg-gray-700 mt-3">
+                <div class="text-gray-200 text-sm mt-3">
                   <p
-                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-600 border border-gray-600"
+                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-700 border border-gray-700"
                     @click="changeFormList('ナンパ')"
                   >
                     ナンパ
@@ -86,7 +86,7 @@
                     >
                   </p>
                   <p
-                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-600 border border-gray-600"
+                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-700 border border-gray-700"
                     @click="changeFormList('お姉さん')"
                   >
                     お姉さん
@@ -95,7 +95,7 @@
                     >
                   </p>
                   <p
-                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-600 border border-gray-600"
+                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-700 border border-gray-700"
                     @click="changeFormList('ハーフ')"
                   >
                     ハーフ
@@ -104,7 +104,7 @@
                     >
                   </p>
                   <p
-                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-600 border border-gray-600"
+                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-700 border border-gray-700"
                     @click="changeFormList('3P')"
                   >
                     3P
@@ -113,7 +113,7 @@
                     >
                   </p>
                   <p
-                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-600 border border-gray-600"
+                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-700 border border-gray-700"
                     @click="changeFormList('10代')"
                   >
                     10代
@@ -122,7 +122,7 @@
                     >
                   </p>
                   <p
-                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-600 border border-gray-600"
+                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-700 border border-gray-700"
                     @click="changeFormList('カップル')"
                   >
                     カップル
@@ -131,7 +131,7 @@
                     >
                   </p>
                   <p
-                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-600 border border-gray-600"
+                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-700 border border-gray-700"
                     @click="changeFormList('オナニー')"
                   >
                     オナニー
@@ -140,7 +140,7 @@
                     >
                   </p>
                   <p
-                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-600 border border-gray-600"
+                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-700 border border-gray-700"
                     @click="changeFormList('デビュー')"
                   >
                     デビュー
@@ -149,7 +149,7 @@
                     >
                   </p>
                   <p
-                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-600 border border-gray-600"
+                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-700 border border-gray-700"
                     @click="changeFormList('潮吹き')"
                   >
                     潮吹き
@@ -158,7 +158,7 @@
                     >
                   </p>
                   <p
-                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-600 border border-gray-600"
+                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-700 border border-gray-700"
                     @click="changeFormList('中出し')"
                   >
                     中出し
@@ -167,7 +167,7 @@
                     >
                   </p>
                   <p
-                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-600 border border-gray-600"
+                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-700 border border-gray-700"
                     @click="changeFormList('エロアニメ')"
                   >
                     エロアニメ
@@ -176,7 +176,7 @@
                     >
                   </p>
                   <p
-                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-600 border border-gray-600"
+                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-700 border border-gray-700"
                     @click="changeFormList('SM')"
                   >
                     SM

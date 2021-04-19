@@ -68,7 +68,7 @@
           >
             <input
               v-model="computedGetState"
-              class="bg-gray-700 rounded-l-full w-full py-4 px-6 text-gray-400 placeholder-gray-500 focus:placeholder-gray-400 leading-tight focus:outline-none"
+              class="bg-gray-700 rounded-l-full w-full py-4 px-6 text-gray-200 placeholder-gray-400 focus:placeholder-gray-200 leading-tight focus:outline-none"
               type="search"
               autofocus
               placeholder="Porngle を検索"
@@ -77,7 +77,7 @@
 
             <div class="p-4">
               <button
-                class="bg-purple-700 text-gray-300 rounded-full p-2 hover:bg-purple-800 focus:outline-none w-12 h-12 flex items-center justify-center"
+                class="bg-purple-700 text-gray-200 rounded-full p-2 hover:bg-purple-800 focus:outline-none w-12 h-12 flex items-center justify-center"
                 type="submit"
                 @click="sendRequest"
               >
