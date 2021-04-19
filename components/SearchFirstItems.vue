@@ -562,7 +562,7 @@ export default Vue.extend({
       this.$router.push('/search')
       // @ts-ignore
       this.$accessor.search.changeKeyword(keyword)
-      this.$accessor.search.getSearchItems()
+      this.$accessor.search.getSearchFirstItems()
       // @ts-ignore
       this.$accessor.changeIndexPagination()
       window.scrollTo(0, 0)
