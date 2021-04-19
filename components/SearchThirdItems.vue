@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      v-for="(data, index) in getSearchFirstItems"
+      v-for="(data, index) in getSearchThirdItems"
       :key="`first-${index}`"
     >
       <div class="flex m-4">
@@ -502,9 +502,9 @@ export default Vue.extend({
     SearchSkeletonImg: () => import('~/components/SearchSkeletonImg'),
   },
   computed: {
-    ...mapGetters('search', ['searchMessagesFirst']),
-    getSearchFirstItems(): any {
-      return this.searchMessagesFirst.slice().sort(function () {
+    ...mapGetters('search', ['searchMessagesThird']),
+    getSearchThirdItems(): any {
+      return this.searchMessagesThird.slice().sort(function () {
         return Math.random() - 0.5
       })
     },
@@ -562,7 +562,7 @@ export default Vue.extend({
       this.$router.push('/search')
       // @ts-ignore
       this.$accessor.search.changeKeyword(keyword)
-      this.$accessor.search.getSearchItems()
+      this.$accessor.search.getSearchThirdItems()
       // @ts-ignore
       this.$accessor.changeIndexPagination()
       window.scrollTo(0, 0)
