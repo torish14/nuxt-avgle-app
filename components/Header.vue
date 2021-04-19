@@ -118,16 +118,31 @@
               />
             </nuxt-link>
           </div>
-          <div class="w-full pl-2"></div>
-          <div class="flex items-center px-3 py-2">
-            <div class="text-gray-200">
-              <nuxt-link to="/account" aria-label="アカウントに進む"
-                ><i class="material-icons"
-                  >account_circle</i
-                ></nuxt-link
-              >
-            </div>
-          </div>
+          <!-- <div class="w-full pl-2"></div> -->
+          <!-- <div class="flex items-center px-3 py-2">
+            <template v-if="getUsers.length === 0">
+              <div class="text-gray-200">
+                <nuxt-link to="/account" aria-label="アカウントに進む">
+                  <i class="material-icons">
+                    account_circle
+                  </i>
+                </nuxt-link>
+              </div>
+            </template>
+            <template v-else>
+              <nuxt-link to="/account" aria-label="アカウントに進む">
+                <div v-for="(data, index) in getUsers" :key="index">
+                  <img
+                    :src="data.photoURL"
+                    alt="プロフィール画像"
+                    width="24"
+                    height="24"
+                    class="rounded-full"
+                  />
+                </div>
+              </nuxt-link>
+            </template>
+          </div> -->
         </div>
       </header>
     </div>
@@ -136,6 +151,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { mapGetters } from 'vuex'
 
 export type DataType = {
   scrollY: number
@@ -152,6 +168,7 @@ export default Vue.extend({
     }
   },
   computed: {
+    ...mapGetters('auth', ['getUsers']),
     computedGetState: {
       get(): string {
         // @ts-ignore
@@ -172,13 +189,18 @@ export default Vue.extend({
       // console.log('古い',oldValue)
     },
   },
-  mounted() {
+  mounted(): void {
     // スクロールイベントを取得
     // @ts-ignore
     window.addEventListener('scroll', this.onScroll)
     window.addEventListener('load', () => {
       // @ts-ignore
       this.onScroll()
+    })
+    this.$fire.auth.onAuthStateChanged((user): void => {
+      if (user) {
+        this.$accessor.auth.fetchUsers()
+      }
     })
     // this.$nextTick(() => this.onScroll())
   },
