@@ -451,13 +451,13 @@
           <SuggestItems />
         </template>
         <template v-else-if="searchMessagesFirstMatchVid">
-          <SearchFirstItems />
+          <EmbeddedSearchFirstItems />
         </template>
         <template v-else-if="searchMessagesSecondMatchVid">
-          <SearchSecondItems />
+          <EmbeddedSearchSecondItems />
         </template>
         <template v-else-if="searchMessagesThirdMatchVid">
-          <SearchThirdItems />
+          <EmbeddedSearchThirdItems />
         </template>
       </main>
     </div>
@@ -500,11 +500,14 @@ export default Vue.extend({
       // @ts-ignore
       import('~/components/SuggestItems'),
     // @ts-ignore
-    SearchFirstItems: () => import('~/components/SearchFirstItems'),
+    EmbeddedSearchFirstItems: () =>
+      import('~/components/EmbeddedSearchFirstItems'),
     // @ts-ignore
-    SearchSecondItems: () => import('~/components/SearchSecondItems'),
+    EmbeddedSearchSecondItems: () =>
+      import('~/components/EmbeddedSearchSecondItems'),
     // @ts-ignore
-    SearchThirdItems: () => import('~/components/SearchThirdItems'),
+    EmbeddedSearchThirdItems: () =>
+      import('~/components/EmbeddedSearchThirdItems'),
   },
   mixins: [Meta],
   // @ts-ignore
@@ -529,7 +532,9 @@ export default Vue.extend({
     if (this.$accessor.search.messages.length > 0) {
       return
     }
-    this.$accessor.search.getSearchItems()
+    this.$accessor.search.getSearchFirstItems()
+    this.$accessor.search.getSearchSecondItems()
+    this.$accessor.search.getSearchThirdItems()
   },
   computed: {
     ...mapGetters('search', [
