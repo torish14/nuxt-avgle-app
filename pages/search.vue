@@ -1,7 +1,7 @@
 <template>
   <section>
     <!-- モバイル -->
-    <div v-if="$device.isMobile" class="pt-1 pb-20">
+    <div v-if="$device.isMobile" class="pt-1 pb-40">
       <div class="bg-gray-800 fixed top-0 z-20" role="search">
         <div
           class="bg-gray-700 flex items-center shadow-xl rounded-lg m-2"
