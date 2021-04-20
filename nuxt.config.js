@@ -9,8 +9,7 @@ const lang = 'ja'
 const siteName = 'Porngle'
 const siteDesc =
   '自分だけの性癖を見つける無料アダルトサイトです。Porngle は検索機能に特化したアダルトサイトを目指しています。'
-const siteKeywords =
-  'porn, Porn, porngle, Porngle, アダルト, アダルトサイト, エロ, エロサイト'
+const siteKeywords = 'porn, porngle, アダルト, エロ'
 
 const shortName = 'Porngle'
 // const ogpImages = baseUrl + 'img/ogp/'
