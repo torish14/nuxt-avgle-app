@@ -77,7 +77,7 @@
               <div v-show="onFocus">
                 <div class="text-gray-200 text-sm mt-3">
                   <p
-                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-700 border border-gray-700"
+                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-700 border-t border-gray-700"
                     @click="changeFormList('ナンパ')"
                   >
                     ナンパ
@@ -86,7 +86,7 @@
                     >
                   </p>
                   <p
-                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-700 border border-gray-700"
+                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-700 border-t border-gray-700"
                     @click="changeFormList('お姉さん')"
                   >
                     お姉さん
@@ -95,7 +95,7 @@
                     >
                   </p>
                   <p
-                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-700 border border-gray-700"
+                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-700 border-t border-gray-700"
                     @click="changeFormList('ハーフ')"
                   >
                     ハーフ
@@ -104,7 +104,7 @@
                     >
                   </p>
                   <p
-                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-700 border border-gray-700"
+                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-700 border-t border-gray-700"
                     @click="changeFormList('3P')"
                   >
                     3P
@@ -113,7 +113,7 @@
                     >
                   </p>
                   <p
-                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-700 border border-gray-700"
+                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-700 border-t border-gray-700"
                     @click="changeFormList('10代')"
                   >
                     10代
@@ -122,7 +122,7 @@
                     >
                   </p>
                   <p
-                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-700 border border-gray-700"
+                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-700 border-t border-gray-700"
                     @click="changeFormList('カップル')"
                   >
                     カップル
@@ -131,7 +131,7 @@
                     >
                   </p>
                   <p
-                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-700 border border-gray-700"
+                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-700 border-t border-gray-700"
                     @click="changeFormList('オナニー')"
                   >
                     オナニー
@@ -140,7 +140,7 @@
                     >
                   </p>
                   <p
-                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-700 border border-gray-700"
+                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-700 border-t border-gray-700"
                     @click="changeFormList('デビュー')"
                   >
                     デビュー
@@ -149,7 +149,7 @@
                     >
                   </p>
                   <p
-                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-700 border border-gray-700"
+                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-700 border-t border-gray-700"
                     @click="changeFormList('潮吹き')"
                   >
                     潮吹き
@@ -158,7 +158,7 @@
                     >
                   </p>
                   <p
-                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-700 border border-gray-700"
+                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-700 border-t border-gray-700"
                     @click="changeFormList('中出し')"
                   >
                     中出し
@@ -167,7 +167,7 @@
                     >
                   </p>
                   <p
-                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-700 border border-gray-700"
+                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-700 border-t border-gray-700"
                     @click="changeFormList('エロアニメ')"
                   >
                     エロアニメ
@@ -176,7 +176,7 @@
                     >
                   </p>
                   <p
-                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-700 border border-gray-700"
+                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-700 border-t border-b border-gray-700"
                     @click="changeFormList('SM')"
                   >
                     SM
