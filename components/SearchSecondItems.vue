@@ -6,7 +6,7 @@
     >
       <div class="flex m-4">
         <nuxt-link
-          :to="{ path: 'embedded_url' + '/' + data.vid }"
+          :to="`/embedded_url/${data.vid}`"
           aria-label="動画埋め込みページへ遷移"
           no-prefetch
           @click.native="
@@ -225,9 +225,7 @@
         </nuxt-link>
         <div class="ml-2" style="width: 175px; height: 90px">
           <nuxt-link
-            :to="{
-              path: 'embedded_url' + '/' + data.vid,
-            }"
+            :to="`/embedded_url/${data.vid}`"
             aria-label="動画埋め込みページへ遷移"
             no-prefetch
             @click.native="
