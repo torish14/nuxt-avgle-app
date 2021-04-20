@@ -347,7 +347,7 @@
             "
           >
             <h4
-              class="text-gray-300 mr-2 text-xs py-1 px-2 bg-gray-700 rounded-full border-gray-700 hover:bg-gray-600 cursor-pointer"
+              class="text-gray-300 mr-2 text-xs py-1 px-2 bg-gray-700 rounded-full border border-gray-600 hover:bg-gray-600 cursor-pointer"
               @click="
                 changeFormKeyword(
                   data.keyword
@@ -504,7 +504,7 @@
             "
           >
             <h4
-              class="text-gray-300 mr-2 text-xs py-1 px-2 bg-gray-700 rounded-full border-gray-700 hover:bg-gray-600 cursor-pointer"
+              class="text-gray-300 mr-2 text-xs py-1 px-2 bg-gray-700 rounded-full border border-gray-600 hover:bg-gray-600 cursor-pointer"
               @click="
                 changeFormKeyword(
                   data.keyword
@@ -608,7 +608,7 @@
               }}
             </h4>
             <h4
-              class="text-gray-300 mr-2 text-xs py-1 px-2 bg-gray-700 rounded-full border-gray-700 hover:bg-gray-600 cursor-pointer"
+              class="text-gray-300 mr-2 text-xs py-1 px-2 bg-gray-700 rounded-full border border-gray-600 hover:bg-gray-600 cursor-pointer"
               @click="
                 changeFormKeyword(
                   data.keyword
@@ -714,7 +714,7 @@
           </template>
           <template v-else>
             <h4
-              class="text-gray-300 mr-2 text-xs py-1 px-2 bg-gray-700 rounded-full border-gray-700 hover:bg-gray-600 cursor-pointer"
+              class="text-gray-300 mr-2 text-xs py-1 px-2 bg-gray-700 rounded-full border border-gray-600 hover:bg-gray-600 cursor-pointer"
               @click="
                 changeFormKeyword(
                   data.keyword
@@ -818,7 +818,7 @@
               }}
             </h4>
             <h4
-              class="text-gray-300 mr-2 text-xs py-1 px-2 bg-gray-700 rounded-full border-gray-700 hover:bg-gray-600 cursor-pointer"
+              class="text-gray-300 mr-2 text-xs py-1 px-2 bg-gray-700 rounded-full border border-gray-600 hover:bg-gray-600 cursor-pointer"
               @click="
                 changeFormKeyword(
                   data.keyword
@@ -922,7 +922,7 @@
               }}
             </h4>
             <h4
-              class="text-gray-300 mr-2 text-xs py-1 px-2 bg-gray-700 rounded-full border-gray-700 hover:bg-gray-600 cursor-pointer"
+              class="text-gray-300 mr-2 text-xs py-1 px-2 bg-gray-700 rounded-full border border-gray-600 hover:bg-gray-600 cursor-pointer"
               @click="
                 changeFormKeyword(
                   data.keyword
