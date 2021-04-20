@@ -44,6 +44,10 @@ export default {
         content:
           'width=device-width, initial-scale=1.0, minimum-scale=1.0, minimal-ui',
       },
+      {
+        name: 'format-detection',
+        content: 'telephone=no, email=no, address=no',
+      },
       // {
       //   name: 'referrer',
       //   content: 'no-referrer'
