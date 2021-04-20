@@ -105,9 +105,9 @@
                   </p>
                   <p
                     class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-700 border-t border-gray-700"
-                    @click="changeFormList('3P')"
+                    @click="changeFormList('女子高生')"
                   >
-                    3P
+                    女子高生
                     <i class="material-icons pr-4"
                       >play_circle_outline</i
                     >
@@ -132,18 +132,27 @@
                   </p>
                   <p
                     class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-700 border-t border-gray-700"
-                    @click="changeFormList('オナニー')"
+                    @click="changeFormList('デビュー')"
                   >
-                    オナニー
+                    デビュー
                     <i class="material-icons pr-4"
                       >play_circle_outline</i
                     >
                   </p>
                   <p
                     class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-700 border-t border-gray-700"
-                    @click="changeFormList('デビュー')"
+                    @click="changeFormList('美熟女')"
                   >
-                    デビュー
+                    美熟女
+                    <i class="material-icons pr-4"
+                      >play_circle_outline</i
+                    >
+                  </p>
+                  <p
+                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-700 border-t border-gray-700"
+                    @click="changeFormList('オナニー')"
+                  >
+                    オナニー
                     <i class="material-icons pr-4"
                       >play_circle_outline</i
                     >
@@ -162,6 +171,15 @@
                     @click="changeFormList('中出し')"
                   >
                     中出し
+                    <i class="material-icons pr-4"
+                      >play_circle_outline</i
+                    >
+                  </p>
+                  <p
+                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-700 border-t border-gray-700"
+                    @click="changeFormList('金髪')"
+                  >
+                    金髪
                     <i class="material-icons pr-4"
                       >play_circle_outline</i
                     >
