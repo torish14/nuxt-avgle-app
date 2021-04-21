@@ -70,38 +70,96 @@ export const mutations = mutationTree(state, {
   },
   setSuggestMessage(state) {
     state.message = 'AV女優'
-    // state.message = [
-    //   '小倉由菜',
-    //   '希崎ジェシカ',
-    //   '君島みお',
-    //   '霧島レオナ',
-    //   '白石茉莉奈',
-    //   '篠田ゆう',
-    //   '高井ルナ',
-    //   '冬月かえで',
-    //   '松岡ちな',
-    //   '美乃すずめ',
-    //   '吉高寧々',
-    //   'RIO',
-    // ][
-    //   Math.floor(
-    //     Math.random() *
-    //       [
-    //         '小倉由菜',
-    //         '希崎ジェシカ',
-    //         '君島みお',
-    //         '霧島レオナ',
-    //         '白石茉莉奈',
-    //         '篠田ゆう',
-    //         '高井ルナ',
-    //         '冬月かえで',
-    //         '松岡ちな',
-    //         '美乃すずめ',
-    //         '吉高寧々',
-    //         'RIO',
-    //       ].length
-    //   )
-    // ]
+  },
+  setSuggestCuteMessage(state) {
+    state.message = [
+      '梓ヒカリ',
+      '小野六花',
+      '奏音かのん',
+      '岬ななみ',
+      '百瀬あすか',
+      '吉高寧々',
+    ][
+      Math.floor(
+        Math.random() *
+          [
+            '梓ヒカリ',
+            '小野六花',
+            '奏音かのん',
+            '岬ななみ',
+            '百瀬あすか',
+            '吉高寧々',
+          ].length
+      )
+    ]
+  },
+  setSuggestBeautifulMessage(state) {
+    state.message = [
+      '楓カレン',
+      '霧島レオナ',
+      '鈴森れむ',
+      '高井ルナ',
+      '藤森里穂',
+      '美乃すずめ',
+      'RIO',
+    ][
+      Math.floor(
+        Math.random() *
+          [
+            '楓カレン',
+            '霧島レオナ',
+            '鈴森れむ',
+            '高井ルナ',
+            '藤森里穂',
+            '美乃すずめ',
+            'RIO',
+          ].length
+      )
+    ]
+  },
+  setSuggestLadyMessage(state) {
+    state.message = [
+      '希崎ジェシカ',
+      '君島みお',
+      '桐嶋りの',
+      '里美ゆりあ',
+      '篠田ゆう',
+      '白石茉莉奈',
+      '冬月かえで',
+    ][
+      Math.floor(
+        Math.random() *
+          [
+            '希崎ジェシカ',
+            '君島みお',
+            '桐嶋りの',
+            '里美ゆりあ',
+            '篠田ゆう',
+            '白石茉莉奈',
+            '冬月かえで',
+          ].length
+      )
+    ]
+  },
+  setSuggestLolitaMessage(state) {
+    state.message = [
+      '逢見リカ',
+      '跡美しゅり',
+      '天使もえ',
+      '松岡ちな',
+      '夕美しおん',
+    ][
+      Math.floor(
+        Math.random() *
+          [
+            '逢見リカ',
+            '跡美しゅり',
+            '天使もえ',
+            '松岡ちな',
+            '夕美しおん',
+          ].length
+      )
+    ]
   },
   setSearchMessage(state) {
     state.message = '美少女'
