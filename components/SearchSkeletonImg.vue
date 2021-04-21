@@ -1,6 +1,9 @@
 <template>
   <div v-if="$device.isMobile">
-    <div class="bg-gray-700" style="width: 160px; height: 90px;" />
+    <div
+      class="bg-gray-700 animate-pulse"
+      style="width: 160px; height: 90px"
+    />
     <!-- <div class="bg-gray-700 m-4" style="width: 170px; height: 96px;" /> -->
     <!-- <div>
       <div class="bg-gray-700 mx-2" style="width: 180px; height: 14px;" />
