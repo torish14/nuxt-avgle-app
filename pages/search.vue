@@ -168,15 +168,6 @@
                   </p>
                   <p
                     class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-700 border-t border-gray-700"
-                    @click="changeFormList('中出し')"
-                  >
-                    中出し
-                    <i class="material-icons pr-4"
-                      >play_circle_outline</i
-                    >
-                  </p>
-                  <p
-                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-700 border-t border-gray-700"
                     @click="changeFormList('金髪')"
                   >
                     金髪
