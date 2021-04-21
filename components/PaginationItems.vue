@@ -346,10 +346,64 @@
                 .length === 1
             "
           >
-            <h4
-              class="text-gray-300 mr-2 text-xs py-1 px-2 bg-gray-700 rounded-full border border-gray-600 hover:bg-gray-600 cursor-pointer"
-              @click="
-                changeFormKeyword(
+            <h4>
+              <button
+                class="text-gray-300 mr-2 text-xs py-1 px-2 bg-gray-700 rounded-full border border-gray-600 hover:bg-gray-600"
+                @click="
+                  changeFormKeyword(
+                    data.keyword
+                      .split(/,|\s/)
+                      .filter(
+                        RegExp.prototype.test,
+                        /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/
+                      )
+                      .filter(
+                        (item) =>
+                          item !== data.title &&
+                          item !== '日本人' &&
+                          item !== 'アジア' &&
+                          item !== 'アジア人' &&
+                          item !== '日本' &&
+                          item !== '無修正' &&
+                          item !== '肛門' &&
+                          item !== 'アナルセックス' &&
+                          item !== '兼' &&
+                          item !== '油' &&
+                          item !== '中出' &&
+                          item !== '人' &&
+                          item !== 'アジアユニフォーム' &&
+                          item !== 'ユニフォーム' &&
+                          item !== '女' &&
+                          item !== '熟' &&
+                          item !== '膣' &&
+                          item !== 'フェチ' &&
+                          item !== 'ハードコア' &&
+                          item !== 'ハイビジョン' &&
+                          item !== '足' &&
+                          item !== 'マッサージ師' &&
+                          item !== '素人' &&
+                          item !== '巨乳' &&
+                          item !== '美人' &&
+                          item !== '乳首' &&
+                          item !== 'オ' &&
+                          item !== 'です' &&
+                          item !== '内射' &&
+                          item !== '人妻' &&
+                          item !== '痴女' &&
+                          item !== '十代' &&
+                          item !== 'コ' &&
+                          item !== '粗い' &&
+                          item !== '熟女' &&
+                          item !== '美女' &&
+                          item.length < 6
+                      )
+                      .filter(
+                        (x, i, self) => self.indexOf(x) === i
+                      )[0]
+                  )
+                "
+              >
+                #{{
                   data.keyword
                     .split(/,|\s/)
                     .filter(
@@ -397,58 +451,8 @@
                         item.length < 6
                     )
                     .filter((x, i, self) => self.indexOf(x) === i)[0]
-                )
-              "
-            >
-              #{{
-                data.keyword
-                  .split(/,|\s/)
-                  .filter(
-                    RegExp.prototype.test,
-                    /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/
-                  )
-                  .filter(
-                    (item) =>
-                      item !== data.title &&
-                      item !== '日本人' &&
-                      item !== 'アジア' &&
-                      item !== 'アジア人' &&
-                      item !== '日本' &&
-                      item !== '無修正' &&
-                      item !== '肛門' &&
-                      item !== 'アナルセックス' &&
-                      item !== '兼' &&
-                      item !== '油' &&
-                      item !== '中出' &&
-                      item !== '人' &&
-                      item !== 'アジアユニフォーム' &&
-                      item !== 'ユニフォーム' &&
-                      item !== '女' &&
-                      item !== '熟' &&
-                      item !== '膣' &&
-                      item !== 'フェチ' &&
-                      item !== 'ハードコア' &&
-                      item !== 'ハイビジョン' &&
-                      item !== '足' &&
-                      item !== 'マッサージ師' &&
-                      item !== '素人' &&
-                      item !== '巨乳' &&
-                      item !== '美人' &&
-                      item !== '乳首' &&
-                      item !== 'オ' &&
-                      item !== 'です' &&
-                      item !== '内射' &&
-                      item !== '人妻' &&
-                      item !== '痴女' &&
-                      item !== '十代' &&
-                      item !== 'コ' &&
-                      item !== '粗い' &&
-                      item !== '熟女' &&
-                      item !== '美女' &&
-                      item.length < 6
-                  )
-                  .filter((x, i, self) => self.indexOf(x) === i)[0]
-              }}
+                }}
+              </button>
             </h4>
           </template>
           <template
@@ -503,10 +507,64 @@
                 .length === 2
             "
           >
-            <h4
-              class="text-gray-300 mr-2 text-xs py-1 px-2 bg-gray-700 rounded-full border border-gray-600 hover:bg-gray-600 cursor-pointer"
-              @click="
-                changeFormKeyword(
+            <h4>
+              <button
+                class="text-gray-300 mr-2 text-xs py-1 px-2 bg-gray-700 rounded-full border border-gray-600 hover:bg-gray-600"
+                @click="
+                  changeFormKeyword(
+                    data.keyword
+                      .split(/,|\s/)
+                      .filter(
+                        RegExp.prototype.test,
+                        /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/
+                      )
+                      .filter(
+                        (item) =>
+                          item !== data.title &&
+                          item !== '日本人' &&
+                          item !== 'アジア' &&
+                          item !== 'アジア人' &&
+                          item !== '日本' &&
+                          item !== '無修正' &&
+                          item !== '肛門' &&
+                          item !== 'アナルセックス' &&
+                          item !== '兼' &&
+                          item !== '油' &&
+                          item !== '中出' &&
+                          item !== '人' &&
+                          item !== 'アジアユニフォーム' &&
+                          item !== 'ユニフォーム' &&
+                          item !== '女' &&
+                          item !== '熟' &&
+                          item !== '膣' &&
+                          item !== 'フェチ' &&
+                          item !== 'ハードコア' &&
+                          item !== 'ハイビジョン' &&
+                          item !== '足' &&
+                          item !== 'マッサージ師' &&
+                          item !== '素人' &&
+                          item !== '巨乳' &&
+                          item !== '美人' &&
+                          item !== '乳首' &&
+                          item !== 'オ' &&
+                          item !== 'です' &&
+                          item !== '内射' &&
+                          item !== '人妻' &&
+                          item !== '痴女' &&
+                          item !== '十代' &&
+                          item !== 'コ' &&
+                          item !== '粗い' &&
+                          item !== '熟女' &&
+                          item !== '美女' &&
+                          item.length < 6
+                      )
+                      .filter(
+                        (x, i, self) => self.indexOf(x) === i
+                      )[0]
+                  )
+                "
+              >
+                #{{
                   data.keyword
                     .split(/,|\s/)
                     .filter(
@@ -554,63 +612,67 @@
                         item.length < 6
                     )
                     .filter((x, i, self) => self.indexOf(x) === i)[0]
-                )
-              "
-            >
-              #{{
-                data.keyword
-                  .split(/,|\s/)
-                  .filter(
-                    RegExp.prototype.test,
-                    /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/
-                  )
-                  .filter(
-                    (item) =>
-                      item !== data.title &&
-                      item !== '日本人' &&
-                      item !== 'アジア' &&
-                      item !== 'アジア人' &&
-                      item !== '日本' &&
-                      item !== '無修正' &&
-                      item !== '肛門' &&
-                      item !== 'アナルセックス' &&
-                      item !== '兼' &&
-                      item !== '油' &&
-                      item !== '中出' &&
-                      item !== '人' &&
-                      item !== 'アジアユニフォーム' &&
-                      item !== 'ユニフォーム' &&
-                      item !== '女' &&
-                      item !== '熟' &&
-                      item !== '膣' &&
-                      item !== 'フェチ' &&
-                      item !== 'ハードコア' &&
-                      item !== 'ハイビジョン' &&
-                      item !== '足' &&
-                      item !== 'マッサージ師' &&
-                      item !== '素人' &&
-                      item !== '巨乳' &&
-                      item !== '美人' &&
-                      item !== '乳首' &&
-                      item !== 'オ' &&
-                      item !== 'です' &&
-                      item !== '内射' &&
-                      item !== '人妻' &&
-                      item !== '痴女' &&
-                      item !== '十代' &&
-                      item !== 'コ' &&
-                      item !== '粗い' &&
-                      item !== '熟女' &&
-                      item !== '美女' &&
-                      item.length < 6
-                  )
-                  .filter((x, i, self) => self.indexOf(x) === i)[0]
-              }}
+                }}
+              </button>
             </h4>
-            <h4
-              class="text-gray-300 mr-2 text-xs py-1 px-2 bg-gray-700 rounded-full border border-gray-600 hover:bg-gray-600 cursor-pointer"
-              @click="
-                changeFormKeyword(
+            <h4>
+              <button
+                class="text-gray-300 mr-2 text-xs py-1 px-2 bg-gray-700 rounded-full border border-gray-600 hover:bg-gray-600"
+                @click="
+                  changeFormKeyword(
+                    data.keyword
+                      .split(/,|\s/)
+                      .filter(
+                        RegExp.prototype.test,
+                        /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/
+                      )
+                      .filter(
+                        (item) =>
+                          item !== data.title &&
+                          item !== '日本人' &&
+                          item !== 'アジア' &&
+                          item !== 'アジア人' &&
+                          item !== '日本' &&
+                          item !== '無修正' &&
+                          item !== '肛門' &&
+                          item !== 'アナルセックス' &&
+                          item !== '兼' &&
+                          item !== '油' &&
+                          item !== '中出' &&
+                          item !== '人' &&
+                          item !== 'アジアユニフォーム' &&
+                          item !== 'ユニフォーム' &&
+                          item !== '女' &&
+                          item !== '熟' &&
+                          item !== '膣' &&
+                          item !== 'フェチ' &&
+                          item !== 'ハードコア' &&
+                          item !== 'ハイビジョン' &&
+                          item !== '足' &&
+                          item !== 'マッサージ師' &&
+                          item !== '素人' &&
+                          item !== '巨乳' &&
+                          item !== '美人' &&
+                          item !== '乳首' &&
+                          item !== 'オ' &&
+                          item !== 'です' &&
+                          item !== '内射' &&
+                          item !== '人妻' &&
+                          item !== '痴女' &&
+                          item !== '十代' &&
+                          item !== 'コ' &&
+                          item !== '粗い' &&
+                          item !== '熟女' &&
+                          item !== '美女' &&
+                          item.length < 6
+                      )
+                      .filter(
+                        (x, i, self) => self.indexOf(x) === i
+                      )[1]
+                  )
+                "
+              >
+                #{{
                   data.keyword
                     .split(/,|\s/)
                     .filter(
@@ -658,65 +720,69 @@
                         item.length < 6
                     )
                     .filter((x, i, self) => self.indexOf(x) === i)[1]
-                )
-              "
-            >
-              #{{
-                data.keyword
-                  .split(/,|\s/)
-                  .filter(
-                    RegExp.prototype.test,
-                    /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/
-                  )
-                  .filter(
-                    (item) =>
-                      item !== data.title &&
-                      item !== '日本人' &&
-                      item !== 'アジア' &&
-                      item !== 'アジア人' &&
-                      item !== '日本' &&
-                      item !== '無修正' &&
-                      item !== '肛門' &&
-                      item !== 'アナルセックス' &&
-                      item !== '兼' &&
-                      item !== '油' &&
-                      item !== '中出' &&
-                      item !== '人' &&
-                      item !== 'アジアユニフォーム' &&
-                      item !== 'ユニフォーム' &&
-                      item !== '女' &&
-                      item !== '熟' &&
-                      item !== '膣' &&
-                      item !== 'フェチ' &&
-                      item !== 'ハードコア' &&
-                      item !== 'ハイビジョン' &&
-                      item !== '足' &&
-                      item !== 'マッサージ師' &&
-                      item !== '素人' &&
-                      item !== '巨乳' &&
-                      item !== '美人' &&
-                      item !== '乳首' &&
-                      item !== 'オ' &&
-                      item !== 'です' &&
-                      item !== '内射' &&
-                      item !== '人妻' &&
-                      item !== '痴女' &&
-                      item !== '十代' &&
-                      item !== 'コ' &&
-                      item !== '粗い' &&
-                      item !== '熟女' &&
-                      item !== '美女' &&
-                      item.length < 6
-                  )
-                  .filter((x, i, self) => self.indexOf(x) === i)[1]
-              }}
+                }}
+              </button>
             </h4>
           </template>
           <template v-else>
-            <h4
-              class="text-gray-300 mr-2 text-xs py-1 px-2 bg-gray-700 rounded-full border border-gray-600 hover:bg-gray-600 cursor-pointer"
-              @click="
-                changeFormKeyword(
+            <h4>
+              <button
+                class="text-gray-300 mr-2 text-xs py-1 px-2 bg-gray-700 rounded-full border border-gray-600 hover:bg-gray-600"
+                @click="
+                  changeFormKeyword(
+                    data.keyword
+                      .split(/,|\s/)
+                      .filter(
+                        RegExp.prototype.test,
+                        /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/
+                      )
+                      .filter(
+                        (item) =>
+                          item !== data.title &&
+                          item !== '日本人' &&
+                          item !== 'アジア' &&
+                          item !== 'アジア人' &&
+                          item !== '日本' &&
+                          item !== '無修正' &&
+                          item !== '肛門' &&
+                          item !== 'アナルセックス' &&
+                          item !== '兼' &&
+                          item !== '油' &&
+                          item !== '中出' &&
+                          item !== '人' &&
+                          item !== 'アジアユニフォーム' &&
+                          item !== 'ユニフォーム' &&
+                          item !== '女' &&
+                          item !== '熟' &&
+                          item !== '膣' &&
+                          item !== 'フェチ' &&
+                          item !== 'ハードコア' &&
+                          item !== 'ハイビジョン' &&
+                          item !== '足' &&
+                          item !== 'マッサージ師' &&
+                          item !== '素人' &&
+                          item !== '巨乳' &&
+                          item !== '美人' &&
+                          item !== '乳首' &&
+                          item !== 'オ' &&
+                          item !== 'です' &&
+                          item !== '内射' &&
+                          item !== '人妻' &&
+                          item !== '痴女' &&
+                          item !== '十代' &&
+                          item !== 'コ' &&
+                          item !== '粗い' &&
+                          item !== '熟女' &&
+                          item !== '美女' &&
+                          item.length < 6
+                      )
+                      .filter(
+                        (x, i, self) => self.indexOf(x) === i
+                      )[0]
+                  )
+                "
+              >
+                #{{
                   data.keyword
                     .split(/,|\s/)
                     .filter(
@@ -764,63 +830,67 @@
                         item.length < 6
                     )
                     .filter((x, i, self) => self.indexOf(x) === i)[0]
-                )
-              "
-            >
-              #{{
-                data.keyword
-                  .split(/,|\s/)
-                  .filter(
-                    RegExp.prototype.test,
-                    /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/
-                  )
-                  .filter(
-                    (item) =>
-                      item !== data.title &&
-                      item !== '日本人' &&
-                      item !== 'アジア' &&
-                      item !== 'アジア人' &&
-                      item !== '日本' &&
-                      item !== '無修正' &&
-                      item !== '肛門' &&
-                      item !== 'アナルセックス' &&
-                      item !== '兼' &&
-                      item !== '油' &&
-                      item !== '中出' &&
-                      item !== '人' &&
-                      item !== 'アジアユニフォーム' &&
-                      item !== 'ユニフォーム' &&
-                      item !== '女' &&
-                      item !== '熟' &&
-                      item !== '膣' &&
-                      item !== 'フェチ' &&
-                      item !== 'ハードコア' &&
-                      item !== 'ハイビジョン' &&
-                      item !== '足' &&
-                      item !== 'マッサージ師' &&
-                      item !== '素人' &&
-                      item !== '巨乳' &&
-                      item !== '美人' &&
-                      item !== '乳首' &&
-                      item !== 'オ' &&
-                      item !== 'です' &&
-                      item !== '内射' &&
-                      item !== '人妻' &&
-                      item !== '痴女' &&
-                      item !== '十代' &&
-                      item !== 'コ' &&
-                      item !== '粗い' &&
-                      item !== '熟女' &&
-                      item !== '美女' &&
-                      item.length < 6
-                  )
-                  .filter((x, i, self) => self.indexOf(x) === i)[0]
-              }}
+                }}
+              </button>
             </h4>
-            <h4
-              class="text-gray-300 mr-2 text-xs py-1 px-2 bg-gray-700 rounded-full border border-gray-600 hover:bg-gray-600 cursor-pointer"
-              @click="
-                changeFormKeyword(
+            <h4>
+              <button
+                class="text-gray-300 mr-2 text-xs py-1 px-2 bg-gray-700 rounded-full border border-gray-600 hover:bg-gray-600"
+                @click="
+                  changeFormKeyword(
+                    data.keyword
+                      .split(/,|\s/)
+                      .filter(
+                        RegExp.prototype.test,
+                        /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/
+                      )
+                      .filter(
+                        (item) =>
+                          item !== data.title &&
+                          item !== '日本人' &&
+                          item !== 'アジア' &&
+                          item !== 'アジア人' &&
+                          item !== '日本' &&
+                          item !== '無修正' &&
+                          item !== '肛門' &&
+                          item !== 'アナルセックス' &&
+                          item !== '兼' &&
+                          item !== '油' &&
+                          item !== '中出' &&
+                          item !== '人' &&
+                          item !== 'アジアユニフォーム' &&
+                          item !== 'ユニフォーム' &&
+                          item !== '女' &&
+                          item !== '熟' &&
+                          item !== '膣' &&
+                          item !== 'フェチ' &&
+                          item !== 'ハードコア' &&
+                          item !== 'ハイビジョン' &&
+                          item !== '足' &&
+                          item !== 'マッサージ師' &&
+                          item !== '素人' &&
+                          item !== '巨乳' &&
+                          item !== '美人' &&
+                          item !== '乳首' &&
+                          item !== 'オ' &&
+                          item !== 'です' &&
+                          item !== '内射' &&
+                          item !== '人妻' &&
+                          item !== '痴女' &&
+                          item !== '十代' &&
+                          item !== 'コ' &&
+                          item !== '粗い' &&
+                          item !== '熟女' &&
+                          item !== '美女' &&
+                          item.length < 6
+                      )
+                      .filter(
+                        (x, i, self) => self.indexOf(x) === i
+                      )[1]
+                  )
+                "
+              >
+                #{{
                   data.keyword
                     .split(/,|\s/)
                     .filter(
@@ -868,63 +938,67 @@
                         item.length < 6
                     )
                     .filter((x, i, self) => self.indexOf(x) === i)[1]
-                )
-              "
-            >
-              #{{
-                data.keyword
-                  .split(/,|\s/)
-                  .filter(
-                    RegExp.prototype.test,
-                    /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/
-                  )
-                  .filter(
-                    (item) =>
-                      item !== data.title &&
-                      item !== '日本人' &&
-                      item !== 'アジア' &&
-                      item !== 'アジア人' &&
-                      item !== '日本' &&
-                      item !== '無修正' &&
-                      item !== '肛門' &&
-                      item !== 'アナルセックス' &&
-                      item !== '兼' &&
-                      item !== '油' &&
-                      item !== '中出' &&
-                      item !== '人' &&
-                      item !== 'アジアユニフォーム' &&
-                      item !== 'ユニフォーム' &&
-                      item !== '女' &&
-                      item !== '熟' &&
-                      item !== '膣' &&
-                      item !== 'フェチ' &&
-                      item !== 'ハードコア' &&
-                      item !== 'ハイビジョン' &&
-                      item !== '足' &&
-                      item !== 'マッサージ師' &&
-                      item !== '素人' &&
-                      item !== '巨乳' &&
-                      item !== '美人' &&
-                      item !== '乳首' &&
-                      item !== 'オ' &&
-                      item !== 'です' &&
-                      item !== '内射' &&
-                      item !== '人妻' &&
-                      item !== '痴女' &&
-                      item !== '十代' &&
-                      item !== 'コ' &&
-                      item !== '粗い' &&
-                      item !== '熟女' &&
-                      item !== '美女' &&
-                      item.length < 6
-                  )
-                  .filter((x, i, self) => self.indexOf(x) === i)[1]
-              }}
+                }}
+              </button>
             </h4>
-            <h4
-              class="text-gray-300 mr-2 text-xs py-1 px-2 bg-gray-700 rounded-full border border-gray-600 hover:bg-gray-600 cursor-pointer"
-              @click="
-                changeFormKeyword(
+            <h4>
+              <button
+                class="text-gray-300 mr-2 text-xs py-1 px-2 bg-gray-700 rounded-full border border-gray-600 hover:bg-gray-600"
+                @click="
+                  changeFormKeyword(
+                    data.keyword
+                      .split(/,|\s/)
+                      .filter(
+                        RegExp.prototype.test,
+                        /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/
+                      )
+                      .filter(
+                        (item) =>
+                          item !== data.title &&
+                          item !== '日本人' &&
+                          item !== 'アジア' &&
+                          item !== 'アジア人' &&
+                          item !== '日本' &&
+                          item !== '無修正' &&
+                          item !== '肛門' &&
+                          item !== 'アナルセックス' &&
+                          item !== '兼' &&
+                          item !== '油' &&
+                          item !== '中出' &&
+                          item !== '人' &&
+                          item !== 'アジアユニフォーム' &&
+                          item !== 'ユニフォーム' &&
+                          item !== '女' &&
+                          item !== '熟' &&
+                          item !== '膣' &&
+                          item !== 'フェチ' &&
+                          item !== 'ハードコア' &&
+                          item !== 'ハイビジョン' &&
+                          item !== '足' &&
+                          item !== 'マッサージ師' &&
+                          item !== '素人' &&
+                          item !== '巨乳' &&
+                          item !== '美人' &&
+                          item !== '乳首' &&
+                          item !== 'オ' &&
+                          item !== 'です' &&
+                          item !== '内射' &&
+                          item !== '人妻' &&
+                          item !== '痴女' &&
+                          item !== '十代' &&
+                          item !== 'コ' &&
+                          item !== '粗い' &&
+                          item !== '熟女' &&
+                          item !== '美女' &&
+                          item.length < 6
+                      )
+                      .filter(
+                        (x, i, self) => self.indexOf(x) === i
+                      )[2]
+                  )
+                "
+              >
+                #{{
                   data.keyword
                     .split(/,|\s/)
                     .filter(
@@ -972,58 +1046,8 @@
                         item.length < 6
                     )
                     .filter((x, i, self) => self.indexOf(x) === i)[2]
-                )
-              "
-            >
-              #{{
-                data.keyword
-                  .split(/,|\s/)
-                  .filter(
-                    RegExp.prototype.test,
-                    /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/
-                  )
-                  .filter(
-                    (item) =>
-                      item !== data.title &&
-                      item !== '日本人' &&
-                      item !== 'アジア' &&
-                      item !== 'アジア人' &&
-                      item !== '日本' &&
-                      item !== '無修正' &&
-                      item !== '肛門' &&
-                      item !== 'アナルセックス' &&
-                      item !== '兼' &&
-                      item !== '油' &&
-                      item !== '中出' &&
-                      item !== '人' &&
-                      item !== 'アジアユニフォーム' &&
-                      item !== 'ユニフォーム' &&
-                      item !== '女' &&
-                      item !== '熟' &&
-                      item !== '膣' &&
-                      item !== 'フェチ' &&
-                      item !== 'ハードコア' &&
-                      item !== 'ハイビジョン' &&
-                      item !== '足' &&
-                      item !== 'マッサージ師' &&
-                      item !== '素人' &&
-                      item !== '巨乳' &&
-                      item !== '美人' &&
-                      item !== '乳首' &&
-                      item !== 'オ' &&
-                      item !== 'です' &&
-                      item !== '内射' &&
-                      item !== '人妻' &&
-                      item !== '痴女' &&
-                      item !== '十代' &&
-                      item !== 'コ' &&
-                      item !== '粗い' &&
-                      item !== '熟女' &&
-                      item !== '美女' &&
-                      item.length < 6
-                  )
-                  .filter((x, i, self) => self.indexOf(x) === i)[2]
-              }}
+                }}
+              </button>
             </h4>
           </template>
         </div>
