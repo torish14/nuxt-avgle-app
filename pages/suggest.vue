@@ -88,7 +88,7 @@ export default Vue.extend({
   },
   fetch(): void {
     // @ts-ignore
-    if (this.$accessor.search.suggestMessages.length > 0) {
+    if (this.$accessor.search.suggestMessages.length > 100) {
       return
     }
     this.$accessor.search.setSuggestMessage()
