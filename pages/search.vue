@@ -5,7 +5,6 @@
       <div class="bg-gray-800 fixed top-0 z-20" role="search">
         <div
           class="bg-gray-700 flex items-center shadow-xl rounded-lg m-2"
-          style="width: 359px"
         >
           <div
             class="bg-gray-700 text-gray-400 focus:outline-one w-12 h-12 flex items-center justify-center"
@@ -15,7 +14,8 @@
           <input
             ref="focusInput"
             v-model="computedGetState"
-            class="bg-gray-700 w-full py-2 text-gray-200 placeholder-gray-400 leading-tight focus:outline-none rounded-lg"
+            class="bg-gray-700 py-2 text-gray-200 placeholder-gray-400 leading-tight focus:outline-none rounded-lg"
+            style="width: 311px"
             type="search"
             placeholder="Porngle を検索"
             inputmode="search"
@@ -76,123 +76,97 @@
             <template v-else>
               <div v-show="onFocus">
                 <div class="text-gray-200 text-sm mt-3">
-                  <p
-                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-700 border-t border-gray-700"
+                  <div
+                    class="flex flex-row hover:bg-gray-700 border-t border-gray-700 py-2"
                     @click="changeFormList('ナンパ')"
                   >
-                    ナンパ
-                    <i class="material-icons pr-4"
-                      >play_circle_outline</i
-                    >
-                  </p>
-                  <p
-                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-700 border-t border-gray-700"
+                    <i class="material-icons pl-4">search</i>
+                    <p class="pl-4">ナンパ</p>
+                  </div>
+                  <div
+                    class="flex flex-row hover:bg-gray-700 border-t border-gray-700 py-2"
                     @click="changeFormList('お姉さん')"
                   >
-                    お姉さん
-                    <i class="material-icons pr-4"
-                      >play_circle_outline</i
-                    >
-                  </p>
-                  <p
-                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-700 border-t border-gray-700"
+                    <i class="material-icons pl-4">search</i>
+                    <p class="pl-4">お姉さん</p>
+                  </div>
+                  <div
+                    class="flex flex-row hover:bg-gray-700 border-t border-gray-700 py-2"
                     @click="changeFormList('ハーフ')"
                   >
-                    ハーフ
-                    <i class="material-icons pr-4"
-                      >play_circle_outline</i
-                    >
-                  </p>
-                  <p
-                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-700 border-t border-gray-700"
+                    <i class="material-icons pl-4">search</i>
+                    <p class="pl-4">ハーフ</p>
+                  </div>
+                  <div
+                    class="flex flex-row hover:bg-gray-700 border-t border-gray-700 py-2"
                     @click="changeFormList('女子高生')"
                   >
-                    女子高生
-                    <i class="material-icons pr-4"
-                      >play_circle_outline</i
-                    >
-                  </p>
-                  <p
-                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-700 border-t border-gray-700"
+                    <i class="material-icons pl-4">search</i>
+                    <p class="pl-4">女子高生</p>
+                  </div>
+                  <div
+                    class="flex flex-row hover:bg-gray-700 border-t border-gray-700 py-2"
                     @click="changeFormList('10代')"
                   >
-                    10代
-                    <i class="material-icons pr-4"
-                      >play_circle_outline</i
-                    >
-                  </p>
-                  <p
-                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-700 border-t border-gray-700"
+                    <i class="material-icons pl-4">search</i>
+                    <p class="pl-4">10代</p>
+                  </div>
+                  <div
+                    class="flex flex-row hover:bg-gray-700 border-t border-gray-700 py-2"
                     @click="changeFormList('カップル')"
                   >
-                    カップル
-                    <i class="material-icons pr-4"
-                      >play_circle_outline</i
-                    >
-                  </p>
-                  <p
-                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-700 border-t border-gray-700"
+                    <i class="material-icons pl-4">search</i>
+                    <p class="pl-4">カップル</p>
+                  </div>
+                  <div
+                    class="flex flex-row hover:bg-gray-700 border-t border-gray-700 py-2"
                     @click="changeFormList('デビュー')"
                   >
-                    デビュー
-                    <i class="material-icons pr-4"
-                      >play_circle_outline</i
-                    >
-                  </p>
-                  <p
-                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-700 border-t border-gray-700"
+                    <i class="material-icons pl-4">search</i>
+                    <p class="pl-4">デビュー</p>
+                  </div>
+                  <div
+                    class="flex flex-row hover:bg-gray-700 border-t border-gray-700 py-2"
                     @click="changeFormList('美熟女')"
                   >
-                    美熟女
-                    <i class="material-icons pr-4"
-                      >play_circle_outline</i
-                    >
-                  </p>
-                  <p
-                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-700 border-t border-gray-700"
+                    <i class="material-icons pl-4">search</i>
+                    <p class="pl-4">美熟女</p>
+                  </div>
+                  <div
+                    class="flex flex-row hover:bg-gray-700 border-t border-gray-700 py-2"
                     @click="changeFormList('オナニー')"
                   >
-                    オナニー
-                    <i class="material-icons pr-4"
-                      >play_circle_outline</i
-                    >
-                  </p>
-                  <p
-                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-700 border-t border-gray-700"
+                    <i class="material-icons pl-4">search</i>
+                    <p class="pl-4">オナニー</p>
+                  </div>
+                  <div
+                    class="flex flex-row hover:bg-gray-700 border-t border-gray-700 py-2"
                     @click="changeFormList('潮吹き')"
                   >
-                    潮吹き
-                    <i class="material-icons pr-4"
-                      >play_circle_outline</i
-                    >
-                  </p>
-                  <p
-                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-700 border-t border-gray-700"
+                    <i class="material-icons pl-4">search</i>
+                    <p class="pl-4">潮吹き</p>
+                  </div>
+                  <div
+                    class="flex flex-row hover:bg-gray-700 border-t border-gray-700 py-2"
                     @click="changeFormList('金髪')"
                   >
-                    金髪
-                    <i class="material-icons pr-4"
-                      >play_circle_outline</i
-                    >
-                  </p>
-                  <p
-                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-700 border-t border-gray-700"
+                    <i class="material-icons pl-4">search</i>
+                    <p class="pl-4">金髪</p>
+                  </div>
+                  <div
+                    class="flex flex-row hover:bg-gray-700 border-t border-gray-700 py-2"
                     @click="changeFormList('エロアニメ')"
                   >
-                    エロアニメ
-                    <i class="material-icons pr-4"
-                      >play_circle_outline</i
-                    >
-                  </p>
-                  <p
-                    class="flex flex-row justify-between pl-4 py-2 hover:bg-gray-700 border-t border-b border-gray-700"
+                    <i class="material-icons pl-4">search</i>
+                    <p class="pl-4">エロアニメ</p>
+                  </div>
+                  <div
+                    class="flex flex-row hover:bg-gray-700 border-t border-gray-700 py-2"
                     @click="changeFormList('SM')"
                   >
-                    SM
-                    <i class="material-icons pr-4"
-                      >play_circle_outline</i
-                    >
-                  </p>
+                    <i class="material-icons pl-4">search</i>
+                    <p class="pl-4">SM</p>
+                  </div>
                 </div>
               </div>
               <div v-show="!onFocus">
