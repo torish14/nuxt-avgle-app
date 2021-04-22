@@ -168,7 +168,7 @@ export const mutations = mutationTree(state, {
     state.message = 'レンタル'
   },
   setSuggestVirginMessage(state) {
-    state.message = '童貞筆おろし'
+    state.message = '筆おろし'
   },
   setSuggestFanMessage(state) {
     state.message = 'ファン感謝祭'
