@@ -205,7 +205,7 @@
           <div class="relative">
             <img
               :src="data.preview_url"
-              alt="サムネイル"
+              :alt="data.title"
               width="375"
               height="210"
               class="z-auto relative text-gray-200"

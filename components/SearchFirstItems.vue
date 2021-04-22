@@ -206,7 +206,7 @@
             <vue-lazy-component>
               <img
                 :src="data.preview_url"
-                alt="サムネイル"
+                :alt="data.title"
                 width="160"
                 height="90"
                 class="z-auto relative text-gray-200"
