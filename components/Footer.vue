@@ -162,6 +162,7 @@ export default Vue.extend({
     },
     clearForm(): void {
       this.$accessor.search.clearMessage()
+      window.scrollTo(0, 0)
     },
     focusSearch(): void {
       // @ts-ignore
