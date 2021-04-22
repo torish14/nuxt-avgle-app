@@ -156,10 +156,10 @@
                   </div>
                   <div
                     class="flex flex-row hover:bg-gray-700 border-t border-gray-700 py-2"
-                    @click="changeFormList('エロアニメ')"
+                    @click="changeFormList('アニメ')"
                   >
                     <i class="material-icons pl-4">search</i>
-                    <p class="pl-4">エロアニメ</p>
+                    <p class="pl-4">アニメ</p>
                   </div>
                   <div
                     class="flex flex-row hover:bg-gray-700 border-t border-gray-700 py-2"
