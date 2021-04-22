@@ -1,16 +1,15 @@
 <template>
   <div>
-    <h1 class="text-gray-200 text-sm mb-2 mx-2">オススメ女優</h1>
     <div class="flex justify-center">
       <button
-        class="text-gray-300 text-xs bg-gray-700 rounded-full border border-gray-600 hover:bg-gray-600 py-4 my-2 mx-2"
+        class="text-gray-300 text-xs bg-gray-700 rounded-full border border-gray-600 hover:bg-gray-600 py-4 my-1 mx-2"
         style="width: 170px"
         @click="setSuggestCuteMessage"
       >
         かわいい系
       </button>
       <button
-        class="text-gray-300 text-xs bg-gray-700 rounded-full border border-gray-600 hover:bg-gray-600 py-4 my-2 mx-2"
+        class="text-gray-300 text-xs bg-gray-700 rounded-full border border-gray-600 hover:bg-gray-600 py-4 my-1 mx-2"
         style="width: 170px"
         @click="setSuggestBeautifulMessage"
       >
@@ -19,18 +18,50 @@
     </div>
     <div class="flex justify-center">
       <button
-        class="text-gray-300 text-xs bg-gray-700 rounded-full border border-gray-600 hover:bg-gray-600 py-4 my-2 mx-2"
+        class="text-gray-300 text-xs bg-gray-700 rounded-full border border-gray-600 hover:bg-gray-600 py-4 my-1 mx-2"
         style="width: 170px"
         @click="setSuggestLadyMessage"
       >
-        お姉さん系
+        お姉様系
       </button>
       <button
-        class="text-gray-300 text-xs bg-gray-700 rounded-full border border-gray-600 hover:bg-gray-600 py-4 my-2 mx-2"
+        class="text-gray-300 text-xs bg-gray-700 rounded-full border border-gray-600 hover:bg-gray-600 py-4 my-1 mx-2"
         style="width: 170px"
         @click="setSuggestLolitaMessage"
       >
-        ロリ系
+        ロリっ娘系
+      </button>
+    </div>
+    <div class="flex justify-center">
+      <button
+        class="text-gray-300 text-xs bg-gray-700 rounded-full border border-gray-600 hover:bg-gray-600 py-4 my-1 mx-2"
+        style="width: 170px"
+        @click="setSuggestTheGirlsMessage"
+      >
+        募集ちゃん
+      </button>
+      <button
+        class="text-gray-300 text-xs bg-gray-700 rounded-full border border-gray-600 hover:bg-gray-600 py-4 my-1 mx-2"
+        style="width: 170px"
+        @click="setSuggestRentalMessage"
+      >
+        レンタル彼女
+      </button>
+    </div>
+    <div class="flex justify-center">
+      <button
+        class="text-gray-300 text-xs bg-gray-700 rounded-full border border-gray-600 hover:bg-gray-600 py-4 my-1 mx-2"
+        style="width: 170px"
+        @click="setSuggestVirginMessage"
+      >
+        童貞筆おろし
+      </button>
+      <button
+        class="text-gray-300 text-xs bg-gray-700 rounded-full border border-gray-600 hover:bg-gray-600 py-4 my-1 mx-2"
+        style="width: 170px"
+        @click="setSuggestFanMessage"
+      >
+        ファン感謝祭
       </button>
     </div>
     <div class="flex flex-wrap justify-center mt-4">
@@ -239,7 +270,7 @@
             <div class="relative">
               <img
                 :src="data.preview_url"
-                alt="サムネイル"
+                :alt="data.title"
                 width="375"
                 height="210"
                 class="z-auto relative text-gray-200"
@@ -1710,6 +1741,22 @@ export default Vue.extend({
     },
     setSuggestLolitaMessage(): void {
       this.$accessor.search.setSuggestLolitaMessage()
+      this.$accessor.search.getSuggestItems()
+    },
+    setSuggestTheGirlsMessage(): void {
+      this.$accessor.search.setSuggestTheGirlsMessage()
+      this.$accessor.search.getSuggestItems()
+    },
+    setSuggestRentalMessage(): void {
+      this.$accessor.search.setSuggestRentalMessage()
+      this.$accessor.search.getSuggestItems()
+    },
+    setSuggestVirginMessage(): void {
+      this.$accessor.search.setSuggestVirginMessage()
+      this.$accessor.search.getSuggestItems()
+    },
+    setSuggestFanMessage(): void {
+      this.$accessor.search.setSuggestFanMessage()
       this.$accessor.search.getSuggestItems()
     },
     getRecommendTitle(
