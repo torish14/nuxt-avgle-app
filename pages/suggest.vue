@@ -51,6 +51,54 @@
           </div>
         </template>
         <template v-else>
+          <div class="flex justify-center">
+            <button
+              class="text-gray-300 text-xs bg-gray-700 rounded-full border border-gray-600 hover:bg-gray-600 py-4 my-1 mx-2"
+              style="width: 170px"
+              @click="setSuggestCuteMessage"
+            >
+              かわいい系
+            </button>
+            <button
+              class="text-gray-300 text-xs bg-gray-700 rounded-full border border-gray-600 hover:bg-gray-600 py-4 my-1 mx-2"
+              style="width: 170px"
+              @click="setSuggestBeautifulMessage"
+            >
+              キレイ系
+            </button>
+          </div>
+          <div class="flex justify-center">
+            <button
+              class="text-gray-300 text-xs bg-gray-700 rounded-full border border-gray-600 hover:bg-gray-600 py-4 my-1 mx-2"
+              style="width: 170px"
+              @click="setSuggestLadyMessage"
+            >
+              お姉様系
+            </button>
+            <button
+              class="text-gray-300 text-xs bg-gray-700 rounded-full border border-gray-600 hover:bg-gray-600 py-4 my-1 mx-2"
+              style="width: 170px"
+              @click="setSuggestLolitaMessage"
+            >
+              ロリっ娘系
+            </button>
+          </div>
+          <div class="flex justify-center">
+            <button
+              class="text-gray-300 text-xs bg-gray-700 rounded-full border border-gray-600 hover:bg-gray-600 py-4 my-1 mx-2"
+              style="width: 170px"
+              @click="setSuggestTheGirlsMessage"
+            >
+              素人女性
+            </button>
+            <button
+              class="text-gray-300 text-xs bg-gray-700 rounded-full border border-gray-600 hover:bg-gray-600 py-4 my-1 mx-2"
+              style="width: 170px"
+              @click="setSuggestTheMenMessage"
+            >
+              一般人男性
+            </button>
+          </div>
           <SuggestItems />
         </template>
       </main>
@@ -169,6 +217,30 @@ export default Vue.extend({
     window.removeEventListener('beforeunload', this.setSuggestForm)
   },
   methods: {
+    setSuggestCuteMessage(): void {
+      this.$accessor.search.setSuggestCuteMessage()
+      this.$accessor.search.getSuggestItems()
+    },
+    setSuggestBeautifulMessage(): void {
+      this.$accessor.search.setSuggestBeautifulMessage()
+      this.$accessor.search.getSuggestItems()
+    },
+    setSuggestLadyMessage(): void {
+      this.$accessor.search.setSuggestLadyMessage()
+      this.$accessor.search.getSuggestItems()
+    },
+    setSuggestLolitaMessage(): void {
+      this.$accessor.search.setSuggestLolitaMessage()
+      this.$accessor.search.getSuggestItems()
+    },
+    setSuggestTheGirlsMessage(): void {
+      this.$accessor.search.setSuggestTheGirlsMessage()
+      this.$accessor.search.getSuggestItems()
+    },
+    setSuggestTheMenMessage(): void {
+      this.$accessor.search.setSuggestTheMenMessage()
+      this.$accessor.search.getSuggestItems()
+    },
     setSuggestForm(): void {
       this.$accessor.search.setSuggestMessage()
     },

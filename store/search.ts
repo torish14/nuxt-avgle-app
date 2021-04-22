@@ -162,16 +162,25 @@ export const mutations = mutationTree(state, {
     ]
   },
   setSuggestTheGirlsMessage(state) {
-    state.message = '募集ちゃん'
+    state.message = [
+      'パパ活',
+      '募集ちゃん',
+      'レンタル彼女',
+      'ラグジュTV',
+    ][
+      Math.floor(
+        Math.random() *
+          ['パパ活', '募集ちゃん', 'レンタル彼女', 'ラグジュTV']
+            .length
+      )
+    ]
   },
-  setSuggestRentalMessage(state) {
-    state.message = 'レンタル'
-  },
-  setSuggestVirginMessage(state) {
-    state.message = '筆おろし'
-  },
-  setSuggestFanMessage(state) {
-    state.message = 'ファン感謝祭'
+  setSuggestTheMenMessage(state) {
+    state.message = ['ファン感謝祭', '筆おろし', '凄テク'][
+      Math.floor(
+        Math.random() * ['ファン感謝祭', '筆おろし', '凄テク'].length
+      )
+    ]
   },
   setSearchMessage(state) {
     state.message = '美少女'
