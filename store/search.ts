@@ -361,8 +361,7 @@ export const actions = actionTree(
               state.message +
               '/0' +
               '?limit=250' +
-              '?type=public' +
-              '?o=mv'
+              '?type=public'
           ),
           config
         )
