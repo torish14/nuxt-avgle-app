@@ -161,6 +161,18 @@ export const mutations = mutationTree(state, {
       )
     ]
   },
+  setSuggestTheGirlsMessage(state) {
+    state.message = '募集ちゃん'
+  },
+  setSuggestRentalMessage(state) {
+    state.message = 'レンタル'
+  },
+  setSuggestVirginMessage(state) {
+    state.message = '童貞'
+  },
+  setSuggestFanMessage(state) {
+    state.message = 'ファン'
+  },
   setSearchMessage(state) {
     state.message = '美少女'
   },
