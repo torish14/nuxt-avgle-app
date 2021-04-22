@@ -13,6 +13,7 @@
                 alt="残念ながら、作品が見つかりませんでした。"
                 width="400"
                 height="393"
+                style="width: 400px; height: 393px"
               />
               <p class="text-gray-200 text-base">
                 &nbsp;作品が見つかりませんでした。
@@ -93,6 +94,7 @@
                 alt="残念ながら、作品が見つかりませんでした。"
                 width="400"
                 height="393"
+                style="width: 400px; height: 393px"
               />
               <p class="text-gray-200 text-base">
                 &nbsp;作品が見つかりませんでした。
@@ -398,6 +400,7 @@
                 alt="残念ながら、作品が見つかりませんでした。"
                 width="250"
                 height="223"
+                style="width: 250px; height: 223px"
               />
               <p class="text-gray-200 text-base">
                 &nbsp;作品が見つかりませんでした。
@@ -425,6 +428,7 @@
                 alt="残念ながら、作品が見つかりませんでした。"
                 width="250"
                 height="223"
+                style="width: 250px; height: 223px"
               />
               <p class="text-gray-200 text-base">
                 &nbsp;作品が見つかりませんでした。

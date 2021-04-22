@@ -18,6 +18,7 @@
               alt="マリリン・モンロー"
               width="250"
               height="223"
+              style="width: 250px; height: 223px"
             />
           </div>
           <div class="flex flex-col items-center">
@@ -75,6 +76,7 @@
               width="36"
               height="36"
               class="rounded-full"
+              style="width: 36px; height: 36px"
             />
             <p class="text-gray-400">{{ data.name }}</p>
           </div>

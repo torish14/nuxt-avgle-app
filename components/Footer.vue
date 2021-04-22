@@ -20,6 +20,7 @@
               width="160"
               height="60"
               class="w-40"
+              style="width: 160px; height: 60px"
             />
           </nuxt-link>
           <p

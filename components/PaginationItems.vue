@@ -163,6 +163,7 @@
               width="320"
               height="180"
               class="z-auto relative text-gray-200"
+              style="width: 320px; height: 180px"
               referrerpolicy="no-referrer"
               crossorigin
             />

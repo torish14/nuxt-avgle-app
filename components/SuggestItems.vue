@@ -243,6 +243,7 @@
                 width="375"
                 height="210"
                 class="z-auto relative text-gray-200"
+                style="width: 375px; height: 210px"
                 referrerpolicy="no-referrer"
                 crossorigin
               />

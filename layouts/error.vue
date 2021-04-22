@@ -8,6 +8,7 @@
             alt="残念ながら、お探しのページが見つかりませんでした。"
             width="400"
             height="393"
+            style="width: 400px; height: 393px"
           />
           <p class="text-gray-200 text-base">
             &nbsp;お探しのページが見つかりませんでした。
@@ -19,6 +20,7 @@
             alt="申し訳ございません。エラーが発生しました。"
             width="400"
             height="393"
+            style="width: 400px; height: 393px"
           />
           <p class="text-gray-200 text-sm">
             <!-- {{ error.statusCode }} -->
@@ -46,6 +48,7 @@
             alt="残念ながら、お探しのページが見つかりませんでした。"
             width="250"
             height="223"
+            style="width: 250px; height: 223px"
           />
           <p class="text-gray-200 text-base">
             &nbsp;お探しのページが見つかりませんでした。
@@ -57,6 +60,7 @@
             alt="申し訳ございません。エラーが発生しました。"
             width="250"
             height="223"
+            style="width: 250px; height: 223px"
           />
           <p class="text-gray-200 text-base">
             <!-- {{ error.statusCode }} -->

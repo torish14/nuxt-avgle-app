@@ -25,7 +25,7 @@
                   width="160"
                   height="60"
                   class="w-40"
-                  style="height: 60px"
+                  style="width: 160px; height: 60px"
                 />
               </nuxt-link>
             </h1>
@@ -114,7 +114,7 @@
                 width="96"
                 height="40"
                 class="w-24"
-                style="height: 40px"
+                style="width: 96px; height: 40px"
               />
             </nuxt-link>
           </div>
