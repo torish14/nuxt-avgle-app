@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-wrap justify-center mt-4">
     <div
-      v-for="(data, index) in getSuggestItems"
+      v-for="(data, index) in getExploreItems"
       :key="`first-${index}`"
     >
       <vue-lazy-component>
@@ -1604,9 +1604,9 @@ export default Vue.extend({
     Skeleton: () => import('~/components/Skeleton'),
   },
   computed: {
-    ...mapGetters('search', ['suggestMessages']),
-    getSuggestItems(): any {
-      return this.suggestMessages.slice().sort(function () {
+    ...mapGetters('search', ['exploreMessages']),
+    getExploreItems(): any {
+      return this.exploreMessages.slice().sort(function () {
         return Math.random() - 0.5
       })
     },
@@ -1661,10 +1661,10 @@ export default Vue.extend({
       )
     },
     changeFormKeyword(keyword: string): void {
-      this.$router.push('/suggest')
+      this.$router.push('/explore')
       // @ts-ignore
       this.$accessor.search.changeKeyword(keyword)
-      this.$accessor.search.getSuggestItems()
+      this.$accessor.search.getExploreItems()
       // @ts-ignore
       this.$accessor.changeIndexPagination()
       window.scrollTo(0, 0)

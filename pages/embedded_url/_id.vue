@@ -170,7 +170,7 @@
             </div>
           </article>
         </template>
-        <template v-else-if="suggestMessagesMatchVid">
+        <template v-else-if="exploreMessagesMatchVid">
           <article>
             <div
               class="relative sm:w-full md:w-full lg:w-full xl:w-2/3 h-0"
@@ -178,7 +178,7 @@
             >
               <iframe
                 id="sub"
-                :src="suggestMessagesMatchVid.embedded_url"
+                :src="exploreMessagesMatchVid.embedded_url"
                 frameborder="0"
                 scrolling="no"
                 allow="fullscreen"
@@ -191,12 +191,12 @@
             <h2
               class="text-gray-200 text-sm md:px-4 lg:px-4 xl:px-4 2xl:px-4 pt-2 px-2"
             >
-              {{ suggestMessagesMatchVid.title }}
+              {{ exploreMessagesMatchVid.title }}
             </h2>
             <div>
               <h3 class="text-gray-400 mt-1 mr-1 text-xs pl-2">
                 {{
-                  suggestMessagesMatchVid.viewnumber.toLocaleString()
+                  exploreMessagesMatchVid.viewnumber.toLocaleString()
                 }}
                 回視聴
               </h3>
@@ -209,7 +209,7 @@
                   >thumb_up</i
                 >
                 <h3 class="text-gray-400 px-1 text-xs">
-                  {{ suggestMessagesMatchVid.likes }}
+                  {{ exploreMessagesMatchVid.likes }}
                 </h3>
               </div>
               <div class="text-center mx-6 my-4">
@@ -219,7 +219,7 @@
                   >thumb_down</i
                 >
                 <h3 class="text-gray-400 px-1 text-xs">
-                  {{ suggestMessagesMatchVid.dislikes }}
+                  {{ exploreMessagesMatchVid.dislikes }}
                 </h3>
               </div>
             </div>
@@ -451,8 +451,8 @@
         <template v-if="messagesMatchVid">
           <JapaneseItems />
         </template>
-        <template v-else-if="suggestMessagesMatchVid">
-          <SuggestItems />
+        <template v-else-if="exploreMessagesMatchVid">
+          <ExploreItems />
         </template>
         <template v-else-if="searchMessagesFirstMatchVid">
           <EmbeddedSearchFirstItems />
@@ -500,9 +500,9 @@ export default Vue.extend({
     JapaneseItems: () =>
       // @ts-ignore
       import('~/components/JapaneseItems'),
-    SuggestItems: () =>
+    ExploreItems: () =>
       // @ts-ignore
-      import('~/components/SuggestItems'),
+      import('~/components/ExploreItems'),
     EmbeddedSearchFirstItems: () =>
       // @ts-ignore
       import('~/components/EmbeddedSearchFirstItems'),
@@ -544,7 +544,7 @@ export default Vue.extend({
     ...mapGetters('search', [
       'message',
       'messages',
-      'suggestMessages',
+      'exploreMessages',
       'searchMessagesFirst',
       'searchMessagesSecond',
       'searchMessagesThird',
@@ -608,9 +608,9 @@ export default Vue.extend({
         (value) => value.vid === this.id
       )
     },
-    suggestMessagesMatchVid(): number {
+    exploreMessagesMatchVid(): number {
       // @ts-ignore
-      return this.$accessor.search.suggestMessages.find(
+      return this.$accessor.search.exploreMessages.find(
         // @ts-ignore
         (value) => value.vid === this.id
       )

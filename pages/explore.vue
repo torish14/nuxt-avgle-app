@@ -55,14 +55,14 @@
             <button
               class="text-gray-300 text-xs bg-gray-700 rounded-full border border-gray-600 hover:bg-gray-600 py-4 my-1 mx-2"
               style="width: 170px"
-              @click="setSuggestCuteMessage"
+              @click="setExploreCuteMessage"
             >
               かわいい系
             </button>
             <button
               class="text-gray-300 text-xs bg-gray-700 rounded-full border border-gray-600 hover:bg-gray-600 py-4 my-1 mx-2"
               style="width: 170px"
-              @click="setSuggestBeautifulMessage"
+              @click="setExploreBeautifulMessage"
             >
               キレイ系
             </button>
@@ -71,14 +71,14 @@
             <button
               class="text-gray-300 text-xs bg-gray-700 rounded-full border border-gray-600 hover:bg-gray-600 py-4 my-1 mx-2"
               style="width: 170px"
-              @click="setSuggestLadyMessage"
+              @click="setExploreLadyMessage"
             >
               お姉様系
             </button>
             <button
               class="text-gray-300 text-xs bg-gray-700 rounded-full border border-gray-600 hover:bg-gray-600 py-4 my-1 mx-2"
               style="width: 170px"
-              @click="setSuggestLolitaMessage"
+              @click="setExploreLolitaMessage"
             >
               ロリっ娘系
             </button>
@@ -87,19 +87,19 @@
             <button
               class="text-gray-300 text-xs bg-gray-700 rounded-full border border-gray-600 hover:bg-gray-600 py-4 my-1 mx-2"
               style="width: 170px"
-              @click="setSuggestTheGirlsMessage"
+              @click="setExploreTheGirlsMessage"
             >
               素人女性
             </button>
             <button
               class="text-gray-300 text-xs bg-gray-700 rounded-full border border-gray-600 hover:bg-gray-600 py-4 my-1 mx-2"
               style="width: 170px"
-              @click="setSuggestTheMenMessage"
+              @click="setExploreTheMenMessage"
             >
               一般人男性
             </button>
           </div>
-          <SuggestItems />
+          <ExploreItems />
         </template>
       </main>
     </div>
@@ -117,9 +117,9 @@ export type DataType = {
 
 export default Vue.extend({
   components: {
-    SuggestItems: () =>
+    ExploreItems: () =>
       // @ts-ignore
-      import('~/components/SuggestItems'),
+      import('~/components/ExploreItems'),
   },
   mixins: [Meta],
   scrollToTop: true,
@@ -129,7 +129,7 @@ export default Vue.extend({
         title: '探求',
         description: '探求ページです。',
         type: 'website',
-        url: 'https://porngle.love/suggest',
+        url: 'https://porngle.love/explore',
         image: 'https://porngle.love/assets/PG.jpeg',
         robots: 'noindex',
       },
@@ -137,21 +137,21 @@ export default Vue.extend({
   },
   fetch(): void {
     // @ts-ignore
-    if (this.$accessor.search.suggestMessages.length > 100) {
+    if (this.$accessor.search.exploreMessages.length > 100) {
       return
     }
-    this.$accessor.search.setSuggestMessage()
-    this.$accessor.search.getSuggestItems()
+    this.$accessor.search.setExploreMessage()
+    this.$accessor.search.getExploreItems()
   },
   computed: {
     ...mapGetters('search', [
       'message',
-      'suggestMessages',
+      'exploreMessages',
       'errorMessage',
     ]),
     filterMessage(): any {
       return (
-        (this.suggestMessages.length === 0 && this.errorMessage) ||
+        (this.exploreMessages.length === 0 && this.errorMessage) ||
         this.message === '無修正' ||
         this.message === 'Uncensored' ||
         this.message === 'uncensored' ||
@@ -209,40 +209,40 @@ export default Vue.extend({
   created(): void {
     if (process.browser) {
       // @ts-ignore
-      window.addEventListener('beforeunload', this.setSuggestForm) // eslint-disable-line
+      window.addEventListener('beforeunload', this.setExploreForm) // eslint-disable-line
     }
   },
   destroyed(): void {
     // @ts-ignore
-    window.removeEventListener('beforeunload', this.setSuggestForm)
+    window.removeEventListener('beforeunload', this.setExploreForm)
   },
   methods: {
-    setSuggestCuteMessage(): void {
-      this.$accessor.search.setSuggestCuteMessage()
-      this.$accessor.search.getSuggestItems()
+    setExploreCuteMessage(): void {
+      this.$accessor.search.setExploreCuteMessage()
+      this.$accessor.search.getExploreItems()
     },
-    setSuggestBeautifulMessage(): void {
-      this.$accessor.search.setSuggestBeautifulMessage()
-      this.$accessor.search.getSuggestItems()
+    setExploreBeautifulMessage(): void {
+      this.$accessor.search.setExploreBeautifulMessage()
+      this.$accessor.search.getExploreItems()
     },
-    setSuggestLadyMessage(): void {
-      this.$accessor.search.setSuggestLadyMessage()
-      this.$accessor.search.getSuggestItems()
+    setExploreLadyMessage(): void {
+      this.$accessor.search.setExploreLadyMessage()
+      this.$accessor.search.getExploreItems()
     },
-    setSuggestLolitaMessage(): void {
-      this.$accessor.search.setSuggestLolitaMessage()
-      this.$accessor.search.getSuggestItems()
+    setExploreLolitaMessage(): void {
+      this.$accessor.search.setExploreLolitaMessage()
+      this.$accessor.search.getExploreItems()
     },
-    setSuggestTheGirlsMessage(): void {
-      this.$accessor.search.setSuggestTheGirlsMessage()
-      this.$accessor.search.getSuggestItems()
+    setExploreTheGirlsMessage(): void {
+      this.$accessor.search.setExploreTheGirlsMessage()
+      this.$accessor.search.getExploreItems()
     },
-    setSuggestTheMenMessage(): void {
-      this.$accessor.search.setSuggestTheMenMessage()
-      this.$accessor.search.getSuggestItems()
+    setExploreTheMenMessage(): void {
+      this.$accessor.search.setExploreTheMenMessage()
+      this.$accessor.search.getExploreItems()
     },
-    setSuggestForm(): void {
-      this.$accessor.search.setSuggestMessage()
+    setExploreForm(): void {
+      this.$accessor.search.setExploreMessage()
     },
     refresh(): void {
       this.$nuxt.refresh()

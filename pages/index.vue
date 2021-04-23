@@ -159,7 +159,7 @@ export default Vue.extend({
           text: '動画視聴',
         },
         {
-          url: 'https://porngle.love/suggest',
+          url: 'https://porngle.love/explore',
           text: '探求',
         },
         {

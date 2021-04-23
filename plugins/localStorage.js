@@ -12,7 +12,7 @@ export default ({ store, isHMR }) => {
         paths: [
           'search.message',
           'search.messages',
-          'search.suggestMessages',
+          'search.exploreMessages',
           'search.searchMessagesFirst',
           'search.searchMessagesSecond',
           'search.searchMessagesThird',

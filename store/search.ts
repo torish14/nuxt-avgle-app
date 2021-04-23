@@ -12,7 +12,7 @@ export const state = () => ({
   translateMessages: [] as string[],
   // クリックしたキーワード・検索キーワードの保存先
   recommendMessages: [] as string[],
-  suggestMessages: [] as string[],
+  exploreMessages: [] as string[],
   searchMessagesFirst: [] as string[],
   searchMessagesSecond: [] as string[],
   searchMessagesThird: [] as string[],
@@ -31,7 +31,7 @@ export const getters = getterTree(state, {
   messages: (state) => state.messages,
   translateMessages: (state) => state.translateMessages,
   recommendMessages: (state) => state.recommendMessages,
-  suggestMessages: (state) => state.suggestMessages,
+  exploreMessages: (state) => state.exploreMessages,
   searchMessagesFirst: (state) => state.searchMessagesFirst,
   searchMessagesSecond: (state) => state.searchMessagesSecond,
   searchMessagesThird: (state) => state.searchMessagesThird,
@@ -53,8 +53,8 @@ export const mutations = mutationTree(state, {
   setTranslateItems(state, translateMessages: string[]) {
     state.translateMessages = translateMessages
   },
-  setSuggestItems(state, suggestMessages: string[]): void {
-    state.suggestMessages = suggestMessages
+  setExploreItems(state, exploreMessages: string[]): void {
+    state.exploreMessages = exploreMessages
   },
   setSearchFirstItems(state, searchMessagesFirst: string[]): void {
     state.searchMessagesFirst = searchMessagesFirst
@@ -68,10 +68,10 @@ export const mutations = mutationTree(state, {
   setJapaneseMessage(state) {
     state.message = '日本人'
   },
-  setSuggestMessage(state) {
+  setExploreMessage(state) {
     state.message = 'AV女優'
   },
-  setSuggestCuteMessage(state) {
+  setExploreCuteMessage(state) {
     state.message = [
       '梓ヒカリ',
       '小野六花',
@@ -93,7 +93,7 @@ export const mutations = mutationTree(state, {
       )
     ]
   },
-  setSuggestBeautifulMessage(state) {
+  setExploreBeautifulMessage(state) {
     state.message = [
       '楓カレン',
       '霧島レオナ',
@@ -117,7 +117,7 @@ export const mutations = mutationTree(state, {
       )
     ]
   },
-  setSuggestLadyMessage(state) {
+  setExploreLadyMessage(state) {
     state.message = [
       '希崎ジェシカ',
       '君島みお',
@@ -141,7 +141,7 @@ export const mutations = mutationTree(state, {
       )
     ]
   },
-  setSuggestLolitaMessage(state) {
+  setExploreLolitaMessage(state) {
     state.message = [
       '逢見リカ',
       '跡美しゅり',
@@ -161,7 +161,7 @@ export const mutations = mutationTree(state, {
       )
     ]
   },
-  setSuggestTheGirlsMessage(state) {
+  setExploreTheGirlsMessage(state) {
     state.message = [
       'パパ活',
       '募集ちゃん',
@@ -175,7 +175,7 @@ export const mutations = mutationTree(state, {
       )
     ]
   },
-  setSuggestTheMenMessage(state) {
+  setExploreTheMenMessage(state) {
     state.message = ['ファン感謝祭', '筆おろし', '凄テク'][
       Math.floor(
         Math.random() * ['ファン感謝祭', '筆おろし', '凄テク'].length
@@ -235,7 +235,7 @@ export const mutations = mutationTree(state, {
     state.recommendTitles.filter((x) => x)
     if (
       state.messages.length === 0 ||
-      state.suggestMessages.length === 0 ||
+      state.exploreMessages.length === 0 ||
       state.searchMessagesFirst.length === 0
     ) {
       state.recommendMessages.splice(1, 1)
@@ -252,7 +252,7 @@ export const mutations = mutationTree(state, {
     state.recommendKeywords.filter((x) => x)
     if (
       state.messages.length === 0 ||
-      state.suggestMessages.length === 0
+      state.exploreMessages.length === 0
     ) {
       state.recommendMessages.splice(1, 1)
     }
@@ -357,13 +357,13 @@ export const actions = actionTree(
       commit('hideSkeleton')
       commit('showErrorMessage')
     },
-    async getSuggestItems({ state, commit }) {
+    async getExploreItems({ state, commit }) {
       commit('hideErrorMessage')
       commit('showSkeleton')
       const config = {
         headers: { 'content-type': 'application/json' },
       }
-      const getSuggestItemsResponse = await this.$axios
+      const getExploreItemsResponse = await this.$axios
         .$get(
           encodeURI(
             searchUrl +
@@ -381,8 +381,8 @@ export const actions = actionTree(
           }
         })
       commit(
-        'setSuggestItems',
-        getSuggestItemsResponse.response.videos.filter(
+        'setExploreItems',
+        getExploreItemsResponse.response.videos.filter(
           (value: { title: string; keyword: string }) =>
             !value.title.match('無修正') &&
             !value.title.match('無') &&

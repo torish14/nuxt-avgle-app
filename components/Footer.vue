@@ -77,9 +77,9 @@
             </li>
             <li>
               <nuxt-link
-                to="/suggest"
+                to="/explore"
                 aria-label="探求へ進む"
-                @click.native="setSuggestForm()"
+                @click.native="setExploreForm()"
               >
                 <div class="text-center align-middle">
                   <i class="material-icons">gps_fixed</i>
@@ -149,12 +149,12 @@ export default Vue.extend({
       //     return Math.random() - 0.5
       //   })
     },
-    setSuggestForm(): void {
+    setExploreForm(): void {
       if (this.$accessor.search.message !== 'AV女優') {
-        this.$accessor.search.setSuggestMessage()
+        this.$accessor.search.setExploreMessage()
       }
       window.scrollTo(0, 0)
-      // this.$accessor.search.suggestMessages
+      // this.$accessor.search.ExploreMessages
       //   // @ts-ignore
       //   .sort(function () {
       //     return Math.random() - 0.5

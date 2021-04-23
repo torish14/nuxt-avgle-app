@@ -42,7 +42,7 @@
                 ホーム
               </nuxt-link>
               <nuxt-link
-                to="/suggest"
+                to="/explore"
                 aria-label="探求へ進む"
                 class="block mt-4 lg:inline-block lg:mt-0 text-gray-400 hover:text-gray-200 mr-10"
               >
