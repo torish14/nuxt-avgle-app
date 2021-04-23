@@ -4,7 +4,7 @@
       v-for="(data, index) in getSearchSecondItems"
       :key="`first-${index}`"
     >
-      <div class="flex m-4">
+      <div class="flex mb-4 mx-4">
         <nuxt-link
           :to="`/embedded_url/${data.vid}`"
           aria-label="動画埋め込みページへ遷移"
