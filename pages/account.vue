@@ -41,7 +41,7 @@
               ログイン
             </button>
           </div>
-          <nuxt-link to="/help">
+          <nuxt-link to="/help" aria-label="ヘルプへ進む">
             <div class="flex text-gray-300 mt-16">
               <i class="material-icons m-2">help</i>
               <p class="text-sm m-2 pt-1">ヘルプ</p>
@@ -49,8 +49,12 @@
           </nuxt-link>
           <footer class="mt-auto mb-4">
             <div class="flex justify-center text-gray-400 text-xs">
-              <nuxt-link to="/terms">利用規約・</nuxt-link>
-              <nuxt-link to="/privacy"
+              <nuxt-link to="/terms" aria-label="利用規約へ進む"
+                >利用規約・</nuxt-link
+              >
+              <nuxt-link
+                to="/privacy"
+                aria-label="プライバシーポリシーに進む"
                 >プライバシーポリシー</nuxt-link
               >
             </div>
@@ -89,7 +93,7 @@
               ログアウト
             </button>
           </div>
-          <nuxt-link to="/help">
+          <nuxt-link to="/help" aria-label="ヘルプへ進む">
             <div class="flex text-gray-300 mt-16">
               <i class="material-icons m-2">help</i>
               <p class="text-sm m-2 pt-1">ヘルプ</p>
@@ -97,8 +101,12 @@
           </nuxt-link>
           <footer class="mt-auto mb-4">
             <div class="flex justify-center text-gray-400 text-xs">
-              <nuxt-link to="/terms">利用規約・</nuxt-link>
-              <nuxt-link to="/privacy"
+              <nuxt-link to="/terms" aria-label="利用規約へ進む"
+                >利用規約・</nuxt-link
+              >
+              <nuxt-link
+                to="/privacy"
+                aria-label="プライバシーポリシーへ進む"
                 >プライバシーポリシー</nuxt-link
               >
             </div>
