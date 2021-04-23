@@ -75,6 +75,8 @@ export const mutations = mutationTree(state, {
     state.message = [
       '梓ヒカリ',
       '小野六花',
+      '桜井千春',
+      '桜もこ',
       '奏音かのん',
       '岬ななみ',
       '百瀬あすか',
@@ -85,6 +87,8 @@ export const mutations = mutationTree(state, {
           [
             '梓ヒカリ',
             '小野六花',
+            '桜井千春',
+            '桜もこ',
             '奏音かのん',
             '岬ななみ',
             '百瀬あすか',
@@ -95,22 +99,30 @@ export const mutations = mutationTree(state, {
   },
   setExploreBeautifulMessage(state) {
     state.message = [
+      '有栖花あか',
       '楓カレン',
       '霧島レオナ',
       '鈴森れむ',
       '高井ルナ',
+      '七ツ森りり',
+      '夏目響',
       '藤森里穂',
+      '円さゆき',
       '美乃すずめ',
       'RIO',
     ][
       Math.floor(
         Math.random() *
           [
+            '有栖花あか',
             '楓カレン',
             '霧島レオナ',
             '鈴森れむ',
             '高井ルナ',
+            '七ツ森りり',
+            '夏目響',
             '藤森里穂',
+            '円さゆき',
             '美乃すずめ',
             'RIO',
           ].length
@@ -125,6 +137,7 @@ export const mutations = mutationTree(state, {
       '里美ゆりあ',
       '篠田ゆう',
       '白石茉莉奈',
+      '仲村みう',
       '冬月かえで',
     ][
       Math.floor(
@@ -136,6 +149,7 @@ export const mutations = mutationTree(state, {
             '里美ゆりあ',
             '篠田ゆう',
             '白石茉莉奈',
+            '仲村みう',
             '冬月かえで',
           ].length
       )
@@ -146,6 +160,8 @@ export const mutations = mutationTree(state, {
       '逢見リカ',
       '跡美しゅり',
       '天使もえ',
+      '七沢みあ',
+      '槙いずな',
       '松岡ちな',
       '夕美しおん',
     ][
@@ -155,6 +171,8 @@ export const mutations = mutationTree(state, {
             '逢見リカ',
             '跡美しゅり',
             '天使もえ',
+            '七沢みあ',
+            '槙いずな',
             '松岡ちな',
             '夕美しおん',
           ].length
