@@ -21,7 +21,7 @@ export default {
   telemetry: false,
   generate: {
     fallback: true,
-    exclude: ['/sampleSuggest', '/translate', '/sample'],
+    exclude: ['/translate'],
   },
   /*
    ** Headers of the page
@@ -261,7 +261,7 @@ export default {
     // サイト名
     hostname: 'https://porngle.love',
     // 除外したいURL
-    exclude: ['/sampleSuggest', '/translate', '/sample'],
+    exclude: ['/translate'],
   },
   /*
    ** Nuxt.js modules
