@@ -87,15 +87,10 @@ export default {
         property: 'og:description',
         content: siteDesc,
       },
-      // {
-      //   hid: 'og:image',
-      //   property: 'og:image',
-      //   content: `${ogpImages}home.jpg`
-      // },
       {
         hid: 'og:image',
         property: 'og:image',
-        content: 'https://porngle.love/assets/PG.jpeg',
+        content: `${ogpImages}home.jpg`,
       },
       {
         hid: 'twitter:card',
@@ -113,10 +108,6 @@ export default {
         content: 'https://porngle.love/assets/PG.jpeg',
       },
     ],
-    // link: [{
-    //   rel: 'stylesheet', href: 'https://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.css'
-    // }],
-
     link: [
       {
         rel: 'icon',
@@ -151,7 +142,6 @@ export default {
       src: '~/plugins/localStorage.js',
       mode: 'client',
     },
-    // { src: '~plugins/ga.js', mode: 'client' },
     {
       src: '~/plugins/axios.js',
       mode: 'client',
@@ -176,8 +166,6 @@ export default {
       src: '~/plugins/jsonld.js',
       mode: 'client',
     },
-    // { src: '~/plugins/loading.js', mode: 'client' },
-    // { src: '~/plugins/infiniteloading.js', mode: 'client' }
   ],
   router: {
     base: baseDir,
