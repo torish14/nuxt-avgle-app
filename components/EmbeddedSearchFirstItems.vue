@@ -6,7 +6,7 @@
     >
       <vue-lazy-component>
         <nuxt-link
-          :to="`/embedded_url/${data.vid}`"
+          :to="`/embedded_url/${data.vid}?video_title=${data.title}`"
           aria-label="動画埋め込みページへ遷移"
           no-prefetch
           @click.native="
