@@ -21,163 +21,107 @@
             inputmode="search"
             role="search"
             @keydown.enter="search"
-            @focus="focus"
           />
         </div>
       </div>
       <client-only>
-        <main class="flex flex-wrap justify-center">
+        <div class="flex flex-wrap justify-center">
           <div class="pt-10" style="width: 375px">
-            <template v-if="filterMessage">
-              <client-only>
-                <div
-                  class="flex flex-col flex-shrink-0 items-center pt-11"
-                >
-                  <img
-                    src="~/assets/No_data.jpeg"
-                    alt="残念ながら、作品が見つかりませんでした。"
-                    width="250"
-                    height="223"
-                    style="width: 250px; height: 223px"
-                  />
-                  <p class="text-gray-200 text-base">
-                    &nbsp;作品が見つかりませんでした。
-                  </p>
-                  <!-- prettier-ignore -->
-                  <nuxt-link
-                    to="/"
-                    aria-label="ホームへ戻る"
-                    class="text-gray-400 text-sm hover:text-purple-500"
-                    style="color: #9ca3af"
-                    @click.native="setJapaneseForm(); refresh()"
-                  >
-                    &nbsp;トップページに戻る
-                  </nuxt-link>
-                </div>
-              </client-only>
-            </template>
-            <template v-else-if="$fetchState.error">
+            <div class="text-gray-200 text-sm mt-3">
               <div
-                class="flex flex-col flex-shrink-0 items-center pt-12"
+                class="flex flex-row hover:bg-gray-700 border-t border-gray-700 py-2"
+                @click="changeFormList('ナンパ')"
               >
-                <p class="text-gray-200 text-base">
-                  &nbsp;エラーが発生しました。
-                </p>
-                <!-- prettier-ignore -->
-                <nuxt-link
-                  to="/"
-                  aria-label="ホームへ戻る"
-                  class="text-gray-400 text-sm hover:text-purple-500"
-                  @click.native="setJapaneseForm(); refresh()"
-                >
-                  &nbsp;トップページに戻る
-                </nuxt-link>
+                <i class="material-icons pl-4">search</i>
+                <p class="pl-4">ナンパ</p>
               </div>
-            </template>
-            <template v-else>
-              <div v-show="onFocus">
-                <div class="text-gray-200 text-sm mt-3">
-                  <div
-                    class="flex flex-row hover:bg-gray-700 border-t border-gray-700 py-2"
-                    @click="changeFormList('ナンパ')"
-                  >
-                    <i class="material-icons pl-4">search</i>
-                    <p class="pl-4">ナンパ</p>
-                  </div>
-                  <div
-                    class="flex flex-row hover:bg-gray-700 border-t border-gray-700 py-2"
-                    @click="changeFormList('お姉さん')"
-                  >
-                    <i class="material-icons pl-4">search</i>
-                    <p class="pl-4">お姉さん</p>
-                  </div>
-                  <div
-                    class="flex flex-row hover:bg-gray-700 border-t border-gray-700 py-2"
-                    @click="changeFormList('ハーフ')"
-                  >
-                    <i class="material-icons pl-4">search</i>
-                    <p class="pl-4">ハーフ</p>
-                  </div>
-                  <div
-                    class="flex flex-row hover:bg-gray-700 border-t border-gray-700 py-2"
-                    @click="changeFormList('女子高生')"
-                  >
-                    <i class="material-icons pl-4">search</i>
-                    <p class="pl-4">女子高生</p>
-                  </div>
-                  <div
-                    class="flex flex-row hover:bg-gray-700 border-t border-gray-700 py-2"
-                    @click="changeFormList('10代')"
-                  >
-                    <i class="material-icons pl-4">search</i>
-                    <p class="pl-4">10代</p>
-                  </div>
-                  <div
-                    class="flex flex-row hover:bg-gray-700 border-t border-gray-700 py-2"
-                    @click="changeFormList('カップル')"
-                  >
-                    <i class="material-icons pl-4">search</i>
-                    <p class="pl-4">カップル</p>
-                  </div>
-                  <div
-                    class="flex flex-row hover:bg-gray-700 border-t border-gray-700 py-2"
-                    @click="changeFormList('デビュー')"
-                  >
-                    <i class="material-icons pl-4">search</i>
-                    <p class="pl-4">デビュー</p>
-                  </div>
-                  <div
-                    class="flex flex-row hover:bg-gray-700 border-t border-gray-700 py-2"
-                    @click="changeFormList('美熟女')"
-                  >
-                    <i class="material-icons pl-4">search</i>
-                    <p class="pl-4">美熟女</p>
-                  </div>
-                  <div
-                    class="flex flex-row hover:bg-gray-700 border-t border-gray-700 py-2"
-                    @click="changeFormList('オナニー')"
-                  >
-                    <i class="material-icons pl-4">search</i>
-                    <p class="pl-4">オナニー</p>
-                  </div>
-                  <div
-                    class="flex flex-row hover:bg-gray-700 border-t border-gray-700 py-2"
-                    @click="changeFormList('潮吹き')"
-                  >
-                    <i class="material-icons pl-4">search</i>
-                    <p class="pl-4">潮吹き</p>
-                  </div>
-                  <div
-                    class="flex flex-row hover:bg-gray-700 border-t border-gray-700 py-2"
-                    @click="changeFormList('金髪')"
-                  >
-                    <i class="material-icons pl-4">search</i>
-                    <p class="pl-4">金髪</p>
-                  </div>
-                  <div
-                    class="flex flex-row hover:bg-gray-700 border-t border-gray-700 py-2"
-                    @click="changeFormList('アニメ')"
-                  >
-                    <i class="material-icons pl-4">search</i>
-                    <p class="pl-4">アニメ</p>
-                  </div>
-                  <div
-                    class="flex flex-row hover:bg-gray-700 border-t border-gray-700 py-2"
-                    @click="changeFormList('SM')"
-                  >
-                    <i class="material-icons pl-4">search</i>
-                    <p class="pl-4">SM</p>
-                  </div>
-                </div>
+              <div
+                class="flex flex-row hover:bg-gray-700 border-t border-gray-700 py-2"
+                @click="changeFormList('お姉さん')"
+              >
+                <i class="material-icons pl-4">search</i>
+                <p class="pl-4">お姉さん</p>
               </div>
-              <div v-show="!onFocus">
-                <SearchFirstItems />
-                <SearchSecondItems />
-                <SearchThirdItems />
+              <div
+                class="flex flex-row hover:bg-gray-700 border-t border-gray-700 py-2"
+                @click="changeFormList('ハーフ')"
+              >
+                <i class="material-icons pl-4">search</i>
+                <p class="pl-4">ハーフ</p>
               </div>
-            </template>
+              <div
+                class="flex flex-row hover:bg-gray-700 border-t border-gray-700 py-2"
+                @click="changeFormList('女子高生')"
+              >
+                <i class="material-icons pl-4">search</i>
+                <p class="pl-4">女子高生</p>
+              </div>
+              <div
+                class="flex flex-row hover:bg-gray-700 border-t border-gray-700 py-2"
+                @click="changeFormList('10代')"
+              >
+                <i class="material-icons pl-4">search</i>
+                <p class="pl-4">10代</p>
+              </div>
+              <div
+                class="flex flex-row hover:bg-gray-700 border-t border-gray-700 py-2"
+                @click="changeFormList('カップル')"
+              >
+                <i class="material-icons pl-4">search</i>
+                <p class="pl-4">カップル</p>
+              </div>
+              <div
+                class="flex flex-row hover:bg-gray-700 border-t border-gray-700 py-2"
+                @click="changeFormList('デビュー')"
+              >
+                <i class="material-icons pl-4">search</i>
+                <p class="pl-4">デビュー</p>
+              </div>
+              <div
+                class="flex flex-row hover:bg-gray-700 border-t border-gray-700 py-2"
+                @click="changeFormList('美熟女')"
+              >
+                <i class="material-icons pl-4">search</i>
+                <p class="pl-4">美熟女</p>
+              </div>
+              <div
+                class="flex flex-row hover:bg-gray-700 border-t border-gray-700 py-2"
+                @click="changeFormList('オナニー')"
+              >
+                <i class="material-icons pl-4">search</i>
+                <p class="pl-4">オナニー</p>
+              </div>
+              <div
+                class="flex flex-row hover:bg-gray-700 border-t border-gray-700 py-2"
+                @click="changeFormList('潮吹き')"
+              >
+                <i class="material-icons pl-4">search</i>
+                <p class="pl-4">潮吹き</p>
+              </div>
+              <div
+                class="flex flex-row hover:bg-gray-700 border-t border-gray-700 py-2"
+                @click="changeFormList('金髪')"
+              >
+                <i class="material-icons pl-4">search</i>
+                <p class="pl-4">金髪</p>
+              </div>
+              <div
+                class="flex flex-row hover:bg-gray-700 border-t border-gray-700 py-2"
+                @click="changeFormList('アニメ')"
+              >
+                <i class="material-icons pl-4">search</i>
+                <p class="pl-4">アニメ</p>
+              </div>
+              <div
+                class="flex flex-row hover:bg-gray-700 border-t border-gray-700 py-2"
+                @click="changeFormList('SM')"
+              >
+                <i class="material-icons pl-4">search</i>
+                <p class="pl-4">SM</p>
+              </div>
+            </div>
           </div>
-        </main>
+        </div>
       </client-only>
       <!-- フッター -->
       <footer class="text-gray-500">
@@ -245,23 +189,13 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { mapGetters } from 'vuex'
 import Meta from '~/assets/mixins/meta'
 
 export type DataType = {
   meta: object
-  onFocus: boolean
 }
 
 export default Vue.extend({
-  components: {
-    // @ts-ignore
-    SearchFirstItems: () => import('~/components/SearchFirstItems'),
-    // @ts-ignore
-    SearchSecondItems: () => import('~/components/SearchSecondItems'),
-    // @ts-ignore
-    SearchThirdItems: () => import('~/components/SearchThirdItems'),
-  },
   mixins: [Meta],
   // @ts-ignore
   layout: (ctx) => (ctx.$device.isMobile ? 'mobile' : 'default'),
@@ -276,76 +210,9 @@ export default Vue.extend({
         image: 'https://porngle.love/assets/PG.jpeg',
         robots: 'noindex',
       },
-      onFocus: false,
     }
-  },
-  fetch(): void {
-    // @ts-ignore
-    if (this.$accessor.search.searchMessagesFirst.length > 0) {
-      return
-    }
-    this.$accessor.search.setSearchMessage()
   },
   computed: {
-    ...mapGetters('search', [
-      'message',
-      'searchMessagesFirst',
-      'errorMessage',
-    ]),
-    filterMessage(): any {
-      return (
-        (this.searchMessagesFirst.length === 0 &&
-          this.errorMessage) ||
-        this.message === '無修正' ||
-        this.message === 'Uncensored' ||
-        this.message === 'uncensored' ||
-        this.message === 'PAKO' ||
-        this.message === 'Pako' ||
-        this.message === 'pako' ||
-        this.message === 'ぱこ' ||
-        this.message === 'パコ' ||
-        this.message === 'CARIB' ||
-        this.message === 'Carib' ||
-        this.message === 'carib' ||
-        this.message === 'かりぶ' ||
-        this.message === 'カリブ' ||
-        this.message === 'FC2' ||
-        this.message === 'Fc2' ||
-        this.message === 'fc2' ||
-        this.message === '完全素人' ||
-        this.message === '個人撮影' ||
-        this.message === 'DEEPFAKE' ||
-        this.message === 'DeepFake' ||
-        this.message === 'Deepfake' ||
-        this.message === 'deepfake' ||
-        this.message === 'カリビアンコム' ||
-        this.message === '一本道' ||
-        this.message === 'HEYZO' ||
-        this.message === 'Heyzo' ||
-        this.message === 'heyzo' ||
-        this.message === '東京熱' ||
-        this.message === 'TOKYO-HOT' ||
-        this.message === 'Toyo-Hot' ||
-        this.message === 'Tokyo-hot' ||
-        this.message === 'tokyo-hot' ||
-        this.message === 'AV9898' ||
-        this.message === 'Av9898' ||
-        this.message === 'av9898' ||
-        this.message === 'PORNHUB' ||
-        this.message === 'PornHub' ||
-        this.message === 'Pornhub' ||
-        this.message === 'pornhub' ||
-        this.message === 'エッチな4610' ||
-        this.message === 'エッチな0930' ||
-        this.message === '人妻斬り' ||
-        this.message === 'SM-MIRACLE' ||
-        this.message === 'SM-Miracle' ||
-        this.message === 'SM-miracle' ||
-        this.message === 'sm-miracle' ||
-        this.message === 'のぞきザムライ' ||
-        this.message === '金8天国'
-      )
-    },
     computedGetState: {
       get(): string {
         // @ts-ignore
@@ -357,25 +224,10 @@ export default Vue.extend({
       },
     },
   },
-  watch: {
-    '$route.query': '$fetch',
-  },
   mounted(): void {
-    this.$nextTick(() => {
+    this.$nextTick((): void => {
       this.clearForm()
-      // @ts-ignore
-      this.$refs.focusInput.focus()
     })
-  },
-  created(): void {
-    if (process.browser) {
-      // @ts-ignore
-      window.addEventListener('beforeunload', this.setSearchForm) // eslint-disable-line
-    }
-  },
-  destroyed(): void {
-    // @ts-ignore
-    window.removeEventListener('beforeunload', this.setSearchForm)
   },
   methods: {
     search(e: any): void {
@@ -393,12 +245,14 @@ export default Vue.extend({
         // @ts-ignore
         this.$nextTick(() => {
           e.target.blur()
-          this.onFocus = false
           window.scrollTo(0, 0)
         })
       }
     },
     sendRequest(): void {
+      this.$router.push(
+        `/result?search_query=${this.$accessor.search.message}`
+      )
       this.$accessor.search.getSearchFirstItems()
       this.$accessor.search.getSearchSecondItems()
       this.$accessor.search.getSearchThirdItems()
@@ -429,12 +283,6 @@ export default Vue.extend({
       }
       window.scrollTo(0, 0)
     },
-    setSearchForm(): void {
-      if (this.$accessor.search.message !== '美少女') {
-        this.$accessor.search.setSearchMessage()
-      }
-      window.scrollTo(0, 0)
-    },
     clearForm(): void {
       this.$accessor.search.clearMessage()
     },
@@ -445,18 +293,13 @@ export default Vue.extend({
         window.scrollTo(0, 0)
       })
     },
-    focus(): void {
-      this.onFocus = true
-    },
     // @ts-ignore
     changeFormList(list): void {
+      this.$router.push(`/result?search_query=${list}`)
       this.$accessor.search.changeKeyword(list)
       this.$accessor.search.getSearchFirstItems()
       this.$accessor.search.getSearchSecondItems()
       this.$accessor.search.getSearchThirdItems()
-      this.$nextTick((): void => {
-        this.onFocus = false
-      })
       console.log(list)
     },
     refresh(): void {
