@@ -290,11 +290,15 @@ export default {
     UserAgent: '*',
     // クローリングしないパスを記述
     Disallow: [
-      '/suggest',
+      '/embedded_url',
+      '/account',
+      '/explore',
+      '/help',
+      '/privacy',
+      '/result',
       '/search',
-      '/embedded_url/_id',
-      '/sampleSuggest',
-      '/sample',
+      '/terms',
+      '/translate',
     ],
     // sitemap.xmlのURLを記述
     Sitemap: 'https://porngle.love/sitemap.xml',
