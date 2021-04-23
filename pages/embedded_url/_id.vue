@@ -522,7 +522,7 @@ export default Vue.extend({
       id: this.$route.params.id,
       prevRoute: [],
       meta: {
-        title: '動画視聴',
+        title: this.$route.query.video_title,
         description: '動画視聴ページです。',
         type: 'website',
         url: 'https://porngle.love/embedded_url/_id',
