@@ -8,11 +8,11 @@ const baseUrl = baseHost + baseDir
 const lang = 'ja'
 const siteName = 'Porngle'
 const siteDesc =
-  '自分だけの性癖を見つける無料アダルトサイトです。Porngle は検索機能に特化したアダルトサイトを目指しています。'
-const siteKeywords = 'porn, porngle, アダルト, エロ'
+  'あなただけの性癖が見つかる無料エロ動画サイト、それが Porngle。Porngle は検索機能に特化したエロ動画サイトを目指しています。'
+const siteKeywords = 'porn, porngle, ポーングル, エロ'
 
 const shortName = 'Porngle'
-// const ogpImages = baseUrl + 'img/ogp/'
+const ogpImages = baseUrl + 'img/ogp/'
 
 export default {
   // srcDir: 'app',
