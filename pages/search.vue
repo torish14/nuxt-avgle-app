@@ -100,10 +100,10 @@
               </div>
               <div
                 class="flex flex-row hover:bg-gray-700 border-t border-gray-700 py-2"
-                @click="changeFormList('金髪')"
+                @click="changeFormList('盗撮')"
               >
                 <i class="material-icons pl-4">search</i>
-                <p class="pl-4">金髪</p>
+                <p class="pl-4">盗撮</p>
               </div>
               <div
                 class="flex flex-row hover:bg-gray-700 border-t border-gray-700 py-2"
