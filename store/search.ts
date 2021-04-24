@@ -197,6 +197,7 @@ export const mutations = mutationTree(state, {
   },
   setExploreTheGirlsMessage(state) {
     state.message = [
+      '俺の素人',
       'パパ活',
       '募集ちゃん',
       'ラグジュTV',
@@ -204,7 +205,7 @@ export const mutations = mutationTree(state, {
     ][
       Math.floor(
         Math.random() *
-          ['パパ活', '募集ちゃん', 'ラグジュTV', 'レンタル彼女']
+          ['俺の素人', 'パパ活', '募集ちゃん', 'ラグジュTV', 'レンタル彼女']
             .length
       )
     ]
