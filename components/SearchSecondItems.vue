@@ -55,6 +55,7 @@
                     item !== '粗い' &&
                     item !== '熟女' &&
                     item !== '美女' &&
+                    item !== '援助交際' &&
                     item.length < 6
                 )
                 .filter((x, i, self) => self.indexOf(x) === i)[0],
@@ -102,6 +103,7 @@
                     item !== '粗い' &&
                     item !== '熟女' &&
                     item !== '美女' &&
+                    item !== '援助交際' &&
                     item.length < 6
                 )
                 .filter((x, i, self) => self.indexOf(x) === i)[1],
@@ -149,6 +151,7 @@
                     item !== '粗い' &&
                     item !== '熟女' &&
                     item !== '美女' &&
+                    item !== '援助交際' &&
                     item.length < 6
                 )
                 .filter((x, i, self) => self.indexOf(x) === i)[2],
@@ -196,6 +199,7 @@
                     item !== '粗い' &&
                     item !== '熟女' &&
                     item !== '美女' &&
+                    item !== '援助交際' &&
                     item.length < 6
                 )
                 .filter((x, i, self) => self.indexOf(x) === i)[3]
@@ -274,6 +278,7 @@
                       item !== '粗い' &&
                       item !== '熟女' &&
                       item !== '美女' &&
+                      item !== '援助交際' &&
                       item.length < 6
                   )
                   .filter((x, i, self) => self.indexOf(x) === i)[0],
@@ -321,6 +326,7 @@
                       item !== '粗い' &&
                       item !== '熟女' &&
                       item !== '美女' &&
+                      item !== '援助交際' &&
                       item.length < 6
                   )
                   .filter((x, i, self) => self.indexOf(x) === i)[1],
@@ -368,6 +374,7 @@
                       item !== '粗い' &&
                       item !== '熟女' &&
                       item !== '美女' &&
+                      item !== '援助交際' &&
                       item.length < 6
                   )
                   .filter((x, i, self) => self.indexOf(x) === i)[2],
@@ -415,6 +422,7 @@
                       item !== '粗い' &&
                       item !== '熟女' &&
                       item !== '美女' &&
+                      item !== '援助交際' &&
                       item.length < 6
                   )
                   .filter((x, i, self) => self.indexOf(x) === i)[3]

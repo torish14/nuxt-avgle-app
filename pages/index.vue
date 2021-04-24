@@ -279,7 +279,8 @@ export default Vue.extend({
         this.message === 'SM-miracle' ||
         this.message === 'sm-miracle' ||
         this.message === 'のぞきザムライ' ||
-        this.message === '金8天国'
+        this.message === '金8天国' ||
+        this.message === '援助交際'
       )
     },
     // ? ページネーションの最大ページ数を求めるためにitems をparPage で割って切り上げる

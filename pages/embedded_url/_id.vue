@@ -598,7 +598,8 @@ export default Vue.extend({
         this.message === 'SM-miracle' ||
         this.message === 'sm-miracle' ||
         this.message === 'のぞきザムライ' ||
-        this.message === '金8天国'
+        this.message === '金8天国' ||
+        this.message === '援助交際'
       )
     },
     messagesMatchVid(): number {
