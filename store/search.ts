@@ -199,12 +199,12 @@ export const mutations = mutationTree(state, {
     state.message = [
       'パパ活',
       '募集ちゃん',
-      'レンタル彼女',
       'ラグジュTV',
+      'レンタル彼女',
     ][
       Math.floor(
         Math.random() *
-          ['パパ活', '募集ちゃん', 'レンタル彼女', 'ラグジュTV']
+          ['パパ活', '募集ちゃん', 'ラグジュTV', 'レンタル彼女']
             .length
       )
     ]
