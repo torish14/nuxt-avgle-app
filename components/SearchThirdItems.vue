@@ -55,7 +55,52 @@
                     item !== '粗い' &&
                     item !== '熟女' &&
                     item !== '美女' &&
-                    item !== '援助交際' &&
+                    item !== '貸' &&
+                    item !== 'あん' &&
+                    item !== '爆乳' &&
+                    item !== '美乳' &&
+                    item !== 'その他' &&
+                    item !== '小さい' &&
+                    item !== '小さな' &&
+                    item !== '亜人種間' &&
+                    item !== '一律' &&
+                    item !== '若い' &&
+                    item !== '校生' &&
+                    item !== 'デジモ' &&
+                    item !== '個人撮影' &&
+                    item !== '大乱交' &&
+                    item !== '精飲' &&
+                    item !== '微乳' &&
+                    item !== 'ラフ' &&
+                    item !== '十代の' &&
+                    item !== 'おっぱい' &&
+                    item !== '放課後に' &&
+                    item !== '爆尻' &&
+                    item !== '職業色々' &&
+                    item !== 'ミニ系' &&
+                    item !== 'ちぃ' &&
+                    item !== '茶髪' &&
+                    item !== '豊満' &&
+                    item !== '姉' &&
+                    item !== '乳房' &&
+                    item !== 'エロイ' &&
+                    item !== '本生' &&
+                    item !== '寝取り' &&
+                    item !== '寝取られ' &&
+                    item !== '企画' &&
+                    item !== '単体作品' &&
+                    item !== '恋愛' &&
+                    item !== '完熟' &&
+                    item !== '出軌' &&
+                    item !== '栞' &&
+                    item !== '息子の友達' &&
+                    item !== 'ザ' &&
+                    item !== 'もえ' &&
+                    item !== '素人てぃな' &&
+                    item !== '見せつけ' &&
+                    item !== '挑発' &&
+                    item !== '辱め' &&
+                    item !== '乳交' &&
                     item.length < 6
                 )
                 .filter((x, i, self) => self.indexOf(x) === i)[0],
@@ -103,7 +148,52 @@
                     item !== '粗い' &&
                     item !== '熟女' &&
                     item !== '美女' &&
-                    item !== '援助交際' &&
+                    item !== '貸' &&
+                    item !== 'あん' &&
+                    item !== '爆乳' &&
+                    item !== '美乳' &&
+                    item !== 'その他' &&
+                    item !== '小さい' &&
+                    item !== '小さな' &&
+                    item !== '亜人種間' &&
+                    item !== '一律' &&
+                    item !== '若い' &&
+                    item !== '校生' &&
+                    item !== 'デジモ' &&
+                    item !== '個人撮影' &&
+                    item !== '大乱交' &&
+                    item !== '精飲' &&
+                    item !== '微乳' &&
+                    item !== 'ラフ' &&
+                    item !== '十代の' &&
+                    item !== 'おっぱい' &&
+                    item !== '放課後に' &&
+                    item !== '爆尻' &&
+                    item !== '職業色々' &&
+                    item !== 'ミニ系' &&
+                    item !== 'ちぃ' &&
+                    item !== '茶髪' &&
+                    item !== '豊満' &&
+                    item !== '姉' &&
+                    item !== '乳房' &&
+                    item !== 'エロイ' &&
+                    item !== '本生' &&
+                    item !== '寝取り' &&
+                    item !== '寝取られ' &&
+                    item !== '企画' &&
+                    item !== '単体作品' &&
+                    item !== '恋愛' &&
+                    item !== '完熟' &&
+                    item !== '出軌' &&
+                    item !== '栞' &&
+                    item !== '息子の友達' &&
+                    item !== 'ザ' &&
+                    item !== 'もえ' &&
+                    item !== '素人てぃな' &&
+                    item !== '見せつけ' &&
+                    item !== '挑発' &&
+                    item !== '辱め' &&
+                    item !== '乳交' &&
                     item.length < 6
                 )
                 .filter((x, i, self) => self.indexOf(x) === i)[1],
@@ -151,7 +241,52 @@
                     item !== '粗い' &&
                     item !== '熟女' &&
                     item !== '美女' &&
-                    item !== '援助交際' &&
+                    item !== '貸' &&
+                    item !== 'あん' &&
+                    item !== '爆乳' &&
+                    item !== '美乳' &&
+                    item !== 'その他' &&
+                    item !== '小さい' &&
+                    item !== '小さな' &&
+                    item !== '亜人種間' &&
+                    item !== '一律' &&
+                    item !== '若い' &&
+                    item !== '校生' &&
+                    item !== 'デジモ' &&
+                    item !== '個人撮影' &&
+                    item !== '大乱交' &&
+                    item !== '精飲' &&
+                    item !== '微乳' &&
+                    item !== 'ラフ' &&
+                    item !== '十代の' &&
+                    item !== 'おっぱい' &&
+                    item !== '放課後に' &&
+                    item !== '爆尻' &&
+                    item !== '職業色々' &&
+                    item !== 'ミニ系' &&
+                    item !== 'ちぃ' &&
+                    item !== '茶髪' &&
+                    item !== '豊満' &&
+                    item !== '姉' &&
+                    item !== '乳房' &&
+                    item !== 'エロイ' &&
+                    item !== '本生' &&
+                    item !== '寝取り' &&
+                    item !== '寝取られ' &&
+                    item !== '企画' &&
+                    item !== '単体作品' &&
+                    item !== '恋愛' &&
+                    item !== '完熟' &&
+                    item !== '出軌' &&
+                    item !== '栞' &&
+                    item !== '息子の友達' &&
+                    item !== 'ザ' &&
+                    item !== 'もえ' &&
+                    item !== '素人てぃな' &&
+                    item !== '見せつけ' &&
+                    item !== '挑発' &&
+                    item !== '辱め' &&
+                    item !== '乳交' &&
                     item.length < 6
                 )
                 .filter((x, i, self) => self.indexOf(x) === i)[2],
@@ -199,7 +334,52 @@
                     item !== '粗い' &&
                     item !== '熟女' &&
                     item !== '美女' &&
-                    item !== '援助交際' &&
+                    item !== '貸' &&
+                    item !== 'あん' &&
+                    item !== '爆乳' &&
+                    item !== '美乳' &&
+                    item !== 'その他' &&
+                    item !== '小さい' &&
+                    item !== '小さな' &&
+                    item !== '亜人種間' &&
+                    item !== '一律' &&
+                    item !== '若い' &&
+                    item !== '校生' &&
+                    item !== 'デジモ' &&
+                    item !== '個人撮影' &&
+                    item !== '大乱交' &&
+                    item !== '精飲' &&
+                    item !== '微乳' &&
+                    item !== 'ラフ' &&
+                    item !== '十代の' &&
+                    item !== 'おっぱい' &&
+                    item !== '放課後に' &&
+                    item !== '爆尻' &&
+                    item !== '職業色々' &&
+                    item !== 'ミニ系' &&
+                    item !== 'ちぃ' &&
+                    item !== '茶髪' &&
+                    item !== '豊満' &&
+                    item !== '姉' &&
+                    item !== '乳房' &&
+                    item !== 'エロイ' &&
+                    item !== '本生' &&
+                    item !== '寝取り' &&
+                    item !== '寝取られ' &&
+                    item !== '企画' &&
+                    item !== '単体作品' &&
+                    item !== '恋愛' &&
+                    item !== '完熟' &&
+                    item !== '出軌' &&
+                    item !== '栞' &&
+                    item !== '息子の友達' &&
+                    item !== 'ザ' &&
+                    item !== 'もえ' &&
+                    item !== '素人てぃな' &&
+                    item !== '見せつけ' &&
+                    item !== '挑発' &&
+                    item !== '辱め' &&
+                    item !== '乳交' &&
                     item.length < 6
                 )
                 .filter((x, i, self) => self.indexOf(x) === i)[3]
@@ -230,7 +410,7 @@
         <div class="ml-2" style="width: 175px; height: 90px">
           <nuxt-link
             :to="`/embedded_url/${data.vid}?video_title=${data.title}`"
-            aria-label="動画埋め込みページへ遷移"
+            :aria-label="`${data.title}へ進む`"
             no-prefetch
             @click.native="
               getRecommendTitle(
@@ -278,7 +458,52 @@
                       item !== '粗い' &&
                       item !== '熟女' &&
                       item !== '美女' &&
-                      item !== '援助交際' &&
+                      item !== '貸' &&
+                      item !== 'あん' &&
+                      item !== '爆乳' &&
+                      item !== '美乳' &&
+                      item !== 'その他' &&
+                      item !== '小さい' &&
+                      item !== '小さな' &&
+                      item !== '亜人種間' &&
+                      item !== '一律' &&
+                      item !== '若い' &&
+                      item !== '校生' &&
+                      item !== 'デジモ' &&
+                      item !== '個人撮影' &&
+                      item !== '大乱交' &&
+                      item !== '精飲' &&
+                      item !== '微乳' &&
+                      item !== 'ラフ' &&
+                      item !== '十代の' &&
+                      item !== 'おっぱい' &&
+                      item !== '放課後に' &&
+                      item !== '爆尻' &&
+                      item !== '職業色々' &&
+                      item !== 'ミニ系' &&
+                      item !== 'ちぃ' &&
+                      item !== '茶髪' &&
+                      item !== '豊満' &&
+                      item !== '姉' &&
+                      item !== '乳房' &&
+                      item !== 'エロイ' &&
+                      item !== '本生' &&
+                      item !== '寝取り' &&
+                      item !== '寝取られ' &&
+                      item !== '企画' &&
+                      item !== '単体作品' &&
+                      item !== '恋愛' &&
+                      item !== '完熟' &&
+                      item !== '出軌' &&
+                      item !== '栞' &&
+                      item !== '息子の友達' &&
+                      item !== 'ザ' &&
+                      item !== 'もえ' &&
+                      item !== '素人てぃな' &&
+                      item !== '見せつけ' &&
+                      item !== '挑発' &&
+                      item !== '辱め' &&
+                      item !== '乳交' &&
                       item.length < 6
                   )
                   .filter((x, i, self) => self.indexOf(x) === i)[0],
@@ -326,7 +551,52 @@
                       item !== '粗い' &&
                       item !== '熟女' &&
                       item !== '美女' &&
-                      item !== '援助交際' &&
+                      item !== '貸' &&
+                      item !== 'あん' &&
+                      item !== '爆乳' &&
+                      item !== '美乳' &&
+                      item !== 'その他' &&
+                      item !== '小さい' &&
+                      item !== '小さな' &&
+                      item !== '亜人種間' &&
+                      item !== '一律' &&
+                      item !== '若い' &&
+                      item !== '校生' &&
+                      item !== 'デジモ' &&
+                      item !== '個人撮影' &&
+                      item !== '大乱交' &&
+                      item !== '精飲' &&
+                      item !== '微乳' &&
+                      item !== 'ラフ' &&
+                      item !== '十代の' &&
+                      item !== 'おっぱい' &&
+                      item !== '放課後に' &&
+                      item !== '爆尻' &&
+                      item !== '職業色々' &&
+                      item !== 'ミニ系' &&
+                      item !== 'ちぃ' &&
+                      item !== '茶髪' &&
+                      item !== '豊満' &&
+                      item !== '姉' &&
+                      item !== '乳房' &&
+                      item !== 'エロイ' &&
+                      item !== '本生' &&
+                      item !== '寝取り' &&
+                      item !== '寝取られ' &&
+                      item !== '企画' &&
+                      item !== '単体作品' &&
+                      item !== '恋愛' &&
+                      item !== '完熟' &&
+                      item !== '出軌' &&
+                      item !== '栞' &&
+                      item !== '息子の友達' &&
+                      item !== 'ザ' &&
+                      item !== 'もえ' &&
+                      item !== '素人てぃな' &&
+                      item !== '見せつけ' &&
+                      item !== '挑発' &&
+                      item !== '辱め' &&
+                      item !== '乳交' &&
                       item.length < 6
                   )
                   .filter((x, i, self) => self.indexOf(x) === i)[1],
@@ -374,7 +644,52 @@
                       item !== '粗い' &&
                       item !== '熟女' &&
                       item !== '美女' &&
-                      item !== '援助交際' &&
+                      item !== '貸' &&
+                      item !== 'あん' &&
+                      item !== '爆乳' &&
+                      item !== '美乳' &&
+                      item !== 'その他' &&
+                      item !== '小さい' &&
+                      item !== '小さな' &&
+                      item !== '亜人種間' &&
+                      item !== '一律' &&
+                      item !== '若い' &&
+                      item !== '校生' &&
+                      item !== 'デジモ' &&
+                      item !== '個人撮影' &&
+                      item !== '大乱交' &&
+                      item !== '精飲' &&
+                      item !== '微乳' &&
+                      item !== 'ラフ' &&
+                      item !== '十代の' &&
+                      item !== 'おっぱい' &&
+                      item !== '放課後に' &&
+                      item !== '爆尻' &&
+                      item !== '職業色々' &&
+                      item !== 'ミニ系' &&
+                      item !== 'ちぃ' &&
+                      item !== '茶髪' &&
+                      item !== '豊満' &&
+                      item !== '姉' &&
+                      item !== '乳房' &&
+                      item !== 'エロイ' &&
+                      item !== '本生' &&
+                      item !== '寝取り' &&
+                      item !== '寝取られ' &&
+                      item !== '企画' &&
+                      item !== '単体作品' &&
+                      item !== '恋愛' &&
+                      item !== '完熟' &&
+                      item !== '出軌' &&
+                      item !== '栞' &&
+                      item !== '息子の友達' &&
+                      item !== 'ザ' &&
+                      item !== 'もえ' &&
+                      item !== '素人てぃな' &&
+                      item !== '見せつけ' &&
+                      item !== '挑発' &&
+                      item !== '辱め' &&
+                      item !== '乳交' &&
                       item.length < 6
                   )
                   .filter((x, i, self) => self.indexOf(x) === i)[2],
@@ -422,7 +737,52 @@
                       item !== '粗い' &&
                       item !== '熟女' &&
                       item !== '美女' &&
-                      item !== '援助交際' &&
+                      item !== '貸' &&
+                      item !== 'あん' &&
+                      item !== '爆乳' &&
+                      item !== '美乳' &&
+                      item !== 'その他' &&
+                      item !== '小さい' &&
+                      item !== '小さな' &&
+                      item !== '亜人種間' &&
+                      item !== '一律' &&
+                      item !== '若い' &&
+                      item !== '校生' &&
+                      item !== 'デジモ' &&
+                      item !== '個人撮影' &&
+                      item !== '大乱交' &&
+                      item !== '精飲' &&
+                      item !== '微乳' &&
+                      item !== 'ラフ' &&
+                      item !== '十代の' &&
+                      item !== 'おっぱい' &&
+                      item !== '放課後に' &&
+                      item !== '爆尻' &&
+                      item !== '職業色々' &&
+                      item !== 'ミニ系' &&
+                      item !== 'ちぃ' &&
+                      item !== '茶髪' &&
+                      item !== '豊満' &&
+                      item !== '姉' &&
+                      item !== '乳房' &&
+                      item !== 'エロイ' &&
+                      item !== '本生' &&
+                      item !== '寝取り' &&
+                      item !== '寝取られ' &&
+                      item !== '企画' &&
+                      item !== '単体作品' &&
+                      item !== '恋愛' &&
+                      item !== '完熟' &&
+                      item !== '出軌' &&
+                      item !== '栞' &&
+                      item !== '息子の友達' &&
+                      item !== 'ザ' &&
+                      item !== 'もえ' &&
+                      item !== '素人てぃな' &&
+                      item !== '見せつけ' &&
+                      item !== '挑発' &&
+                      item !== '辱め' &&
+                      item !== '乳交' &&
                       item.length < 6
                   )
                   .filter((x, i, self) => self.indexOf(x) === i)[3]
