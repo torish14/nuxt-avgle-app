@@ -15,6 +15,7 @@
           <p class="text-gray-400 mt-1">
             <a
               href="mailto:porngle.love@gmail.com"
+              aria-label="Porngle に Gmail でお問い合わせをする"
               class="text-purple-500"
               target="_blank"
               rel="noopener noreferrer"
@@ -109,6 +110,7 @@
           <p class="text-gray-400 mt-1">
             <a
               href="https://marketingplatform.google.com/about/analytics/terms/jp/"
+              aria-label="Google アナリティクス利用規約へ進む"
               class="text-purple-500"
               target="_blank"
               rel="noopener noreferrer"
@@ -147,6 +149,7 @@
           <p class="text-gray-400 mt-1">
             <a
               href="mailto:porngle.love@gmail.com"
+              aria-label="Porngle に Gmail でお問い合わせをする"
               class="text-purple-500"
               target="_blank"
               rel="noopener noreferrer"
@@ -185,6 +188,7 @@
           <p class="text-gray-400 mt-1">
             <a
               href="mailto:porngle.love@gmail.com"
+              aria-label="Porngle に Gmail でお問い合わせをする"
               class="text-purple-500"
               target="_blank"
               rel="noopener noreferrer"
@@ -274,11 +278,16 @@
         </h3>
         <div class="text-xs leading-relaxed">
           <p class="text-gray-400 mt-1">
-            当社は、お客様のアクセス解析のために、「Googleアナリティクス」を利用しています。Googleアナリティクスは、トラフィックデータの収集のためにCookieを使用しています。トラフィックデータは匿名で収集されており、個人を特定するものではありません。Cookieを無効にすれば、これらの情報の収集を拒否することができます。詳しくはお使いのブラウザの設定をご確認ください。Googleアナリティクスについて、詳しくは以下からご確認ください。
+            当社は、お客様のアクセス解析のために、「Google
+            アナリティクス」を利用しています。Google
+            アナリティクスは、トラフィックデータの収集のためにCookieを使用しています。トラフィックデータは匿名で収集されており、個人を特定するものではありません。Cookie
+            を無効にすれば、これらの情報の収集を拒否することができます。詳しくはお使いのブラウザの設定をご確認ください。Google
+            アナリティクスについて、詳しくは以下からご確認ください。
           </p>
           <p class="text-gray-400 mt-1">
             <a
               href="https://marketingplatform.google.com/about/analytics/terms/jp/"
+              aria-label="Google アナリティクス利用規約へ進む"
               class="text-purple-500"
               target="_blank"
               rel="noopener noreferrer"
@@ -317,6 +326,7 @@
           <p class="text-gray-400 mt-1">
             <a
               href="mailto:porngle.love@gmail.com"
+              aria-label="Porngle に Gmail でお問い合わせをする"
               class="text-purple-500"
               target="_blank"
               rel="noopener noreferrer"

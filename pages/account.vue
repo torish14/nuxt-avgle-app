@@ -54,7 +54,7 @@
               >
               <nuxt-link
                 to="/privacy"
-                aria-label="プライバシーポリシーに進む"
+                aria-label="プライバシーポリシーへ進む"
                 >プライバシーポリシー</nuxt-link
               >
             </div>
