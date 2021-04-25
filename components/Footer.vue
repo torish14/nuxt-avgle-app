@@ -24,9 +24,11 @@
             />
           </nuxt-link>
           <p
-            class="text-gray-400 text-sm sm:ml-4 sm:pl-4 sm:py-2 sm:mt-0 mt-4"
+            class="text-gray-400 text-xs hover:text-gray-200 cursor-pointer sm:ml-4 sm:pl-4 sm:py-2 sm:mt-0 mt-4"
           >
-            &copy; 2020 - Porngle
+            <nuxt-link to="/about" aria-label="Porngle についてへ進む"
+              >Porngle について</nuxt-link
+            >
           </p>
           <p
             class="text-gray-400 text-xs hover:text-gray-200 cursor-pointer sm:ml-4 sm:pl-4 sm:py-2 sm:mt-0 mt-4"
@@ -40,8 +42,15 @@
           >
             <nuxt-link
               to="/privacy"
-              aria-label="プライバシーポリシーに進む"
+              aria-label="プライバシーポリシーへ進む"
               >プライバシーポリシー</nuxt-link
+            >
+          </p>
+          <p
+            class="text-gray-400 text-xs hover:text-gray-200 cursor-pointer sm:ml-4 sm:pl-4 sm:py-2 sm:mt-0 mt-4"
+          >
+            <nuxt-link to="/help" aria-label="ヘルプへ進む"
+              >ヘルプ</nuxt-link
             >
           </p>
           <p
@@ -49,10 +58,27 @@
           >
             <a
               href="mailto:porngle.love@gmail.com"
+              aria-label="Porngle に Gmail でお問い合わせをする"
               target="_blank"
               rel="noopener noreferrer"
               >お問い合わせ</a
             >
+          </p>
+          <p
+            class="text-gray-400 text-xs hover:text-gray-200 sm:ml-4 sm:pl-4 sm:py-2 sm:mt-0 mt-4"
+          >
+            <a
+              href="https://twitter.com/porngle_love"
+              aria-label="Porngle 公式ツイッターアカウントへ進む"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Twitter</a
+            >
+          </p>
+          <p
+            class="text-gray-400 text-sm sm:ml-4 sm:pl-4 sm:py-2 sm:mt-0 mt-4"
+          >
+            &copy; 2020 - Porngle
           </p>
         </div>
       </footer>
