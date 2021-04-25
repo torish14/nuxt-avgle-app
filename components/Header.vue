@@ -249,6 +249,7 @@ export default Vue.extend({
         .sort(function () {
           return Math.random() - 0.5
         })
+      window.scrollTo(0, 0)
     },
     refresh(): void {
       this.$nuxt.refresh()
