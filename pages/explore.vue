@@ -23,12 +23,12 @@
               </p>
               <!-- prettier-ignore -->
               <nuxt-link
-                to="/"
-                aria-label="ホームへ戻る"
+                to="/search"
+                aria-label="検索へ進む"
                 class="text-gray-400 text-sm hover:text-purple-500"
                 @click.native="setJapaneseForm(); refresh()"
               >
-                &nbsp;トップページに戻る
+                &nbsp;検索ページへ進む
               </nuxt-link>
             </div>
           </client-only>
