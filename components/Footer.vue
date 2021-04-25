@@ -51,7 +51,7 @@
               href="mailto:porngle.love@gmail.com"
               target="_blank"
               rel="noopener noreferrer"
-              >porngle.love@gmail.com</a
+              >お問い合わせ</a
             >
           </p>
         </div>
