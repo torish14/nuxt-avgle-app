@@ -84,6 +84,7 @@ export const mutations = mutationTree(state, {
       '岬ななみ',
       '宮島めい',
       '百瀬あすか',
+      '森日向子',
       '吉高寧々',
     ][
       Math.floor(
@@ -100,6 +101,7 @@ export const mutations = mutationTree(state, {
             '岬ななみ',
             '宮島めい',
             '百瀬あすか',
+            '森日向子',
             '吉高寧々',
           ].length
       )
