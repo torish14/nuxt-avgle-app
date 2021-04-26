@@ -110,6 +110,7 @@ export const mutations = mutationTree(state, {
   setExploreBeautifulMessage(state) {
     state.message = [
       '愛音まりあ',
+      '藍芽みずき',
       '有栖花あか',
       '楓カレン',
       '霧島レオナ',
@@ -133,6 +134,7 @@ export const mutations = mutationTree(state, {
         Math.random() *
           [
             '愛音まりあ',
+            '藍芽みずき',
             '有栖花あか',
             '楓カレン',
             '霧島レオナ',
