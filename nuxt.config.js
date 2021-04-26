@@ -331,6 +331,9 @@ export default {
         memoryOnly: false,
         enablePersistence: true,
       },
+      analytics: {
+        collectionEnabled: true,
+      },
     },
   },
   /*
