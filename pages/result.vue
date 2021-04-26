@@ -128,12 +128,15 @@ export type DataType = {
 
 export default Vue.extend({
   components: {
-    // @ts-ignore
-    SearchFirstItems: () => import('~/components/SearchFirstItems'),
-    // @ts-ignore
-    SearchSecondItems: () => import('~/components/SearchSecondItems'),
-    // @ts-ignore
-    SearchThirdItems: () => import('~/components/SearchThirdItems'),
+    SearchFirstItems: () =>
+      // @ts-ignore
+      import('~/components/SearchFirstItems'),
+    SearchSecondItems: () =>
+      // @ts-ignore
+      import('~/components/SearchSecondItems'),
+    SearchThirdItems: () =>
+      // @ts-ignore
+      import('~/components/SearchThirdItems'),
   },
   mixins: [Meta],
   // @ts-ignore

@@ -1,10 +1,10 @@
 <template>
-  <div>
+  <div class="flex flex-wrap justify-center">
     <div
       v-for="(data, index) in getSearchThirdItems"
       :key="`first-${index}`"
     >
-      <div class="flex mb-4 mx-4">
+      <vue-lazy-component>
         <nuxt-link
           :to="`/embedded_url/${data.vid}?video_title=${data.title}`"
           :aria-label="`${data.title}へ進む`"
@@ -386,19 +386,17 @@
             )
           "
         >
-          <div class="relative" style="width: 160px; height: 90px">
-            <vue-lazy-component>
-              <img
-                :src="data.preview_url"
-                :alt="data.title"
-                width="160"
-                height="90"
-                class="z-auto relative text-gray-200"
-                referrerpolicy="no-referrer"
-                crossorigin
-              />
-              <SearchSkeletonImg slot="skeleton" />
-            </vue-lazy-component>
+          <div class="relative">
+            <img
+              :src="data.preview_url"
+              :alt="data.title"
+              width="375"
+              height="210"
+              class="z-auto relative text-gray-200"
+              style="width: 375px; height: 210px"
+              referrerpolicy="no-referrer"
+              crossorigin
+            />
             <h5
               class="text-gray-100 z-10 absolute right-0 bottom-0 bg-gray-900 rounded-sm px-1 py-px m-1"
               style="font-size: 10px"
@@ -406,454 +404,2480 @@
               {{ toHms(data.duration) }}
             </h5>
           </div>
+          <template v-if="data.title.length > 50">
+            <h2
+              class="text-gray-200 text-sm hover:text-purple-500 break-all pt-2 px-2"
+              style="width: 375px"
+            >
+              {{ data.title.slice(0, 50) }}…
+            </h2>
+          </template>
+          <template v-else>
+            <h2
+              class="text-gray-200 text-sm hover:text-purple-500 break-all pt-2 px-2"
+              style="width: 375px"
+            >
+              {{ data.title }}
+            </h2>
+          </template>
         </nuxt-link>
-        <div class="ml-2" style="width: 175px; height: 90px">
-          <nuxt-link
-            :to="`/embedded_url/${data.vid}?video_title=${data.title}`"
-            :aria-label="`${data.title}へ進む`"
-            no-prefetch
-            @click.native="
-              getRecommendTitle(
-                data.keyword
-                  .split(/,|\s/)
-                  .filter(
-                    RegExp.prototype.test,
-                    /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/
-                  )
-                  .filter(
-                    (item) =>
-                      item !== data.title &&
-                      item !== '日本人' &&
-                      item !== 'アジア' &&
-                      item !== 'アジア人' &&
-                      item !== '日本' &&
-                      item !== '無修正' &&
-                      item !== '肛門' &&
-                      item !== 'アナルセックス' &&
-                      item !== '兼' &&
-                      item !== '油' &&
-                      item !== '中出' &&
-                      item !== '人' &&
-                      item !== 'アジアユニフォーム' &&
-                      item !== 'ユニフォーム' &&
-                      item !== '女' &&
-                      item !== '熟' &&
-                      item !== '膣' &&
-                      item !== 'フェチ' &&
-                      item !== 'ハードコア' &&
-                      item !== 'ハイビジョン' &&
-                      item !== '足' &&
-                      item !== 'マッサージ師' &&
-                      item !== '素人' &&
-                      item !== '巨乳' &&
-                      item !== '美人' &&
-                      item !== '乳首' &&
-                      item !== 'オ' &&
-                      item !== 'です' &&
-                      item !== '内射' &&
-                      item !== '人妻' &&
-                      item !== '痴女' &&
-                      item !== '十代' &&
-                      item !== 'コ' &&
-                      item !== '粗い' &&
-                      item !== '熟女' &&
-                      item !== '美女' &&
-                      item !== '貸' &&
-                      item !== 'あん' &&
-                      item !== '爆乳' &&
-                      item !== '美乳' &&
-                      item !== 'その他' &&
-                      item !== '小さい' &&
-                      item !== '小さな' &&
-                      item !== '亜人種間' &&
-                      item !== '一律' &&
-                      item !== '若い' &&
-                      item !== '校生' &&
-                      item !== 'デジモ' &&
-                      item !== '個人撮影' &&
-                      item !== '大乱交' &&
-                      item !== '精飲' &&
-                      item !== '微乳' &&
-                      item !== 'ラフ' &&
-                      item !== '十代の' &&
-                      item !== 'おっぱい' &&
-                      item !== '放課後に' &&
-                      item !== '爆尻' &&
-                      item !== '職業色々' &&
-                      item !== 'ミニ系' &&
-                      item !== 'ちぃ' &&
-                      item !== '茶髪' &&
-                      item !== '豊満' &&
-                      item !== '姉' &&
-                      item !== '乳房' &&
-                      item !== 'エロイ' &&
-                      item !== '本生' &&
-                      item !== '寝取り' &&
-                      item !== '寝取られ' &&
-                      item !== '企画' &&
-                      item !== '単体作品' &&
-                      item !== '恋愛' &&
-                      item !== '完熟' &&
-                      item !== '出軌' &&
-                      item !== '栞' &&
-                      item !== '息子の友達' &&
-                      item !== 'ザ' &&
-                      item !== 'もえ' &&
-                      item !== '素人てぃな' &&
-                      item !== '見せつけ' &&
-                      item !== '挑発' &&
-                      item !== '辱め' &&
-                      item !== '乳交' &&
-                      item.length < 6
-                  )
-                  .filter((x, i, self) => self.indexOf(x) === i)[0],
-                data.keyword
-                  .split(/,|\s/)
-                  .filter(
-                    RegExp.prototype.test,
-                    /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/
-                  )
-                  .filter(
-                    (item) =>
-                      item !== data.title &&
-                      item !== '日本人' &&
-                      item !== 'アジア' &&
-                      item !== 'アジア人' &&
-                      item !== '日本' &&
-                      item !== '無修正' &&
-                      item !== '肛門' &&
-                      item !== 'アナルセックス' &&
-                      item !== '兼' &&
-                      item !== '油' &&
-                      item !== '中出' &&
-                      item !== '人' &&
-                      item !== 'アジアユニフォーム' &&
-                      item !== 'ユニフォーム' &&
-                      item !== '女' &&
-                      item !== '熟' &&
-                      item !== '膣' &&
-                      item !== 'フェチ' &&
-                      item !== 'ハードコア' &&
-                      item !== 'ハイビジョン' &&
-                      item !== '足' &&
-                      item !== 'マッサージ師' &&
-                      item !== '素人' &&
-                      item !== '巨乳' &&
-                      item !== '美人' &&
-                      item !== '乳首' &&
-                      item !== 'オ' &&
-                      item !== 'です' &&
-                      item !== '内射' &&
-                      item !== '人妻' &&
-                      item !== '痴女' &&
-                      item !== '十代' &&
-                      item !== 'コ' &&
-                      item !== '粗い' &&
-                      item !== '熟女' &&
-                      item !== '美女' &&
-                      item !== '貸' &&
-                      item !== 'あん' &&
-                      item !== '爆乳' &&
-                      item !== '美乳' &&
-                      item !== 'その他' &&
-                      item !== '小さい' &&
-                      item !== '小さな' &&
-                      item !== '亜人種間' &&
-                      item !== '一律' &&
-                      item !== '若い' &&
-                      item !== '校生' &&
-                      item !== 'デジモ' &&
-                      item !== '個人撮影' &&
-                      item !== '大乱交' &&
-                      item !== '精飲' &&
-                      item !== '微乳' &&
-                      item !== 'ラフ' &&
-                      item !== '十代の' &&
-                      item !== 'おっぱい' &&
-                      item !== '放課後に' &&
-                      item !== '爆尻' &&
-                      item !== '職業色々' &&
-                      item !== 'ミニ系' &&
-                      item !== 'ちぃ' &&
-                      item !== '茶髪' &&
-                      item !== '豊満' &&
-                      item !== '姉' &&
-                      item !== '乳房' &&
-                      item !== 'エロイ' &&
-                      item !== '本生' &&
-                      item !== '寝取り' &&
-                      item !== '寝取られ' &&
-                      item !== '企画' &&
-                      item !== '単体作品' &&
-                      item !== '恋愛' &&
-                      item !== '完熟' &&
-                      item !== '出軌' &&
-                      item !== '栞' &&
-                      item !== '息子の友達' &&
-                      item !== 'ザ' &&
-                      item !== 'もえ' &&
-                      item !== '素人てぃな' &&
-                      item !== '見せつけ' &&
-                      item !== '挑発' &&
-                      item !== '辱め' &&
-                      item !== '乳交' &&
-                      item.length < 6
-                  )
-                  .filter((x, i, self) => self.indexOf(x) === i)[1],
-                data.keyword
-                  .split(/,|\s/)
-                  .filter(
-                    RegExp.prototype.test,
-                    /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/
-                  )
-                  .filter(
-                    (item) =>
-                      item !== data.title &&
-                      item !== '日本人' &&
-                      item !== 'アジア' &&
-                      item !== 'アジア人' &&
-                      item !== '日本' &&
-                      item !== '無修正' &&
-                      item !== '肛門' &&
-                      item !== 'アナルセックス' &&
-                      item !== '兼' &&
-                      item !== '油' &&
-                      item !== '中出' &&
-                      item !== '人' &&
-                      item !== 'アジアユニフォーム' &&
-                      item !== 'ユニフォーム' &&
-                      item !== '女' &&
-                      item !== '熟' &&
-                      item !== '膣' &&
-                      item !== 'フェチ' &&
-                      item !== 'ハードコア' &&
-                      item !== 'ハイビジョン' &&
-                      item !== '足' &&
-                      item !== 'マッサージ師' &&
-                      item !== '素人' &&
-                      item !== '巨乳' &&
-                      item !== '美人' &&
-                      item !== '乳首' &&
-                      item !== 'オ' &&
-                      item !== 'です' &&
-                      item !== '内射' &&
-                      item !== '人妻' &&
-                      item !== '痴女' &&
-                      item !== '十代' &&
-                      item !== 'コ' &&
-                      item !== '粗い' &&
-                      item !== '熟女' &&
-                      item !== '美女' &&
-                      item !== '貸' &&
-                      item !== 'あん' &&
-                      item !== '爆乳' &&
-                      item !== '美乳' &&
-                      item !== 'その他' &&
-                      item !== '小さい' &&
-                      item !== '小さな' &&
-                      item !== '亜人種間' &&
-                      item !== '一律' &&
-                      item !== '若い' &&
-                      item !== '校生' &&
-                      item !== 'デジモ' &&
-                      item !== '個人撮影' &&
-                      item !== '大乱交' &&
-                      item !== '精飲' &&
-                      item !== '微乳' &&
-                      item !== 'ラフ' &&
-                      item !== '十代の' &&
-                      item !== 'おっぱい' &&
-                      item !== '放課後に' &&
-                      item !== '爆尻' &&
-                      item !== '職業色々' &&
-                      item !== 'ミニ系' &&
-                      item !== 'ちぃ' &&
-                      item !== '茶髪' &&
-                      item !== '豊満' &&
-                      item !== '姉' &&
-                      item !== '乳房' &&
-                      item !== 'エロイ' &&
-                      item !== '本生' &&
-                      item !== '寝取り' &&
-                      item !== '寝取られ' &&
-                      item !== '企画' &&
-                      item !== '単体作品' &&
-                      item !== '恋愛' &&
-                      item !== '完熟' &&
-                      item !== '出軌' &&
-                      item !== '栞' &&
-                      item !== '息子の友達' &&
-                      item !== 'ザ' &&
-                      item !== 'もえ' &&
-                      item !== '素人てぃな' &&
-                      item !== '見せつけ' &&
-                      item !== '挑発' &&
-                      item !== '辱め' &&
-                      item !== '乳交' &&
-                      item.length < 6
-                  )
-                  .filter((x, i, self) => self.indexOf(x) === i)[2],
-                data.keyword
-                  .split(/,|\s/)
-                  .filter(
-                    RegExp.prototype.test,
-                    /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/
-                  )
-                  .filter(
-                    (item) =>
-                      item !== data.title &&
-                      item !== '日本人' &&
-                      item !== 'アジア' &&
-                      item !== 'アジア人' &&
-                      item !== '日本' &&
-                      item !== '無修正' &&
-                      item !== '肛門' &&
-                      item !== 'アナルセックス' &&
-                      item !== '兼' &&
-                      item !== '油' &&
-                      item !== '中出' &&
-                      item !== '人' &&
-                      item !== 'アジアユニフォーム' &&
-                      item !== 'ユニフォーム' &&
-                      item !== '女' &&
-                      item !== '熟' &&
-                      item !== '膣' &&
-                      item !== 'フェチ' &&
-                      item !== 'ハードコア' &&
-                      item !== 'ハイビジョン' &&
-                      item !== '足' &&
-                      item !== 'マッサージ師' &&
-                      item !== '素人' &&
-                      item !== '巨乳' &&
-                      item !== '美人' &&
-                      item !== '乳首' &&
-                      item !== 'オ' &&
-                      item !== 'です' &&
-                      item !== '内射' &&
-                      item !== '人妻' &&
-                      item !== '痴女' &&
-                      item !== '十代' &&
-                      item !== 'コ' &&
-                      item !== '粗い' &&
-                      item !== '熟女' &&
-                      item !== '美女' &&
-                      item !== '貸' &&
-                      item !== 'あん' &&
-                      item !== '爆乳' &&
-                      item !== '美乳' &&
-                      item !== 'その他' &&
-                      item !== '小さい' &&
-                      item !== '小さな' &&
-                      item !== '亜人種間' &&
-                      item !== '一律' &&
-                      item !== '若い' &&
-                      item !== '校生' &&
-                      item !== 'デジモ' &&
-                      item !== '個人撮影' &&
-                      item !== '大乱交' &&
-                      item !== '精飲' &&
-                      item !== '微乳' &&
-                      item !== 'ラフ' &&
-                      item !== '十代の' &&
-                      item !== 'おっぱい' &&
-                      item !== '放課後に' &&
-                      item !== '爆尻' &&
-                      item !== '職業色々' &&
-                      item !== 'ミニ系' &&
-                      item !== 'ちぃ' &&
-                      item !== '茶髪' &&
-                      item !== '豊満' &&
-                      item !== '姉' &&
-                      item !== '乳房' &&
-                      item !== 'エロイ' &&
-                      item !== '本生' &&
-                      item !== '寝取り' &&
-                      item !== '寝取られ' &&
-                      item !== '企画' &&
-                      item !== '単体作品' &&
-                      item !== '恋愛' &&
-                      item !== '完熟' &&
-                      item !== '出軌' &&
-                      item !== '栞' &&
-                      item !== '息子の友達' &&
-                      item !== 'ザ' &&
-                      item !== 'もえ' &&
-                      item !== '素人てぃな' &&
-                      item !== '見せつけ' &&
-                      item !== '挑発' &&
-                      item !== '辱め' &&
-                      item !== '乳交' &&
-                      item.length < 6
-                  )
-                  .filter((x, i, self) => self.indexOf(x) === i)[3]
+        <div class="flex flex-row my-1">
+          <template v-if="data.viewnumber >= 1000000">
+            <h3 class="text-gray-400 mr-1 text-xs pl-2">
+              再生数
+              {{ Math.ceil(data.viewnumber / 1000000) }}・
+            </h3>
+          </template>
+          <template
+            v-else-if="
+              data.viewnumber >= 1000 && data.viewnumber < 1000000
+            "
+          >
+            <h3 class="text-gray-400 mr-1 text-xs pl-2">
+              再生数
+              {{ Math.ceil(data.viewnumber / 1000) }}K・
+            </h3>
+          </template>
+          <template v-else>
+            <h3 class="text-gray-400 mr-1 text-xs pl-2">
+              再生数
+              {{ Math.ceil(data.viewnumber) }}・
+            </h3>
+          </template>
+          <template
+            v-if="
+              Number.isNaN(
+                (data.likes / (data.likes + data.dislikes)) * 100
               )
             "
           >
-            <!-- <vue-lazy-component> -->
-            <template v-if="data.title.length > 33">
-              <h2 class="text-gray-200 text-sm hover:text-purple-500">
-                {{ data.title.slice(0, 33) }}…
-              </h2>
-            </template>
-            <template v-else>
-              <h2 class="text-gray-200 text-sm hover:text-purple-500">
-                {{ data.title }}
-              </h2>
-            </template>
-          </nuxt-link>
-          <div class="flex flex-row my-1">
-            <template v-if="data.viewnumber >= 1000000">
-              <h3 class="text-gray-400 mr-1 text-xs">
-                再生数
-                {{ Math.ceil(data.viewnumber / 1000000) }}M・
-              </h3>
-            </template>
-            <template
-              v-else-if="
-                data.viewnumber >= 1000 && data.viewnumber < 1000000
-              "
+            <i
+              class="material-icons text-gray-400"
+              style="font-size: 16px"
+              >thumb_up</i
             >
-              <h3 class="text-gray-400 mr-1 text-xs">
-                再生数
-                {{ Math.ceil(data.viewnumber / 1000) }}K・
-              </h3>
-            </template>
-            <template v-else>
-              <h3 class="text-gray-400 mr-1 text-xs">
-                再生数 {{ Math.ceil(data.viewnumber) }}・
-              </h3>
-            </template>
-            <template
-              v-if="
-                Number.isNaN(
+            <h3 class="text-gray-400 px-1 text-xs">0%</h3>
+          </template>
+          <template v-else>
+            <i
+              class="material-icons text-gray-400"
+              style="font-size: 16px"
+              >thumb_up</i
+            >
+            <h3 class="text-gray-400 px-1 text-xs">
+              {{
+                Math.ceil(
                   (data.likes / (data.likes + data.dislikes)) * 100
                 )
-              "
-            >
-              <i
-                class="material-icons text-gray-400"
-                style="font-size: 16px"
-                >thumb_up</i
-              >
-              <h3 class="text-gray-400 px-1 text-xs">0%</h3>
-            </template>
-            <template v-else>
-              <i
-                class="material-icons text-gray-400"
-                style="font-size: 16px"
-                >thumb_up</i
-              >
-              <h3 class="text-gray-400 px-1 text-xs">
-                {{
-                  Math.ceil(
-                    (data.likes / (data.likes + data.dislikes)) * 100
-                  )
-                }}%
-              </h3>
-            </template>
-          </div>
+              }}%
+            </h3>
+          </template>
         </div>
-      </div>
+        <div class="flex flex-row my-2 mb-6 overflow-hidden">
+          <div
+            v-if="
+              data.keyword
+                .split(/,|\s/)
+                .filter(
+                  RegExp.prototype.test,
+                  /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/
+                )
+                .filter(
+                  (item) =>
+                    item !== data.title &&
+                    item !== '日本人' &&
+                    item !== 'アジア' &&
+                    item !== 'アジア人' &&
+                    item !== '日本' &&
+                    item !== '無修正' &&
+                    item !== '肛門' &&
+                    item !== 'アナルセックス' &&
+                    item !== '兼' &&
+                    item !== '油' &&
+                    item !== '中出' &&
+                    item !== '人' &&
+                    item !== 'アジアユニフォーム' &&
+                    item !== 'ユニフォーム' &&
+                    item !== '女' &&
+                    item !== '熟' &&
+                    item !== '膣' &&
+                    item !== 'フェチ' &&
+                    item !== 'ハードコア' &&
+                    item !== 'ハイビジョン' &&
+                    item !== '足' &&
+                    item !== 'マッサージ師' &&
+                    item !== '素人' &&
+                    item !== '巨乳' &&
+                    item !== '美人' &&
+                    item !== '乳首' &&
+                    item !== 'オ' &&
+                    item !== 'です' &&
+                    item !== '内射' &&
+                    item !== '人妻' &&
+                    item !== '痴女' &&
+                    item !== '十代' &&
+                    item !== 'コ' &&
+                    item !== '粗い' &&
+                    item !== '熟女' &&
+                    item !== '美女' &&
+                    item !== '貸' &&
+                    item !== 'あん' &&
+                    item !== '爆乳' &&
+                    item !== '美乳' &&
+                    item !== 'その他' &&
+                    item !== '小さい' &&
+                    item !== '小さな' &&
+                    item !== '亜人種間' &&
+                    item !== '一律' &&
+                    item !== '若い' &&
+                    item !== '校生' &&
+                    item !== 'デジモ' &&
+                    item !== '個人撮影' &&
+                    item !== '大乱交' &&
+                    item !== '精飲' &&
+                    item !== '微乳' &&
+                    item !== 'ラフ' &&
+                    item !== '十代の' &&
+                    item !== 'おっぱい' &&
+                    item !== '放課後に' &&
+                    item !== '爆尻' &&
+                    item !== '職業色々' &&
+                    item !== 'ミニ系' &&
+                    item !== 'ちぃ' &&
+                    item !== '茶髪' &&
+                    item !== '豊満' &&
+                    item !== '姉' &&
+                    item !== '乳房' &&
+                    item !== 'エロイ' &&
+                    item !== '本生' &&
+                    item !== '寝取り' &&
+                    item !== '寝取られ' &&
+                    item !== '企画' &&
+                    item !== '単体作品' &&
+                    item !== '恋愛' &&
+                    item !== '完熟' &&
+                    item !== '出軌' &&
+                    item !== '栞' &&
+                    item !== '息子の友達' &&
+                    item !== 'ザ' &&
+                    item !== 'もえ' &&
+                    item !== '素人てぃな' &&
+                    item !== '見せつけ' &&
+                    item !== '挑発' &&
+                    item !== '辱め' &&
+                    item !== '乳交' &&
+                    item.length < 6
+                )
+                .filter((x, i, self) => self.indexOf(x) === i)
+                .length === 0
+            "
+          />
+          <template
+            v-else-if="
+              data.keyword
+                .split(/,|\s/)
+                .filter(
+                  RegExp.prototype.test,
+                  /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/
+                )
+                .filter(
+                  (item) =>
+                    item !== data.title &&
+                    item !== '日本人' &&
+                    item !== 'アジア' &&
+                    item !== 'アジア人' &&
+                    item !== '日本' &&
+                    item !== '無修正' &&
+                    item !== '肛門' &&
+                    item !== 'アナルセックス' &&
+                    item !== '兼' &&
+                    item !== '油' &&
+                    item !== '中出' &&
+                    item !== '人' &&
+                    item !== 'アジアユニフォーム' &&
+                    item !== 'ユニフォーム' &&
+                    item !== '女' &&
+                    item !== '熟' &&
+                    item !== '膣' &&
+                    item !== 'フェチ' &&
+                    item !== 'ハードコア' &&
+                    item !== 'ハイビジョン' &&
+                    item !== '足' &&
+                    item !== 'マッサージ師' &&
+                    item !== '素人' &&
+                    item !== '巨乳' &&
+                    item !== '美人' &&
+                    item !== '乳首' &&
+                    item !== 'オ' &&
+                    item !== 'です' &&
+                    item !== '内射' &&
+                    item !== '人妻' &&
+                    item !== '痴女' &&
+                    item !== '十代' &&
+                    item !== 'コ' &&
+                    item !== '粗い' &&
+                    item !== '熟女' &&
+                    item !== '美女' &&
+                    item !== '貸' &&
+                    item !== 'あん' &&
+                    item !== '爆乳' &&
+                    item !== '美乳' &&
+                    item !== 'その他' &&
+                    item !== '小さい' &&
+                    item !== '小さな' &&
+                    item !== '亜人種間' &&
+                    item !== '一律' &&
+                    item !== '若い' &&
+                    item !== '校生' &&
+                    item !== 'デジモ' &&
+                    item !== '個人撮影' &&
+                    item !== '大乱交' &&
+                    item !== '精飲' &&
+                    item !== '微乳' &&
+                    item !== 'ラフ' &&
+                    item !== '十代の' &&
+                    item !== 'おっぱい' &&
+                    item !== '放課後に' &&
+                    item !== '爆尻' &&
+                    item !== '職業色々' &&
+                    item !== 'ミニ系' &&
+                    item !== 'ちぃ' &&
+                    item !== '茶髪' &&
+                    item !== '豊満' &&
+                    item !== '姉' &&
+                    item !== '乳房' &&
+                    item !== 'エロイ' &&
+                    item !== '本生' &&
+                    item !== '寝取り' &&
+                    item !== '寝取られ' &&
+                    item !== '企画' &&
+                    item !== '単体作品' &&
+                    item !== '恋愛' &&
+                    item !== '完熟' &&
+                    item !== '出軌' &&
+                    item !== '栞' &&
+                    item !== '息子の友達' &&
+                    item !== 'ザ' &&
+                    item !== 'もえ' &&
+                    item !== '素人てぃな' &&
+                    item !== '見せつけ' &&
+                    item !== '挑発' &&
+                    item !== '辱め' &&
+                    item !== '乳交' &&
+                    item.length < 6
+                )
+                .filter((x, i, self) => self.indexOf(x) === i)
+                .length === 1
+            "
+          >
+            <h4>
+              <button
+                class="text-gray-300 mr-2 text-xs py-1 px-2 bg-gray-700 rounded-full border border-gray-600 hover:bg-gray-600"
+                style="margin-left: 8px"
+                @click="
+                  changeFormKeyword(
+                    data.keyword
+                      .split(/,|\s/)
+                      .filter(
+                        RegExp.prototype.test,
+                        /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/
+                      )
+                      .filter(
+                        (item) =>
+                          item !== data.title &&
+                          item !== '日本人' &&
+                          item !== 'アジア' &&
+                          item !== 'アジア人' &&
+                          item !== '日本' &&
+                          item !== '無修正' &&
+                          item !== '肛門' &&
+                          item !== 'アナルセックス' &&
+                          item !== '兼' &&
+                          item !== '油' &&
+                          item !== '中出' &&
+                          item !== '人' &&
+                          item !== 'アジアユニフォーム' &&
+                          item !== 'ユニフォーム' &&
+                          item !== '女' &&
+                          item !== '熟' &&
+                          item !== '膣' &&
+                          item !== 'フェチ' &&
+                          item !== 'ハードコア' &&
+                          item !== 'ハイビジョン' &&
+                          item !== '足' &&
+                          item !== 'マッサージ師' &&
+                          item !== '素人' &&
+                          item !== '巨乳' &&
+                          item !== '美人' &&
+                          item !== '乳首' &&
+                          item !== 'オ' &&
+                          item !== 'です' &&
+                          item !== '内射' &&
+                          item !== '人妻' &&
+                          item !== '痴女' &&
+                          item !== '十代' &&
+                          item !== 'コ' &&
+                          item !== '粗い' &&
+                          item !== '熟女' &&
+                          item !== '美女' &&
+                          item !== '貸' &&
+                          item !== 'あん' &&
+                          item !== '爆乳' &&
+                          item !== '美乳' &&
+                          item !== 'その他' &&
+                          item !== '小さい' &&
+                          item !== '小さな' &&
+                          item !== '亜人種間' &&
+                          item !== '一律' &&
+                          item !== '若い' &&
+                          item !== '校生' &&
+                          item !== 'デジモ' &&
+                          item !== '個人撮影' &&
+                          item !== '大乱交' &&
+                          item !== '精飲' &&
+                          item !== '微乳' &&
+                          item !== 'ラフ' &&
+                          item !== '十代の' &&
+                          item !== 'おっぱい' &&
+                          item !== '放課後に' &&
+                          item !== '爆尻' &&
+                          item !== '職業色々' &&
+                          item !== 'ミニ系' &&
+                          item !== 'ちぃ' &&
+                          item !== '茶髪' &&
+                          item !== '豊満' &&
+                          item !== '姉' &&
+                          item !== '乳房' &&
+                          item !== 'エロイ' &&
+                          item !== '本生' &&
+                          item !== '寝取り' &&
+                          item !== '寝取られ' &&
+                          item !== '企画' &&
+                          item !== '単体作品' &&
+                          item !== '恋愛' &&
+                          item !== '完熟' &&
+                          item !== '出軌' &&
+                          item !== '栞' &&
+                          item !== '息子の友達' &&
+                          item !== 'ザ' &&
+                          item !== 'もえ' &&
+                          item !== '素人てぃな' &&
+                          item !== '見せつけ' &&
+                          item !== '挑発' &&
+                          item !== '辱め' &&
+                          item !== '乳交' &&
+                          item.length < 6
+                      )
+                      .filter(
+                        (x, i, self) => self.indexOf(x) === i
+                      )[0]
+                  )
+                "
+              >
+                #{{
+                  data.keyword
+                    .split(/,|\s/)
+                    .filter(
+                      RegExp.prototype.test,
+                      /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/
+                    )
+                    .filter(
+                      (item) =>
+                        item !== data.title &&
+                        item !== '日本人' &&
+                        item !== 'アジア' &&
+                        item !== 'アジア人' &&
+                        item !== '日本' &&
+                        item !== '無修正' &&
+                        item !== '肛門' &&
+                        item !== 'アナルセックス' &&
+                        item !== '兼' &&
+                        item !== '油' &&
+                        item !== '中出' &&
+                        item !== '人' &&
+                        item !== 'アジアユニフォーム' &&
+                        item !== 'ユニフォーム' &&
+                        item !== '女' &&
+                        item !== '熟' &&
+                        item !== '膣' &&
+                        item !== 'フェチ' &&
+                        item !== 'ハードコア' &&
+                        item !== 'ハイビジョン' &&
+                        item !== '足' &&
+                        item !== 'マッサージ師' &&
+                        item !== '素人' &&
+                        item !== '巨乳' &&
+                        item !== '美人' &&
+                        item !== '乳首' &&
+                        item !== 'オ' &&
+                        item !== 'です' &&
+                        item !== '内射' &&
+                        item !== '人妻' &&
+                        item !== '痴女' &&
+                        item !== '十代' &&
+                        item !== 'コ' &&
+                        item !== '粗い' &&
+                        item !== '熟女' &&
+                        item !== '美女' &&
+                        item !== '貸' &&
+                        item !== 'あん' &&
+                        item !== '爆乳' &&
+                        item !== '美乳' &&
+                        item !== 'その他' &&
+                        item !== '小さい' &&
+                        item !== '小さな' &&
+                        item !== '亜人種間' &&
+                        item !== '一律' &&
+                        item !== '若い' &&
+                        item !== '校生' &&
+                        item !== 'デジモ' &&
+                        item !== '個人撮影' &&
+                        item !== '大乱交' &&
+                        item !== '精飲' &&
+                        item !== '微乳' &&
+                        item !== 'ラフ' &&
+                        item !== '十代の' &&
+                        item !== 'おっぱい' &&
+                        item !== '放課後に' &&
+                        item !== '爆尻' &&
+                        item !== '職業色々' &&
+                        item !== 'ミニ系' &&
+                        item !== 'ちぃ' &&
+                        item !== '茶髪' &&
+                        item !== '豊満' &&
+                        item !== '姉' &&
+                        item !== '乳房' &&
+                        item !== 'エロイ' &&
+                        item !== '本生' &&
+                        item !== '寝取り' &&
+                        item !== '寝取られ' &&
+                        item !== '企画' &&
+                        item !== '単体作品' &&
+                        item !== '恋愛' &&
+                        item !== '完熟' &&
+                        item !== '出軌' &&
+                        item !== '栞' &&
+                        item !== '息子の友達' &&
+                        item !== 'ザ' &&
+                        item !== 'もえ' &&
+                        item !== '素人てぃな' &&
+                        item !== '見せつけ' &&
+                        item !== '挑発' &&
+                        item !== '辱め' &&
+                        item !== '乳交' &&
+                        item.length < 6
+                    )
+                    .filter((x, i, self) => self.indexOf(x) === i)[0]
+                }}
+              </button>
+            </h4>
+          </template>
+          <template
+            v-else-if="
+              data.keyword
+                .split(/,|\s/)
+                .filter(
+                  RegExp.prototype.test,
+                  /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/
+                )
+                .filter(
+                  (item) =>
+                    item !== data.title &&
+                    item !== '日本人' &&
+                    item !== 'アジア' &&
+                    item !== 'アジア人' &&
+                    item !== '日本' &&
+                    item !== '無修正' &&
+                    item !== '肛門' &&
+                    item !== 'アナルセックス' &&
+                    item !== '兼' &&
+                    item !== '油' &&
+                    item !== '中出' &&
+                    item !== '人' &&
+                    item !== 'アジアユニフォーム' &&
+                    item !== 'ユニフォーム' &&
+                    item !== '女' &&
+                    item !== '熟' &&
+                    item !== '膣' &&
+                    item !== 'フェチ' &&
+                    item !== 'ハードコア' &&
+                    item !== 'ハイビジョン' &&
+                    item !== '足' &&
+                    item !== 'マッサージ師' &&
+                    item !== '素人' &&
+                    item !== '巨乳' &&
+                    item !== '美人' &&
+                    item !== '乳首' &&
+                    item !== 'オ' &&
+                    item !== 'です' &&
+                    item !== '内射' &&
+                    item !== '人妻' &&
+                    item !== '痴女' &&
+                    item !== '十代' &&
+                    item !== 'コ' &&
+                    item !== '粗い' &&
+                    item !== '熟女' &&
+                    item !== '美女' &&
+                    item !== '貸' &&
+                    item !== 'あん' &&
+                    item !== '爆乳' &&
+                    item !== '美乳' &&
+                    item !== 'その他' &&
+                    item !== '小さい' &&
+                    item !== '小さな' &&
+                    item !== '亜人種間' &&
+                    item !== '一律' &&
+                    item !== '若い' &&
+                    item !== '校生' &&
+                    item !== 'デジモ' &&
+                    item !== '個人撮影' &&
+                    item !== '大乱交' &&
+                    item !== '精飲' &&
+                    item !== '微乳' &&
+                    item !== 'ラフ' &&
+                    item !== '十代の' &&
+                    item !== 'おっぱい' &&
+                    item !== '放課後に' &&
+                    item !== '爆尻' &&
+                    item !== '職業色々' &&
+                    item !== 'ミニ系' &&
+                    item !== 'ちぃ' &&
+                    item !== '茶髪' &&
+                    item !== '豊満' &&
+                    item !== '姉' &&
+                    item !== '乳房' &&
+                    item !== 'エロイ' &&
+                    item !== '本生' &&
+                    item !== '寝取り' &&
+                    item !== '寝取られ' &&
+                    item !== '企画' &&
+                    item !== '単体作品' &&
+                    item !== '恋愛' &&
+                    item !== '完熟' &&
+                    item !== '出軌' &&
+                    item !== '栞' &&
+                    item !== '息子の友達' &&
+                    item !== 'ザ' &&
+                    item !== 'もえ' &&
+                    item !== '素人てぃな' &&
+                    item !== '見せつけ' &&
+                    item !== '挑発' &&
+                    item !== '辱め' &&
+                    item !== '乳交' &&
+                    item.length < 6
+                )
+                .filter((x, i, self) => self.indexOf(x) === i)
+                .length === 2
+            "
+          >
+            <h4>
+              <button
+                class="text-gray-300 mr-2 text-xs py-1 px-2 bg-gray-700 rounded-full border border-gray-600 hover:bg-gray-600"
+                style="margin-left: 8px"
+                @click="
+                  changeFormKeyword(
+                    data.keyword
+                      .split(/,|\s/)
+                      .filter(
+                        RegExp.prototype.test,
+                        /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/
+                      )
+                      .filter(
+                        (item) =>
+                          item !== data.title &&
+                          item !== '日本人' &&
+                          item !== 'アジア' &&
+                          item !== 'アジア人' &&
+                          item !== '日本' &&
+                          item !== '無修正' &&
+                          item !== '肛門' &&
+                          item !== 'アナルセックス' &&
+                          item !== '兼' &&
+                          item !== '油' &&
+                          item !== '中出' &&
+                          item !== '人' &&
+                          item !== 'アジアユニフォーム' &&
+                          item !== 'ユニフォーム' &&
+                          item !== '女' &&
+                          item !== '熟' &&
+                          item !== '膣' &&
+                          item !== 'フェチ' &&
+                          item !== 'ハードコア' &&
+                          item !== 'ハイビジョン' &&
+                          item !== '足' &&
+                          item !== 'マッサージ師' &&
+                          item !== '素人' &&
+                          item !== '巨乳' &&
+                          item !== '美人' &&
+                          item !== '乳首' &&
+                          item !== 'オ' &&
+                          item !== 'です' &&
+                          item !== '内射' &&
+                          item !== '人妻' &&
+                          item !== '痴女' &&
+                          item !== '十代' &&
+                          item !== 'コ' &&
+                          item !== '粗い' &&
+                          item !== '熟女' &&
+                          item !== '美女' &&
+                          item !== '貸' &&
+                          item !== 'あん' &&
+                          item !== '爆乳' &&
+                          item !== '美乳' &&
+                          item !== 'その他' &&
+                          item !== '小さい' &&
+                          item !== '小さな' &&
+                          item !== '亜人種間' &&
+                          item !== '一律' &&
+                          item !== '若い' &&
+                          item !== '校生' &&
+                          item !== 'デジモ' &&
+                          item !== '個人撮影' &&
+                          item !== '大乱交' &&
+                          item !== '精飲' &&
+                          item !== '微乳' &&
+                          item !== 'ラフ' &&
+                          item !== '十代の' &&
+                          item !== 'おっぱい' &&
+                          item !== '放課後に' &&
+                          item !== '爆尻' &&
+                          item !== '職業色々' &&
+                          item !== 'ミニ系' &&
+                          item !== 'ちぃ' &&
+                          item !== '茶髪' &&
+                          item !== '豊満' &&
+                          item !== '姉' &&
+                          item !== '乳房' &&
+                          item !== 'エロイ' &&
+                          item !== '本生' &&
+                          item !== '寝取り' &&
+                          item !== '寝取られ' &&
+                          item !== '企画' &&
+                          item !== '単体作品' &&
+                          item !== '恋愛' &&
+                          item !== '完熟' &&
+                          item !== '出軌' &&
+                          item !== '栞' &&
+                          item !== '息子の友達' &&
+                          item !== 'ザ' &&
+                          item !== 'もえ' &&
+                          item !== '素人てぃな' &&
+                          item !== '見せつけ' &&
+                          item !== '挑発' &&
+                          item !== '辱め' &&
+                          item !== '乳交' &&
+                          item.length < 6
+                      )
+                      .filter(
+                        (x, i, self) => self.indexOf(x) === i
+                      )[0]
+                  )
+                "
+              >
+                #{{
+                  data.keyword
+                    .split(/,|\s/)
+                    .filter(
+                      RegExp.prototype.test,
+                      /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/
+                    )
+                    .filter(
+                      (item) =>
+                        item !== data.title &&
+                        item !== '日本人' &&
+                        item !== 'アジア' &&
+                        item !== 'アジア人' &&
+                        item !== '日本' &&
+                        item !== '無修正' &&
+                        item !== '肛門' &&
+                        item !== 'アナルセックス' &&
+                        item !== '兼' &&
+                        item !== '油' &&
+                        item !== '中出' &&
+                        item !== '人' &&
+                        item !== 'アジアユニフォーム' &&
+                        item !== 'ユニフォーム' &&
+                        item !== '女' &&
+                        item !== '熟' &&
+                        item !== '膣' &&
+                        item !== 'フェチ' &&
+                        item !== 'ハードコア' &&
+                        item !== 'ハイビジョン' &&
+                        item !== '足' &&
+                        item !== 'マッサージ師' &&
+                        item !== '素人' &&
+                        item !== '巨乳' &&
+                        item !== '美人' &&
+                        item !== '乳首' &&
+                        item !== 'オ' &&
+                        item !== 'です' &&
+                        item !== '内射' &&
+                        item !== '人妻' &&
+                        item !== '痴女' &&
+                        item !== '十代' &&
+                        item !== 'コ' &&
+                        item !== '粗い' &&
+                        item !== '熟女' &&
+                        item !== '美女' &&
+                        item !== '貸' &&
+                        item !== 'あん' &&
+                        item !== '爆乳' &&
+                        item !== '美乳' &&
+                        item !== 'その他' &&
+                        item !== '小さい' &&
+                        item !== '小さな' &&
+                        item !== '亜人種間' &&
+                        item !== '一律' &&
+                        item !== '若い' &&
+                        item !== '校生' &&
+                        item !== 'デジモ' &&
+                        item !== '個人撮影' &&
+                        item !== '大乱交' &&
+                        item !== '精飲' &&
+                        item !== '微乳' &&
+                        item !== 'ラフ' &&
+                        item !== '十代の' &&
+                        item !== 'おっぱい' &&
+                        item !== '放課後に' &&
+                        item !== '爆尻' &&
+                        item !== '職業色々' &&
+                        item !== 'ミニ系' &&
+                        item !== 'ちぃ' &&
+                        item !== '茶髪' &&
+                        item !== '豊満' &&
+                        item !== '姉' &&
+                        item !== '乳房' &&
+                        item !== 'エロイ' &&
+                        item !== '本生' &&
+                        item !== '寝取り' &&
+                        item !== '寝取られ' &&
+                        item !== '企画' &&
+                        item !== '単体作品' &&
+                        item !== '恋愛' &&
+                        item !== '完熟' &&
+                        item !== '出軌' &&
+                        item !== '栞' &&
+                        item !== '息子の友達' &&
+                        item !== 'ザ' &&
+                        item !== 'もえ' &&
+                        item !== '素人てぃな' &&
+                        item !== '見せつけ' &&
+                        item !== '挑発' &&
+                        item !== '辱め' &&
+                        item !== '乳交' &&
+                        item.length < 6
+                    )
+                    .filter((x, i, self) => self.indexOf(x) === i)[0]
+                }}
+              </button>
+            </h4>
+            <h4>
+              <button
+                class="text-gray-300 mr-2 text-xs py-1 px-2 bg-gray-700 rounded-full border border-gray-600 hover:bg-gray-600"
+                @click="
+                  changeFormKeyword(
+                    data.keyword
+                      .split(/,|\s/)
+                      .filter(
+                        RegExp.prototype.test,
+                        /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/
+                      )
+                      .filter(
+                        (item) =>
+                          item !== data.title &&
+                          item !== '日本人' &&
+                          item !== 'アジア' &&
+                          item !== 'アジア人' &&
+                          item !== '日本' &&
+                          item !== '無修正' &&
+                          item !== '肛門' &&
+                          item !== 'アナルセックス' &&
+                          item !== '兼' &&
+                          item !== '油' &&
+                          item !== '中出' &&
+                          item !== '人' &&
+                          item !== 'アジアユニフォーム' &&
+                          item !== 'ユニフォーム' &&
+                          item !== '女' &&
+                          item !== '熟' &&
+                          item !== '膣' &&
+                          item !== 'フェチ' &&
+                          item !== 'ハードコア' &&
+                          item !== 'ハイビジョン' &&
+                          item !== '足' &&
+                          item !== 'マッサージ師' &&
+                          item !== '素人' &&
+                          item !== '巨乳' &&
+                          item !== '美人' &&
+                          item !== '乳首' &&
+                          item !== 'オ' &&
+                          item !== 'です' &&
+                          item !== '内射' &&
+                          item !== '人妻' &&
+                          item !== '痴女' &&
+                          item !== '十代' &&
+                          item !== 'コ' &&
+                          item !== '粗い' &&
+                          item !== '熟女' &&
+                          item !== '美女' &&
+                          item !== '貸' &&
+                          item !== 'あん' &&
+                          item !== '爆乳' &&
+                          item !== '美乳' &&
+                          item !== 'その他' &&
+                          item !== '小さい' &&
+                          item !== '小さな' &&
+                          item !== '亜人種間' &&
+                          item !== '一律' &&
+                          item !== '若い' &&
+                          item !== '校生' &&
+                          item !== 'デジモ' &&
+                          item !== '個人撮影' &&
+                          item !== '大乱交' &&
+                          item !== '精飲' &&
+                          item !== '微乳' &&
+                          item !== 'ラフ' &&
+                          item !== '十代の' &&
+                          item !== 'おっぱい' &&
+                          item !== '放課後に' &&
+                          item !== '爆尻' &&
+                          item !== '職業色々' &&
+                          item !== 'ミニ系' &&
+                          item !== 'ちぃ' &&
+                          item !== '茶髪' &&
+                          item !== '豊満' &&
+                          item !== '姉' &&
+                          item !== '乳房' &&
+                          item !== 'エロイ' &&
+                          item !== '本生' &&
+                          item !== '寝取り' &&
+                          item !== '寝取られ' &&
+                          item !== '企画' &&
+                          item !== '単体作品' &&
+                          item !== '恋愛' &&
+                          item !== '完熟' &&
+                          item !== '出軌' &&
+                          item !== '栞' &&
+                          item !== '息子の友達' &&
+                          item !== 'ザ' &&
+                          item !== 'もえ' &&
+                          item !== '素人てぃな' &&
+                          item !== '見せつけ' &&
+                          item !== '挑発' &&
+                          item !== '辱め' &&
+                          item !== '乳交' &&
+                          item.length < 6
+                      )
+                      .filter(
+                        (x, i, self) => self.indexOf(x) === i
+                      )[1]
+                  )
+                "
+              >
+                #{{
+                  data.keyword
+                    .split(/,|\s/)
+                    .filter(
+                      RegExp.prototype.test,
+                      /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/
+                    )
+                    .filter(
+                      (item) =>
+                        item !== data.title &&
+                        item !== '日本人' &&
+                        item !== 'アジア' &&
+                        item !== 'アジア人' &&
+                        item !== '日本' &&
+                        item !== '無修正' &&
+                        item !== '肛門' &&
+                        item !== 'アナルセックス' &&
+                        item !== '兼' &&
+                        item !== '油' &&
+                        item !== '中出' &&
+                        item !== '人' &&
+                        item !== 'アジアユニフォーム' &&
+                        item !== 'ユニフォーム' &&
+                        item !== '女' &&
+                        item !== '熟' &&
+                        item !== '膣' &&
+                        item !== 'フェチ' &&
+                        item !== 'ハードコア' &&
+                        item !== 'ハイビジョン' &&
+                        item !== '足' &&
+                        item !== 'マッサージ師' &&
+                        item !== '素人' &&
+                        item !== '巨乳' &&
+                        item !== '美人' &&
+                        item !== '乳首' &&
+                        item !== 'オ' &&
+                        item !== 'です' &&
+                        item !== '内射' &&
+                        item !== '人妻' &&
+                        item !== '痴女' &&
+                        item !== '十代' &&
+                        item !== 'コ' &&
+                        item !== '粗い' &&
+                        item !== '熟女' &&
+                        item !== '美女' &&
+                        item !== '貸' &&
+                        item !== 'あん' &&
+                        item !== '爆乳' &&
+                        item !== '美乳' &&
+                        item !== 'その他' &&
+                        item !== '小さい' &&
+                        item !== '小さな' &&
+                        item !== '亜人種間' &&
+                        item !== '一律' &&
+                        item !== '若い' &&
+                        item !== '校生' &&
+                        item !== 'デジモ' &&
+                        item !== '個人撮影' &&
+                        item !== '大乱交' &&
+                        item !== '精飲' &&
+                        item !== '微乳' &&
+                        item !== 'ラフ' &&
+                        item !== '十代の' &&
+                        item !== 'おっぱい' &&
+                        item !== '放課後に' &&
+                        item !== '爆尻' &&
+                        item !== '職業色々' &&
+                        item !== 'ミニ系' &&
+                        item !== 'ちぃ' &&
+                        item !== '茶髪' &&
+                        item !== '豊満' &&
+                        item !== '姉' &&
+                        item !== '乳房' &&
+                        item !== 'エロイ' &&
+                        item !== '本生' &&
+                        item !== '寝取り' &&
+                        item !== '寝取られ' &&
+                        item !== '企画' &&
+                        item !== '単体作品' &&
+                        item !== '恋愛' &&
+                        item !== '完熟' &&
+                        item !== '出軌' &&
+                        item !== '栞' &&
+                        item !== '息子の友達' &&
+                        item !== 'ザ' &&
+                        item !== 'もえ' &&
+                        item !== '素人てぃな' &&
+                        item !== '見せつけ' &&
+                        item !== '挑発' &&
+                        item !== '辱め' &&
+                        item !== '乳交' &&
+                        item.length < 6
+                    )
+                    .filter((x, i, self) => self.indexOf(x) === i)[1]
+                }}
+              </button>
+            </h4>
+          </template>
+          <template
+            v-else-if="
+              data.keyword
+                .split(/,|\s/)
+                .filter(
+                  RegExp.prototype.test,
+                  /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/
+                )
+                .filter(
+                  (item) =>
+                    item !== data.title &&
+                    item !== '日本人' &&
+                    item !== 'アジア' &&
+                    item !== 'アジア人' &&
+                    item !== '日本' &&
+                    item !== '無修正' &&
+                    item !== '肛門' &&
+                    item !== 'アナルセックス' &&
+                    item !== '兼' &&
+                    item !== '油' &&
+                    item !== '中出' &&
+                    item !== '人' &&
+                    item !== 'アジアユニフォーム' &&
+                    item !== 'ユニフォーム' &&
+                    item !== '女' &&
+                    item !== '熟' &&
+                    item !== '膣' &&
+                    item !== 'フェチ' &&
+                    item !== 'ハードコア' &&
+                    item !== 'ハイビジョン' &&
+                    item !== '足' &&
+                    item !== 'マッサージ師' &&
+                    item !== '素人' &&
+                    item !== '巨乳' &&
+                    item !== '美人' &&
+                    item !== '乳首' &&
+                    item !== 'オ' &&
+                    item !== 'です' &&
+                    item !== '内射' &&
+                    item !== '人妻' &&
+                    item !== '痴女' &&
+                    item !== '十代' &&
+                    item !== 'コ' &&
+                    item !== '粗い' &&
+                    item !== '熟女' &&
+                    item !== '美女' &&
+                    item !== '貸' &&
+                    item !== 'あん' &&
+                    item !== '爆乳' &&
+                    item !== '美乳' &&
+                    item !== 'その他' &&
+                    item !== '小さい' &&
+                    item !== '小さな' &&
+                    item !== '亜人種間' &&
+                    item !== '一律' &&
+                    item !== '若い' &&
+                    item !== '校生' &&
+                    item !== 'デジモ' &&
+                    item !== '個人撮影' &&
+                    item !== '大乱交' &&
+                    item !== '精飲' &&
+                    item !== '微乳' &&
+                    item !== 'ラフ' &&
+                    item !== '十代の' &&
+                    item !== 'おっぱい' &&
+                    item !== '放課後に' &&
+                    item !== '爆尻' &&
+                    item !== '職業色々' &&
+                    item !== 'ミニ系' &&
+                    item !== 'ちぃ' &&
+                    item !== '茶髪' &&
+                    item !== '豊満' &&
+                    item !== '姉' &&
+                    item !== '乳房' &&
+                    item !== 'エロイ' &&
+                    item !== '本生' &&
+                    item !== '寝取り' &&
+                    item !== '寝取られ' &&
+                    item !== '企画' &&
+                    item !== '単体作品' &&
+                    item !== '恋愛' &&
+                    item !== '完熟' &&
+                    item !== '出軌' &&
+                    item !== '栞' &&
+                    item !== '息子の友達' &&
+                    item !== 'ザ' &&
+                    item !== 'もえ' &&
+                    item !== '素人てぃな' &&
+                    item !== '見せつけ' &&
+                    item !== '挑発' &&
+                    item !== '辱め' &&
+                    item !== '乳交' &&
+                    item.length < 6
+                )
+                .filter((x, i, self) => self.indexOf(x) === i)
+                .length === 3
+            "
+          >
+            <h4>
+              <button
+                class="text-gray-300 mr-2 text-xs py-1 px-2 bg-gray-700 rounded-full border border-gray-600 hover:bg-gray-600"
+                style="margin-left: 8px"
+                @click="
+                  changeFormKeyword(
+                    data.keyword
+                      .split(/,|\s/)
+                      .filter(
+                        RegExp.prototype.test,
+                        /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/
+                      )
+                      .filter(
+                        (item) =>
+                          item !== data.title &&
+                          item !== '日本人' &&
+                          item !== 'アジア' &&
+                          item !== 'アジア人' &&
+                          item !== '日本' &&
+                          item !== '無修正' &&
+                          item !== '肛門' &&
+                          item !== 'アナルセックス' &&
+                          item !== '兼' &&
+                          item !== '油' &&
+                          item !== '中出' &&
+                          item !== '人' &&
+                          item !== 'アジアユニフォーム' &&
+                          item !== 'ユニフォーム' &&
+                          item !== '女' &&
+                          item !== '熟' &&
+                          item !== '膣' &&
+                          item !== 'フェチ' &&
+                          item !== 'ハードコア' &&
+                          item !== 'ハイビジョン' &&
+                          item !== '足' &&
+                          item !== 'マッサージ師' &&
+                          item !== '素人' &&
+                          item !== '巨乳' &&
+                          item !== '美人' &&
+                          item !== '乳首' &&
+                          item !== 'オ' &&
+                          item !== 'です' &&
+                          item !== '内射' &&
+                          item !== '人妻' &&
+                          item !== '痴女' &&
+                          item !== '十代' &&
+                          item !== 'コ' &&
+                          item !== '粗い' &&
+                          item !== '熟女' &&
+                          item !== '美女' &&
+                          item !== '貸' &&
+                          item !== 'あん' &&
+                          item !== '爆乳' &&
+                          item !== '美乳' &&
+                          item !== 'その他' &&
+                          item !== '小さい' &&
+                          item !== '小さな' &&
+                          item !== '亜人種間' &&
+                          item !== '一律' &&
+                          item !== '若い' &&
+                          item !== '校生' &&
+                          item !== 'デジモ' &&
+                          item !== '個人撮影' &&
+                          item !== '大乱交' &&
+                          item !== '精飲' &&
+                          item !== '微乳' &&
+                          item !== 'ラフ' &&
+                          item !== '十代の' &&
+                          item !== 'おっぱい' &&
+                          item !== '放課後に' &&
+                          item !== '爆尻' &&
+                          item !== '職業色々' &&
+                          item !== 'ミニ系' &&
+                          item !== 'ちぃ' &&
+                          item !== '茶髪' &&
+                          item !== '豊満' &&
+                          item !== '姉' &&
+                          item !== '乳房' &&
+                          item !== 'エロイ' &&
+                          item !== '本生' &&
+                          item !== '寝取り' &&
+                          item !== '寝取られ' &&
+                          item !== '企画' &&
+                          item !== '単体作品' &&
+                          item !== '恋愛' &&
+                          item !== '完熟' &&
+                          item !== '出軌' &&
+                          item !== '栞' &&
+                          item !== '息子の友達' &&
+                          item !== 'ザ' &&
+                          item !== 'もえ' &&
+                          item !== '素人てぃな' &&
+                          item !== '見せつけ' &&
+                          item !== '挑発' &&
+                          item !== '辱め' &&
+                          item !== '乳交' &&
+                          item.length < 6
+                      )
+                      .filter(
+                        (x, i, self) => self.indexOf(x) === i
+                      )[0]
+                  )
+                "
+              >
+                #{{
+                  data.keyword
+                    .split(/,|\s/)
+                    .filter(
+                      RegExp.prototype.test,
+                      /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/
+                    )
+                    .filter(
+                      (item) =>
+                        item !== data.title &&
+                        item !== '日本人' &&
+                        item !== 'アジア' &&
+                        item !== 'アジア人' &&
+                        item !== '日本' &&
+                        item !== '無修正' &&
+                        item !== '肛門' &&
+                        item !== 'アナルセックス' &&
+                        item !== '兼' &&
+                        item !== '油' &&
+                        item !== '中出' &&
+                        item !== '人' &&
+                        item !== 'アジアユニフォーム' &&
+                        item !== 'ユニフォーム' &&
+                        item !== '女' &&
+                        item !== '熟' &&
+                        item !== '膣' &&
+                        item !== 'フェチ' &&
+                        item !== 'ハードコア' &&
+                        item !== 'ハイビジョン' &&
+                        item !== '足' &&
+                        item !== 'マッサージ師' &&
+                        item !== '素人' &&
+                        item !== '巨乳' &&
+                        item !== '美人' &&
+                        item !== '乳首' &&
+                        item !== 'オ' &&
+                        item !== 'です' &&
+                        item !== '内射' &&
+                        item !== '人妻' &&
+                        item !== '痴女' &&
+                        item !== '十代' &&
+                        item !== 'コ' &&
+                        item !== '粗い' &&
+                        item !== '熟女' &&
+                        item !== '美女' &&
+                        item !== '貸' &&
+                        item !== 'あん' &&
+                        item !== '爆乳' &&
+                        item !== '美乳' &&
+                        item !== 'その他' &&
+                        item !== '小さい' &&
+                        item !== '小さな' &&
+                        item !== '亜人種間' &&
+                        item !== '一律' &&
+                        item !== '若い' &&
+                        item !== '校生' &&
+                        item !== 'デジモ' &&
+                        item !== '個人撮影' &&
+                        item !== '大乱交' &&
+                        item !== '精飲' &&
+                        item !== '微乳' &&
+                        item !== 'ラフ' &&
+                        item !== '十代の' &&
+                        item !== 'おっぱい' &&
+                        item !== '放課後に' &&
+                        item !== '爆尻' &&
+                        item !== '職業色々' &&
+                        item !== 'ミニ系' &&
+                        item !== 'ちぃ' &&
+                        item !== '茶髪' &&
+                        item !== '豊満' &&
+                        item !== '姉' &&
+                        item !== '乳房' &&
+                        item !== 'エロイ' &&
+                        item !== '本生' &&
+                        item !== '寝取り' &&
+                        item !== '寝取られ' &&
+                        item !== '企画' &&
+                        item !== '単体作品' &&
+                        item !== '恋愛' &&
+                        item !== '完熟' &&
+                        item !== '出軌' &&
+                        item !== '栞' &&
+                        item !== '息子の友達' &&
+                        item !== 'ザ' &&
+                        item !== 'もえ' &&
+                        item !== '素人てぃな' &&
+                        item !== '見せつけ' &&
+                        item !== '挑発' &&
+                        item !== '辱め' &&
+                        item !== '乳交' &&
+                        item.length < 6
+                    )
+                    .filter((x, i, self) => self.indexOf(x) === i)[0]
+                }}
+              </button>
+            </h4>
+            <h4>
+              <button
+                class="text-gray-300 mr-2 text-xs py-1 px-2 bg-gray-700 rounded-full border border-gray-600 hover:bg-gray-600"
+                @click="
+                  changeFormKeyword(
+                    data.keyword
+                      .split(/,|\s/)
+                      .filter(
+                        RegExp.prototype.test,
+                        /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/
+                      )
+                      .filter(
+                        (item) =>
+                          item !== data.title &&
+                          item !== '日本人' &&
+                          item !== 'アジア' &&
+                          item !== 'アジア人' &&
+                          item !== '日本' &&
+                          item !== '無修正' &&
+                          item !== '肛門' &&
+                          item !== 'アナルセックス' &&
+                          item !== '兼' &&
+                          item !== '油' &&
+                          item !== '中出' &&
+                          item !== '人' &&
+                          item !== 'アジアユニフォーム' &&
+                          item !== 'ユニフォーム' &&
+                          item !== '女' &&
+                          item !== '熟' &&
+                          item !== '膣' &&
+                          item !== 'フェチ' &&
+                          item !== 'ハードコア' &&
+                          item !== 'ハイビジョン' &&
+                          item !== '足' &&
+                          item !== 'マッサージ師' &&
+                          item !== '素人' &&
+                          item !== '巨乳' &&
+                          item !== '美人' &&
+                          item !== '乳首' &&
+                          item !== 'オ' &&
+                          item !== 'です' &&
+                          item !== '内射' &&
+                          item !== '人妻' &&
+                          item !== '痴女' &&
+                          item !== '十代' &&
+                          item !== 'コ' &&
+                          item !== '粗い' &&
+                          item !== '熟女' &&
+                          item !== '美女' &&
+                          item !== '貸' &&
+                          item !== 'あん' &&
+                          item !== '爆乳' &&
+                          item !== '美乳' &&
+                          item !== 'その他' &&
+                          item !== '小さい' &&
+                          item !== '小さな' &&
+                          item !== '亜人種間' &&
+                          item !== '一律' &&
+                          item !== '若い' &&
+                          item !== '校生' &&
+                          item !== 'デジモ' &&
+                          item !== '個人撮影' &&
+                          item !== '大乱交' &&
+                          item !== '精飲' &&
+                          item !== '微乳' &&
+                          item !== 'ラフ' &&
+                          item !== '十代の' &&
+                          item !== 'おっぱい' &&
+                          item !== '放課後に' &&
+                          item !== '爆尻' &&
+                          item !== '職業色々' &&
+                          item !== 'ミニ系' &&
+                          item !== 'ちぃ' &&
+                          item !== '茶髪' &&
+                          item !== '豊満' &&
+                          item !== '姉' &&
+                          item !== '乳房' &&
+                          item !== 'エロイ' &&
+                          item !== '本生' &&
+                          item !== '寝取り' &&
+                          item !== '寝取られ' &&
+                          item !== '企画' &&
+                          item !== '単体作品' &&
+                          item !== '恋愛' &&
+                          item !== '完熟' &&
+                          item !== '出軌' &&
+                          item !== '栞' &&
+                          item !== '息子の友達' &&
+                          item !== 'ザ' &&
+                          item !== 'もえ' &&
+                          item !== '素人てぃな' &&
+                          item !== '見せつけ' &&
+                          item !== '挑発' &&
+                          item !== '辱め' &&
+                          item !== '乳交' &&
+                          item.length < 6
+                      )
+                      .filter(
+                        (x, i, self) => self.indexOf(x) === i
+                      )[1]
+                  )
+                "
+              >
+                #{{
+                  data.keyword
+                    .split(/,|\s/)
+                    .filter(
+                      RegExp.prototype.test,
+                      /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/
+                    )
+                    .filter(
+                      (item) =>
+                        item !== data.title &&
+                        item !== '日本人' &&
+                        item !== 'アジア' &&
+                        item !== 'アジア人' &&
+                        item !== '日本' &&
+                        item !== '無修正' &&
+                        item !== '肛門' &&
+                        item !== 'アナルセックス' &&
+                        item !== '兼' &&
+                        item !== '油' &&
+                        item !== '中出' &&
+                        item !== '人' &&
+                        item !== 'アジアユニフォーム' &&
+                        item !== 'ユニフォーム' &&
+                        item !== '女' &&
+                        item !== '熟' &&
+                        item !== '膣' &&
+                        item !== 'フェチ' &&
+                        item !== 'ハードコア' &&
+                        item !== 'ハイビジョン' &&
+                        item !== '足' &&
+                        item !== 'マッサージ師' &&
+                        item !== '素人' &&
+                        item !== '巨乳' &&
+                        item !== '美人' &&
+                        item !== '乳首' &&
+                        item !== 'オ' &&
+                        item !== 'です' &&
+                        item !== '内射' &&
+                        item !== '人妻' &&
+                        item !== '痴女' &&
+                        item !== '十代' &&
+                        item !== 'コ' &&
+                        item !== '粗い' &&
+                        item !== '熟女' &&
+                        item !== '美女' &&
+                        item !== '貸' &&
+                        item !== 'あん' &&
+                        item !== '爆乳' &&
+                        item !== '美乳' &&
+                        item !== 'その他' &&
+                        item !== '小さい' &&
+                        item !== '小さな' &&
+                        item !== '亜人種間' &&
+                        item !== '一律' &&
+                        item !== '若い' &&
+                        item !== '校生' &&
+                        item !== 'デジモ' &&
+                        item !== '個人撮影' &&
+                        item !== '大乱交' &&
+                        item !== '精飲' &&
+                        item !== '微乳' &&
+                        item !== 'ラフ' &&
+                        item !== '十代の' &&
+                        item !== 'おっぱい' &&
+                        item !== '放課後に' &&
+                        item !== '爆尻' &&
+                        item !== '職業色々' &&
+                        item !== 'ミニ系' &&
+                        item !== 'ちぃ' &&
+                        item !== '茶髪' &&
+                        item !== '豊満' &&
+                        item !== '姉' &&
+                        item !== '乳房' &&
+                        item !== 'エロイ' &&
+                        item !== '本生' &&
+                        item !== '寝取り' &&
+                        item !== '寝取られ' &&
+                        item !== '企画' &&
+                        item !== '単体作品' &&
+                        item !== '恋愛' &&
+                        item !== '完熟' &&
+                        item !== '出軌' &&
+                        item !== '栞' &&
+                        item !== '息子の友達' &&
+                        item !== 'ザ' &&
+                        item !== 'もえ' &&
+                        item !== '素人てぃな' &&
+                        item !== '見せつけ' &&
+                        item !== '挑発' &&
+                        item !== '辱め' &&
+                        item !== '乳交' &&
+                        item.length < 6
+                    )
+                    .filter((x, i, self) => self.indexOf(x) === i)[1]
+                }}
+              </button>
+            </h4>
+            <h4>
+              <button
+                class="text-gray-300 mr-2 text-xs py-1 px-2 bg-gray-700 rounded-full border border-gray-600 hover:bg-gray-600"
+                @click="
+                  changeFormKeyword(
+                    data.keyword
+                      .split(/,|\s/)
+                      .filter(
+                        RegExp.prototype.test,
+                        /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/
+                      )
+                      .filter(
+                        (item) =>
+                          item !== data.title &&
+                          item !== '日本人' &&
+                          item !== 'アジア' &&
+                          item !== 'アジア人' &&
+                          item !== '日本' &&
+                          item !== '無修正' &&
+                          item !== '肛門' &&
+                          item !== 'アナルセックス' &&
+                          item !== '兼' &&
+                          item !== '油' &&
+                          item !== '中出' &&
+                          item !== '人' &&
+                          item !== 'アジアユニフォーム' &&
+                          item !== 'ユニフォーム' &&
+                          item !== '女' &&
+                          item !== '熟' &&
+                          item !== '膣' &&
+                          item !== 'フェチ' &&
+                          item !== 'ハードコア' &&
+                          item !== 'ハイビジョン' &&
+                          item !== '足' &&
+                          item !== 'マッサージ師' &&
+                          item !== '素人' &&
+                          item !== '巨乳' &&
+                          item !== '美人' &&
+                          item !== '乳首' &&
+                          item !== 'オ' &&
+                          item !== 'です' &&
+                          item !== '内射' &&
+                          item !== '人妻' &&
+                          item !== '痴女' &&
+                          item !== '十代' &&
+                          item !== 'コ' &&
+                          item !== '粗い' &&
+                          item !== '熟女' &&
+                          item !== '美女' &&
+                          item !== '貸' &&
+                          item !== 'あん' &&
+                          item !== '爆乳' &&
+                          item !== '美乳' &&
+                          item !== 'その他' &&
+                          item !== '小さい' &&
+                          item !== '小さな' &&
+                          item !== '亜人種間' &&
+                          item !== '一律' &&
+                          item !== '若い' &&
+                          item !== '校生' &&
+                          item !== 'デジモ' &&
+                          item !== '個人撮影' &&
+                          item !== '大乱交' &&
+                          item !== '精飲' &&
+                          item !== '微乳' &&
+                          item !== 'ラフ' &&
+                          item !== '十代の' &&
+                          item !== 'おっぱい' &&
+                          item !== '放課後に' &&
+                          item !== '爆尻' &&
+                          item !== '職業色々' &&
+                          item !== 'ミニ系' &&
+                          item !== 'ちぃ' &&
+                          item !== '茶髪' &&
+                          item !== '豊満' &&
+                          item !== '姉' &&
+                          item !== '乳房' &&
+                          item !== 'エロイ' &&
+                          item !== '本生' &&
+                          item !== '寝取り' &&
+                          item !== '寝取られ' &&
+                          item !== '企画' &&
+                          item !== '単体作品' &&
+                          item !== '恋愛' &&
+                          item !== '完熟' &&
+                          item !== '出軌' &&
+                          item !== '栞' &&
+                          item !== '息子の友達' &&
+                          item !== 'ザ' &&
+                          item !== 'もえ' &&
+                          item !== '素人てぃな' &&
+                          item !== '見せつけ' &&
+                          item !== '挑発' &&
+                          item !== '辱め' &&
+                          item !== '乳交' &&
+                          item.length < 6
+                      )
+                      .filter(
+                        (x, i, self) => self.indexOf(x) === i
+                      )[2]
+                  )
+                "
+              >
+                #{{
+                  data.keyword
+                    .split(/,|\s/)
+                    .filter(
+                      RegExp.prototype.test,
+                      /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/
+                    )
+                    .filter(
+                      (item) =>
+                        item !== data.title &&
+                        item !== '日本人' &&
+                        item !== 'アジア' &&
+                        item !== 'アジア人' &&
+                        item !== '日本' &&
+                        item !== '無修正' &&
+                        item !== '肛門' &&
+                        item !== 'アナルセックス' &&
+                        item !== '兼' &&
+                        item !== '油' &&
+                        item !== '中出' &&
+                        item !== '人' &&
+                        item !== 'アジアユニフォーム' &&
+                        item !== 'ユニフォーム' &&
+                        item !== '女' &&
+                        item !== '熟' &&
+                        item !== '膣' &&
+                        item !== 'フェチ' &&
+                        item !== 'ハードコア' &&
+                        item !== 'ハイビジョン' &&
+                        item !== '足' &&
+                        item !== 'マッサージ師' &&
+                        item !== '素人' &&
+                        item !== '巨乳' &&
+                        item !== '美人' &&
+                        item !== '乳首' &&
+                        item !== 'オ' &&
+                        item !== 'です' &&
+                        item !== '内射' &&
+                        item !== '人妻' &&
+                        item !== '痴女' &&
+                        item !== '十代' &&
+                        item !== 'コ' &&
+                        item !== '粗い' &&
+                        item !== '熟女' &&
+                        item !== '美女' &&
+                        item !== '貸' &&
+                        item !== 'あん' &&
+                        item !== '爆乳' &&
+                        item !== '美乳' &&
+                        item !== 'その他' &&
+                        item !== '小さい' &&
+                        item !== '小さな' &&
+                        item !== '亜人種間' &&
+                        item !== '一律' &&
+                        item !== '若い' &&
+                        item !== '校生' &&
+                        item !== 'デジモ' &&
+                        item !== '個人撮影' &&
+                        item !== '大乱交' &&
+                        item !== '精飲' &&
+                        item !== '微乳' &&
+                        item !== 'ラフ' &&
+                        item !== '十代の' &&
+                        item !== 'おっぱい' &&
+                        item !== '放課後に' &&
+                        item !== '爆尻' &&
+                        item !== '職業色々' &&
+                        item !== 'ミニ系' &&
+                        item !== 'ちぃ' &&
+                        item !== '茶髪' &&
+                        item !== '豊満' &&
+                        item !== '姉' &&
+                        item !== '乳房' &&
+                        item !== 'エロイ' &&
+                        item !== '本生' &&
+                        item !== '寝取り' &&
+                        item !== '寝取られ' &&
+                        item !== '企画' &&
+                        item !== '単体作品' &&
+                        item !== '恋愛' &&
+                        item !== '完熟' &&
+                        item !== '出軌' &&
+                        item !== '栞' &&
+                        item !== '息子の友達' &&
+                        item !== 'ザ' &&
+                        item !== 'もえ' &&
+                        item !== '素人てぃな' &&
+                        item !== '見せつけ' &&
+                        item !== '挑発' &&
+                        item !== '辱め' &&
+                        item !== '乳交' &&
+                        item.length < 6
+                    )
+                    .filter((x, i, self) => self.indexOf(x) === i)[2]
+                }}
+              </button>
+            </h4>
+          </template>
+          <template v-else>
+            <h4>
+              <button
+                class="text-gray-300 mr-2 text-xs py-1 px-2 bg-gray-700 rounded-full border border-gray-600 hover:bg-gray-600"
+                style="margin-left: 8px"
+                @click="
+                  changeFormKeyword(
+                    data.keyword
+                      .split(/,|\s/)
+                      .filter(
+                        RegExp.prototype.test,
+                        /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/
+                      )
+                      .filter(
+                        (item) =>
+                          item !== data.title &&
+                          item !== '日本人' &&
+                          item !== 'アジア' &&
+                          item !== 'アジア人' &&
+                          item !== '日本' &&
+                          item !== '無修正' &&
+                          item !== '肛門' &&
+                          item !== 'アナルセックス' &&
+                          item !== '兼' &&
+                          item !== '油' &&
+                          item !== '中出' &&
+                          item !== '人' &&
+                          item !== 'アジアユニフォーム' &&
+                          item !== 'ユニフォーム' &&
+                          item !== '女' &&
+                          item !== '熟' &&
+                          item !== '膣' &&
+                          item !== 'フェチ' &&
+                          item !== 'ハードコア' &&
+                          item !== 'ハイビジョン' &&
+                          item !== '足' &&
+                          item !== 'マッサージ師' &&
+                          item !== '素人' &&
+                          item !== '巨乳' &&
+                          item !== '美人' &&
+                          item !== '乳首' &&
+                          item !== 'オ' &&
+                          item !== 'です' &&
+                          item !== '内射' &&
+                          item !== '人妻' &&
+                          item !== '痴女' &&
+                          item !== '十代' &&
+                          item !== 'コ' &&
+                          item !== '粗い' &&
+                          item !== '熟女' &&
+                          item !== '美女' &&
+                          item !== '貸' &&
+                          item !== 'あん' &&
+                          item !== '爆乳' &&
+                          item !== '美乳' &&
+                          item !== 'その他' &&
+                          item !== '小さい' &&
+                          item !== '小さな' &&
+                          item !== '亜人種間' &&
+                          item !== '一律' &&
+                          item !== '若い' &&
+                          item !== '校生' &&
+                          item !== 'デジモ' &&
+                          item !== '個人撮影' &&
+                          item !== '大乱交' &&
+                          item !== '精飲' &&
+                          item !== '微乳' &&
+                          item !== 'ラフ' &&
+                          item !== '十代の' &&
+                          item !== 'おっぱい' &&
+                          item !== '放課後に' &&
+                          item !== '爆尻' &&
+                          item !== '職業色々' &&
+                          item !== 'ミニ系' &&
+                          item !== 'ちぃ' &&
+                          item !== '茶髪' &&
+                          item !== '豊満' &&
+                          item !== '姉' &&
+                          item !== '乳房' &&
+                          item !== 'エロイ' &&
+                          item !== '本生' &&
+                          item !== '寝取り' &&
+                          item !== '寝取られ' &&
+                          item !== '企画' &&
+                          item !== '単体作品' &&
+                          item !== '恋愛' &&
+                          item !== '完熟' &&
+                          item !== '出軌' &&
+                          item !== '栞' &&
+                          item !== '息子の友達' &&
+                          item !== 'ザ' &&
+                          item !== 'もえ' &&
+                          item !== '素人てぃな' &&
+                          item !== '見せつけ' &&
+                          item !== '挑発' &&
+                          item !== '辱め' &&
+                          item !== '乳交' &&
+                          item.length < 6
+                      )
+                      .filter(
+                        (x, i, self) => self.indexOf(x) === i
+                      )[0]
+                  )
+                "
+              >
+                #{{
+                  data.keyword
+                    .split(/,|\s/)
+                    .filter(
+                      RegExp.prototype.test,
+                      /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/
+                    )
+                    .filter(
+                      (item) =>
+                        item !== data.title &&
+                        item !== '日本人' &&
+                        item !== 'アジア' &&
+                        item !== 'アジア人' &&
+                        item !== '日本' &&
+                        item !== '無修正' &&
+                        item !== '肛門' &&
+                        item !== 'アナルセックス' &&
+                        item !== '兼' &&
+                        item !== '油' &&
+                        item !== '中出' &&
+                        item !== '人' &&
+                        item !== 'アジアユニフォーム' &&
+                        item !== 'ユニフォーム' &&
+                        item !== '女' &&
+                        item !== '熟' &&
+                        item !== '膣' &&
+                        item !== 'フェチ' &&
+                        item !== 'ハードコア' &&
+                        item !== 'ハイビジョン' &&
+                        item !== '足' &&
+                        item !== 'マッサージ師' &&
+                        item !== '素人' &&
+                        item !== '巨乳' &&
+                        item !== '美人' &&
+                        item !== '乳首' &&
+                        item !== 'オ' &&
+                        item !== 'です' &&
+                        item !== '内射' &&
+                        item !== '人妻' &&
+                        item !== '痴女' &&
+                        item !== '十代' &&
+                        item !== 'コ' &&
+                        item !== '粗い' &&
+                        item !== '熟女' &&
+                        item !== '美女' &&
+                        item !== '貸' &&
+                        item !== 'あん' &&
+                        item !== '爆乳' &&
+                        item !== '美乳' &&
+                        item !== 'その他' &&
+                        item !== '小さい' &&
+                        item !== '小さな' &&
+                        item !== '亜人種間' &&
+                        item !== '一律' &&
+                        item !== '若い' &&
+                        item !== '校生' &&
+                        item !== 'デジモ' &&
+                        item !== '個人撮影' &&
+                        item !== '大乱交' &&
+                        item !== '精飲' &&
+                        item !== '微乳' &&
+                        item !== 'ラフ' &&
+                        item !== '十代の' &&
+                        item !== 'おっぱい' &&
+                        item !== '放課後に' &&
+                        item !== '爆尻' &&
+                        item !== '職業色々' &&
+                        item !== 'ミニ系' &&
+                        item !== 'ちぃ' &&
+                        item !== '茶髪' &&
+                        item !== '豊満' &&
+                        item !== '姉' &&
+                        item !== '乳房' &&
+                        item !== 'エロイ' &&
+                        item !== '本生' &&
+                        item !== '寝取り' &&
+                        item !== '寝取られ' &&
+                        item !== '企画' &&
+                        item !== '単体作品' &&
+                        item !== '恋愛' &&
+                        item !== '完熟' &&
+                        item !== '出軌' &&
+                        item !== '栞' &&
+                        item !== '息子の友達' &&
+                        item !== 'ザ' &&
+                        item !== 'もえ' &&
+                        item !== '素人てぃな' &&
+                        item !== '見せつけ' &&
+                        item !== '挑発' &&
+                        item !== '辱め' &&
+                        item !== '乳交' &&
+                        item.length < 6
+                    )
+                    .filter((x, i, self) => self.indexOf(x) === i)[0]
+                }}
+              </button>
+            </h4>
+            <h4>
+              <button
+                class="text-gray-300 mr-2 text-xs py-1 px-2 bg-gray-700 rounded-full border border-gray-600 hover:bg-gray-600"
+                @click="
+                  changeFormKeyword(
+                    data.keyword
+                      .split(/,|\s/)
+                      .filter(
+                        RegExp.prototype.test,
+                        /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/
+                      )
+                      .filter(
+                        (item) =>
+                          item !== data.title &&
+                          item !== '日本人' &&
+                          item !== 'アジア' &&
+                          item !== 'アジア人' &&
+                          item !== '日本' &&
+                          item !== '無修正' &&
+                          item !== '肛門' &&
+                          item !== 'アナルセックス' &&
+                          item !== '兼' &&
+                          item !== '油' &&
+                          item !== '中出' &&
+                          item !== '人' &&
+                          item !== 'アジアユニフォーム' &&
+                          item !== 'ユニフォーム' &&
+                          item !== '女' &&
+                          item !== '熟' &&
+                          item !== '膣' &&
+                          item !== 'フェチ' &&
+                          item !== 'ハードコア' &&
+                          item !== 'ハイビジョン' &&
+                          item !== '足' &&
+                          item !== 'マッサージ師' &&
+                          item !== '素人' &&
+                          item !== '巨乳' &&
+                          item !== '美人' &&
+                          item !== '乳首' &&
+                          item !== 'オ' &&
+                          item !== 'です' &&
+                          item !== '内射' &&
+                          item !== '人妻' &&
+                          item !== '痴女' &&
+                          item !== '十代' &&
+                          item !== 'コ' &&
+                          item !== '粗い' &&
+                          item !== '熟女' &&
+                          item !== '美女' &&
+                          item !== '貸' &&
+                          item !== 'あん' &&
+                          item !== '爆乳' &&
+                          item !== '美乳' &&
+                          item !== 'その他' &&
+                          item !== '小さい' &&
+                          item !== '小さな' &&
+                          item !== '亜人種間' &&
+                          item !== '一律' &&
+                          item !== '若い' &&
+                          item !== '校生' &&
+                          item !== 'デジモ' &&
+                          item !== '個人撮影' &&
+                          item !== '大乱交' &&
+                          item !== '精飲' &&
+                          item !== '微乳' &&
+                          item !== 'ラフ' &&
+                          item !== '十代の' &&
+                          item !== 'おっぱい' &&
+                          item !== '放課後に' &&
+                          item !== '爆尻' &&
+                          item !== '職業色々' &&
+                          item !== 'ミニ系' &&
+                          item !== 'ちぃ' &&
+                          item !== '茶髪' &&
+                          item !== '豊満' &&
+                          item !== '姉' &&
+                          item !== '乳房' &&
+                          item !== 'エロイ' &&
+                          item !== '本生' &&
+                          item !== '寝取り' &&
+                          item !== '寝取られ' &&
+                          item !== '企画' &&
+                          item !== '単体作品' &&
+                          item !== '恋愛' &&
+                          item !== '完熟' &&
+                          item !== '出軌' &&
+                          item !== '栞' &&
+                          item !== '息子の友達' &&
+                          item !== 'ザ' &&
+                          item !== 'もえ' &&
+                          item !== '素人てぃな' &&
+                          item !== '見せつけ' &&
+                          item !== '挑発' &&
+                          item !== '辱め' &&
+                          item !== '乳交' &&
+                          item.length < 6
+                      )
+                      .filter(
+                        (x, i, self) => self.indexOf(x) === i
+                      )[1]
+                  )
+                "
+              >
+                #{{
+                  data.keyword
+                    .split(/,|\s/)
+                    .filter(
+                      RegExp.prototype.test,
+                      /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/
+                    )
+                    .filter(
+                      (item) =>
+                        item !== data.title &&
+                        item !== '日本人' &&
+                        item !== 'アジア' &&
+                        item !== 'アジア人' &&
+                        item !== '日本' &&
+                        item !== '無修正' &&
+                        item !== '肛門' &&
+                        item !== 'アナルセックス' &&
+                        item !== '兼' &&
+                        item !== '油' &&
+                        item !== '中出' &&
+                        item !== '人' &&
+                        item !== 'アジアユニフォーム' &&
+                        item !== 'ユニフォーム' &&
+                        item !== '女' &&
+                        item !== '熟' &&
+                        item !== '膣' &&
+                        item !== 'フェチ' &&
+                        item !== 'ハードコア' &&
+                        item !== 'ハイビジョン' &&
+                        item !== '足' &&
+                        item !== 'マッサージ師' &&
+                        item !== '素人' &&
+                        item !== '巨乳' &&
+                        item !== '美人' &&
+                        item !== '乳首' &&
+                        item !== 'オ' &&
+                        item !== 'です' &&
+                        item !== '内射' &&
+                        item !== '人妻' &&
+                        item !== '痴女' &&
+                        item !== '十代' &&
+                        item !== 'コ' &&
+                        item !== '粗い' &&
+                        item !== '熟女' &&
+                        item !== '美女' &&
+                        item !== '貸' &&
+                        item !== 'あん' &&
+                        item !== '爆乳' &&
+                        item !== '美乳' &&
+                        item !== 'その他' &&
+                        item !== '小さい' &&
+                        item !== '小さな' &&
+                        item !== '亜人種間' &&
+                        item !== '一律' &&
+                        item !== '若い' &&
+                        item !== '校生' &&
+                        item !== 'デジモ' &&
+                        item !== '個人撮影' &&
+                        item !== '大乱交' &&
+                        item !== '精飲' &&
+                        item !== '微乳' &&
+                        item !== 'ラフ' &&
+                        item !== '十代の' &&
+                        item !== 'おっぱい' &&
+                        item !== '放課後に' &&
+                        item !== '爆尻' &&
+                        item !== '職業色々' &&
+                        item !== 'ミニ系' &&
+                        item !== 'ちぃ' &&
+                        item !== '茶髪' &&
+                        item !== '豊満' &&
+                        item !== '姉' &&
+                        item !== '乳房' &&
+                        item !== 'エロイ' &&
+                        item !== '本生' &&
+                        item !== '寝取り' &&
+                        item !== '寝取られ' &&
+                        item !== '企画' &&
+                        item !== '単体作品' &&
+                        item !== '恋愛' &&
+                        item !== '完熟' &&
+                        item !== '出軌' &&
+                        item !== '栞' &&
+                        item !== '息子の友達' &&
+                        item !== 'ザ' &&
+                        item !== 'もえ' &&
+                        item !== '素人てぃな' &&
+                        item !== '見せつけ' &&
+                        item !== '挑発' &&
+                        item !== '辱め' &&
+                        item !== '乳交' &&
+                        item.length < 6
+                    )
+                    .filter((x, i, self) => self.indexOf(x) === i)[1]
+                }}
+              </button>
+            </h4>
+            <h4>
+              <button
+                class="text-gray-300 mr-2 text-xs py-1 px-2 bg-gray-700 rounded-full border border-gray-600 hover:bg-gray-600"
+                @click="
+                  changeFormKeyword(
+                    data.keyword
+                      .split(/,|\s/)
+                      .filter(
+                        RegExp.prototype.test,
+                        /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/
+                      )
+                      .filter(
+                        (item) =>
+                          item !== data.title &&
+                          item !== '日本人' &&
+                          item !== 'アジア' &&
+                          item !== 'アジア人' &&
+                          item !== '日本' &&
+                          item !== '無修正' &&
+                          item !== '肛門' &&
+                          item !== 'アナルセックス' &&
+                          item !== '兼' &&
+                          item !== '油' &&
+                          item !== '中出' &&
+                          item !== '人' &&
+                          item !== 'アジアユニフォーム' &&
+                          item !== 'ユニフォーム' &&
+                          item !== '女' &&
+                          item !== '熟' &&
+                          item !== '膣' &&
+                          item !== 'フェチ' &&
+                          item !== 'ハードコア' &&
+                          item !== 'ハイビジョン' &&
+                          item !== '足' &&
+                          item !== 'マッサージ師' &&
+                          item !== '素人' &&
+                          item !== '巨乳' &&
+                          item !== '美人' &&
+                          item !== '乳首' &&
+                          item !== 'オ' &&
+                          item !== 'です' &&
+                          item !== '内射' &&
+                          item !== '人妻' &&
+                          item !== '痴女' &&
+                          item !== '十代' &&
+                          item !== 'コ' &&
+                          item !== '粗い' &&
+                          item !== '熟女' &&
+                          item !== '美女' &&
+                          item !== '貸' &&
+                          item !== 'あん' &&
+                          item !== '爆乳' &&
+                          item !== '美乳' &&
+                          item !== 'その他' &&
+                          item !== '小さい' &&
+                          item !== '小さな' &&
+                          item !== '亜人種間' &&
+                          item !== '一律' &&
+                          item !== '若い' &&
+                          item !== '校生' &&
+                          item !== 'デジモ' &&
+                          item !== '個人撮影' &&
+                          item !== '大乱交' &&
+                          item !== '精飲' &&
+                          item !== '微乳' &&
+                          item !== 'ラフ' &&
+                          item !== '十代の' &&
+                          item !== 'おっぱい' &&
+                          item !== '放課後に' &&
+                          item !== '爆尻' &&
+                          item !== '職業色々' &&
+                          item !== 'ミニ系' &&
+                          item !== 'ちぃ' &&
+                          item !== '茶髪' &&
+                          item !== '豊満' &&
+                          item !== '姉' &&
+                          item !== '乳房' &&
+                          item !== 'エロイ' &&
+                          item !== '本生' &&
+                          item !== '寝取り' &&
+                          item !== '寝取られ' &&
+                          item !== '企画' &&
+                          item !== '単体作品' &&
+                          item !== '恋愛' &&
+                          item !== '完熟' &&
+                          item !== '出軌' &&
+                          item !== '栞' &&
+                          item !== '息子の友達' &&
+                          item !== 'ザ' &&
+                          item !== 'もえ' &&
+                          item !== '素人てぃな' &&
+                          item !== '見せつけ' &&
+                          item !== '挑発' &&
+                          item !== '辱め' &&
+                          item !== '乳交' &&
+                          item.length < 6
+                      )
+                      .filter(
+                        (x, i, self) => self.indexOf(x) === i
+                      )[2]
+                  )
+                "
+              >
+                #{{
+                  data.keyword
+                    .split(/,|\s/)
+                    .filter(
+                      RegExp.prototype.test,
+                      /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/
+                    )
+                    .filter(
+                      (item) =>
+                        item !== data.title &&
+                        item !== '日本人' &&
+                        item !== 'アジア' &&
+                        item !== 'アジア人' &&
+                        item !== '日本' &&
+                        item !== '無修正' &&
+                        item !== '肛門' &&
+                        item !== 'アナルセックス' &&
+                        item !== '兼' &&
+                        item !== '油' &&
+                        item !== '中出' &&
+                        item !== '人' &&
+                        item !== 'アジアユニフォーム' &&
+                        item !== 'ユニフォーム' &&
+                        item !== '女' &&
+                        item !== '熟' &&
+                        item !== '膣' &&
+                        item !== 'フェチ' &&
+                        item !== 'ハードコア' &&
+                        item !== 'ハイビジョン' &&
+                        item !== '足' &&
+                        item !== 'マッサージ師' &&
+                        item !== '素人' &&
+                        item !== '巨乳' &&
+                        item !== '美人' &&
+                        item !== '乳首' &&
+                        item !== 'オ' &&
+                        item !== 'です' &&
+                        item !== '内射' &&
+                        item !== '人妻' &&
+                        item !== '痴女' &&
+                        item !== '十代' &&
+                        item !== 'コ' &&
+                        item !== '粗い' &&
+                        item !== '熟女' &&
+                        item !== '美女' &&
+                        item !== '貸' &&
+                        item !== 'あん' &&
+                        item !== '爆乳' &&
+                        item !== '美乳' &&
+                        item !== 'その他' &&
+                        item !== '小さい' &&
+                        item !== '小さな' &&
+                        item !== '亜人種間' &&
+                        item !== '一律' &&
+                        item !== '若い' &&
+                        item !== '校生' &&
+                        item !== 'デジモ' &&
+                        item !== '個人撮影' &&
+                        item !== '大乱交' &&
+                        item !== '精飲' &&
+                        item !== '微乳' &&
+                        item !== 'ラフ' &&
+                        item !== '十代の' &&
+                        item !== 'おっぱい' &&
+                        item !== '放課後に' &&
+                        item !== '爆尻' &&
+                        item !== '職業色々' &&
+                        item !== 'ミニ系' &&
+                        item !== 'ちぃ' &&
+                        item !== '茶髪' &&
+                        item !== '豊満' &&
+                        item !== '姉' &&
+                        item !== '乳房' &&
+                        item !== 'エロイ' &&
+                        item !== '本生' &&
+                        item !== '寝取り' &&
+                        item !== '寝取られ' &&
+                        item !== '企画' &&
+                        item !== '単体作品' &&
+                        item !== '恋愛' &&
+                        item !== '完熟' &&
+                        item !== '出軌' &&
+                        item !== '栞' &&
+                        item !== '息子の友達' &&
+                        item !== 'ザ' &&
+                        item !== 'もえ' &&
+                        item !== '素人てぃな' &&
+                        item !== '見せつけ' &&
+                        item !== '挑発' &&
+                        item !== '辱め' &&
+                        item !== '乳交' &&
+                        item.length < 6
+                    )
+                    .filter((x, i, self) => self.indexOf(x) === i)[2]
+                }}
+              </button>
+            </h4>
+            <h4>
+              <button
+                class="text-gray-300 mr-2 text-xs py-1 px-2 bg-gray-700 rounded-full border border-gray-600 hover:bg-gray-600"
+                @click="
+                  changeFormKeyword(
+                    data.keyword
+                      .split(/,|\s/)
+                      .filter(
+                        RegExp.prototype.test,
+                        /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/
+                      )
+                      .filter(
+                        (item) =>
+                          item !== data.title &&
+                          item !== '日本人' &&
+                          item !== 'アジア' &&
+                          item !== 'アジア人' &&
+                          item !== '日本' &&
+                          item !== '無修正' &&
+                          item !== '肛門' &&
+                          item !== 'アナルセックス' &&
+                          item !== '兼' &&
+                          item !== '油' &&
+                          item !== '中出' &&
+                          item !== '人' &&
+                          item !== 'アジアユニフォーム' &&
+                          item !== 'ユニフォーム' &&
+                          item !== '女' &&
+                          item !== '熟' &&
+                          item !== '膣' &&
+                          item !== 'フェチ' &&
+                          item !== 'ハードコア' &&
+                          item !== 'ハイビジョン' &&
+                          item !== '足' &&
+                          item !== 'マッサージ師' &&
+                          item !== '素人' &&
+                          item !== '巨乳' &&
+                          item !== '美人' &&
+                          item !== '乳首' &&
+                          item !== 'オ' &&
+                          item !== 'です' &&
+                          item !== '内射' &&
+                          item !== '人妻' &&
+                          item !== '痴女' &&
+                          item !== '十代' &&
+                          item !== 'コ' &&
+                          item !== '粗い' &&
+                          item !== '熟女' &&
+                          item !== '美女' &&
+                          item !== '貸' &&
+                          item !== 'あん' &&
+                          item !== '爆乳' &&
+                          item !== '美乳' &&
+                          item !== 'その他' &&
+                          item !== '小さい' &&
+                          item !== '小さな' &&
+                          item !== '亜人種間' &&
+                          item !== '一律' &&
+                          item !== '若い' &&
+                          item !== '校生' &&
+                          item !== 'デジモ' &&
+                          item !== '個人撮影' &&
+                          item !== '大乱交' &&
+                          item !== '精飲' &&
+                          item !== '微乳' &&
+                          item !== 'ラフ' &&
+                          item !== '十代の' &&
+                          item !== 'おっぱい' &&
+                          item !== '放課後に' &&
+                          item !== '爆尻' &&
+                          item !== '職業色々' &&
+                          item !== 'ミニ系' &&
+                          item !== 'ちぃ' &&
+                          item !== '茶髪' &&
+                          item !== '豊満' &&
+                          item !== '姉' &&
+                          item !== '乳房' &&
+                          item !== 'エロイ' &&
+                          item !== '本生' &&
+                          item !== '寝取り' &&
+                          item !== '寝取られ' &&
+                          item !== '企画' &&
+                          item !== '単体作品' &&
+                          item !== '恋愛' &&
+                          item !== '完熟' &&
+                          item !== '出軌' &&
+                          item !== '栞' &&
+                          item !== '息子の友達' &&
+                          item !== 'ザ' &&
+                          item !== 'もえ' &&
+                          item !== '素人てぃな' &&
+                          item !== '見せつけ' &&
+                          item !== '挑発' &&
+                          item !== '辱め' &&
+                          item !== '乳交' &&
+                          item.length < 6
+                      )
+                      .filter(
+                        (x, i, self) => self.indexOf(x) === i
+                      )[3]
+                  )
+                "
+              >
+                #{{
+                  data.keyword
+                    .split(/,|\s/)
+                    .filter(
+                      RegExp.prototype.test,
+                      /^[\u30A0-\u30FF\u3040-\u309F\u3005-\u3006\u30E0-\u9FCF]+$/
+                    )
+                    .filter(
+                      (item) =>
+                        item !== data.title &&
+                        item !== '日本人' &&
+                        item !== 'アジア' &&
+                        item !== 'アジア人' &&
+                        item !== '日本' &&
+                        item !== '無修正' &&
+                        item !== '肛門' &&
+                        item !== 'アナルセックス' &&
+                        item !== '兼' &&
+                        item !== '油' &&
+                        item !== '中出' &&
+                        item !== '人' &&
+                        item !== 'アジアユニフォーム' &&
+                        item !== 'ユニフォーム' &&
+                        item !== '女' &&
+                        item !== '熟' &&
+                        item !== '膣' &&
+                        item !== 'フェチ' &&
+                        item !== 'ハードコア' &&
+                        item !== 'ハイビジョン' &&
+                        item !== '足' &&
+                        item !== 'マッサージ師' &&
+                        item !== '素人' &&
+                        item !== '巨乳' &&
+                        item !== '美人' &&
+                        item !== '乳首' &&
+                        item !== 'オ' &&
+                        item !== 'です' &&
+                        item !== '内射' &&
+                        item !== '人妻' &&
+                        item !== '痴女' &&
+                        item !== '十代' &&
+                        item !== 'コ' &&
+                        item !== '粗い' &&
+                        item !== '熟女' &&
+                        item !== '美女' &&
+                        item !== '貸' &&
+                        item !== 'あん' &&
+                        item !== '爆乳' &&
+                        item !== '美乳' &&
+                        item !== 'その他' &&
+                        item !== '小さい' &&
+                        item !== '小さな' &&
+                        item !== '亜人種間' &&
+                        item !== '一律' &&
+                        item !== '若い' &&
+                        item !== '校生' &&
+                        item !== 'デジモ' &&
+                        item !== '個人撮影' &&
+                        item !== '大乱交' &&
+                        item !== '精飲' &&
+                        item !== '微乳' &&
+                        item !== 'ラフ' &&
+                        item !== '十代の' &&
+                        item !== 'おっぱい' &&
+                        item !== '放課後に' &&
+                        item !== '爆尻' &&
+                        item !== '職業色々' &&
+                        item !== 'ミニ系' &&
+                        item !== 'ちぃ' &&
+                        item !== '茶髪' &&
+                        item !== '豊満' &&
+                        item !== '姉' &&
+                        item !== '乳房' &&
+                        item !== 'エロイ' &&
+                        item !== '本生' &&
+                        item !== '寝取り' &&
+                        item !== '寝取られ' &&
+                        item !== '企画' &&
+                        item !== '単体作品' &&
+                        item !== '恋愛' &&
+                        item !== '完熟' &&
+                        item !== '出軌' &&
+                        item !== '栞' &&
+                        item !== '息子の友達' &&
+                        item !== 'ザ' &&
+                        item !== 'もえ' &&
+                        item !== '素人てぃな' &&
+                        item !== '見せつけ' &&
+                        item !== '挑発' &&
+                        item !== '辱め' &&
+                        item !== '乳交' &&
+                        item.length < 6
+                    )
+                    .filter((x, i, self) => self.indexOf(x) === i)[3]
+                }}
+              </button>
+            </h4>
+          </template>
+        </div>
+        <Skeleton slot="skeleton" />
+      </vue-lazy-component>
     </div>
   </div>
 </template>
@@ -865,11 +2889,12 @@ import { mapGetters } from 'vuex'
 export default Vue.extend({
   components: {
     // @ts-ignore
-    SearchSkeletonImg: () => import('~/components/SearchSkeletonImg'),
+    Skeleton: () => import('~/components/Skeleton'),
   },
   computed: {
     ...mapGetters('search', ['searchMessagesThird']),
-    getSearchThirdItems(): any {
+    getSearchThirdItems(): number {
+      // @ts-ignore
       return this.searchMessagesThird.slice().sort(function () {
         return Math.random() - 0.5
       })
@@ -925,8 +2950,8 @@ export default Vue.extend({
       )
     },
     changeFormKeyword(keyword: string): void {
-      this.$router.push('/search')
-      // @ts-ignore
+      this.$router.push('/')
+      // @ts-ignorea
       this.$accessor.search.changeKeyword(keyword)
       this.$accessor.search.getSearchThirdItems()
       // @ts-ignore

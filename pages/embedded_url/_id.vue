@@ -455,13 +455,13 @@
           <ExploreItems />
         </template>
         <template v-else-if="searchMessagesFirstMatchVid">
-          <EmbeddedSearchFirstItems />
+          <SearchFirstItems />
         </template>
         <template v-else-if="searchMessagesSecondMatchVid">
-          <EmbeddedSearchSecondItems />
+          <SearchSecondItems />
         </template>
         <template v-else-if="searchMessagesThirdMatchVid">
-          <EmbeddedSearchThirdItems />
+          <SearchThirdItems />
         </template>
       </main>
     </div>
@@ -503,15 +503,15 @@ export default Vue.extend({
     ExploreItems: () =>
       // @ts-ignore
       import('~/components/ExploreItems'),
-    EmbeddedSearchFirstItems: () =>
+    SearchFirstItems: () =>
       // @ts-ignore
-      import('~/components/EmbeddedSearchFirstItems'),
-    EmbeddedSearchSecondItems: () =>
+      import('~/components/SearchFirstItems'),
+    SearchSecondItems: () =>
       // @ts-ignore
-      import('~/components/EmbeddedSearchSecondItems'),
-    EmbeddedSearchThirdItems: () =>
+      import('~/components/SearchSecondItems'),
+    SearchThirdItems: () =>
       // @ts-ignore
-      import('~/components/EmbeddedSearchThirdItems'),
+      import('~/components/SearchThirdItems'),
   },
   mixins: [Meta],
   // @ts-ignore
