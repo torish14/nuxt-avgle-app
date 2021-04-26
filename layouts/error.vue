@@ -18,9 +18,9 @@
           <img
             src="~/assets/Error.jpeg"
             alt="申し訳ございません。エラーが発生しました。"
-            width="400"
+            width="622"
             height="393"
-            style="width: 400px; height: 393px"
+            style="width: 622px; height: 393px"
           />
           <p class="text-gray-200 text-sm">
             <!-- {{ error.statusCode }} -->
@@ -58,9 +58,9 @@
           <img
             src="~/assets/Error.jpeg"
             alt="申し訳ございません。エラーが発生しました。"
-            width="250"
+            width="353"
             height="223"
-            style="width: 250px; height: 223px"
+            style="width: 353px; height: 223px"
           />
           <p class="text-gray-200 text-base">
             <!-- {{ error.statusCode }} -->
