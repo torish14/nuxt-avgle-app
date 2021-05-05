@@ -23,13 +23,13 @@
               style="width: 160px; height: 60px"
             />
           </nuxt-link>
-          <p
+          <!-- <p
             class="text-gray-400 text-xs hover:text-gray-200 cursor-pointer sm:ml-4 sm:pl-4 sm:py-2 sm:mt-0 mt-4"
           >
             <nuxt-link to="/about" aria-label="Porngle についてへ進む"
               >Porngle について</nuxt-link
             >
-          </p>
+          </p> -->
           <p
             class="text-gray-400 text-xs hover:text-gray-200 cursor-pointer sm:ml-4 sm:pl-4 sm:py-2 sm:mt-0 mt-4"
           >
@@ -98,28 +98,8 @@
               >
                 <div class="text-center align-middle">
                   <i class="material-icons">home</i>
-                  <p
-                    class="icon-text underline"
-                    style="font-size: 10px"
-                  >
+                  <p class="icon-text" style="font-size: 10px">
                     ホーム
-                  </p>
-                </div>
-              </nuxt-link>
-            </li>
-            <li>
-              <nuxt-link
-                to="/explore"
-                aria-label="探求へ進む"
-                @click.native="setExploreForm()"
-              >
-                <div class="text-center align-middle">
-                  <i class="material-icons">gps_fixed</i>
-                  <p
-                    class="icon-text underline"
-                    style="font-size: 10px"
-                  >
-                    探求
                   </p>
                 </div>
               </nuxt-link>
@@ -132,11 +112,18 @@
               >
                 <div class="text-center align-middle">
                   <i class="material-icons">search</i>
-                  <p
-                    class="icon-text underline"
-                    style="font-size: 10px"
-                  >
+                  <p class="icon-text" style="font-size: 10px">
                     検索
+                  </p>
+                </div>
+              </nuxt-link>
+            </li>
+            <li>
+              <nuxt-link to="/mypage" aria-label="マイページへ進む">
+                <div class="text-center align-middle">
+                  <i class="material-icons">account_circle</i>
+                  <p class="icon-text" style="font-size: 10px">
+                    マイページ
                   </p>
                 </div>
               </nuxt-link>
