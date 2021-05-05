@@ -5,7 +5,7 @@
       <main class="container mx-auto px-96">
         <h2 class="text-xl text-gray-100">プライバシーポリシー</h2>
         <br />
-        <div class="text-sm leading-relaxed">
+        <div class="text-base leading-relaxed">
           <h3 class="text-gray-200 font-medium underline">
             お客様の対象
           </h3>
@@ -25,7 +25,7 @@
           </p>
         </div>
         <br />
-        <div class="text-sm leading-relaxed">
+        <div class="text-base leading-relaxed">
           <h3 class="text-gray-200 font-medium underline">
             お客様から取得する情報
           </h3>
@@ -46,7 +46,7 @@
           </ul>
         </div>
         <br />
-        <div class="text-sm leading-relaxed">
+        <div class="text-base leading-relaxed">
           <h3 class="text-gray-200 font-medium underline">
             お客様の情報を利用する目的
           </h3>
@@ -80,7 +80,7 @@
           </ul>
         </div>
         <br />
-        <div class="text-sm leading-relaxed">
+        <div class="text-base leading-relaxed">
           <h3 class="text-gray-200 font-medium underline">
             第三者提供
           </h3>
@@ -100,7 +100,7 @@
           </ul>
         </div>
         <br />
-        <div class="text-sm leading-relaxed">
+        <div class="text-base leading-relaxed">
           <h3 class="text-gray-200 font-medium underline">
             アクセス解析ツール
           </h3>
@@ -123,7 +123,7 @@
           </p>
         </div>
         <br />
-        <div class="text-sm leading-relaxed">
+        <div class="text-base leading-relaxed">
           <h3 class="text-gray-200 font-medium underline">
             広告の配信
           </h3>
@@ -132,7 +132,7 @@
           </p>
         </div>
         <br />
-        <div class="text-sm leading-relaxed">
+        <div class="text-base leading-relaxed">
           <h3 class="text-gray-200 font-medium underline">
             プライバシーポリシーの変更
           </h3>
@@ -141,7 +141,7 @@
           </p>
         </div>
         <br />
-        <div class="text-sm leading-relaxed">
+        <div class="text-base leading-relaxed">
           <h3 class="text-gray-200 font-medium underline">
             お問い合わせ
           </h3>
@@ -175,17 +175,19 @@
     <!-- モバイル -->
     <div v-else class="pt-1 pb-20">
       <div class="flex text-gray-200">
-        <nuxt-link to="/" aria-label="ホームへ戻る">
+        <nuxt-link to="/mypage" aria-label="マイページへ戻る">
           <i class="material-icons m-2">close</i>
         </nuxt-link>
-        <h1 class="text-base m-2">プライバシーポリシー</h1>
+        <h1 class="text-lg font-semibold m-2">
+          プライバシーポリシー
+        </h1>
       </div>
       <main class="container mx-auto px-8">
         <br />
-        <h3 class="text-gray-200 text-sm font-medium underline">
+        <h3 class="text-gray-200 text-base font-medium underline">
           お客様の対象
         </h3>
-        <div class="text-xs leading-relaxed">
+        <div class="text-base leading-relaxed">
           <p class="text-gray-400 mt-1">
             当社のウェブサイトは、ウェブサイトにアクセスする管轄区域の18歳未満または該当する成年（「未成年者」）を対象としておらず、未成年者によるウェブサイトの使用を禁止しています。未成年者から故意に個人情報を収集することはありません。あなたが私たちに個人情報を提供してくれた未成年者の親または法定後見人である場合は、
           </p>
@@ -202,10 +204,10 @@
           </p>
         </div>
         <br />
-        <h3 class="text-gray-200 text-sm font-medium underline">
+        <h3 class="text-gray-200 text-base font-medium underline">
           お客様から取得する情報
         </h3>
-        <div class="text-xs leading-relaxed">
+        <div class="text-base leading-relaxed">
           <p class="text-gray-400 mt-1">
             当社は、お客様から以下の情報を取得します。
           </p>
@@ -223,10 +225,10 @@
           </ul>
         </div>
         <br />
-        <h3 class="text-gray-200 text-sm font-medium underline">
+        <h3 class="text-gray-200 text-base font-medium underline">
           お客様の情報を利用する目的
         </h3>
-        <div class="text-xs leading-relaxed">
+        <div class="text-base leading-relaxed">
           <p class="text-gray-400 mt-1">
             当社は、お客様から取得した情報を、以下の目的のために利用します。
           </p>
@@ -257,10 +259,10 @@
           </ul>
         </div>
         <br />
-        <h3 class="text-gray-200 text-sm font-medium underline">
+        <h3 class="text-gray-200 text-base font-medium underline">
           第三者提供
         </h3>
-        <div class="text-xs leading-relaxed">
+        <div class="text-base leading-relaxed">
           <p class="text-gray-400 mt-1">
             当社は、お客様から取得する情報のうち、個人データ（個人情報保護法第２条第６項）に該当するものついては、あらかじめお客様の同意を得ずに、第三者（日本国外にある者を含みます。）に提供しません。
           </p>
@@ -277,10 +279,10 @@
           </ul>
         </div>
         <br />
-        <h3 class="text-gray-200 text-sm font-medium underline">
+        <h3 class="text-gray-200 text-base font-medium underline">
           アクセス解析ツール
         </h3>
-        <div class="text-xs leading-relaxed">
+        <div class="text-base leading-relaxed">
           <p class="text-gray-400 mt-1">
             当社は、お客様のアクセス解析のために、「Google
             アナリティクス」を利用しています。Google
@@ -300,28 +302,28 @@
           </p>
         </div>
         <br />
-        <h3 class="text-gray-200 text-sm font-medium underline">
+        <h3 class="text-gray-200 text-base font-medium underline">
           広告の配信
         </h3>
-        <div class="text-xs leading-relaxed">
+        <div class="text-base leading-relaxed">
           <p class="text-gray-400 mt-1">
             当社ウェブサイトでは、広告が表示されることがあります。第三者の広告を表示する場合にお客様から取得した情報を活用する場合は、当社ウェブサイト等で、別途その詳細を表示します。
           </p>
         </div>
         <br />
-        <h3 class="text-gray-200 text-sm font-medium underline">
+        <h3 class="text-gray-200 text-base font-medium underline">
           プライバシーポリシーの変更
         </h3>
-        <div class="text-xs leading-relaxed">
+        <div class="text-base leading-relaxed">
           <p class="text-gray-400 mt-1">
             当社は、必要に応じて、このプライバシーポリシーの内容を変更します。この場合、変更後のプライバシーポリシーの施行時期と内容を適切な方法により周知または通知します。
           </p>
         </div>
         <br />
-        <h3 class="text-gray-200 text-sm font-medium underline">
+        <h3 class="text-gray-200 text-base font-medium underline">
           お問い合わせ
         </h3>
-        <div class="text-xs leading-relaxed">
+        <div class="text-base leading-relaxed">
           <p class="text-gray-400 mt-1">
             お客様の情報の開示、情報の訂正、利用停止、削除をご希望の場合は、以下のメールアドレスにご連絡ください。
           </p>

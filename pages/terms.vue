@@ -5,7 +5,7 @@
       <main class="container mx-auto px-96">
         <h2 class="text-xl text-gray-100">利用規約</h2>
         <br />
-        <div class="text-sm leading-relaxed">
+        <div class="text-base leading-relaxed">
           <h3 class="text-gray-200 font-medium underline">
             利用規約への同意
           </h3>
@@ -19,7 +19,7 @@
           </ol>
         </div>
         <br />
-        <div class="text-sm leading-relaxed">
+        <div class="text-base leading-relaxed">
           <h3 class="text-gray-200 font-medium underline">
             当社のウェブサイト対象者
           </h3>
@@ -33,7 +33,7 @@
           </ol>
         </div>
         <br />
-        <div class="text-sm leading-relaxed">
+        <div class="text-base leading-relaxed">
           <h3 class="text-gray-200 font-medium underline">
             利用登録
           </h3>
@@ -52,7 +52,7 @@
           </ul>
         </div>
         <br />
-        <div class="text-sm leading-relaxed">
+        <div class="text-base leading-relaxed">
           <h3 class="text-gray-200 font-medium underline">
             ユーザー ID およびパスワードの管理
           </h3>
@@ -75,7 +75,7 @@
           </ol>
         </div>
         <br />
-        <div class="text-sm leading-relaxed">
+        <div class="text-base leading-relaxed">
           <h3 class="text-gray-200 font-medium underline">
             利用料金および支払方法
           </h3>
@@ -89,7 +89,7 @@
           </ol>
         </div>
         <br />
-        <div class="text-sm leading-relaxed">
+        <div class="text-base leading-relaxed">
           <h3 class="text-gray-200 font-medium underline">
             禁止事項
           </h3>
@@ -128,7 +128,7 @@
           </ul>
         </div>
         <br />
-        <div class="text-sm leading-relaxed">
+        <div class="text-base leading-relaxed">
           <h3 class="text-gray-200 font-medium underline">
             本サービスの提供の停止等
           </h3>
@@ -154,7 +154,7 @@
           </p>
         </div>
         <br />
-        <div class="text-sm leading-relaxed">
+        <div class="text-base leading-relaxed">
           <h3 class="text-gray-200 font-medium underline">
             利用制限および登録抹消
           </h3>
@@ -178,14 +178,14 @@
           </p>
         </div>
         <br />
-        <div class="text-sm leading-relaxed">
+        <div class="text-base leading-relaxed">
           <h3 class="text-gray-200 font-medium underline">退会</h3>
           <p class="text-gray-400 mt-1">
             ユーザーは，当社の定める退会手続により，本サービスから退会できるものとします。
           </p>
         </div>
         <br />
-        <div class="text-sm leading-relaxed">
+        <div class="text-base leading-relaxed">
           <h3 class="text-gray-200 font-medium underline">
             サービス利用環境
           </h3>
@@ -199,7 +199,7 @@
           </ol>
         </div>
         <br />
-        <div class="text-sm leading-relaxed">
+        <div class="text-base leading-relaxed">
           <h3 class="text-gray-200 font-medium underline">
             保証の否認および免責事項
           </h3>
@@ -219,7 +219,7 @@
           </ol>
         </div>
         <br />
-        <div class="text-sm leading-relaxed">
+        <div class="text-base leading-relaxed">
           <h3 class="text-gray-200 font-medium underline">
             サービス内容の変更等
           </h3>
@@ -228,7 +228,7 @@
           </p>
         </div>
         <br />
-        <div class="text-sm leading-relaxed">
+        <div class="text-base leading-relaxed">
           <h3 class="text-gray-200 font-medium underline">
             利用規約の変更
           </h3>
@@ -237,7 +237,7 @@
           </p>
         </div>
         <br />
-        <div class="text-sm leading-relaxed">
+        <div class="text-base leading-relaxed">
           <h3 class="text-gray-200 font-medium underline">
             個人情報の取扱い
           </h3>
@@ -246,7 +246,7 @@
           </p>
         </div>
         <br />
-        <div class="text-sm leading-relaxed">
+        <div class="text-base leading-relaxed">
           <h3 class="text-gray-200 font-medium underline">
             通知または連絡
           </h3>
@@ -255,7 +255,7 @@
           </p>
         </div>
         <br />
-        <div class="text-sm leading-relaxed">
+        <div class="text-base leading-relaxed">
           <h3 class="text-gray-200 font-medium underline">
             権利義務の譲渡の禁止
           </h3>
@@ -264,7 +264,7 @@
           </p>
         </div>
         <br />
-        <div class="text-sm leading-relaxed">
+        <div class="text-base leading-relaxed">
           <h3 class="text-gray-200 font-medium underline">
             ユーザーの自己責任
           </h3>
@@ -278,7 +278,7 @@
           </ol>
         </div>
         <br />
-        <div class="text-sm leading-relaxed">
+        <div class="text-base leading-relaxed">
           <h3 class="text-gray-200 font-medium underline">免責</h3>
           <ol>
             <li class="text-gray-400 mt-1">
@@ -299,7 +299,7 @@
           </ol>
         </div>
         <br />
-        <div class="text-sm leading-relaxed">
+        <div class="text-base leading-relaxed">
           <h3 class="text-gray-200 font-medium underline">
             業務委託
           </h3>
@@ -313,7 +313,7 @@
           </ol>
         </div>
         <br />
-        <div class="text-sm leading-relaxed">
+        <div class="text-base leading-relaxed">
           <h3 class="text-gray-200 font-medium underline">
             損害賠償責任
           </h3>
@@ -326,17 +326,17 @@
     <!-- モバイル -->
     <div v-else class="pt-1 pb-20">
       <div class="flex text-gray-200">
-        <nuxt-link to="/" aria-label="ホームへ戻る">
+        <nuxt-link to="/mypage" aria-label="マイページへ戻る">
           <i class="material-icons m-2">close</i>
         </nuxt-link>
-        <h1 class="text-base m-2">利用規約</h1>
+        <h1 class="text-lg font-semibold m-2">利用規約</h1>
       </div>
       <main class="container mx-auto px-8">
         <br />
-        <h3 class="text-gray-200 text-sm font-medium underline">
+        <h3 class="text-gray-200 text-base font-medium underline">
           利用規約への同意
         </h3>
-        <div class="text-xs leading-relaxed">
+        <div class="text-base leading-relaxed">
           <ol>
             <li class="text-gray-400 mt-1">
               この利用規約（以下、「本規約」といいます。）は、Porngle（以下、「当社」といいます。）がこのウェブサイト上で提供するサービス（以下、「本サービス」といいます。）の利用条件を定めるものです。
@@ -347,10 +347,10 @@
           </ol>
         </div>
         <br />
-        <h3 class="text-gray-200 text-sm font-medium underline">
+        <h3 class="text-gray-200 text-base font-medium underline">
           当社のウェブサイト対象者
         </h3>
-        <div class="text-xs leading-relaxed">
+        <div class="text-base leading-relaxed">
           <ol>
             <li class="text-gray-400 mt-1">
               当社のウェブサイトは、成人向けのコンテンツです。その他のカテゴリのコンテンツは、当社の独自の裁量により拒否または削除される場合があります。
@@ -361,10 +361,10 @@
           </ol>
         </div>
         <br />
-        <h3 class="text-gray-200 text-sm font-medium underline">
+        <h3 class="text-gray-200 text-base font-medium underline">
           利用登録
         </h3>
-        <div class="text-xs leading-relaxed">
+        <div class="text-base leading-relaxed">
           <ol>
             <li class="text-gray-400 mt-1">
               本サービスにおいては、登録希望者が本規約に同意の上、当社の定める方法によって利用登録を申請し、当社がこれを承認することによって、利用登録が完了するものとします。
@@ -380,10 +380,10 @@
           </ul>
         </div>
         <br />
-        <h3 class="text-gray-200 text-sm font-medium underline">
+        <h3 class="text-gray-200 text-base font-medium underline">
           ユーザー ID およびパスワードの管理
         </h3>
-        <div class="text-xs leading-relaxed">
+        <div class="text-base leading-relaxed">
           <ol>
             <li class="text-gray-400 mt-1">
               ユーザーは、自己の責任において、本サービスのユーザー ID
@@ -403,10 +403,10 @@
           </ol>
         </div>
         <br />
-        <h3 class="text-gray-200 text-sm font-medium underline">
+        <h3 class="text-gray-200 text-base font-medium underline">
           利用料金および支払方法
         </h3>
-        <div class="text-xs leading-relaxed">
+        <div class="text-base leading-relaxed">
           <ol>
             <li class="text-gray-400 mt-1">
               ユーザーは、本サービスの有料部分の対価として、当社が別途定め、本ウェブサイトに表示する利用料金を、当社が指定する方法により支払うものとします。
@@ -417,10 +417,10 @@
           </ol>
         </div>
         <br />
-        <h3 class="text-gray-200 text-sm font-medium underline">
+        <h3 class="text-gray-200 text-base font-medium underline">
           禁止事項
         </h3>
-        <div class="text-xs leading-relaxed">
+        <div class="text-base leading-relaxed">
           <p class="text-gray-400 mt-1">
             ユーザーは、本サービスの利用にあたり、以下の行為をしてはなりません。
           </p>
@@ -456,10 +456,10 @@
           </ul>
         </div>
         <br />
-        <h3 class="text-gray-200 text-sm font-medium underline">
+        <h3 class="text-gray-200 text-base font-medium underline">
           本サービスの提供の停止等
         </h3>
-        <div class="text-xs leading-relaxed">
+        <div class="text-base leading-relaxed">
           <p class="text-gray-400 mt-1">
             当社は、以下のいずれかの事由があると判断した場合、ユーザーに事前に通知することなく本サービスの全部または一部の提供を停止または中断することができるものとします。
           </p>
@@ -482,10 +482,10 @@
           </p>
         </div>
         <br />
-        <h3 class="text-gray-200 text-sm font-medium underline">
+        <h3 class="text-gray-200 text-base font-medium underline">
           利用制限および登録抹消
         </h3>
-        <div class="text-xs leading-relaxed">
+        <div class="text-base leading-relaxed">
           <p class="text-gray-400 mt-1">
             当社は、ユーザーが以下のいずれかに該当する場合には、事前の通知なく、ユーザーに対して、本サービスの全部もしくは一部の利用を制限し、またはユーザーとしての登録を抹消することができるものとします
           </p>
@@ -506,19 +506,19 @@
           </p>
         </div>
         <br />
-        <h3 class="text-gray-200 text-sm font-medium underline">
+        <h3 class="text-gray-200 text-base font-medium underline">
           退会
         </h3>
-        <div class="text-xs leading-relaxed">
+        <div class="text-base leading-relaxed">
           <p class="text-gray-400 mt-1">
             ユーザーは，当社の定める退会手続により，本サービスから退会できるものとします。
           </p>
         </div>
         <br />
-        <h3 class="text-gray-200 text-sm font-medium underline">
+        <h3 class="text-gray-200 text-base font-medium underline">
           サービス利用環境
         </h3>
-        <div class="text-xs leading-relaxed">
+        <div class="text-base leading-relaxed">
           <ol>
             <li class="text-gray-400 mt-1">
               ユーザーは、本サービスを利用するための利用端末、電子機器、通信機器、ソフトウェア、インターネット接続環境を自己の責任と費用で準備するものとします。
@@ -529,10 +529,10 @@
           </ol>
         </div>
         <br />
-        <h3 class="text-gray-200 text-sm font-medium underline">
+        <h3 class="text-gray-200 text-base font-medium underline">
           保証の否認および免責事項
         </h3>
-        <div class="text-xs leading-relaxed">
+        <div class="text-base leading-relaxed">
           <ol>
             <li class="text-gray-400 mt-1">
               当社は、本サービスに事実上または法律上の瑕疵（安全性、信頼性、正確性、完全性、有効性、特定の目的への適合性、セキュリティなどに関する欠陥、エラーやバグ、権利侵害などを含みます。）がないことを明示的にも黙示的にも保証しておりません。
@@ -549,55 +549,55 @@
           </ol>
         </div>
         <br />
-        <h3 class="text-gray-200 text-sm font-medium underline">
+        <h3 class="text-gray-200 text-base font-medium underline">
           サービス内容の変更等
         </h3>
-        <div class="text-xs leading-relaxed">
+        <div class="text-base leading-relaxed">
           <p class="text-gray-400 mt-1">
             当社は，ユーザーに通知することなく，本サービスの内容を変更しまたは本サービスの提供を中止することができるものとし，これによってユーザーに生じた損害について一切の責任を負いません。
           </p>
         </div>
         <br />
-        <h3 class="text-gray-200 text-sm font-medium underline">
+        <h3 class="text-gray-200 text-base font-medium underline">
           利用規約の変更
         </h3>
-        <div class="text-xs leading-relaxed">
+        <div class="text-base leading-relaxed">
           <p class="text-gray-400 mt-1">
             当社は、必要と判断した場合には、ユーザーに通知することなくいつでも本規約を変更することができるものとします。なお、本規約の変更後、本サービスの利用を開始した場合には、当該ユーザーは変更後の規約に同意したものとみなします。
           </p>
         </div>
         <br />
-        <h3 class="text-gray-200 text-sm font-medium underline">
+        <h3 class="text-gray-200 text-base font-medium underline">
           個人情報の取扱い
         </h3>
-        <div class="text-xs leading-relaxed">
+        <div class="text-base leading-relaxed">
           <p class="text-gray-400 mt-1">
             当社は、本サービスの利用によって取得する個人情報については、当社「プライバシーポリシー」に従い適切に取り扱うものとします。
           </p>
         </div>
         <br />
-        <h3 class="text-gray-200 text-sm font-medium underline">
+        <h3 class="text-gray-200 text-base font-medium underline">
           通知または連絡
         </h3>
-        <div class="text-xs leading-relaxed">
+        <div class="text-base leading-relaxed">
           <p class="text-gray-400 mt-1">
             ユーザーと当社との間の通知または連絡は、当社の定める方法によって行うものとします。当社は、ユーザーから、当社が別途定める方式に従った変更届け出がない限り、現在登録されている連絡先が有効なものとみなして当該連絡先へ通知または連絡を行い、これらは、発信時にユーザーへ到達したものとみなします。
           </p>
         </div>
         <br />
-        <h3 class="text-gray-200 text-sm font-medium underline">
+        <h3 class="text-gray-200 text-base font-medium underline">
           権利義務の譲渡の禁止
         </h3>
-        <div class="text-xs leading-relaxed">
+        <div class="text-base leading-relaxed">
           <p class="text-gray-400 mt-1">
             ユーザーは、当社の書面による事前の承諾なく、利用契約上の地位または本規約に基づく権利もしくは義務を第三者に譲渡し、または担保に供することはできません。
           </p>
         </div>
         <br />
-        <h3 class="text-gray-200 text-sm font-medium underline">
+        <h3 class="text-gray-200 text-base font-medium underline">
           ユーザーの自己責任
         </h3>
-        <div class="text-xs leading-relaxed">
+        <div class="text-base leading-relaxed">
           <ol>
             <li class="text-gray-400 mt-1">
               ユーザーは、本サービスの利用に関連して、ユーザーと第三者との間で紛争が生じた場合、ユーザーの責任と費用において、当該紛争を解決するものとします。
@@ -608,10 +608,10 @@
           </ol>
         </div>
         <br />
-        <h3 class="text-gray-200 text-sm font-medium underline">
+        <h3 class="text-gray-200 text-base font-medium underline">
           免責
         </h3>
-        <div class="text-xs leading-relaxed">
+        <div class="text-base leading-relaxed">
           <ol>
             <li class="text-gray-400 mt-1">
               当社は、本サービスが、ユーザーの特定の目的に適合すること及びユーザーが期待する品質、価値を有することを何ら保証するものではありません。
@@ -631,10 +631,10 @@
           </ol>
         </div>
         <br />
-        <h3 class="text-gray-200 text-sm font-medium underline">
+        <h3 class="text-gray-200 text-base font-medium underline">
           業務委託
         </h3>
-        <div class="text-xs leading-relaxed">
+        <div class="text-base leading-relaxed">
           <ol>
             <li class="text-gray-400 mt-1">
               当社は、本サービスの業務の全部又は一部を、第三者（外国にある第三者を含みます。）に委託させて行わせることができるものとし、ユーザーはこれにあらかじめ同意するものとします。
@@ -645,10 +645,10 @@
           </ol>
         </div>
         <br />
-        <h3 class="text-gray-200 text-sm font-medium underline">
+        <h3 class="text-gray-200 text-base font-medium underline">
           損害賠償責任
         </h3>
-        <div class="text-xs">
+        <div class="text-base">
           <p class="text-gray-400 mt-1">
             ユーザーは、本サービスの利用に関連して当社に損害を与えた場合、当該損害を賠償する責任を負うものとします。
           </p>
