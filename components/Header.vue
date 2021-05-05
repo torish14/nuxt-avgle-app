@@ -42,11 +42,11 @@
                 ホーム
               </nuxt-link>
               <nuxt-link
-                to="/explore"
-                aria-label="探求へ進む"
+                to="/mypage"
+                aria-label="マイページへ進む"
                 class="block mt-4 lg:inline-block lg:mt-0 text-gray-400 hover:text-gray-200 mr-10"
               >
-                探求
+                マイページ
               </nuxt-link>
               <a
                 href="#responsive-header"
@@ -118,31 +118,6 @@
               />
             </nuxt-link>
           </div>
-          <!-- <div class="w-full pl-2"></div> -->
-          <!-- <div class="flex items-center px-3 py-2">
-            <template v-if="getUsers.length === 0">
-              <div class="text-gray-200">
-                <nuxt-link to="/account" aria-label="アカウントに進む">
-                  <i class="material-icons">
-                    account_circle
-                  </i>
-                </nuxt-link>
-              </div>
-            </template>
-            <template v-else>
-              <nuxt-link to="/account" aria-label="アカウントに進む">
-                <div v-for="(data, index) in getUsers" :key="index">
-                  <img
-                    :src="data.photoURL"
-                    alt="プロフィール画像"
-                    width="24"
-                    height="24"
-                    class="rounded-full"
-                  />
-                </div>
-              </nuxt-link>
-            </template>
-          </div> -->
         </div>
       </header>
     </div>
@@ -156,7 +131,6 @@ import { mapGetters } from 'vuex'
 export type DataType = {
   scrollY: number
   isShow: Boolean
-  selected: string
 }
 
 export default Vue.extend({
@@ -164,7 +138,6 @@ export default Vue.extend({
     return {
       scrollY: 0,
       isShow: true,
-      selected: '',
     }
   },
   computed: {
@@ -196,11 +169,6 @@ export default Vue.extend({
     window.addEventListener('load', () => {
       // @ts-ignore
       this.onScroll()
-    })
-    this.$fire.auth.onAuthStateChanged((user): void => {
-      if (user) {
-        this.$accessor.auth.fetchUsers()
-      }
     })
     // this.$nextTick(() => this.onScroll())
   },
@@ -257,19 +225,6 @@ export default Vue.extend({
     // スクロール値の取得
     onScroll(): void {
       this.$set(this, 'scrollY', window.pageYOffset)
-    },
-    items(): string[] {
-      return [
-        'デビュー',
-        '10代',
-        'エロアニメ',
-        '中出し',
-        'ナンパ',
-        'オナニー',
-        '痴漢',
-        'カップル',
-        'SM',
-      ]
     },
   },
 })
