@@ -67,7 +67,7 @@
     <!-- モバイル -->
     <div v-else class="pt-1 pb-20">
       <div class="flex text-gray-200">
-        <nuxt-link to="/" aria-label="ホームへ戻る">
+        <nuxt-link to="/mypage" aria-label="マイページへ戻る">
           <i class="material-icons m-2">close</i>
         </nuxt-link>
         <h1 class="text-lg font-semibold m-2">ヘルプ</h1>
