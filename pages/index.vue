@@ -159,12 +159,12 @@ export default Vue.extend({
           text: '動画視聴',
         },
         {
-          url: 'https://porngle.love/explore',
-          text: '探求',
-        },
-        {
           url: 'https://porngle.love/search',
           text: '検索',
+        },
+        {
+          url: 'https://porngle.love/mypage',
+          text: 'マイページ',
         },
       ],
     }
