@@ -3,7 +3,7 @@
     <!-- デスクトップ -->
     <div v-if="$device.isDesktop"></div>
     <!-- モバイル -->
-    <div v-else class="pt-1">
+    <div v-else class="pt-1 pb-20">
       <template v-if="isLogin">
         <div class="flex flex-col min-h-screen">
           <div class="flex text-gray-200">
@@ -130,7 +130,7 @@ export type DataType = {
 export default Vue.extend({
   mixins: [Meta],
   // @ts-ignore
-  layout: (ctx) => (ctx.$device.isMobile ? 'mobile' : 'default'),
+  layout: (ctx) => (ctx.$device.isMobile ? 'non-header' : 'default'),
   data(): DataType {
     return {
       meta: {
