@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "This is an adult site",
-  "author": "torish",
+  "author": "torish14",
   "scripts": {
     "analyze": "nuxt build --analyze",
     "build": "nuxt build",
